@@ -6,5 +6,5 @@ package net.spicesoftware.api.item;
 public interface StaticItemBlank extends StaticItem {
 
     @Override
-    StaticItemBlank copy();
+    StaticItemBlank copyDeeply();
 }

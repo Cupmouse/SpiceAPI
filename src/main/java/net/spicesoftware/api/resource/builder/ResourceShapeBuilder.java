@@ -11,5 +11,5 @@ public interface ResourceShapeBuilder extends ResourceBuilder {
     ResourceShape build() throws IllegalStateException;
 
     @Override
-    ResourceShapeBuilder copy();
+    ResourceShapeBuilder copyDeeply();
 }

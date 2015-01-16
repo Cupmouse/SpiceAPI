@@ -11,5 +11,5 @@ public interface ResourceSoundBuilder extends ResourceFromFileBuilder {
     ResourceSound build() throws IllegalStateException;
 
     @Override
-    ResourceSoundBuilder copy();
+    ResourceSoundBuilder copyDeeply();
 }

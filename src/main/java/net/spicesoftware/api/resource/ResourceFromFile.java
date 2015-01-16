@@ -15,5 +15,5 @@ public interface ResourceFromFile extends Resource {
     File getFile();
 
     @Override
-    ResourceFromFile copy();
+    ResourceFromFile copyDeeply();
 }

@@ -11,5 +11,5 @@ public interface ResourceShape extends Resource {
     ItemShape createNewItem();
 
     @Override
-    ResourceShape copy();
+    ResourceShape copyDeeply();
 }

@@ -11,5 +11,5 @@ public interface ResourceImageBuilder extends ResourceFromFileBuilder {
     ResourceImage build() throws IllegalStateException;
 
     @Override
-    ResourceImageBuilder copy();
+    ResourceImageBuilder copyDeeply();
 }

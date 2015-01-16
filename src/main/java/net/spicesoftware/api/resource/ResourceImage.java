@@ -11,5 +11,5 @@ public interface ResourceImage extends ResourceFromFile {
     ItemImage createNewItem();
 
     @Override
-    ResourceImage copy();
+    ResourceImage copyDeeply();
 }

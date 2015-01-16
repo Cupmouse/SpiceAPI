@@ -3,11 +3,12 @@ package net.spicesoftware.api;
 /**
  * @since 2015/01/09
  */
-public interface Copyable {
+public interface DeepCopyable {
 
     /**
      * ディープコピーをします。
+     *
+     * @return コピーされたインスタンス
      */
-    Copyable copy();
-
+    DeepCopyable copyDeeply();
 }

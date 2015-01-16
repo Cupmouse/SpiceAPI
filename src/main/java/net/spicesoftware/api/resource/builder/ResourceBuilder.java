@@ -1,12 +1,12 @@
 package net.spicesoftware.api.resource.builder;
 
-import net.spicesoftware.api.Copyable;
+import net.spicesoftware.api.DeepCopyable;
 import net.spicesoftware.api.resource.Resource;
 
 /**
  * @since 2014/12/23
  */
-public interface ResourceBuilder extends Copyable {
+public interface ResourceBuilder extends DeepCopyable {
 
     /**
      * ビルドし、{@link net.spicesoftware.api.resource.Resource}を返します。
@@ -17,5 +17,5 @@ public interface ResourceBuilder extends Copyable {
     Resource build() throws IllegalStateException;
 
     @Override
-    ResourceBuilder copy();
+    ResourceBuilder copyDeeply();
 }

@@ -15,5 +15,5 @@ public interface ItemFromResource extends Item {
     Resource getResource();
 
     @Override
-    ItemFromResource copy();
+    ItemFromResource copyDeeply();
 }

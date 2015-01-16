@@ -11,5 +11,5 @@ public interface ItemSound extends ItemFromResource {
     ResourceSound getResource();
 
     @Override
-    ItemSound copy();
+    ItemSound copyDeeply();
 }

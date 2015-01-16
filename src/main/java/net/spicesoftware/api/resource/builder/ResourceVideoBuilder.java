@@ -11,5 +11,5 @@ public interface ResourceVideoBuilder extends ResourceFromFileBuilder {
     ResourceVideo build() throws IllegalStateException;
 
     @Override
-    ResourceFromFileBuilder copy();
+    ResourceFromFileBuilder copyDeeply();
 }

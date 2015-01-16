@@ -27,5 +27,5 @@ public interface ResourceFromFileBuilder extends ResourceBuilder {
     ResourceFromFile build() throws IllegalStateException;
 
     @Override
-    ResourceFromFileBuilder copy();
+    ResourceFromFileBuilder copyDeeply();
 }

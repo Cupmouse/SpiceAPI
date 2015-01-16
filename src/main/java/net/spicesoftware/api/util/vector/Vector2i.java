@@ -1,13 +1,13 @@
 package net.spicesoftware.api.util.vector;
 
-import net.spicesoftware.api.Copyable;
+import net.spicesoftware.api.DeepCopyable;
 
 import java.io.Serializable;
 
 /**
  * @since 2015/01/15
  */
-public final class Vector2i implements Copyable, Serializable {
+public final class Vector2i implements DeepCopyable, Serializable {
 
     public static final Vector2i ZERO = new Vector2i(0, 0);
     public final int x;
@@ -55,7 +55,7 @@ public final class Vector2i implements Copyable, Serializable {
     }
 
     @Override
-    public Vector2i copy() {
+    public Vector2i copyDeeply() {
         return new Vector2i(x, y);
     }
 

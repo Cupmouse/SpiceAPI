@@ -11,5 +11,5 @@ public interface ItemVideo extends ItemFromResource {
     ResourceVideo getResource();
 
     @Override
-    ItemVideo copy();
+    ItemVideo copyDeeply();
 }

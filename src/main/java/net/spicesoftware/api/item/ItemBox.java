@@ -131,5 +131,5 @@ public interface ItemBox extends Item {
     void setMaxFrame(@Min(value = 0) int frame);
 
     @Override
-    ItemBox copy();
+    ItemBox copyDeeply();
 }
