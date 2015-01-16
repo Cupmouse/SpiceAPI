@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 /**
  * @since 2014/10/06
  */
-public class FrameRanged<T> {
+public final class FrameRanged<T> {
 
     public final T ranged;
     public final int start;

@@ -3,7 +3,7 @@ package net.spicesoftware.api.util;
 /**
  * @since 2014/12/23
  */
-public class ResourceAlreadyExistException extends RuntimeException {
+public final class ResourceAlreadyExistException extends RuntimeException {
 
     public ResourceAlreadyExistException() {
     }

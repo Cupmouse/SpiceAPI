@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @since 2014/12/21
  */
-public class Vector3f implements Copyable, Serializable {
+public final class Vector3f implements Copyable, Serializable {
 
     public static final Vector3f ZERO = new Vector3f(0, 0, 0);
     public final float x;
@@ -75,7 +75,9 @@ public class Vector3f implements Copyable, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Vector3f) {
+        if (obj == this) {
+            return true;
+        } else if (obj != null && getClass() == obj.getClass()) {
             Vector3f vector3f = (Vector3f) obj;
             return vector3f.x == x && vector3f.y == y && vector3f.z == z;
         }

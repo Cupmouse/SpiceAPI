@@ -44,4 +44,19 @@ public final class RGB24Color extends RGBColor {
         return new RGB24Color(~r, ~g, ~b);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        } else if (obj != null && getClass() == obj.getClass()) {
+            RGB24Color rgb24Color = (RGB24Color) obj;
+            return rgb24Color.r == r && rgb24Color.g == g && rgb24Color.b == b;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "RGB24Color{r=" + r + ",g=" + g + ",b=" + b + "}";
+    }
 }
