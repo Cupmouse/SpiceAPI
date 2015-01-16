@@ -1,0 +1,89 @@
+package net.spicesoftware.api.util.vector;
+
+import net.spicesoftware.api.Copyable;
+
+import java.io.Serializable;
+
+/**
+ * @since 2015/01/15
+ */
+public class Vector3i implements Copyable, Serializable {
+
+    public static final Vector3i ZERO = new Vector3i(0, 0, 0);
+    public final int x;
+    public final int y;
+    public final int z;
+
+    public Vector3i(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public double lengthSquared() {
+        return x * x + y * y + z * z;
+    }
+
+    public double length() {
+        return Math.sqrt(lengthSquared());
+    }
+
+    public Vector3i add(int x, int y, int z) {
+        return new Vector3i(this.x + x, this.y + y, this.z + z);
+    }
+
+    public Vector3i add(Vector3i vector3i) {
+        return new Vector3i(x + vector3i.x, y + vector3i.y, z + vector3i.z);
+    }
+
+    public Vector3i subtract(int x, int y, int z) {
+        return new Vector3i(this.x - x, this.y - y, this.z - z);
+    }
+
+    public Vector3i subtract(Vector3i vector3i) {
+        return new Vector3i(x - vector3i.x, y - vector3i.y, z - vector3i.z);
+    }
+
+    public Vector3i multiply(int scalar) {
+        return new Vector3i(x * scalar, y * scalar, z * scalar);
+    }
+
+    public Vector3d toVector3d() {
+        return new Vector3d(x, y, z);
+    }
+
+    public Vector3f toVector3f() {
+        return new Vector3f(x, y, z);
+    }
+
+    public Vector2d toVector2d() {
+        return new Vector2d(x, y);
+    }
+
+    public Vector2f toVector2f() {
+        return new Vector2f(x, y);
+    }
+
+    public Vector2i toVector2i() {
+        return new Vector2i(x, y);
+    }
+
+    @Override
+    public Vector3i copy() {
+        return new Vector3i(x, y, z);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Vector3i) {
+            Vector3i vector3i = (Vector3i) obj;
+            return vector3i.x == x && vector3i.y == y && vector3i.z == z;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Vector3i{x=" + x + ",y=" + y + ",z=" + z;
+    }
+}
