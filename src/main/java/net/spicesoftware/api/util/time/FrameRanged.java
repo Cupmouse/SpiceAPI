@@ -15,7 +15,7 @@ public final class FrameRanged<T> implements ShallowCopyable, Serializable {
     public final int start;
     public final int end;
 
-    public FrameRanged(@NotNull T ranged, @Min(value = 0) int start, @Min(value = 0) int end) throws IllegalArgumentException {
+    public FrameRanged(@NotNull T ranged, @Min(0) int start, @Min(0) int end) throws IllegalArgumentException {
         if (start > end)
             throw new IllegalArgumentException("start > end");
         this.ranged = ranged;

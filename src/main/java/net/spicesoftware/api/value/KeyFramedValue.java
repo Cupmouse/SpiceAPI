@@ -24,7 +24,7 @@ public interface KeyFramedValue<T> extends Value<T> {
      *
      * @return キーフレームの総数
      */
-    @Min(value = 0)
+    @Min(0)
     int getNumberOfKeyFrames();
 
     /**
@@ -33,8 +33,8 @@ public interface KeyFramedValue<T> extends Value<T> {
      * @param frame フレーム
      * @return 指定されたフレームにあるキーフレームのインデックス番号
      */
-    @Min(value = 0)
-    int getKeyFrameIndexByFrame(@Min(value = 0) int frame);
+    @Min(0)
+    int getKeyFrameIndexByFrame(@Min(0) int frame);
 
     /**
      * 指定されたフレームにキーフレームを追加します。
@@ -42,14 +42,14 @@ public interface KeyFramedValue<T> extends Value<T> {
      * @param frame フレーム
      * @return 追加されたキーフレームのインデックス番号
      */
-    @Min(value = 0)
-    Pair<Integer, KeyFrame<T>> addKeyFrameTo(@Min(value = 0) int frame);
+    @Min(0)
+    Pair<Integer, KeyFrame<T>> addKeyFrameTo(@Min(0) int frame);
 
     /**
      * 指定されたインデックス番号のキーフレームを削除します。
      *
      * @param index 削除するキーフレームのインデックス番号
      */
-    void removeKeyFrameAt(@Min(value = 0) int index);
+    void removeKeyFrameAt(@Min(0) int index);
 
 }

@@ -23,7 +23,7 @@ public interface Layerable extends DeepCopyable, Serializable {
      *
      * @return このLayerableのレイヤーの総数
      */
-    @Min(value = 0)
+    @Min(0)
     int getNumberOfLayers();
 
     /**
@@ -34,7 +34,7 @@ public interface Layerable extends DeepCopyable, Serializable {
      * @return このLayerableの指定されたインデックス番号のレイヤー
      * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    Layer getLayer(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    Layer getLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Layerable}の最後に新しい{@link net.spicesoftware.api.layer.Layer}を追加します。
@@ -57,7 +57,7 @@ public interface Layerable extends DeepCopyable, Serializable {
      * @return このLayerableに追加したレイヤー
      * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    Layer insertNewLayer(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    Layer insertNewLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Layerable}の{@link net.spicesoftware.api.layer.Layer}を削除します。
@@ -65,7 +65,7 @@ public interface Layerable extends DeepCopyable, Serializable {
      * @param index このLayerableから削除するレイヤーの番号
      * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    void removeLayer(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    void removeLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Layerable}の最初の{@link net.spicesoftware.api.layer.Layer}を削除します。

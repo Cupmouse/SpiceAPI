@@ -26,7 +26,7 @@ public interface Layer extends DeepCopyable, Serializable {
      *
      * @return このレイヤーのアイテムの総数
      */
-    @Min(value = 0)
+    @Min(0)
     int getNumberOfItems();
 
     /**
@@ -37,7 +37,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param frameTo   終了フレーム
      * @return このレイヤーの指定されたフレームの間のすべてのアイテム
      */
-    List<FrameRanged<Item>> getItemInFrameRange(@Min(value = 0) int frameFrom, @Min(value = 0) int frameTo);
+    List<FrameRanged<Item>> getItemInFrameRange(@Min(0) int frameFrom, @Min(0) int frameTo);
 
     /**
      * この{@code Layer}の指定されたインデックス番号の間のすべての{@link net.spicesoftware.api.item.Item}を返します。
@@ -47,7 +47,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @return このレイヤーの指定されたインデックス番号の間のすべてのアイテム
      * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号のどちらかが管理されている範囲を超えている場合
      */
-    List<FrameRanged<Item>> getItemInIndexRange(@Min(value = 0) int indexFrom, @Min(value = 0) int indexTo) throws IndexOutOfBoundsException;
+    List<FrameRanged<Item>> getItemInIndexRange(@Min(0) int indexFrom, @Min(0) int indexTo) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Layer}の指定されたフレームを含む{@link net.spicesoftware.api.item.Item}のインデックス番号を返します。
@@ -55,7 +55,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param frame フレーム
      * @return このレイヤーの指定されたフレームを含むアイテムのインデックス番号、アイテムがない場合-1
      */
-    int getItemIndexFrameAt(@Min(value = 0) int frame);
+    int getItemIndexFrameAt(@Min(0) int frame);
 
     /**
      * この{@code Layer}の指定されたフレームの{@link net.spicesoftware.api.item.Item}を返します。
@@ -63,7 +63,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param frame フレーム
      * @return このレイヤーの指定されたフレームのアイテム
      */
-    Optional<FrameRanged<Item>> getItemFrameAt(@Min(value = 0) int frame);
+    Optional<FrameRanged<Item>> getItemFrameAt(@Min(0) int frame);
 
     /**
      * この{@code Layer}の指定されたインデックス番号の{@link net.spicesoftware.api.item.Item}を返します。
@@ -72,7 +72,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @return このレイヤーの指定されたインデックス番号のアイテム
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    FrameRanged<Item> getItemIndexAt(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    FrameRanged<Item> getItemIndexAt(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Layer}に開始フレームと終了フレームを指定して{@link net.spicesoftware.api.item.Item}を追加します。
@@ -83,8 +83,8 @@ public interface Layer extends DeepCopyable, Serializable {
      * @return 追加されたアイテムのインデックス番号
      * @throws java.lang.IllegalArgumentException 開始フレームが終了フレームより小さい場合
      */
-    @Min(value = 0)
-    int addItem(Item item, @Min(value = 0) int frameFrom, @Min(value = 0) int frameTo) throws IllegalArgumentException;
+    @Min(0)
+    int addItem(Item item, @Min(0) int frameFrom, @Min(0) int frameTo) throws IllegalArgumentException;
 
     /**
      * この{@code Layer}に開始フレームと長さを指定して{@link net.spicesoftware.api.item.Item}を追加します。
@@ -94,8 +94,8 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param frameDuration アイテムの長さ
      * @return 追加されたアイテムのインデックス番号
      */
-    @Min(value = 0)
-    int addItemDuration(Item item, @Min(value = 0) int frameStart, @Min(value = 0) int frameDuration);
+    @Min(0)
+    int addItemDuration(Item item, @Min(0) int frameStart, @Min(0) int frameDuration);
 
     /**
      * この{@code Layer}の指定されたインデックス番号の{@link net.spicesoftware.api.item.Item}を削除します。
@@ -103,7 +103,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param index インデックス番号
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    void removeItemByIndex(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    void removeItemByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     @Override
     Layer copyDeeply();

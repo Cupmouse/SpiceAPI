@@ -21,7 +21,7 @@ public interface Markable {
      *
      * @return マーカーの総数
      */
-    @Min(value = 0)
+    @Min(0)
     int getNumberOfMarkers();
 
     /**
@@ -30,7 +30,7 @@ public interface Markable {
      * @param frame フレーム
      * @return 指定したフレームにあるマーカー
      */
-    Optional<Marker> getMarkerAt(@Min(value = 0) int frame);
+    Optional<Marker> getMarkerAt(@Min(0) int frame);
 
     /**
      * この{@code Markable}の指定したフレームに{@link Marker}を追加します。
@@ -38,14 +38,14 @@ public interface Markable {
      * @param frame フレーム
      * @return 追加したマーカー
      */
-    Marker addMarkerAt(@Min(value = 0) int frame);
+    Marker addMarkerAt(@Min(0) int frame);
 
     /**
      * この{@code Markable}の指定したフレームの{@link Marker}を削除します。
      *
      * @param frame 削除するマーカーのフレーム
      */
-    void removeMarkerAt(@Min(value = 0) int frame);
+    void removeMarkerAt(@Min(0) int frame);
 
     /**
      * この{@code Markable}の指定したインデックス番号の{@link Marker}を削除します。
@@ -53,6 +53,6 @@ public interface Markable {
      * @param index 削除するマーカーのインデックス番号
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    void removeMarkerByIndex(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    void removeMarkerByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
 }

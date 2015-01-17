@@ -14,14 +14,14 @@ public class RGBA32Color implements Serializable {
     public final int b;
     public final int a;
 
-    public RGBA32Color(@Min(value = 0) @Max(value = 0xFF) int r, @Min(value = 0) @Max(value = 0xFF) int g, @Min(value = 0) @Max(value = 0xFF) int b, @Min(value = 0) @Max(value = 0xFF) int a) {
+    public RGBA32Color(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
         this.r = r;
         this.g = g;
         this.b = b;
         this.a = a;
     }
 
-    public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(value = 0) @Max(value = 0xFF) int transparent) {
+    public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparent) {
         return new RGBA32Color(color.r, color.g, color.b, transparent);
     }
 

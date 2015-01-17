@@ -18,7 +18,7 @@ public interface Interpolator<T> extends Serializable {
      * @return 指定されたフレームでの値
      * @throws java.lang.IllegalArgumentException frameAtに範囲を超える値が指定された場合
      */
-    T calculate(@Min(value = 0) int frameDuration, T valueStart, T valueEnd, @Min(value = 0) int frameAt) throws IllegalArgumentException;
+    T calculate(@Min(0) int frameDuration, T valueStart, T valueEnd, @Min(0) int frameAt) throws IllegalArgumentException;
 
     /**
      * 指定されたフレームでの値を求めます。
@@ -32,6 +32,6 @@ public interface Interpolator<T> extends Serializable {
      * @return 指定されたフレームでの値
      * @throws java.lang.IllegalArgumentException frameAtに範囲を超える値が指定された場合
      */
-    T calculate(@Min(value = 0) int frameStart, @Min(value = 0) int frameEnd, T valueStart, T valueEnd, @Min(value = 0) int frameAt) throws IllegalArgumentException;
+    T calculate(@Min(0) int frameStart, @Min(0) int frameEnd, T valueStart, T valueEnd, @Min(0) int frameAt) throws IllegalArgumentException;
 
 }

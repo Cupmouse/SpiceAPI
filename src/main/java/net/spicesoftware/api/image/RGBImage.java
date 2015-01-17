@@ -15,12 +15,12 @@ public interface RGBImage extends Image {
 
     RGB24Color getColorAt(Vector2i vector2i);
 
-    @Min(value = 0)
-    @Max(value = 0xFFFFFF)
+    @Min(0)
+    @Max(0xFFFFFF)
     int getColorIntAt(@Min(0) int x, @Min(0) int y);
 
-    @Min(value = 0)
-    @Max(value = 0xFFFFFF)
+    @Min(0)
+    @Max(0xFFFFFF)
     int getColorIntAt(Vector2i vector2i);
 
     @Override

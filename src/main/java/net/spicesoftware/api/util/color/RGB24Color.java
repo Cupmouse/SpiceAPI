@@ -13,13 +13,13 @@ public final class RGB24Color implements Serializable {
     public final int g;
     public final int b;
 
-    public RGB24Color(@Min(value = 0) @Max(value = 0xFF) int r, @Min(value = 0) @Max(value = 0xFF) int g, @Min(value = 0) @Max(value = 0xFF) int b) {
+    public RGB24Color(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
         this.r = r;
         this.g = g;
         this.b = b;
     }
 
-    public RGB24Color add(@Min(value = 0) @Max(value = 0xFF) int r, @Min(value = 0) @Max(value = 0xFF) int g, @Min(value = 0) @Max(value = 0xFF) int b) {
+    public RGB24Color add(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
         return new RGB24Color(Math.min(this.r + r, 0xFF), Math.min(this.g + g, 0xFF), Math.min(this.b + b, 0xFF));
     }
 
@@ -27,7 +27,7 @@ public final class RGB24Color implements Serializable {
         return new RGB24Color(Math.min(r + color.r, 0xFF), Math.min(g + color.g, 0xFF), Math.min(b + color.b, 0xFF));
     }
 
-    public RGB24Color sub(@Min(value = 0) @Max(value = 0xFF) int r, @Min(value = 0) @Max(value = 0xFF) int g, @Min(value = 0) @Max(value = 0xFF) int b) {
+    public RGB24Color sub(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
         return new RGB24Color(Math.max(this.r - r, 0), Math.max(this.g - g, 0), Math.max(this.b - b, 0));
     }
 
@@ -35,7 +35,7 @@ public final class RGB24Color implements Serializable {
         return new RGB24Color(Math.max(r - color.r, 0), Math.max(g - color.g, 0), Math.max(b - color.b, 0));
     }
 
-    public RGB24Color blend(@Min(value = 0) @Max(value = 0xFF) int r, @Min(value = 0) @Max(value = 0xFF) int g, @Min(value = 0) @Max(value = 0xFF) int b) {
+    public RGB24Color blend(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
         return new RGB24Color(Math.round((this.r + r) / 2F), Math.round((this.g + g) / 2F), Math.round((this.b + b) / 2F));
     }
 
@@ -47,7 +47,7 @@ public final class RGB24Color implements Serializable {
         return new RGB24Color(~r, ~g, ~b);
     }
 
-    public RGBA32Color withTransparent(@Min(value = 0) @Max(value = 0xFF) int transparent) {
+    public RGBA32Color withTransparent(@Min(0) @Max(0xFF) int transparent) {
         return RGBA32Color.fromRGB24Color(this, transparent);
     }
 

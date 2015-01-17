@@ -11,9 +11,9 @@ import javax.validation.constraints.Min;
  */
 public interface RGBImageEditable extends RGBImage {
 
-    void setColor(@Min(0) int x, @Min(0) int y, @Min(value = 0) @Max(value = 0xFFFFFF) int color);
+    void setColor(@Min(0) int x, @Min(0) int y, @Min(0) @Max(0xFFFFFF) int color);
 
-    void setColor(Vector2i position, @Min(value = 0) @Max(value = 0xFFFFFF) int color);
+    void setColor(Vector2i position, @Min(0) @Max(0xFFFFFF) int color);
 
     void setColor(@Min(0) int x, @Min(0) int y, RGB24Color color);
 

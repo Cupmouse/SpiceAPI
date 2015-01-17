@@ -23,7 +23,7 @@ public interface StaticLayer extends Serializable {
      *
      * @return このスタティックレイヤーのスタティックレイヤーの数
      */
-    @Min(value = 0)
+    @Min(0)
     int getNumberOfStaticItems();
 
     /**
@@ -33,7 +33,7 @@ public interface StaticLayer extends Serializable {
      * @return このスタティックレイヤーの指定されたインデックス番号のスタティックアイテム
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    StaticItem getStaticItem(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    StaticItem getStaticItem(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code StaticLayer}の最初に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
@@ -41,7 +41,7 @@ public interface StaticLayer extends Serializable {
      * @param staticItem 追加するスタティックアイテム
      * @return 追加されたスタティックアイテムのインデックス番号
      */
-    @Min(value = 0)
+    @Min(0)
     int addStaticItemFirst(StaticItem staticItem);
 
     /**
@@ -50,7 +50,7 @@ public interface StaticLayer extends Serializable {
      * @param staticItem 追加するスタティックアイテム
      * @return 追加されたスタティックアイテムのインデックス番号
      */
-    @Min(value = 0)
+    @Min(0)
     int addStaticItemLast(StaticItem staticItem);
 
     /**
@@ -58,8 +58,8 @@ public interface StaticLayer extends Serializable {
      *
      * @param staticItem 追加するスタティックアイテム
      */
-    @Min(value = 0)
-    void insertStaticItem(StaticItem staticItem, @Min(value = 0) int index);
+    @Min(0)
+    void insertStaticItem(StaticItem staticItem, @Min(0) int index);
 
     /**
      * この{@code StaticLayer}の指定されたインデックス番号のスタティックアイテムを削除します。
@@ -67,6 +67,6 @@ public interface StaticLayer extends Serializable {
      * @param index このスタティックレイヤーの削除するアイテムのインデックス番号
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    void removeStaticItem(@Min(value = 0) int index) throws IndexOutOfBoundsException;
+    void removeStaticItem(@Min(0) int index) throws IndexOutOfBoundsException;
 
 }
