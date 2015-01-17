@@ -1,6 +1,7 @@
 package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.item.Item;
+import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
@@ -11,7 +12,7 @@ import java.util.Optional;
 /**
  * @since 2014/10/04
  */
-public interface Layer extends Serializable {
+public interface Layer extends DeepCopyable, Serializable {
 
     /**
      * この{@code Layer}のすべての{@link net.spicesoftware.api.item.Item}を返します。
@@ -104,4 +105,6 @@ public interface Layer extends Serializable {
      */
     void removeItemByIndex(@Min(value = 0) int index) throws IndexOutOfBoundsException;
 
+    @Override
+    Layer copyDeeply();
 }

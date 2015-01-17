@@ -1,7 +1,7 @@
 package net.spicesoftware.api.item;
 
-import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.marker.Markable;
+import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.value.HasValues;
 
 import java.io.Serializable;

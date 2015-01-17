@@ -1,7 +1,6 @@
 package net.spicesoftware.api.project;
 
 import net.spicesoftware.api.Spice;
-import net.spicesoftware.api.item.ItemBox;
 import net.spicesoftware.api.project.resource.ResourceManager;
 
 import javax.validation.constraints.Size;

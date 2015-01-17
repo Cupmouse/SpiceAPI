@@ -21,7 +21,10 @@ public interface Box extends Layerable {
     /**
      * この{@code Box}の背景を返します。
      *
-     * @return このボックスの背景色、透明の場合はnull
+     * @return このボックスの背景色、透明の場合は空のOptional
      */
     Optional<Color> getBackgroundColor();
+
+    @Override
+    Box copyDeeply();
 }

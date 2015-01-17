@@ -1,12 +1,15 @@
 package net.spicesoftware.api.layer;
 
+import net.spicesoftware.api.util.DeepCopyable;
+
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @since 2015/01/17
  */
-public interface Layerable {
+public interface Layerable extends DeepCopyable, Serializable {
 
     /**
      * この{@code Layerable}のすべての{@link net.spicesoftware.api.layer.Layer}を上から順に並べたものを返します。
@@ -95,4 +98,6 @@ public interface Layerable {
      */
     void resetStaticLayer();
 
+    @Override
+    Layerable copyDeeply();
 }

@@ -1,7 +1,7 @@
 package net.spicesoftware.api.resource.builder;
 
-import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.resource.Resource;
+import net.spicesoftware.api.util.DeepCopyable;
 
 /**
  * @since 2014/12/23
