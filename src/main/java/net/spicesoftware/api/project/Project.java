@@ -52,7 +52,7 @@ public interface Project {
      *
      * @return このプロジェクトのタイムライン
      */
-    ItemBox getTimeline();
+    TimelineRoot getTimeline();
 
     /**
      * この{@code Project}のタイムラインをリセットします。

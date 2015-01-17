@@ -1,4 +1,4 @@
-package net.spicesoftware.api;
+package net.spicesoftware.api.util;
 
 /**
  * @since 2015/01/09

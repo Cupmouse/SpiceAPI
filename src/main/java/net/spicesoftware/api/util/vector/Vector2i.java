@@ -1,6 +1,6 @@
 package net.spicesoftware.api.util.vector;
 
-import net.spicesoftware.api.DeepCopyable;
+import net.spicesoftware.api.util.DeepCopyable;
 
 import java.io.Serializable;
 

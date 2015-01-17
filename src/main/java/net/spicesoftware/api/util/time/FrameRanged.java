@@ -1,6 +1,6 @@
 package net.spicesoftware.api.util.time;
 
-import net.spicesoftware.api.ShallowCopyable;
+import net.spicesoftware.api.util.ShallowCopyable;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

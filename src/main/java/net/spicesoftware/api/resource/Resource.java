@@ -1,6 +1,6 @@
 package net.spicesoftware.api.resource;
 
-import net.spicesoftware.api.DeepCopyable;
+import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.item.ItemFromResource;
 import net.spicesoftware.api.marker.Markable;
 
