@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @since 2015/01/17
  */
-public class RGBA32Color implements Serializable {
+public final class RGBA32Color implements Serializable {
 
     public final int r;
     public final int g;
@@ -21,12 +21,23 @@ public class RGBA32Color implements Serializable {
         this.a = a;
     }
 
+    public RGBA32Color(@Min(0) @Max(0xFFFFFFFF) long rgba) {
+        this.r = (int) (rgba >> 24 & 0xFF);
+        this.g = (int) (rgba >> 16 & 0xFF);
+        this.b = (int) (rgba >> 8 & 0xFF);
+        this.a = (int) (rgba & 0xFF);
+    }
+
     public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparent) {
         return new RGBA32Color(color.r, color.g, color.b, transparent);
     }
 
     public RGB24Color toRgb24Color() {
         return new RGB24Color(r, g, b);
+    }
+
+    public long getLongValue() {
+        return (r << 24) | (g << 16) | (b << 8) | a;
     }
 
     @Override

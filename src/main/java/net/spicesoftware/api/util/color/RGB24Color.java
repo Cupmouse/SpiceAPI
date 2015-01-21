@@ -19,6 +19,12 @@ public final class RGB24Color implements Serializable {
         this.b = b;
     }
 
+    public RGB24Color(@Min(0) @Max(0xFFFFFF) int rgb) {
+        this.r = rgb >> 16 & 0xFF;
+        this.g = rgb >> 8 & 0xFF;
+        this.b = rgb & 0xFF;
+    }
+
     public RGB24Color add(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
         return new RGB24Color(Math.min(this.r + r, 0xFF), Math.min(this.g + g, 0xFF), Math.min(this.b + b, 0xFF));
     }
@@ -49,6 +55,10 @@ public final class RGB24Color implements Serializable {
 
     public RGBA32Color withTransparent(@Min(0) @Max(0xFF) int transparent) {
         return RGBA32Color.fromRGB24Color(this, transparent);
+    }
+
+    public int getIntValue() {
+        return (r << 16) | (g << 8) | b;
     }
 
     @Override
