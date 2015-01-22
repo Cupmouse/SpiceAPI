@@ -17,12 +17,40 @@ public class GrayScaleColor implements DeepCopyable, Serializable {
         this.w = w;
     }
 
+    public GrayScaleColor add(GrayScaleColor color) {
+        return new GrayScaleColor(Math.min(this.w + color.w, 0xFF));
+    }
+
+    public GrayScaleColor add(@Min(0) @Max(0xFF) int w) {
+        return new GrayScaleColor(Math.min(this.w + w, 0xFF));
+    }
+
+    public GrayScaleColor sub(@Min(0) @Max(0xFF) int w) {
+        return new GrayScaleColor(Math.max(this.w - w, 0));
+    }
+
+    public GrayScaleColor sub(GrayScaleColor color) {
+        return new GrayScaleColor(Math.max(this.w - color.w, 0));
+    }
+
+    public GrayScaleColor blend(@Min(0) @Max(0xFF) int w) {
+        return new GrayScaleColor(Math.round((this.w + w) / 2F));
+    }
+
+    public GrayScaleColor blend(GrayScaleColor color) {
+        return new GrayScaleColor(Math.round((this.w + color.w) / 2F));
+    }
+
+    public GrayScaleColor opposite() {
+        return new GrayScaleColor(~w & 0xFF);
+    }
+
     public RGB24Color toRgb24Color() {
         return new RGB24Color(w, w, w);
     }
 
-    public RGBA32Color toRgba32Color(@Min(0) @Max(0xFF) int transparent) {
-        return new RGBA32Color(w, w, w, transparent);
+    public RGBA32Color toRgba32Color(@Min(0) @Max(0xFF) int transparency) {
+        return new RGBA32Color(w, w, w, transparency);
     }
 
     @Override

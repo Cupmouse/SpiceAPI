@@ -50,11 +50,11 @@ public final class RGB24Color implements Serializable {
     }
 
     public RGB24Color opposite() {
-        return new RGB24Color(~r, ~g, ~b);
+        return new RGB24Color(~r & 0xFF, ~g & 0xFF, ~b & 0xFF);
     }
 
-    public RGBA32Color withTransparent(@Min(0) @Max(0xFF) int transparent) {
-        return RGBA32Color.fromRGB24Color(this, transparent);
+    public RGBA32Color withTransparency(@Min(0) @Max(0xFF) int transparency) {
+        return RGBA32Color.fromRGB24Color(this, transparency);
     }
 
     public int getIntValue() {

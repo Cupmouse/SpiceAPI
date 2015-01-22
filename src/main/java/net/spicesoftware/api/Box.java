@@ -2,6 +2,7 @@ package net.spicesoftware.api;
 
 import net.spicesoftware.api.layer.Layerable;
 import net.spicesoftware.api.util.color.RGB24Color;
+import net.spicesoftware.api.util.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector3i;
 
 import java.util.Optional;
@@ -50,9 +51,9 @@ public interface Box extends Layerable {
     /**
      * この{@code Box}の背景を返します。
      *
-     * @return このボックスの背景色、透明の場合は空のOptional
+     * @return このボックスの背景色
      */
-    Optional<RGB24Color> getBackgroundColor();
+    RGBA32Color getBackgroundColor();
 
     @Override
     Box copyDeeply();
