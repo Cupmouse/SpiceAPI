@@ -7,6 +7,9 @@ import javax.validation.constraints.Size;
 import java.time.ZonedDateTime;
 
 /**
+ * プロジェクトです。
+ * ルートの{@link net.spicesoftware.api.Box}である{@link net.spicesoftware.api.project.TimelineRoot}を持っています。
+ *
  * @since 2014/10/04
  */
 public interface Project {

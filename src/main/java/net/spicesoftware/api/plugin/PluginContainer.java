@@ -3,6 +3,8 @@ package net.spicesoftware.api.plugin;
 import java.util.Optional;
 
 /**
+ * {@link net.spicesoftware.api.plugin.Plugin}を管理します。
+ *
  * @since 2014/12/17
  */
 public interface PluginContainer {

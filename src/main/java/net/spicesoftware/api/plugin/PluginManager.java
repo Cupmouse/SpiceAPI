@@ -4,6 +4,8 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
+ * プラグインを管理します。
+ *
  * @since 2014/10/06
  */
 public interface PluginManager {
@@ -18,8 +20,10 @@ public interface PluginManager {
     // TODO javadoc
 
     /**
-     * @param id
-     * @return
+     * IDを指定してプラグインのインスタンスを返します。
+     *
+     * @param id 取得するプラグインのID
+     * @return 指定されたIDのプラグインのインスタンス
      */
     Optional<PluginContainer> getPlugin(String id);
 

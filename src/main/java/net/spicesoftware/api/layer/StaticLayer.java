@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * スタティックアイテムを持つレイヤーです。
+ *
  * @since 2014/11/22
  */
 public interface StaticLayer extends Serializable {

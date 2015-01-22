@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
+ * フレーム間隔とその間隔が適用されるオブジェクトを保持するクラスです。
+ *
  * @since 2014/10/06
  */
 public final class FrameRanged<T> implements ShallowCopyable, Serializable {

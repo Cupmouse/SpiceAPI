@@ -3,6 +3,8 @@ package net.spicesoftware.api.plugin;
 import net.spicesoftware.api.Spice;
 
 /**
+ * プラグインのクラスが実装するインターフェイスです。
+ *
  * @since 2014/10/06
  */
 public interface Plugin {

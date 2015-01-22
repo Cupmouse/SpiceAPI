@@ -8,6 +8,8 @@ import net.spicesoftware.api.util.vector.Vector3i;
 import java.util.Optional;
 
 /**
+ * {@link net.spicesoftware.api.layer.Layerable}であり、レイヤーを持ちます。
+ *
  * @since 2015/01/17
  */
 public interface Box extends Layerable {

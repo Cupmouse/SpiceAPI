@@ -7,6 +7,8 @@ import javax.validation.constraints.Size;
 import java.util.Map;
 
 /**
+ * キーフレームを持ち、キーフレームでフレームごとに値が変化する{@link net.spicesoftware.api.value.Value}です。
+ *
  * @since 2014/12/13
  */
 public interface KeyFramedValue<T> extends Value<T> {

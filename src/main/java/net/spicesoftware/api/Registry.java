@@ -9,6 +9,9 @@ import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
+ * レジストリです。
+ * 画像の作成、ビルダーの取得ができます。
+ *
  * @since 2014/10/06
  */
 public interface Registry {

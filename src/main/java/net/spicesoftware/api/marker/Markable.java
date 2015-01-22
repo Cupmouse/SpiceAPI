@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
+ * マーカーできるものが実装するインターフェイスです。
+ *
  * @since 2014/12/13
  */
 public interface Markable extends DeepCopyable {

@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * アイテムを持つレイヤーです。
+ *
  * @since 2015/01/17
  */
 public interface Layerable extends DeepCopyable, Serializable {

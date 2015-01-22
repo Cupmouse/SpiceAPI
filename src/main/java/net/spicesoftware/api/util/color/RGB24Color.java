@@ -5,6 +5,8 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
+ * RGBの色を表すイミュータブルクラスです。
+ *
  * @since 2014/10/06
  */
 public final class RGB24Color implements Serializable {

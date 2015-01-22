@@ -5,6 +5,8 @@ import net.spicesoftware.api.util.DeepCopyable;
 import java.io.Serializable;
 
 /**
+ * x, yを{@code double}で保持する２次元ベクタークラスです。
+ *
  * @since 2015/01/15
  */
 public final class Vector2d implements DeepCopyable, Serializable {

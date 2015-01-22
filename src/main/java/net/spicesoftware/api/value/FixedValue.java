@@ -1,6 +1,8 @@
 package net.spicesoftware.api.value;
 
 /**
+ * キーフレームを持たない永久に固定の値をもつ{@link net.spicesoftware.api.value.Value}です。
+ *
  * @since 2014/12/20
  */
 public interface FixedValue<T> extends Value<T> {

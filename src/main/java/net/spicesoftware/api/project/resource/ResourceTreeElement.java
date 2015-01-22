@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
+ * リソースツリーの要素です。
+ *
  * @since 2014/12/19
  */
 public interface ResourceTreeElement {

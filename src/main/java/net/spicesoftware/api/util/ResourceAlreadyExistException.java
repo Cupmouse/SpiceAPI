@@ -1,6 +1,8 @@
 package net.spicesoftware.api.util;
 
 /**
+ * 指定されたリソースのインスタンスがすでにツリー上に登録されている場合に発生する例外です。
+ *
  * @since 2014/12/23
  */
 public final class ResourceAlreadyExistException extends RuntimeException {

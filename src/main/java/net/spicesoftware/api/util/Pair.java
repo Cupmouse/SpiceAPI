@@ -1,6 +1,8 @@
 package net.spicesoftware.api.util;
 
 /**
+ * ２つのオブジェクトを関連付けて保持するためのクラスです。
+ *
  * @since 2014/10/06
  */
 public final class Pair<A, B> {

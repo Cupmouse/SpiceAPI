@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * {@link net.spicesoftware.api.layer.Layerable}の一つのレイヤーです。
+ * お互いに衝突しないフレーム間隔を持つアイテムを持ちます。
+ *
  * @since 2014/10/04
  */
 public interface Layer extends DeepCopyable, Serializable {

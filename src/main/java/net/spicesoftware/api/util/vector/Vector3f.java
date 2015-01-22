@@ -5,6 +5,8 @@ import net.spicesoftware.api.util.DeepCopyable;
 import java.io.Serializable;
 
 /**
+ * x, y, zを{@code float}で保持する３次元ベクタークラスです。
+ *
  * @since 2014/12/21
  */
 public final class Vector3f implements DeepCopyable, Serializable {

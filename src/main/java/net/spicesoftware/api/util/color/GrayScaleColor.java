@@ -7,8 +7,11 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
+ * グレースケールの色を表すイミュータブルクラスです。
+ *
  * @since 2015/01/17
  */
+// FIXME final
 public class GrayScaleColor implements DeepCopyable, Serializable {
 
     public final int w;

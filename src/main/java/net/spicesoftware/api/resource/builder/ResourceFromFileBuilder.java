@@ -5,6 +5,8 @@ import net.spicesoftware.api.resource.ResourceFromFile;
 import java.io.File;
 
 /**
+ * ファイルから読み込まれたリソースを作成するビルダーです。
+ *
  * @since 2014/12/23
  */
 public interface ResourceFromFileBuilder extends ResourceBuilder {

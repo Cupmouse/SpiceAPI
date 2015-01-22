@@ -3,6 +3,8 @@ package net.spicesoftware.api.resource;
 import java.io.File;
 
 /**
+ * ファイルから読み込まれたリソースです。
+ *
  * @since 2014/10/05
  */
 public interface ResourceFromFile extends Resource {

@@ -1,6 +1,8 @@
 package net.spicesoftware.api.util.color;
 
 /**
+ * {@link net.spicesoftware.api.util.color.RGB24Color}の基本的な色を保持します。
+ *
  * @since 2014/12/11
  */
 public class RGB24Colors {

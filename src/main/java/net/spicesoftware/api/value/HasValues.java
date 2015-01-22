@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
+ * {@link net.spicesoftware.api.value.Value}を持つことを表すインターフェイスです。
+ *
  * @since 2014/12/06
  */
 public interface HasValues extends DeepCopyable, Serializable {

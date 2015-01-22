@@ -5,6 +5,9 @@ import net.spicesoftware.api.util.DeepCopyable;
 import java.io.Serializable;
 
 /**
+ * キーフレームです。
+ * 保管方法とキーフレームの値を持ちます。
+ *
  * @since 2014/12/13
  */
 public interface KeyFrame<T> extends DeepCopyable, Serializable {

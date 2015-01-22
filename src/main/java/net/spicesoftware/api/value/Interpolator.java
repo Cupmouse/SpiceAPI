@@ -3,6 +3,8 @@ package net.spicesoftware.api.value;
 import javax.validation.constraints.Min;
 
 /**
+ * キーフレーム間の値を補完する計算をします。
+ *
  * @since 2014/12/13
  */
 public interface Interpolator<T> {

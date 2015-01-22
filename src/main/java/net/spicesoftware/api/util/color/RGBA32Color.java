@@ -5,6 +5,8 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
+ * RGBに透明度を追加したRGBAの色を表すイミュータブルクラスです。
+ *
  * @since 2015/01/17
  */
 public final class RGBA32Color implements Serializable {

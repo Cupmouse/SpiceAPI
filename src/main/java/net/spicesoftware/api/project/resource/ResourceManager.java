@@ -5,6 +5,8 @@ import net.spicesoftware.api.resource.Resource;
 import java.util.Set;
 
 /**
+ * {@link net.spicesoftware.api.project.Project}のリソースを管理します。
+ *
  * @since 2014/12/19
  */
 public interface ResourceManager {

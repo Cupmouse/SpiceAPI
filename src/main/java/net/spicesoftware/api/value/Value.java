@@ -6,7 +6,13 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
+ * 値です。
+ * 永久に固定の値を持つ{@link net.spicesoftware.api.value.FixedValue}と、
+ * キーフレームで変動する値を持つ{@link net.spicesoftware.api.value.KeyFramedValue}があります。
+ *
  * @since 2014/12/20
+ * @see net.spicesoftware.api.value.FixedValue
+ * @see net.spicesoftware.api.value.KeyFramedValue
  */
 public interface Value<T> extends DeepCopyable, Serializable {
 
