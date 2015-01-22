@@ -1,6 +1,5 @@
 package net.spicesoftware.api;
 
-import net.spicesoftware.api.image.GrayScaleImage;
 import net.spicesoftware.api.image.GrayScaleImageEditable;
 import net.spicesoftware.api.image.RGBAImageEditable;
 import net.spicesoftware.api.image.RGBImageEditable;

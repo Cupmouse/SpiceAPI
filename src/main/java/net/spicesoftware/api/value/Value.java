@@ -1,12 +1,14 @@
 package net.spicesoftware.api.value;
 
+import net.spicesoftware.api.util.DeepCopyable;
+
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
  * @since 2014/12/20
  */
-public interface Value<T> extends Serializable {
+public interface Value<T> extends DeepCopyable, Serializable {
 
     /**
      * この{@code Value}の指定されたフレームでの値を計算し返します。
@@ -16,4 +18,6 @@ public interface Value<T> extends Serializable {
      */
     T getValueAt(@Min(0) int frame);
 
+    @Override
+    Value<T> copyDeeply();
 }

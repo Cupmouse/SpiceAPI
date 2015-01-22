@@ -1,12 +1,11 @@
 package net.spicesoftware.api.value;
 
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 
 /**
  * @since 2014/12/13
  */
-public interface Interpolator<T> extends Serializable {
+public interface Interpolator<T> {
 
     /**
      * 指定されたフレームでの値を求めます。

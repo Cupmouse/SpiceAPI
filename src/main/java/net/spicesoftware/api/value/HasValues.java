@@ -1,5 +1,7 @@
 package net.spicesoftware.api.value;
 
+import net.spicesoftware.api.util.DeepCopyable;
+
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Map;
@@ -8,7 +10,7 @@ import java.util.Optional;
 /**
  * @since 2014/12/06
  */
-public interface HasValues extends Serializable {
+public interface HasValues extends DeepCopyable, Serializable {
 
     /**
      * この{@code HasValues}の{@link Value}のマッピングを返します。
@@ -25,4 +27,6 @@ public interface HasValues extends Serializable {
      */
     Optional<Value<?>> getValue(@Size(min = 1) String id);
 
+    @Override
+    HasValues copyDeeply();
 }

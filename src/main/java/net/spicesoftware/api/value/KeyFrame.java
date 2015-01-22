@@ -1,11 +1,13 @@
 package net.spicesoftware.api.value;
 
+import net.spicesoftware.api.util.DeepCopyable;
+
 import java.io.Serializable;
 
 /**
  * @since 2014/12/13
  */
-public interface KeyFrame<T> extends Serializable {
+public interface KeyFrame<T> extends DeepCopyable, Serializable {
 
     /**
      * この{@code KeyFrame}の補間法を返します。
@@ -21,4 +23,13 @@ public interface KeyFrame<T> extends Serializable {
      */
     T getValue();
 
+    /**
+     * この{@code KeyFrame}のディープコピーを返します。
+     * Interpolatorのインスタンスはコピーされません。
+     * 全く同じインスタンスのInterpolatorがコピーに格納されます。
+     *
+     * @return このキーフレームのディープコピー
+     */
+    @Override
+    DeepCopyable copyDeeply();
 }

@@ -52,4 +52,6 @@ public interface KeyFramedValue<T> extends Value<T> {
      */
     void removeKeyFrameAt(@Min(0) int index);
 
+    @Override
+    KeyFramedValue<T> copyDeeply();
 }

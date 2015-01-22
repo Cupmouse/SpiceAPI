@@ -19,4 +19,6 @@ public interface FixedValue<T> extends Value<T> {
      */
     void setValue(T value);
 
+    @Override
+    FixedValue<T> copyDeeply();
 }

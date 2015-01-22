@@ -1,5 +1,7 @@
 package net.spicesoftware.api.marker;
 
+import net.spicesoftware.api.util.DeepCopyable;
+
 import javax.validation.constraints.Min;
 import java.util.Map;
 import java.util.Optional;
@@ -7,7 +9,7 @@ import java.util.Optional;
 /**
  * @since 2014/12/13
  */
-public interface Markable {
+public interface Markable extends DeepCopyable {
 
     /**
      * この{@code Markable}のすべての{@link Marker}のマッピングを返します。
@@ -55,4 +57,6 @@ public interface Markable {
      */
     void removeMarkerByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
+    @Override
+    Markable copyDeeply();
 }

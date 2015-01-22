@@ -23,6 +23,7 @@ public interface Project {
      *
      * @return このプロジェクトの名前
      */
+    @Size(min = 1)
     String getName();
 
     /**
