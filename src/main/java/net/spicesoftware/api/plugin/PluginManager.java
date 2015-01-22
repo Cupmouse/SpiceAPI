@@ -17,8 +17,6 @@ public interface PluginManager {
      */
     Set<PluginContainer> getPlugins();
 
-    // TODO javadoc
-
     /**
      * IDを指定してプラグインのインスタンスを返します。
      *

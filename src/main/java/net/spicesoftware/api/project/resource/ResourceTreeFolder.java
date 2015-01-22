@@ -1,5 +1,7 @@
 package net.spicesoftware.api.project.resource;
 
+import javax.validation.constraints.Size;
+
 /**
  * リソースツリーのフォルダです。
  *
@@ -7,5 +9,7 @@ package net.spicesoftware.api.project.resource;
  */
 public interface ResourceTreeFolder extends ResourceTreeElement {
 
-    // TODO フォルダ名
+    void setFolderName(@Size(min = 1) String name);
+
+    String getFolderName();
 }

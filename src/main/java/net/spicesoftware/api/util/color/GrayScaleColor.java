@@ -11,8 +11,7 @@ import java.io.Serializable;
  *
  * @since 2015/01/17
  */
-// FIXME final
-public class GrayScaleColor implements DeepCopyable, Serializable {
+public final class GrayScaleColor implements DeepCopyable, Serializable {
 
     public final int w;
 
