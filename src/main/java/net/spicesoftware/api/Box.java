@@ -1,11 +1,8 @@
 package net.spicesoftware.api;
 
 import net.spicesoftware.api.layer.Layerable;
-import net.spicesoftware.api.util.color.RGB24Color;
 import net.spicesoftware.api.util.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector3i;
-
-import java.util.Optional;
 
 /**
  * {@link net.spicesoftware.api.layer.Layerable}であり、レイヤーを持ちます。
@@ -13,13 +10,6 @@ import java.util.Optional;
  * @since 2015/01/17
  */
 public interface Box extends Layerable {
-
-    /**
-     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}で返します。
-     *
-     * @return このボックスのサイズ
-     */
-    Vector3i getSize();
 
     /**
      * この{@code Box}のサイズの横の長さを返します。
@@ -34,6 +24,13 @@ public interface Box extends Layerable {
      * @return このボックスの縦の長さ
      */
     int getSizeY();
+
+    /**
+     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}で返します。
+     *
+     * @return このボックスのサイズ
+     */
+    Vector3i getSize();
 
     /**
      * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}を指定して設定します。

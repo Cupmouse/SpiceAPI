@@ -30,6 +30,10 @@ public final class RGBA32Color implements Serializable {
         this.a = (int) (rgba & 0xFF);
     }
 
+    public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparency) {
+        return new RGBA32Color(color.r, color.g, color.b, transparency);
+    }
+
     public RGBA32Color add(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
         return new RGBA32Color(Math.min(this.r + r, 0xFF), Math.min(this.g + g, 0xFF), Math.min(this.b + b, 0xFF), Math.min(this.a + a, 0xFF));
     }
@@ -84,9 +88,5 @@ public final class RGBA32Color implements Serializable {
     @Override
     public String toString() {
         return "RGBA32Color{r=" + r + ",g=" + g + ",b=" + b + ",a=" + a + "}";
-    }
-
-    public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparency) {
-        return new RGBA32Color(color.r, color.g, color.b, transparency);
     }
 }

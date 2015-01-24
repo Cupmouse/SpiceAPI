@@ -1,7 +1,7 @@
 package net.spicesoftware.api.project.resource;
 
 import net.spicesoftware.api.resource.Resource;
-import net.spicesoftware.api.util.ResourceAlreadyExistException;
+import net.spicesoftware.api.util.ResourceAlreadyExistInTreeException;
 
 import java.util.Map;
 import java.util.Optional;
@@ -43,9 +43,9 @@ public interface ResourceTreeElement {
      * @param resource 追加するリソース
      * @param name     名前
      * @return 追加したリソース
-     * @throws net.spicesoftware.api.util.ResourceAlreadyExistException 追加しようとしたリソースがすでにツリーに登録されている場合
+     * @throws net.spicesoftware.api.util.ResourceAlreadyExistInTreeException 追加しようとしたリソースがすでにツリーに登録されている場合
      */
-    Resource addResource(Resource resource, String name) throws ResourceAlreadyExistException;
+    Resource addResource(Resource resource, String name) throws ResourceAlreadyExistInTreeException;
 
     /**
      * ツリー上の{@link net.spicesoftware.api.resource.Resource}の名前を指定して削除します。

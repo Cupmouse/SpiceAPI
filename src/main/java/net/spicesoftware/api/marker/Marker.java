@@ -5,8 +5,8 @@ import java.util.Optional;
 /**
  * マーカーです。
  *
- * @since 2014/12/16
  * @see net.spicesoftware.api.marker.Markable
+ * @since 2014/12/16
  */
 public interface Marker {
 

@@ -10,9 +10,9 @@ import java.io.Serializable;
  * 永久に固定の値を持つ{@link net.spicesoftware.api.value.FixedValue}と、
  * キーフレームで変動する値を持つ{@link net.spicesoftware.api.value.KeyFramedValue}があります。
  *
- * @since 2014/12/20
  * @see net.spicesoftware.api.value.FixedValue
  * @see net.spicesoftware.api.value.KeyFramedValue
+ * @since 2014/12/20
  */
 public interface Value<T> extends DeepCopyable, Serializable {
 

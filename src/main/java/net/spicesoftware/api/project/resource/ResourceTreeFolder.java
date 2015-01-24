@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
  */
 public interface ResourceTreeFolder extends ResourceTreeElement {
 
-    void setFolderName(@Size(min = 1) String name);
-
     String getFolderName();
+
+    void setFolderName(@Size(min = 1) String name);
 }

@@ -10,8 +10,8 @@ import net.spicesoftware.api.item.ItemVideo;
 public interface ResourceVideo extends ResourceFromFile {
 
     @Override
-    ResourceVideo copyDeeply();
+    ItemVideo createNewItem();
 
     @Override
-    ItemVideo createNewItem();
+    ResourceVideo copyDeeply();
 }
