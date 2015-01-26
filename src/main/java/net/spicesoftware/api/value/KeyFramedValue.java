@@ -1,5 +1,6 @@
 package net.spicesoftware.api.value;
 
+import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.Pair;
 
 import javax.validation.constraints.Min;
@@ -11,7 +12,7 @@ import java.util.Map;
  *
  * @since 2014/12/13
  */
-public interface KeyFramedValue<T> extends Value<T> {
+public interface KeyFramedValue<T extends DeepCopyable> extends Value<T> {
 
     /**
      * この{@code KeyFramedValue}のフレームとキーフレームのマッピングを返します。

@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @see net.spicesoftware.api.value.KeyFramedValue
  * @since 2014/12/20
  */
-public interface Value<T> extends DeepCopyable, Serializable {
+public interface Value<T extends DeepCopyable> extends DeepCopyable, Serializable {
 
     /**
      * この{@code Value}の指定されたフレームでの値を計算し返します。

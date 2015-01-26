@@ -3,10 +3,13 @@ package net.spicesoftware.api;
 import net.spicesoftware.api.image.GrayScaleImageEditable;
 import net.spicesoftware.api.image.RGBAImageEditable;
 import net.spicesoftware.api.image.RGBImageEditable;
+import net.spicesoftware.api.resource.ResourceShape;
 import net.spicesoftware.api.resource.builder.ResourceImageBuilder;
+import net.spicesoftware.api.resource.builder.ResourceShapeBuilder;
 import net.spicesoftware.api.resource.builder.ResourceSoundBuilder;
 import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
 import net.spicesoftware.api.util.vector.Vector2i;
+import net.spicesoftware.api.value.Interpolator;
 
 /**
  * レジストリです。
@@ -30,8 +33,15 @@ public interface Registry {
 
     ResourceImageBuilder getResourceImageBuilder();
 
+    ResourceShapeBuilder getResourceShapeBuilder();
+
     ResourceSoundBuilder getResourceSoundBuilder();
 
     ResourceVideoBuilder getResourceVideoBuilder();
 
+    <A> void addIntepolatorOf(Class<A> clazz, Interpolator<A> interpolator);
+
+    <A> Interpolator<A> getInterpolatorOf(Class<A> clazz, String id);
+
+    <A> boolean isRegisteredIntepolator(Class<A> clazz, Interpolator<A> interpolator);
 }
