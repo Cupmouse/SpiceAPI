@@ -1,6 +1,6 @@
 package net.spicesoftware.api.util.color;
 
-import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.decoration.fill.Color;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @since 2015/01/17
  */
-public final class GrayScaleColor implements DeepCopyable, Serializable {
+public final class GrayScaleColor implements Color, Serializable {
 
     public final int w;
 
@@ -47,12 +47,12 @@ public final class GrayScaleColor implements DeepCopyable, Serializable {
         return new GrayScaleColor(~w & 0xFF);
     }
 
-    public RGB24Color toRgb24Color() {
+    public RGB24Color toRGB24Color() {
         return new RGB24Color(w, w, w);
     }
 
-    public RGBA32Color toRgba32Color(@Min(0) @Max(0xFF) int transparency) {
-        return new RGBA32Color(w, w, w, transparency);
+    public RGBA32Color toRGBA32Color(@Min(0) @Max(0xFF) int opacity) {
+        return new RGBA32Color(w, w, w, opacity);
     }
 
     @Override

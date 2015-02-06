@@ -7,7 +7,7 @@ import net.spicesoftware.api.resource.ResourceSound;
  *
  * @since 2014/12/06
  */
-public interface ItemSound extends ItemFromResource {
+public interface ItemSound extends ItemFromResourceFromFile {
 
     @Override
     ResourceSound getResource();

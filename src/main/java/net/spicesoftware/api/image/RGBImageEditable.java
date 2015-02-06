@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
  *
  * @since 2015/01/17
  */
-public interface RGBImageEditable extends RGBImage {
+public interface RGBImageEditable extends RGBImage, ImageEditable {
 
     /**
      * この{@code RGBImageEditable}の指定されたx, yの位置にRGB24の{@code int}を指定して色を設定します。
@@ -47,12 +47,7 @@ public interface RGBImageEditable extends RGBImage {
      */
     void setColor(Vector2i position, RGB24Color color);
 
-    /**
-     * 現在のこの{@code RGBImageEditable}の内容をコピーした{@link net.spicesoftware.api.image.CachedRGBImage}を返します。
-     * この関数を実行した後でも編集は継続できますが、以降の変更は{@code CachedRGBImage}には反映されません。
-     *
-     * @return この内容をコピーしたCachedRGBImage
-     */
+    @Override
     CachedRGBImage makeImage();
 
     @Override

@@ -12,14 +12,14 @@ import java.io.Serializable;
  *
  * @since 2014/10/05
  */
-public interface Resource extends Markable, Serializable, DeepCopyable {
+public interface Resource<T extends ItemFromResource> extends Markable, Serializable, DeepCopyable {
 
     /**
      * この{@code Resource}から新しい{@link net.spicesoftware.api.item.ItemFromResource}を作成し返します。
      *
      * @return このリソースからの新しいアイテム
      */
-    ItemFromResource createNewItem();
+    T createNewItem();
 
     @Override
     Resource copyDeeply();

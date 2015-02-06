@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
  *
  * @since 2015/01/17
  */
-public interface GrayScaleImageEditable extends GrayScaleImage {
+public interface GrayScaleImageEditable extends GrayScaleImage, ImageEditable {
 
     /**
      * この{@code GrayScaleImageEditable}の指定されたx, yの位置に0～0xFFの値の{@code int}を指定して色を設定します。
@@ -49,12 +49,7 @@ public interface GrayScaleImageEditable extends GrayScaleImage {
      */
     void setColor(Vector2i position, GrayScaleColor color);
 
-    /**
-     * 現在のこの{@code GrayScaleImageEditable}の内容をコピーした{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
-     * この関数を実行した後でも編集は継続できますが、以降の変更は{@code CachedGrayScaleImage}には反映されません。
-     *
-     * @return この内容をコピーしたCachedGrayScaleImage
-     */
+    @Override
     CachedGrayScaleImage makeImage();
 
     @Override

@@ -1,5 +1,7 @@
 package net.spicesoftware.api.util.color;
 
+import net.spicesoftware.api.decoration.fill.Color;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
@@ -9,7 +11,7 @@ import java.io.Serializable;
  *
  * @since 2015/01/17
  */
-public final class RGBA32Color implements Serializable {
+public final class RGBA32Color implements Color, Serializable {
 
     public final int r;
     public final int g;
@@ -62,7 +64,7 @@ public final class RGBA32Color implements Serializable {
         return new RGBA32Color(~r & 0xFF, ~g & 0xFF, ~b & 0xFF, a);
     }
 
-    public RGB24Color toRgb24Color() {
+    public RGB24Color toRGB24Color() {
         return new RGB24Color(r, g, b);
     }
 
@@ -72,6 +74,11 @@ public final class RGBA32Color implements Serializable {
 
     public boolean isTransparent() {
         return a == 0xFF;
+    }
+
+    @Override
+    public RGBA32Color copyDeeply() {
+        return new RGBA32Color(r, g, b, a);
     }
 
     @Override

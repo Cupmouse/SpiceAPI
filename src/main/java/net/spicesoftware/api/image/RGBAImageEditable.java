@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
  *
  * @since 2015/01/17
  */
-public interface RGBAImageEditable extends RGBAImage {
+public interface RGBAImageEditable extends RGBAImage, ImageEditable {
 
     /**
      * この{@code RGBAImageEditable}の指定されたx, yの位置にRGB24の{@code int}と透明度を指定して色を設定します。
@@ -66,12 +66,7 @@ public interface RGBAImageEditable extends RGBAImage {
      */
     void setColor(Vector2i position, RGBA32Color color);
 
-    /**
-     * 現在のこの{@code RGBAImageEditable}の内容をコピーした{@link net.spicesoftware.api.image.CachedRGBAImage}を返します。
-     * この関数を実行した後でも編集は継続できますが、以降の変更は{@code CachedRGBAImage}には反映されません。
-     *
-     * @return この内容をコピーしたCachedRGBAImage
-     */
+    @Override
     CachedRGBAImage makeImage();
 
     @Override

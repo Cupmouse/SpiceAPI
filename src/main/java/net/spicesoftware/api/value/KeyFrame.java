@@ -1,6 +1,7 @@
 package net.spicesoftware.api.value;
 
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
 
 import java.io.Serializable;
 
@@ -24,7 +25,7 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
      *
      * @param interpolator 設定する補間法
      */
-    void setInterpolator(Interpolator<T> interpolator);
+    void setInterpolator(Interpolator<T> interpolator) throws NotRegisteredInterpolatorException;
 
     /**
      * この{@code KeyFrame}の値を返します。
@@ -48,5 +49,5 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
      * @return このキーフレームのディープコピー
      */
     @Override
-    DeepCopyable copyDeeply();
+    KeyFrame<T> copyDeeply();
 }

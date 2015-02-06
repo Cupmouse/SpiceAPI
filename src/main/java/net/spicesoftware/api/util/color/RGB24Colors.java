@@ -5,7 +5,7 @@ package net.spicesoftware.api.util.color;
  *
  * @since 2014/12/11
  */
-public class RGB24Colors {
+public final class RGB24Colors {
 
     public static final RGB24Color WHITE = new RGB24Color(0xFF, 0xFF, 0xFF);
     public static final RGB24Color GRAY = new RGB24Color(0x80, 0x80, 0x80);

@@ -51,6 +51,20 @@ public interface GrayScaleImage extends Image {
     @Max(0xFF)
     int getColorIntAt(Vector2i position);
 
+    /**
+     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
+     *
+     * @return 変換されたイメージ
+     */
+    CachedRGBImage toRGBImage();
+
+    /**
+     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBAImage}に変換します。
+     *
+     * @return 変換されたイメージ
+     */
+    CachedRGBAImage toRGBAImage();
+
     @Override
     GrayScaleImage copyDeeply();
 }

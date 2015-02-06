@@ -7,7 +7,7 @@ import net.spicesoftware.api.resource.ResourceVideo;
  *
  * @since 2014/12/06
  */
-public interface ItemVideo extends ItemFromResource {
+public interface ItemVideo extends ItemFromResourceFromFile {
 
     @Override
     ResourceVideo getResource();

@@ -1,7 +1,9 @@
 package net.spicesoftware.api.layer;
 
+import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
@@ -107,6 +109,21 @@ public interface Layer extends DeepCopyable, Serializable {
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
     void removeItemByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+
+    /**
+     * この{@code Layer}の{@link net.spicesoftware.api.image.blender.ImageBlender}を返します。
+     *
+     * @return このレイヤーのブレンダー
+     */
+    ImageBlender getBlender();
+
+    /**
+     * この{@code Layer}の{@link net.spicesoftware.api.image.blender.ImageBlender}を設定します。
+     *
+     * @param blender 設定するブレンダー
+     * @throws NotRegisteredImageBlenderException 設定しようとしたブレンダーがレジストリに登録されていない場合
+     */
+    void setBlender(ImageBlender blender) throws NotRegisteredImageBlenderException;
 
     @Override
     Layer copyDeeply();

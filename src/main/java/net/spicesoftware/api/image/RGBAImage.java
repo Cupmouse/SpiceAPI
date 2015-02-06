@@ -51,6 +51,20 @@ public interface RGBAImage extends Image {
     @Max(0xFFFFFFFF)
     long getColorLongAt(Vector2i position);
 
+    /**
+     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
+     *
+     * @return 変換された新しいイメージ
+     */
+    CachedRGBImage toRGBImage();
+
+    /**
+     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedGrayScaleImage}に変換します。
+     *
+     * @return 変換された新しいイメージ
+     */
+    CachedGrayScaleImage toGrayScaleImage();
+
     @Override
     RGBAImage copyDeeply();
 }

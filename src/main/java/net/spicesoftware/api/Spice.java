@@ -1,12 +1,13 @@
 package net.spicesoftware.api;
 
 import net.spicesoftware.api.project.Project;
+import net.spicesoftware.api.registry.Registry;
 
 import java.util.Optional;
 
 /**
  * Spiceインターフェイスです。
- * {@link net.spicesoftware.api.Registry}と
+ * {@link net.spicesoftware.api.registry.Registry}と
  * {@link net.spicesoftware.api.project.Project}を持ちます。
  *
  * @since 2014/10/06

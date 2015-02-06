@@ -9,7 +9,7 @@ import java.io.File;
  *
  * @since 2014/12/23
  */
-public interface ResourceFromFileBuilder extends ResourceBuilder {
+public interface ResourceFromFileBuilder<T extends ResourceFromFile> extends ResourceBuilder<T> {
 
     /**
      * 設定されているファイルを返します
@@ -24,9 +24,6 @@ public interface ResourceFromFileBuilder extends ResourceBuilder {
      * @param file 設定するファイル
      */
     void setFile(File file);
-
-    @Override
-    ResourceFromFile build() throws IllegalStateException;
 
     @Override
     ResourceFromFileBuilder copyDeeply();

@@ -7,10 +7,7 @@ import net.spicesoftware.api.resource.ResourceVideo;
  *
  * @since 2014/12/23
  */
-public interface ResourceVideoBuilder extends ResourceFromFileBuilder {
-
-    @Override
-    ResourceVideo build() throws IllegalStateException;
+public interface ResourceVideoBuilder extends ResourceFromFileBuilder<ResourceVideo> {
 
     @Override
     ResourceFromFileBuilder copyDeeply();

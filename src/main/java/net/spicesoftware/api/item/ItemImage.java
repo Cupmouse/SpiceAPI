@@ -7,7 +7,7 @@ import net.spicesoftware.api.resource.ResourceImage;
  *
  * @since 2014/12/06
  */
-public interface ItemImage extends ItemFromResource {
+public interface ItemImage extends ItemFromResourceFromFile {
 
     @Override
     ResourceImage getResource();
