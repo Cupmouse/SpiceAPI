@@ -5,6 +5,8 @@ import net.spicesoftware.api.image.Image;
 import javax.validation.constraints.Max;
 
 /**
+ * ２つのイメージを新しい１つのイメージに合成します。
+ *
  * @since 2015/02/01
  */
 public interface ImageBlender<T extends Image> {

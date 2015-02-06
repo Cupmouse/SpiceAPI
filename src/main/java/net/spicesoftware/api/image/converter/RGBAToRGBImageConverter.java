@@ -14,7 +14,7 @@ public interface RGBAToRGBImageConverter extends ImageConverter<RGBAImage, Cache
     /**
      * {@link net.spicesoftware.api.image.RGBAImage}を{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
      *
-     * @param image 変換する{@link net.spicesoftware.api.image.RGBAImage}
+     * @param image           変換する{@link net.spicesoftware.api.image.RGBAImage}
      * @param backgroundColor 変換する際の背景色
      * @return 変換された新しいCachedRGBImage
      */

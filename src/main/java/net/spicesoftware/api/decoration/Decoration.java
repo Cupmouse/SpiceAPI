@@ -3,7 +3,7 @@ package net.spicesoftware.api.decoration;
 import net.spicesoftware.api.util.DeepCopyable;
 
 /**
- * 塗りやパターンを表すインターフェイスです。
+ * デコレーションを表すインターフェイスです。
  *
  * @see net.spicesoftware.api.decoration.fill.Color
  * @see net.spicesoftware.api.decoration.fill.PatternFilling
