@@ -52,6 +52,34 @@ public interface RGBAImage extends Image {
     long getColorLongAt(Vector2i position);
 
     /**
+     * この{@code RGBAImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBAイメージのRチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelR();
+
+    /**
+     * この{@code RGBAImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBAイメージのGチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelG();
+
+    /**
+     * この{@code RGBAImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBAイメージのBチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelB();
+
+    /**
+     * この{@code RGBAImage}のAチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBAイメージのAチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelA();
+
+    /**
      * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
      *
      * @return 変換された新しいイメージ

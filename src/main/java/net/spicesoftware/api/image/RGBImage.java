@@ -52,6 +52,27 @@ public interface RGBImage extends Image {
     int getColorIntAt(Vector2i position);
 
     /**
+     * この{@code RGBImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBイメージのRチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelR();
+
+    /**
+     * この{@code RGBImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBイメージのGチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelG();
+
+    /**
+     * この{@code RGBImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     *
+     * @return このRGBイメージのBチャンネルの新しいグレースケールイメージ
+     */
+    CachedGrayScaleImage getChannelB();
+
+    /**
      * この{@code RGBImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBAImage}に変換します。
      *
      * @return 変換されたイメージ
