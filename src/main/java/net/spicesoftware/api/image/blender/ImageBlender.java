@@ -3,6 +3,7 @@ package net.spicesoftware.api.image.blender;
 import net.spicesoftware.api.image.Image;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 /**
  * ２つのイメージを新しい１つのイメージに合成します。
@@ -18,5 +19,5 @@ public interface ImageBlender<T extends Image> {
      * @param back  背面の画像
      * @return 合成した画像
      */
-    T blend(T front, T back, @Max(100) int frontOpacity, @Max(100) int backOpacity);
+    T blend(T front, T back, @Min(0) @Max(100) int frontOpacity, @Min(0) @Max(100) int backOpacity);
 }

@@ -1,7 +1,4 @@
-package net.spicesoftware.api.image.converter;
-
-import net.spicesoftware.api.image.CachedImage;
-import net.spicesoftware.api.image.Image;
+package net.spicesoftware.api.image;
 
 /**
  * {@link net.spicesoftware.api.image.Image}を他の{@code Image}に変換します。
