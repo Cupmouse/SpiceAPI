@@ -7,10 +7,7 @@ import net.spicesoftware.api.item.ItemImage;
  *
  * @since 2014/10/06
  */
-public interface ResourceImage extends ResourceFromFile {
-
-    @Override
-    ItemImage createNewItem();
+public interface ResourceImage extends ResourceFromFile<ItemImage> {
 
     @Override
     ResourceImage copyDeeply();
