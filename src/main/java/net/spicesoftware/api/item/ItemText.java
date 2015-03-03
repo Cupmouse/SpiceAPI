@@ -5,7 +5,7 @@ import net.spicesoftware.api.resource.ResourceText;
 /**
  * @since 2015/01/26
  */
-public interface ItemText extends ItemFromResource {
+public interface ItemText extends ItemRenderable {
 
     /**
      * この{@code ItemText}のテキストを取得します。
@@ -21,8 +21,7 @@ public interface ItemText extends ItemFromResource {
      */
     void setText(String text);
 
-    @Override
-    ResourceText getResource();
+    ResourceText getResourceText();
 
     @Override
     ItemText copyDeeply();

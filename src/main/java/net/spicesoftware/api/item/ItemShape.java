@@ -7,10 +7,9 @@ import net.spicesoftware.api.resource.ResourceShape;
  *
  * @since 2014/12/11
  */
-public interface ItemShape extends ItemFromResource {
+public interface ItemShape extends ItemRenderable {
 
-    @Override
-    ResourceShape getResource();
+    ResourceShape getResourceShape();
 
     @Override
     ItemShape copyDeeply();

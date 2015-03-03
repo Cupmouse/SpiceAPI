@@ -1,6 +1,6 @@
 package net.spicesoftware.api.decoration.fill;
 
-import net.spicesoftware.api.resource.ResourceImage;
+import net.spicesoftware.api.resource.ResourcePicture;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
@@ -11,11 +11,11 @@ import net.spicesoftware.api.util.vector.Vector2i;
 public interface ImagePatternFilling extends PatternFilling {
 
     /**
-     * この{@code ImagePattern}のパターンの{@link net.spicesoftware.api.resource.ResourceImage}を返します。
+     * この{@code ImagePattern}のパターンの{@link net.spicesoftware.api.resource.ResourcePicture}を返します。
      *
      * @return この画像パターンのパターンとなる画像リソース
      */
-    ResourceImage getImage();
+    ResourcePicture getImage();
 
     /**
      * 描画開始位置のズレを{@link net.spicesoftware.api.util.vector.Vector2i}で返します。

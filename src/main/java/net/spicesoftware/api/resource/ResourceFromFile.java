@@ -1,7 +1,5 @@
 package net.spicesoftware.api.resource;
 
-import net.spicesoftware.api.item.ItemFromResource;
-
 import java.io.File;
 
 /**
@@ -9,7 +7,7 @@ import java.io.File;
  *
  * @since 2014/10/05
  */
-public interface ResourceFromFile<T extends ItemFromResource> extends Resource<T> {
+public interface ResourceFromFile extends Resource {
 
     /**
      * この{@code FileResource}の{@link java.io.File}を返します。

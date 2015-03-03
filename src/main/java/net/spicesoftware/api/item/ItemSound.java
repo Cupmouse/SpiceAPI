@@ -7,10 +7,9 @@ import net.spicesoftware.api.resource.ResourceSound;
  *
  * @since 2014/12/06
  */
-public interface ItemSound extends ItemFromResourceFromFile {
+public interface ItemSound extends Item {
 
-    @Override
-    ResourceSound getResource();
+    ResourceSound getResourceSound();
 
     @Override
     ItemSound copyDeeply();

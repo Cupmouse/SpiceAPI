@@ -7,7 +7,7 @@ import net.spicesoftware.api.Box;
  *
  * @since 2014/10/04
  */
-public interface ItemBox extends ItemFromResource, Box {
+public interface ItemBox extends ItemRenderable, Box {
 
     @Override
     ItemBox copyDeeply();
