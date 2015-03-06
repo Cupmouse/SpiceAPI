@@ -1,5 +1,8 @@
-package net.spicesoftware.api.image;
+package net.spicesoftware.api.image.gs;
 
+import net.spicesoftware.api.image.Image;
+import net.spicesoftware.api.image.rgb.CachedRGBImage;
+import net.spicesoftware.api.image.rgba.CachedRGBAImage;
 import net.spicesoftware.api.util.color.GrayScaleColor;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -52,14 +55,14 @@ public interface GrayScaleImage extends Image {
     int getColorIntAt(Vector2i position);
 
     /**
-     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
+     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgb.CachedRGBImage}に変換します。
      *
      * @return 変換されたイメージ
      */
     CachedRGBImage toRGBImage();
 
     /**
-     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBAImage}に変換します。
+     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}に変換します。
      *
      * @return 変換されたイメージ
      */

@@ -1,5 +1,8 @@
-package net.spicesoftware.api.image;
+package net.spicesoftware.api.image.rgb;
 
+import net.spicesoftware.api.image.Image;
+import net.spicesoftware.api.image.gs.CachedGrayScaleImage;
+import net.spicesoftware.api.image.rgba.CachedRGBAImage;
 import net.spicesoftware.api.util.color.RGB24Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -52,35 +55,35 @@ public interface RGBImage extends Image {
     int getColorIntAt(Vector2i position);
 
     /**
-     * この{@code RGBImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBイメージのRチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelR();
+    CachedGrayScaleImage extractChannelR();
 
     /**
-     * この{@code RGBImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBイメージのGチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelG();
+    CachedGrayScaleImage extractChannelG();
 
     /**
-     * この{@code RGBImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBイメージのBチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelB();
+    CachedGrayScaleImage extractChannelB();
 
     /**
-     * この{@code RGBImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBAImage}に変換します。
+     * この{@code RGBImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}に変換します。
      *
      * @return 変換されたイメージ
      */
     CachedRGBAImage toRGBAImage();
 
     /**
-     * この{@code RGBImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedGrayScaleImage}に変換します。
+     * この{@code RGBImage}を新しいイメージとして{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}に変換します。
      *
      * @return 変換された新しいイメージ
      */

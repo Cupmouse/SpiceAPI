@@ -1,5 +1,8 @@
-package net.spicesoftware.api.image;
+package net.spicesoftware.api.image.rgba;
 
+import net.spicesoftware.api.image.Image;
+import net.spicesoftware.api.image.gs.CachedGrayScaleImage;
+import net.spicesoftware.api.image.rgb.CachedRGBImage;
 import net.spicesoftware.api.util.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -52,42 +55,42 @@ public interface RGBAImage extends Image {
     long getColorLongAt(Vector2i position);
 
     /**
-     * この{@code RGBAImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBAImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBAイメージのRチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelR();
+    CachedGrayScaleImage extractChannelR();
 
     /**
-     * この{@code RGBAImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBAImage}のGチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBAイメージのGチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelG();
+    CachedGrayScaleImage extractChannelG();
 
     /**
-     * この{@code RGBAImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBAImage}のBチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBAイメージのBチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelB();
+    CachedGrayScaleImage extractChannelB();
 
     /**
-     * この{@code RGBAImage}のAチャンネルの新しい{@link net.spicesoftware.api.image.CachedGrayScaleImage}を返します。
+     * この{@code RGBAImage}のAチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBAイメージのAチャンネルの新しいグレースケールイメージ
      */
-    CachedGrayScaleImage getChannelA();
+    CachedGrayScaleImage extractChannelA();
 
     /**
-     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedRGBImage}に変換します。
+     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgb.CachedRGBImage}に変換します。
      *
      * @return 変換された新しいイメージ
      */
     CachedRGBImage toRGBImage();
 
     /**
-     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.CachedGrayScaleImage}に変換します。
+     * この{@code RGBAImage}を新しいイメージとして{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}に変換します。
      *
      * @return 変換された新しいイメージ
      */

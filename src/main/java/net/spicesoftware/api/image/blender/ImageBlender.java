@@ -19,5 +19,5 @@ public interface ImageBlender<T extends Image> {
      * @param back  背面の画像
      * @return 合成した画像
      */
-    T blend(T front, T back, @Min(0) @Max(100) int frontOpacity, @Min(0) @Max(100) int backOpacity);
+    T blend(T front, T back, @Min(0) @Max(100) int frontOpacity);
 }

@@ -8,5 +8,4 @@ package net.spicesoftware.api.util.value;
 public final class ValueIds {
 
     public static final String POSITION_2D = "spice:position2d";
-
 }
