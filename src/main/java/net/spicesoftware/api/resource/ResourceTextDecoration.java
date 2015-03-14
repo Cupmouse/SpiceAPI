@@ -7,15 +7,15 @@ import net.spicesoftware.api.item.builder.ItemBuilder;
 /**
  * @since 2015/01/26
  */
-public interface ResourceText extends Resource, ItemBuilder<ItemText> {
+public interface ResourceTextDecoration extends Resource {
 
     /**
-     * この{@code ResourceText}のデコレーションを返します。
+     * この{@code ResourceTextDecoration}のデコレーションを返します。
      *
-     * @return このテキストリソースのデコレーション
+     * @return このテキスト装飾リソースのデコレーション
      */
     TextStyle getTextDecoration();
 
     @Override
-    ResourceText copyDeeply();
+    ResourceTextDecoration copyDeeply();
 }

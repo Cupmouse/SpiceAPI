@@ -43,8 +43,8 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
 
     /**
      * この{@code KeyFrame}のディープコピーを返します。
-     * Interpolatorのインスタンスはコピーされません。
-     * 全く同じインスタンスのInterpolatorがコピーに格納されます。
+     * {@link net.spicesoftware.api.value.Interpolator}のインスタンスはコピーされません。
+     * 全く同じインスタンスの{@link net.spicesoftware.api.value.Interpolator}がコピーに格納されます。
      *
      * @return このキーフレームのディープコピー
      */

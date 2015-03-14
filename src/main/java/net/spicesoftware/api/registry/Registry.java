@@ -286,7 +286,7 @@ public interface Registry {
     <I extends Image, O extends CachedImage> Optional<ImageConverter<I, O>> getImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id);
 
     /**
-     * 指定された登録されている{@net.spicesoftware.api.image.ImageConverter}のIdを返します。
+     * 指定された登録されている{@link net.spicesoftware.api.image.ImageConverter}のIdを返します。
      *
      * @param imageConverter Idを取得する{@link net.spicesoftware.api.image.ImageConverter}
      * @return 指定したImageConverterのId

@@ -10,56 +10,56 @@ import java.util.Optional;
 public interface PluginContainer {
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}の名前を返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}の名前を返します。
      *
      * @return このコンテナーが管理するプラグインの名前
      */
     String getName();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}のIDを返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}のIDを返します。
      *
      * @return このコンテナーが管理するプラグインのID
      */
     String getID();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}の依存するプラグインのIDを返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}の依存するプラグインのIDを返します。
      *
      * @return このコンテナーが管理するプラグインが依存するプラグインのID
      */
     String[] getPluginIDsDepend();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}の依存するSpiceAPIのバージョンを返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}の依存するSpiceAPIのバージョンを返します。
      *
      * @return このコンテナーが管理するプラグインが依存するSpiceAPIのバージョン
      */
     String getSpiceAPIVersionDepend();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}のインスタンスを返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}のインスタンスを返します。
      *
      * @return このコンテナーが管理するプラグインのインスタンス
      */
     Optional<Plugin> getInstance();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}が初期化されているかを真偽値で返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}が初期化されているかを真偽値で返します。
      *
      * @return このコンテナーが管理するプラグインが初期化されているか
      */
     boolean isInitialized();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}が有効化されているかを真偽値で返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}が有効化されているかを真偽値で返します。
      *
      * @return このコンテナーが管理するプラグインが有効化されているか
      */
     boolean isEnabled();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}がこのバージョンのSpongeに対応しているかを真偽値で返します。
+     * この{@code PluginContainer}が管理する{@link net.spicesoftware.api.plugin.Plugin}がこのバージョンのSpongeに対応しているかを真偽値で返します。
      *
      * @return このコンテナーが管理するプラグインがこのバージョンのSpongeに対応しているか
      */

@@ -1,7 +1,5 @@
 package net.spicesoftware.api.item;
 
-import net.spicesoftware.api.resource.ResourceText;
-
 /**
  * @since 2015/01/26
  */
@@ -20,8 +18,6 @@ public interface ItemText extends ItemRenderable {
      * @param text このテキストアイテムに設定するテキスト
      */
     void setText(String text);
-
-    ResourceText getResourceText();
 
     @Override
     ItemText copyDeeply();

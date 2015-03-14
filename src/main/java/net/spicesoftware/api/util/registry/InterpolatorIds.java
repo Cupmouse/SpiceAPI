@@ -7,5 +7,8 @@ package net.spicesoftware.api.util.registry;
  */
 public final class InterpolatorIds {
 
+    /**
+     * デフォルトの補完方法のIdです。
+     */
     public static final String DEFAULT = "spice:default";
 }

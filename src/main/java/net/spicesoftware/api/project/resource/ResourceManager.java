@@ -12,7 +12,7 @@ import java.util.Set;
 public interface ResourceManager {
 
     /**
-     * リソースツリーのルートの{@link ResourceTreeElement}を返します。
+     * リソースツリーのルートの{@link net.spicesoftware.api.project.resource.ResourceTreeElement}を返します。
      *
      * @return リソースツリーのルート
      */

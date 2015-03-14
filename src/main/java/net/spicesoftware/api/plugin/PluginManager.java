@@ -11,7 +11,7 @@ import java.util.Set;
 public interface PluginManager {
 
     /**
-     * 登録されているすべての{@link Plugin}の{@link PluginContainer}を返します。
+     * 登録されているすべての{@link net.spicesoftware.api.plugin.Plugin}の{@link net.spicesoftware.api.plugin.PluginContainer}を返します。
      *
      * @return 登録されているすべてのプラグインのコンテナー
      */
