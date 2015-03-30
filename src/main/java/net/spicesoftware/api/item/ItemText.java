@@ -1,5 +1,7 @@
 package net.spicesoftware.api.item;
 
+import net.spicesoftware.api.text.Text;
+
 /**
  * @since 2015/01/26
  */
@@ -10,14 +12,14 @@ public interface ItemText extends ItemRenderable {
      *
      * @return このテキストアイテムのテキスト
      */
-    String getText();
+    Text getText();
 
     /**
      * この{@code ItemText}のテキストを設定します。
      *
      * @param text このテキストアイテムに設定するテキスト
      */
-    void setText(String text);
+    void setText(Text text);
 
     @Override
     ItemText copyDeeply();
