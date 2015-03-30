@@ -2,7 +2,10 @@ package net.spicesoftware.api;
 
 import net.spicesoftware.api.layer.Layerable;
 import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.util.vector.Vector3i;
+
+import javax.validation.constraints.Min;
 
 /**
  * {@link net.spicesoftware.api.layer.Layerable}であり、レイヤーを持ちます。
@@ -16,36 +19,38 @@ public interface Box extends Layerable {
      *
      * @return このボックスの横の長さ
      */
-    int getSizeX();
+    @Min(1)
+    int getWidth();
 
     /**
      * この{@code Box}のサイズの縦の長さを返します。
      *
      * @return このボックスの縦の長さ
      */
-    int getSizeY();
+    @Min(1)
+    int getHeight();
 
     /**
      * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}で返します。
      *
      * @return このボックスのサイズ
      */
-    Vector3i getSize();
+    Vector2i getSize();
 
     /**
      * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}を指定して設定します。
      *
      * @param size このボックスに設定するサイズ
      */
-    void setSize(Vector3i size);
+    void setSize(Vector2i size);
 
     /**
-     * この{@code Box}のサイズをx, yを指定して設定します。
+     * この{@code Box}のサイズを幅と高さを指定して設定します。
      *
-     * @param x 横の長さ
-     * @param y 縦の長さ
+     * @param width 幅
+     * @param height 高さ
      */
-    void setSize(int x, int y);
+    void setSize(int width, int height);
 
     /**
      * この{@code Box}の背景を返します。

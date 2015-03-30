@@ -15,14 +15,14 @@ import java.util.Optional;
 public interface HasValues extends DeepCopyable, Serializable {
 
     /**
-     * この{@code HasValues}の{@link Value}のマッピングを返します。
+     * この{@code HasValues}の{@link net.spicesoftware.api.value.Value}のマッピングを返します。
      *
      * @return 値のマッピング
      */
     Map<String, Value<?>> getValueMap();
 
     /**
-     * この{@code HasValues}の指定されたIDの{@link Value}を返します。
+     * この{@code HasValues}の指定されたIDの{@link net.spicesoftware.api.value.Value}を返します。
      *
      * @param id id
      * @return 指定されたIDの値

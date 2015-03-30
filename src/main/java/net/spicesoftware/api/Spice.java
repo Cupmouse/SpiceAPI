@@ -37,4 +37,6 @@ public interface Spice {
      */
     Optional<Project> getProject();
 
+    void openProject(Project project);
+
 }

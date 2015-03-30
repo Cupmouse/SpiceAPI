@@ -19,7 +19,7 @@ public interface EditableGrayScaleImage extends GrayScaleImage, ImageEditable {
      *
      * @param x     色を設定するx位置
      * @param y     色を設定するy位置
-     * @param color 設定する色
+     * @param color 設定する白さ
      *              0～0xFF
      */
     void setColor(@Min(0) int x, @Min(0) int y, @Min(0) @Max(0xFF) int color);
@@ -34,11 +34,30 @@ public interface EditableGrayScaleImage extends GrayScaleImage, ImageEditable {
     void setColor(Vector2i position, @Min(0) @Max(0xFF) int color);
 
     /**
+     * この{@code EditableGrayScaleImage}の指定されたx, yの位置に符号なし整数（-128～127）の{@code int}を指定して色を設定します。
+     *
+     * @param x     色を設定するx位置
+     * @param y     色を設定するy位置
+     * @param color 設定する白さ
+     *              -128～127
+     */
+    void setColor(@Min(0) int x, @Min(0) int y, @Min(-128) @Max(127) byte color);
+
+    /**
+     * この{@code EditableGrayScaleImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置に符号なし整数（-128～127）の{@code int}を指定して色を設定します。
+     *
+     * @param position 色を設定する位置
+     * @param color    設定する白さ
+     *                 -128～127
+     */
+    void setColor(Vector2i position, @Min(-128) @Max(127) byte color);
+
+    /**
      * この{@code EditableGrayScaleImage}の指定されたx, yの位置に{@link net.spicesoftware.api.util.color.GrayScaleColor}を指定して色を設定します。
      *
      * @param x     色を設定するx位置
      * @param y     色を設定するy位置
-     * @param color 設定する色
+     * @param color 設定する白さ
      */
     void setColor(@Min(0) int x, @Min(0) int y, GrayScaleColor color);
 
@@ -46,7 +65,7 @@ public interface EditableGrayScaleImage extends GrayScaleImage, ImageEditable {
      * この{@code EditableGrayScaleImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置に{@link net.spicesoftware.api.util.color.GrayScaleColor}を指定して色を設定します。
      *
      * @param position 色を設定する位置
-     * @param color    設定する色
+     * @param color    設定する白さ
      */
     void setColor(Vector2i position, GrayScaleColor color);
 

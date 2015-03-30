@@ -40,30 +40,91 @@ public interface Registry {
     <T extends Image> void addImage(Class<T> image);
 
     /**
-     * グレースケール画像情報を含む{@code byte[][]}から新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を作成します。
+     * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を作成します。
      *
-     * @param image 画像情報を含むbyte[][]
+     * @param width  新しいイメージの幅
+     * @param height 新しいイメージの高さ
+     * @param image  新しいイメージの画像情報を含むbyte[]
      * @return 新しい不変グレースケールイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
-    CachedGrayScaleImage createCachedGrayScaleImage(byte[][] image);
+    CachedGrayScaleImage createCachedGrayScaleImage(int width, int height, byte[] image);
 
     /**
-     * グレースケール画像情報を含む{@code byte[][]}から新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
      *
-     * @param image 画像情報を含むbyte[][]
+     * @param width  新しいイメージの幅
+     * @param height 新しいイメージの高さ
+     * @param image  新しいイメージの画像情報を含むbyte[]
+     * @return 新しい編集可能グレースケールイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(int width, int height, byte[] image);
+
+    /**
+     * 指定された高さと幅から背景色が黒色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
      * @return 新しい編集可能グレースケールイメージ
      */
-    CachedGrayScaleImage createNewGrayScaleImage(byte[][] image);
+    EditableGrayScaleImage createNewGrayScaleImage(int width, int height);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から背景色が黒色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param size 新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @return 新しい編集可能グレースケールイメージ
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(Vector2i size);
 
     /**
      * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
      *
-     * @param x               新しい画像の高さ
-     * @param y               新しい画像の幅
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能グレースケールイメージ
      */
-    EditableGrayScaleImage createNewGrayScaleImage(int x, int y, GrayScaleColor backgroundColor);
+    EditableGrayScaleImage createNewGrayScaleImage(int width, int height, byte backgroundColor);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param size            新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能グレースケールイメージ
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(Vector2i size, byte backgroundColor);
+
+    /**
+     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能グレースケールイメージ
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(int width, int height, int backgroundColor);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param size            新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能グレースケールイメージ
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(Vector2i size, int backgroundColor);
+
+    /**
+     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
+     *
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能グレースケールイメージ
+     */
+    EditableGrayScaleImage createNewGrayScaleImage(int width, int height, GrayScaleColor backgroundColor);
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}を作成します。
@@ -75,29 +136,31 @@ public interface Registry {
     EditableGrayScaleImage createNewGrayScaleImage(Vector2i size, GrayScaleColor backgroundColor);
 
     /**
-     * RGB24形式の画像情報を含む{@code int[][]}から新しい{@link net.spicesoftware.api.image.rgb.CachedRGBImage}を作成します。
+     * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link net.spicesoftware.api.image.rgb.CachedRGBImage}を作成します。
      *
-     * @param image 画像情報を含むint[][]
+     * @param image 画像情報を含むint[]
      * @return 新しい不変RGBケールイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
-    CachedRGBImage createCachedRGBImage(int[][] image);
+    CachedRGBImage createCachedRGBImage(int width, int height, int[] image);
 
     /**
-     * RGB24形式の画像情報を含む{@code int[][]}から新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
+     * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
      *
-     * @param image 画像情報を含むint[][]
+     * @param image 画像情報を含むint[]
      * @return 新しい編集可能RGBイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
-    EditableRGBImage createNewRGBImage(int[][] image);
+    EditableRGBImage createNewRGBImage(int width, int height, int[] image);
 
     /**
      * 指定された高さと幅から背景色が黒色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
      *
-     * @param x 新しい画像の高さ
-     * @param y 新しい画像の幅
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
      * @return 新しい編集可能RGBイメージ
      */
-    EditableRGBImage createNewRGBImage(int x, int y);
+    EditableRGBImage createNewRGBImage(int width, int height);
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から背景色が黒色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
@@ -110,12 +173,31 @@ public interface Registry {
     /**
      * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
      *
-     * @param x               新しい画像の高さ
-     * @param y               新しい画像の幅
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBイメージ
      */
-    EditableRGBImage createNewRGBImage(int x, int y, RGB24Color backgroundColor);
+    EditableRGBImage createNewRGBImage(int width, int height, int backgroundColor);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
+     *
+     * @param size            新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBイメージ
+     */
+    EditableRGBImage createNewRGBImage(Vector2i size, int backgroundColor);
+
+    /**
+     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
+     *
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBイメージ
+     */
+    EditableRGBImage createNewRGBImage(int width, int height, RGB24Color backgroundColor);
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
@@ -127,32 +209,57 @@ public interface Registry {
     EditableRGBImage createNewRGBImage(Vector2i size, RGB24Color backgroundColor);
 
     /**
-     * RGB24形式の画像情報を含む{@code long[][]}から新しい{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}を作成します。
+     * 幅と高さと3つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
      *
-     * @param image 画像情報を含むlong[][]
+     * @param height   新しい画像の高さ
+     * @param width    新しい画像の幅
+     * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelB 新しい画像のBチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
+     */
+    EditableRGBImage createNewCSRGBImage(int width, int height, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}と3つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
+     * 
+     * @param size     新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelB 新しい画像のBチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
+     */
+    EditableRGBImage createNewCSRGBImage(Vector2i size, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB);
+    
+    /**
+     * 幅と高さとRGBA32形式の画像情報を含む{@code int[]}から新しい{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}を作成します。
+     *
+     * @param image 画像情報を含むint[]
      * @return 新しい不変RGBAケールイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
-    CachedRGBAImage createCachedRGBAImage(long[][] image);
+    CachedRGBAImage createCachedRGBAImage(int width, int height, int[] image);
 
     /**
-     * RGB24形式の画像情報を含む{@code long[][]}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     * 幅と高さとRGB3A2形式の画像情報を含む{@code int[]}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
      *
-     * @param image 画像情報を含むlong[][]
+     * @param image 画像情報を含むint[]
+     * @return 新しい編集可能RGBAイメージ
+     * @throws net.spicesoftware.api.util.InvalidImageSizeException width * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     */
+    EditableRGBAImage createNewRGBAImage(int width, int height, int[] image);
+
+    /**
+     * 指定された高さと幅から背景色が透明(r, g, b, a)=(0, 0, 0, 0)のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     *
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
      * @return 新しい編集可能RGBAイメージ
      */
-    EditableRGBAImage createNewRGBAImage(long[][] image);
+    EditableRGBAImage createNewRGBAImage(int width, int height);
 
     /**
-     * 指定された高さと幅から背景色が透明(r, g, b, a)=(0, 0, 0, 255)のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
-     *
-     * @param x 新しい画像の高さ
-     * @param y 新しい画像の幅
-     * @return 新しい編集可能RGBAイメージ
-     */
-    EditableRGBAImage createNewRGBAImage(int x, int y);
-
-    /**
-     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から背景色が透明(r, g, b, a)=(0, 0, 0, 255)のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から背景色が透明(r, g, b, a)=(0, 0, 0, 0)のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
      *
      * @param size 新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
      * @return 新しい編集可能RGBAイメージ
@@ -162,12 +269,50 @@ public interface Registry {
     /**
      * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
      *
-     * @param x               新しい画像の高さ
-     * @param y               新しい画像の幅
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBAイメージ
      */
-    EditableRGBAImage createNewRGBAImage(int x, int y, RGBA32Color backgroundColor);
+    EditableRGBAImage createNewRGBAImage(int width, int height, int backgroundColor);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     *
+     * @param size            新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBAイメージ
+     */
+    EditableRGBAImage createNewRGBAImage(Vector2i size, int backgroundColor);
+
+    /**
+     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     *
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBAイメージ
+     */
+    EditableRGBAImage createNewRGBAImage(int width, int height, long backgroundColor);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     *
+     * @param size            新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBAイメージ
+     */
+    EditableRGBAImage createNewRGBAImage(Vector2i size, long backgroundColor);
+
+    /**
+     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     *
+     * @param height          新しい画像の高さ
+     * @param width           新しい画像の幅
+     * @param backgroundColor この画像いっぱいに埋める背景色
+     * @return 新しい編集可能RGBAイメージ
+     */
+    EditableRGBAImage createNewRGBAImage(int width, int height, RGBA32Color backgroundColor);
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}から特定の背景色のまっさらな新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
@@ -177,6 +322,31 @@ public interface Registry {
      * @return 新しい編集可能RGBAイメージ
      */
     EditableRGBAImage createNewRGBAImage(Vector2i size, RGBA32Color backgroundColor);
+
+    /**
+     * 幅と高さと3つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     * 
+     * @param height   新しい画像の高さ
+     * @param width    新しい画像の幅
+     * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelB 新しい画像のBチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelA 新しい画像のAチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
+     */
+    EditableRGBAImage createNewCSRGBAImage(int width, int height, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB, EditableGrayScaleImage channelA);
+
+    /**
+     * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}と4つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
+     * 
+     * @param size     新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
+     * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelB 新しい画像のBチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @param channelA 新しい画像のAチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
+     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
+     */
+    EditableRGBAImage createNewCSRGBAImage(Vector2i size, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB, EditableGrayScaleImage channelA);
 
 
     ResourceImageBuilder getResourceImageBuilder();
@@ -243,7 +413,7 @@ public interface Registry {
      * @param <T>        {@link net.spicesoftware.api.image.blender.ImageBlender}を取得したいイメージの型
      * @return 指定されたIdと型のためのImageBlender
      */
-    <T extends Image> ImageBlender<T> getImageBlender(Class<T> imageClass, @Size(min = 1) String id);
+    <T extends Image> Optional<ImageBlender<T>> getImageBlender(Class<T> imageClass, @Size(min = 1) String id);
 
     /**
      * 指定された登録されている{@net.spicesoftware.api.image.blender.ImageBlender}のIdを返します。
@@ -304,7 +474,7 @@ public interface Registry {
     boolean isRegisteredImageConverter(ImageConverter imageConverter);
 
 
-    <T extends Renderable, I extends Image> Renderer<T, I> getRendererOf(Class<T> renderableClass, Class<I> imageClass);
+    <T extends Renderable, I extends Image> Optional<Renderer<T, I>> getRendererOf(Class<T> renderableClass, Class<I> imageClass);
 
     void setRenderer(Renderer renderer);
 }

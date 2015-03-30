@@ -55,6 +55,13 @@ public interface RGBImage extends Image {
     int getColorIntAt(Vector2i position);
 
     /**
+     * この{@code RGBImage}の画像データのコピーを返します。
+     *
+     * @return このイメージの画像データのコピー
+     */
+    int[] getData();
+
+    /**
      * この{@code RGBImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBイメージのRチャンネルの新しいグレースケールイメージ

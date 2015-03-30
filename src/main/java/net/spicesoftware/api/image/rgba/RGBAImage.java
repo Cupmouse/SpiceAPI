@@ -55,6 +55,34 @@ public interface RGBAImage extends Image {
     long getColorLongAt(Vector2i position);
 
     /**
+     * この{@code RGBAImage}の指定されたx, yの位置にある色をRGBA32で符号なし整数の{@code int}で返します。
+     *
+     * @param x 取得する色のx位置
+     * @param y 取得する色のy位置
+     * @return このRGBAImageの指定されたx, yの位置にある色
+     */
+    @Min(-2147483648)
+    @Max(2147483647)
+    int getColorIntAt(@Min(0) int x, @Min(0) int y);
+
+    /**
+     * この{@code RGBAImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色をRGBA32で符号なし整数の{@code int}で返します。
+     *
+     * @param position 取得する色の位置
+     * @return このRGBAImageの指定された位置にある色
+     */
+    @Min(-2147483648)
+    @Max(2147483647)
+    int getColorIntAt(Vector2i position);
+
+    /**
+     * この{@code RGBImage}の画像データのコピーを返します。
+     *
+     * @return このイメージの画像データのコピー
+     */
+    int[] getData();
+
+    /**
      * この{@code RGBAImage}のRチャンネルの新しい{@link net.spicesoftware.api.image.gs.CachedGrayScaleImage}を返します。
      *
      * @return このRGBAイメージのRチャンネルの新しいグレースケールイメージ

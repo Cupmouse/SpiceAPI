@@ -72,6 +72,10 @@ public final class RGBA32Color implements Color, Serializable {
         return (r << 24) | (g << 16) | (b << 8) | a;
     }
 
+    public int getIntValue() {
+        return (int) getLongValue();
+    }
+
     public boolean isTransparent() {
         return a == 0xFF;
     }

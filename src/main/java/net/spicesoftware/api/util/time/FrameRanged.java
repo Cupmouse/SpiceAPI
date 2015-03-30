@@ -1,5 +1,6 @@
 package net.spicesoftware.api.util.time;
 
+import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.ShallowCopyable;
 
 import javax.validation.constraints.Min;
@@ -11,7 +12,7 @@ import java.io.Serializable;
  *
  * @since 2014/10/06
  */
-public final class FrameRanged<T> implements ShallowCopyable, Serializable {
+public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyable, DeepCopyable, Serializable {
 
     public final T ranged;
     public final int start;
@@ -42,6 +43,11 @@ public final class FrameRanged<T> implements ShallowCopyable, Serializable {
     @Override
     public FrameRanged<T> copyShallowly() {
         return new FrameRanged<>(ranged, start, end);
+    }
+
+    @Override
+    public DeepCopyable copyDeeply() {
+        return new FrameRanged<>(ranged.copyDeeply(), start, end);
     }
 
     @Override

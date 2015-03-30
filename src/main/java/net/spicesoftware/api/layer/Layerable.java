@@ -89,16 +89,16 @@ public interface Layerable extends DeepCopyable, Serializable {
     void removeAllLayer();
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticLayer}を返します。
+     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticField}を返します。
      *
-     * @return このLayerableのスタティックレイヤー
+     * @return このLayerableのスタティックフィールド
      */
-    StaticLayer getStaticLayer();
+    StaticField getStaticField();
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticLayer}を新しいものに置き換えます。
+     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticField}を新しいものに置き換えます。
      */
-    void resetStaticLayer();
+    void resetStaticField();
 
     @Override
     Layerable copyDeeply();

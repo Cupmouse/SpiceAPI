@@ -18,7 +18,7 @@ import java.util.Map;
 public interface GradientFilling<T extends Color> extends DecorationFilling {
 
     /**
-     * この{@code Gradient}の中間色のマッピングを返します。
+     * この{@code GradientFilling}の中間色のマッピングを返します。
      *
      * @return このグラデーションの中間色のマッピング
      */
@@ -26,7 +26,7 @@ public interface GradientFilling<T extends Color> extends DecorationFilling {
     Map<Integer, T> getColorStopMap();
 
     /**
-     * この{@code Gradient}の指定された位置の中間色を返します。
+     * この{@code GradientFilling}の指定された位置の中間色を返します。
      *
      * @param i 取得する中間色の位置
      * @return このグラデーションの指定された位置の中間色
@@ -34,7 +34,7 @@ public interface GradientFilling<T extends Color> extends DecorationFilling {
     Color getColorStopAt(@Min(0) @Max(999) int i);
 
     /**
-     * この{@code Gradient}の指定された位置の中間色を設定します。
+     * この{@code GradientFilling}の指定された位置の中間色を設定します。
      *
      * @param i     中間色を設定する位置
      * @param color 中間色にとして設定する色
@@ -42,11 +42,30 @@ public interface GradientFilling<T extends Color> extends DecorationFilling {
     void setColorStopAt(@Min(0) @Max(999) int i, T color);
 
     /**
-     * この{@code Gradient}の指定された位置の中間色を削除します。
+     * この{@code GradientFilling}の指定された位置の中間色を削除します。
      *
      * @param i 削除する中間色の位置
      */
     void removeColorStopAt(@Min(0) @Max(999) int i);
+
+    /**
+     * この{@code GradientFilling}がリピートするかどうかを設定します。
+     *
+     * @param repeat このグラデーションがリピートするかどうか
+     */
+    void setRepeat(boolean repeat);
+
+    /**
+     * この{@code GradientFilling}がリピートするように設定します。
+     */
+    void repeat();
+
+    /**
+     * この{@code GradientFilling}がリピートするかどうかを返します。
+     *
+     * @return このグラデーションがリピートするかどうか
+     */
+    boolean isRepeating();
 
     @Override
     GradientFilling copyDeeply();

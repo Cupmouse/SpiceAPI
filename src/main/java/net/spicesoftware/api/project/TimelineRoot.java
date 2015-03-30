@@ -9,13 +9,6 @@ import net.spicesoftware.api.Box;
  */
 public interface TimelineRoot extends Box {
 
-    /**
-     * この{@code TimelineRoot}のプロジェクトを返します。
-     *
-     * @return このタイムラインのプロジェクト
-     */
-    Project getProject();
-
     @Override
     TimelineRoot copyDeeply();
 }

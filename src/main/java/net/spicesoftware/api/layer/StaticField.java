@@ -1,17 +1,20 @@
 package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.item.StaticItem;
+import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.value.HasValues;
 
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
- * スタティックアイテムを持つレイヤーです。
+ * スタティックに値を持つクラスです。
  *
  * @since 2014/11/22
  */
-public interface StaticLayer extends Serializable {
+public interface StaticField extends HasValues, DeepCopyable, Serializable {
 
     /**
      * この{@code StaticLayer}のすべてのスタティックアイテムを返します。
@@ -41,10 +44,9 @@ public interface StaticLayer extends Serializable {
      * この{@code StaticLayer}の最初に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
      *
      * @param staticItem 追加するスタティックアイテム
-     * @return 追加されたスタティックアイテムのインデックス番号
      */
     @Min(0)
-    int addStaticItemFirst(StaticItem staticItem);
+    void addStaticItemFirst(StaticItem staticItem);
 
     /**
      * この{@code StaticLayer}の最後に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
@@ -61,7 +63,17 @@ public interface StaticLayer extends Serializable {
      * @param staticItem 追加するスタティックアイテム
      */
     @Min(0)
-    void insertStaticItem(StaticItem staticItem, @Min(0) int index);
+    void insertStaticItem(StaticItem staticItem, @Min(0) int index) throws IndexOutOfBoundsException;
+
+    /**
+     * この{@code StaticLayer}の最初のスタティックアイテムを削除します。
+     */
+    void removeFirstStaticItem() throws NoSuchElementException;
+
+    /**
+     * この{@code StaticLayer}の最後のスタティックアイテムを削除します。
+     */
+    void removeLastStaticItem() throws NoSuchElementException;
 
     /**
      * この{@code StaticLayer}の指定されたインデックス番号のスタティックアイテムを削除します。
