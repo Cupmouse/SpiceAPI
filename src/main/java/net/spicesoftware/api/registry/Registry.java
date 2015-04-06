@@ -405,15 +405,15 @@ public interface Registry {
      */
     void registerImageBlender(@Size(min = 1) String id, ImageBlender imageBlender) throws AlreadyRegisteredException;
 
-    /**
-     * イメージの{@link java.lang.Class}とIdから{@link net.spicesoftware.api.image.blender.ImageBlender}を返します。
-     *
-     * @param imageClass {@link net.spicesoftware.api.image.blender.ImageBlender}を取得したいイメージの{@link java.lang.Class}
-     * @param id         取得したい{@link net.spicesoftware.api.image.blender.ImageBlender}のId
-     * @param <T>        {@link net.spicesoftware.api.image.blender.ImageBlender}を取得したいイメージの型
-     * @return 指定されたIdと型のためのImageBlender
-     */
-    <T extends Image> Optional<ImageBlender<T>> getImageBlender(Class<T> imageClass, @Size(min = 1) String id);
+//    /**
+//     * イメージの{@link java.lang.Class}とIdから{@link net.spicesoftware.api.image.blender.ImageBlender}を返します。
+//     *
+//     * @param imageClass {@link net.spicesoftware.api.image.blender.ImageBlender}を取得したいイメージの{@link java.lang.Class}
+//     * @param id         取得したい{@link net.spicesoftware.api.image.blender.ImageBlender}のId
+//     * @param <T>        {@link net.spicesoftware.api.image.blender.ImageBlender}を取得したいイメージの型
+//     * @return 指定されたIdと型のためのImageBlender
+//     */
+//    <T extends Image> Optional<ImageBlender<T, D>> getImageBlender(Class<T> imageClass, @Size(min = 1) String id);
 
     /**
      * 指定された登録されている{@net.spicesoftware.api.image.blender.ImageBlender}のIdを返します。

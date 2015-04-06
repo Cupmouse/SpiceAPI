@@ -77,7 +77,7 @@ public final class RGBA32Color implements Color, Serializable {
     }
 
     public boolean isTransparent() {
-        return a == 0xFF;
+        return a == 0;
     }
 
     @Override
