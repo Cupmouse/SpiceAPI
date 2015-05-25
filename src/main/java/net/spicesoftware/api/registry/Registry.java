@@ -222,7 +222,7 @@ public interface Registry {
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}と3つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgb.EditableRGBImage}を作成します。
-     * 
+     *
      * @param size     新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
      * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
      * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
@@ -230,7 +230,7 @@ public interface Registry {
      * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
      */
     EditableRGBImage createNewCSRGBImage(Vector2i size, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB);
-    
+
     /**
      * 幅と高さとRGBA32形式の画像情報を含む{@code int[]}から新しい{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}を作成します。
      *
@@ -325,7 +325,7 @@ public interface Registry {
 
     /**
      * 幅と高さと3つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
-     * 
+     *
      * @param height   新しい画像の高さ
      * @param width    新しい画像の幅
      * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
@@ -338,7 +338,7 @@ public interface Registry {
 
     /**
      * 指定された高さと幅を含む{@link net.spicesoftware.api.util.vector.Vector2i}と4つのチャンネルごとの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}から新しい{@link net.spicesoftware.api.image.rgba.EditableRGBAImage}を作成します。
-     * 
+     *
      * @param size     新しい画像の高さと幅の{@link net.spicesoftware.api.util.vector.Vector2i}
      * @param channelR 新しい画像のRチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}
      * @param channelG 新しい画像のGチャンネルの{@link net.spicesoftware.api.image.gs.EditableGrayScaleImage}

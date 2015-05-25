@@ -63,4 +63,9 @@ public interface ResourceTreeElement {
      */
     Resource renameResourceTo(String beforeName, String afterName);
 
+    Map<String, ResourceTreeElement> getChildElementMap();
+
+    Optional<ResourceTreeElement> getChildElement(String name);
+
+    ResourceTreeElement createChildElement(String name);
 }

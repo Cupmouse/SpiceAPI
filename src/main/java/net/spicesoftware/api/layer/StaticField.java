@@ -83,4 +83,6 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
      */
     void removeStaticItem(@Min(0) int index) throws IndexOutOfBoundsException;
 
+    @Override
+    StaticField copyDeeply();
 }

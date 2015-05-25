@@ -51,13 +51,13 @@ public interface Markers extends DeepCopyable {
      */
     void removeMarkerAt(@Min(0) int frame);
 
-    /**
-     * この{@code Markable}の指定したインデックス番号の{@link net.spicesoftware.api.marker.Marker}を削除します。
-     *
-     * @param index 削除するマーカーのインデックス番号
-     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
-     */
-    void removeMarkerByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+//    /**
+//     * この{@code Markable}の指定したインデックス番号の{@link net.spicesoftware.api.marker.Marker}を削除します。
+//     *
+//     * @param index 削除するマーカーのインデックス番号
+//     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+//     */
+//    void removeMarkerByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     @Override
     Markers copyDeeply();

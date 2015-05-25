@@ -2,10 +2,7 @@ package net.spicesoftware.api.value;
 
 import net.spicesoftware.api.util.DeepCopyable;
 
-import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Map;
-import java.util.Optional;
 
 /**
  * {@link net.spicesoftware.api.value.Value}を持つことを表すインターフェイスです。
@@ -15,19 +12,11 @@ import java.util.Optional;
 public interface HasValues extends DeepCopyable, Serializable {
 
     /**
-     * この{@code HasValues}の{@link net.spicesoftware.api.value.Value}のマッピングを返します。
+     * この{@code HasValues}が持つ全値を持つ{@link Values}を返します。
      *
-     * @return 値のマッピング
+     * @return これが持つ全値を持つValues
      */
-    Map<String, Value<?>> getValueMap();
-
-    /**
-     * この{@code HasValues}の指定されたIDの{@link net.spicesoftware.api.value.Value}を返します。
-     *
-     * @param id id
-     * @return 指定されたIDの値
-     */
-    Optional<Value<?>> getValue(@Size(min = 1) String id);
+    Values getValues();
 
     @Override
     HasValues copyDeeply();

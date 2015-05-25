@@ -18,7 +18,7 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
      *
      * @return このキーフレームの補間法
      */
-    Interpolator getInterpolator();
+    Interpolator<T> getInterpolator();
 
     /**
      * この{@code KeyFrame}の補間法を設定します。
