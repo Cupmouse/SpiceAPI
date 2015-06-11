@@ -30,14 +30,14 @@ public interface Box extends Layerable {
     int getHeight();
 
     /**
-     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}で返します。
+     * この{@code Box}のサイズを{@link Vector2i}で返します。
      *
      * @return このボックスのサイズ
      */
     Vector2i getSize();
 
     /**
-     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}を指定して設定します。
+     * この{@code Box}のサイズを{@link Vector2i}を指定して設定します。
      *
      * @param size このボックスに設定するサイズ
      */

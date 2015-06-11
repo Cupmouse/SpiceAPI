@@ -3,7 +3,7 @@ package net.spicesoftware.api.project;
 import net.spicesoftware.api.Box;
 
 /**
- * ルートの{@link net.spicesoftware.api.Box}です。
+ * ルートの{@link Box}です。
  *
  * @since 2015/01/17
  */

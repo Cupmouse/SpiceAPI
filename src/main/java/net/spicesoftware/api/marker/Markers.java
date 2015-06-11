@@ -14,14 +14,14 @@ import java.util.Optional;
 public interface Markers extends DeepCopyable {
 
     /**
-     * この{@code Markable}のすべての{@link net.spicesoftware.api.marker.Marker}のマッピングを返します。
+     * この{@code Markable}のすべての{@link Marker}のマッピングを返します。
      *
      * @return すべてのマーカーのマッピング
      */
     Map<Integer, Marker> getMarkerMap();
 
     /**
-     * この{@code Markable}の{@link net.spicesoftware.api.marker.Marker}の総数を返します。
+     * この{@code Markable}の{@link Marker}の総数を返します。
      *
      * @return マーカーの総数
      */
@@ -29,7 +29,7 @@ public interface Markers extends DeepCopyable {
     int getNumberOfMarkers();
 
     /**
-     * この{@code Markable}の指定したフレームにある{@link net.spicesoftware.api.marker.Marker}を返します。
+     * この{@code Markable}の指定したフレームにある{@link Marker}を返します。
      *
      * @param frame フレーム
      * @return 指定したフレームにあるマーカー
@@ -37,7 +37,7 @@ public interface Markers extends DeepCopyable {
     Optional<Marker> getMarkerAt(@Min(0) int frame);
 
     /**
-     * この{@code Markable}の指定したフレームに{@link net.spicesoftware.api.marker.Marker}を追加します。
+     * この{@code Markable}の指定したフレームに{@link Marker}を追加します。
      *
      * @param frame フレーム
      * @return 追加したマーカー
@@ -45,14 +45,14 @@ public interface Markers extends DeepCopyable {
     Marker addMarkerAt(@Min(0) int frame);
 
     /**
-     * この{@code Markable}の指定したフレームの{@link net.spicesoftware.api.marker.Marker}を削除します。
+     * この{@code Markable}の指定したフレームの{@link Marker}を削除します。
      *
      * @param frame 削除するマーカーのフレーム
      */
     void removeMarkerAt(@Min(0) int frame);
 
 //    /**
-//     * この{@code Markable}の指定したインデックス番号の{@link net.spicesoftware.api.marker.Marker}を削除します。
+//     * この{@code Markable}の指定したインデックス番号の{@link Marker}を削除します。
 //     *
 //     * @param index 削除するマーカーのインデックス番号
 //     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合

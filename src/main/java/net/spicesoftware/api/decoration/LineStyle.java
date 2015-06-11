@@ -11,14 +11,14 @@ import net.spicesoftware.api.util.DeepCopyable;
 public interface LineStyle extends DeepCopyable {
 
     /**
-     * この{@code LineStyle}の{@link net.spicesoftware.api.decoration.fill.DecorationFilling}を返します。
+     * この{@code LineStyle}の{@link DecorationFilling}を返します。
      *
      * @return この線スタイルの塗りつぶし
      */
     DecorationFilling getDecoration();
 
     /**
-     * この{@code LineStyle}の{@link net.spicesoftware.api.decoration.fill.DecorationFilling}を設定します。
+     * この{@code LineStyle}の{@link DecorationFilling}を設定します。
      *
      * @param decorationFilling この線スタイルに設定する塗りつぶし
      */
