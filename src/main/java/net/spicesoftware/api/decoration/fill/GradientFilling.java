@@ -11,8 +11,8 @@ import java.util.Map;
  * グラデーションのキーとなる色(中間色)を、0を最小、999を最大として配置します。
  * キーの間の色を補完することで、グラデーションになります。
  *
- * @see net.spicesoftware.api.decoration.fill.GradientFillingLinear
- * @see net.spicesoftware.api.decoration.fill.GradientFillingRadial
+ * @see GradientFillingLinear
+ * @see GradientFillingRadial
  * @since 2015/01/27
  */
 public interface GradientFilling<T extends Color> extends DecorationFilling {

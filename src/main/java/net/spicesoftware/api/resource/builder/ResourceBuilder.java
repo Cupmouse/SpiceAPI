@@ -11,10 +11,10 @@ import net.spicesoftware.api.util.DeepCopyable;
 public interface ResourceBuilder<T extends Resource> extends DeepCopyable {
 
     /**
-     * ビルドし、{@link net.spicesoftware.api.resource.Resource}を返します。
+     * ビルドし、{@link Resource}を返します。
      *
      * @return 作成されたリソース
-     * @throws java.lang.IllegalStateException ビルドする条件を満たしていない場合
+     * @throws IllegalStateException ビルドする条件を満たしていない場合
      */
     T build() throws IllegalStateException;
 

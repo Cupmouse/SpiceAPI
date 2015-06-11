@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * キーフレームを持ち、キーフレームでフレームごとに値が変化する{@link net.spicesoftware.api.value.Value}です。
+ * キーフレームを持ち、キーフレームでフレームごとに値が変化する{@link Value}です。
  *
  * @since 2014/12/13
  */

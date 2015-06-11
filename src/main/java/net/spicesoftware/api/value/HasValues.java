@@ -5,7 +5,7 @@ import net.spicesoftware.api.util.DeepCopyable;
 import java.io.Serializable;
 
 /**
- * {@link net.spicesoftware.api.value.Value}を持つことを表すインターフェイスです。
+ * {@link Value}を持つことを表すインターフェイスです。
  *
  * @since 2014/12/06
  */
