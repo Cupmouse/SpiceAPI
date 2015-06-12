@@ -23,9 +23,10 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
     /**
      * この{@code KeyFrame}の補間法を設定します。
      *
-     * @param interpolator 設定する補間法
+     * @param clazz 設定する補間法の値の{@link Class}
+     * @param clazz 設定する補間法の登録Id
      */
-    void setInterpolator(Interpolator<T> interpolator) throws NotRegisteredInterpolatorException;
+    void setInterpolator(Class<T> clazz, String id) throws NotRegisteredInterpolatorException;
 
     /**
      * この{@code KeyFrame}の値を返します。
@@ -43,8 +44,8 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
 
     /**
      * この{@code KeyFrame}のディープコピーを返します。
-     * {@link Interpolator}のインスタンスはコピーされません。
-     * 全く同じインスタンスの{@link Interpolator}がコピーに格納されます。
+     * {@link net.spicesoftware.api.value.Interpolator}のインスタンスはコピーされません。
+     * 全く同じインスタンスの{@link net.spicesoftware.api.value.Interpolator}がコピーに格納されます。
      *
      * @return このキーフレームのディープコピー
      */
