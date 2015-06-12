@@ -20,6 +20,11 @@ public final class Pair<A, B> {
     }
 
     @Override
+    public int hashCode() {
+        return 31 * a.hashCode() + b.hashCode();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;

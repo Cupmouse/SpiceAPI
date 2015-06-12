@@ -400,7 +400,7 @@ public interface Registry {
      * @throws NotRegisteredInterpolatorException {@link Interpolator}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <T> String getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator) throws NotRegisteredInterpolatorException;
+    <T> Optional<String> getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator) throws NotRegisteredInterpolatorException;
 
     /**
      * 指定された{@link Interpolator}が登録されているかを真偽値で返します。
@@ -422,15 +422,15 @@ public interface Registry {
      */
     <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<?, I> imageBlender) throws AlreadyRegisteredException;
 
-//    /**
-//     * イメージの{@link java.lang.Class}とIdから{@link blender.ImageBlender}を返します。
-//     *
-//     * @param imageClass {@link blender.ImageBlender}を取得したいイメージの{@link java.lang.Class}
-//     * @param id         取得したい{@link blender.ImageBlender}のId
-//     * @param <T>        {@link blender.ImageBlender}を取得したいイメージの型
-//     * @return 指定されたIdと型のためのImageBlender
-//     */
-//    <T extends Image> Optional<ImageBlender<T, D>> getImageBlender(Class<T> imageClass, @Size(min = 1) String id);
+    /**
+     * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
+     *
+     * @param clazz {@link ImageBlender}を取得したいイメージの{@link Class}
+     * @param id         取得したい{@link ImageBlender}のId
+     * @param <I>        {@link ImageBlender}を取得したいイメージの型
+     * @return 指定されたIdと型のためのImageBlender
+     */
+    <I extends CachedImage> Optional<ImageBlender<?, I>> getImageBlender(Class<I> clazz, @Size(min = 1) String id);
 
     /**
      * 指定された登録されている{@link ImageBlender}のIdを返します。
@@ -441,7 +441,7 @@ public interface Registry {
      * @throws NotRegisteredImageBlenderException {@link ImageBlender}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends CachedImage> String getImageBlendersId(Class<I> clazz, ImageBlender<?, I> imageBlender) throws NotRegisteredImageBlenderException;
+    <I extends CachedImage> Optional<String> getImageBlendersId(Class<I> clazz, ImageBlender<?, I> imageBlender) throws NotRegisteredImageBlenderException;
 
     /**
      * 指定された{@link ImageBlender}が登録されているかを真偽値で返します。
@@ -486,7 +486,7 @@ public interface Registry {
      * @throws NotRegisteredImageConverterException {@link ImageConverter}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends Image, O extends CachedImage> String getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter) throws NotRegisteredImageConverterException;
+    <I extends Image, O extends CachedImage> Optional<String> getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter) throws NotRegisteredImageConverterException;
 
     /**
      * 指定された{@link ImageConverter}が登録されているかを真偽値で返します。
