@@ -110,6 +110,9 @@ public interface Layer extends DeepCopyable, Serializable {
      */
     void removeItemByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
+
+    // TODO ブレンダーについてもっと考える必要がある
+
     /**
      * この{@code Layer}の{@link ImageBlender}を返します。
      *

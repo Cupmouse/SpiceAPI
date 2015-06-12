@@ -426,8 +426,8 @@ public interface Registry {
      * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
      *
      * @param clazz {@link ImageBlender}を取得したいイメージの{@link Class}
-     * @param id         取得したい{@link ImageBlender}のId
-     * @param <I>        {@link ImageBlender}を取得したいイメージの型
+     * @param id    取得したい{@link ImageBlender}のId
+     * @param <I>   {@link ImageBlender}を取得したいイメージの型
      * @return 指定されたIdと型のためのImageBlender
      */
     <I extends CachedImage> Optional<ImageBlender<?, I>> getImageBlender(Class<I> clazz, @Size(min = 1) String id);
