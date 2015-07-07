@@ -3,7 +3,6 @@ package net.spicesoftware.api;
 import net.spicesoftware.api.layer.Layerable;
 import net.spicesoftware.api.util.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
-import net.spicesoftware.api.util.vector.Vector3i;
 
 import javax.validation.constraints.Min;
 
@@ -31,14 +30,14 @@ public interface Box extends Layerable {
     int getHeight();
 
     /**
-     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}で返します。
+     * この{@code Box}のサイズを{@link Vector2i}で返します。
      *
      * @return このボックスのサイズ
      */
     Vector2i getSize();
 
     /**
-     * この{@code Box}のサイズを{@link net.spicesoftware.api.util.vector.Vector3i}を指定して設定します。
+     * この{@code Box}のサイズを{@link Vector2i}を指定して設定します。
      *
      * @param size このボックスに設定するサイズ
      */
@@ -47,7 +46,7 @@ public interface Box extends Layerable {
     /**
      * この{@code Box}のサイズを幅と高さを指定して設定します。
      *
-     * @param width 幅
+     * @param width  幅
      * @param height 高さ
      */
     void setSize(int width, int height);

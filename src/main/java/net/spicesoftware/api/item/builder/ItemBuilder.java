@@ -8,7 +8,7 @@ import net.spicesoftware.api.item.Item;
 public interface ItemBuilder<T extends Item> {
 
     /**
-     * この{@code Resource}から新しい{@link net.spicesoftware.api.item.Item}を作成し返します。
+     * この{@code Resource}から新しい{@link Item}を作成し返します。
      *
      * @return このリソースからの新しいアイテム
      */

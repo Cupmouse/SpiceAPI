@@ -17,7 +17,7 @@ public interface Interpolator<T> {
      * @param valueEnd      終了フレームでの値
      * @param frameAt       求めるフレーム
      * @return 指定されたフレームでの値
-     * @throws java.lang.IllegalArgumentException frameAtに範囲を超える値が指定された場合
+     * @throws IllegalArgumentException frameAtに範囲を超える値が指定された場合
      */
     T calculate(@Min(0) int frameDuration, T valueStart, T valueEnd, @Min(0) int frameAt) throws IllegalArgumentException;
 
@@ -31,7 +31,7 @@ public interface Interpolator<T> {
      * @param frameAt    求めるフレーム
      *                   frameStart <= frameAt <= frameEnd
      * @return 指定されたフレームでの値
-     * @throws java.lang.IllegalArgumentException frameAtに範囲を超える値が指定された場合
+     * @throws IllegalArgumentException frameAtに範囲を超える値が指定された場合
      */
     T calculate(@Min(0) int frameStart, @Min(0) int frameEnd, T valueStart, T valueEnd, @Min(0) int frameAt) throws IllegalArgumentException;
 

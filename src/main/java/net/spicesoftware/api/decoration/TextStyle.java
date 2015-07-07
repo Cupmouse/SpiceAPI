@@ -13,14 +13,14 @@ import java.util.Optional;
 public interface TextStyle extends DeepCopyable {
 
     /**
-     * この{@code TextStyle}のアウトラインの{@link net.spicesoftware.api.decoration.LineStyle}を返します。
+     * この{@code TextStyle}のアウトラインの{@link LineStyle}を返します。
      *
      * @return このテキストスタイルのアウトラインのスタイル
      */
     Optional<LineStyle> getOutline();
 
     /**
-     * この{@code TextStyle}のアウトラインの{@link net.spicesoftware.api.decoration.LineStyle}を設定します。
+     * この{@code TextStyle}のアウトラインの{@link LineStyle}を設定します。
      *
      * @param outline このテキストスタイルに設定するアウトラインのスタイル
      */
@@ -34,14 +34,14 @@ public interface TextStyle extends DeepCopyable {
     boolean isOutlined();
 
     /**
-     * この{@code TextStyle}の文字の{@link net.spicesoftware.api.decoration.fill.DecorationFilling}を返します。
+     * この{@code TextStyle}の文字の{@link DecorationFilling}を返します。
      *
      * @return このテキストスタイルの文字のデコレーション
      */
     DecorationFilling getTextDecoration();
 
     /**
-     * この{@code TextStyle}の文字の{@link net.spicesoftware.api.decoration.fill.DecorationFilling}を設定します。
+     * この{@code TextStyle}の文字の{@link DecorationFilling}を設定します。
      *
      * @param textDecoration このテキストスタイルに設定する文字のデコレーション
      */

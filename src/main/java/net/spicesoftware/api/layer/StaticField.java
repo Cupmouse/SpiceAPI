@@ -41,7 +41,7 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
     StaticItem getStaticItem(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
-     * この{@code StaticLayer}の最初に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
+     * この{@code StaticLayer}の最初に指定された{@link StaticItem}を追加します。
      *
      * @param staticItem 追加するスタティックアイテム
      */
@@ -49,7 +49,7 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
     void addStaticItemFirst(StaticItem staticItem);
 
     /**
-     * この{@code StaticLayer}の最後に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
+     * この{@code StaticLayer}の最後に指定された{@link StaticItem}を追加します。
      *
      * @param staticItem 追加するスタティックアイテム
      * @return 追加されたスタティックアイテムのインデックス番号
@@ -58,7 +58,7 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
     int addStaticItemLast(StaticItem staticItem);
 
     /**
-     * この{@code StaticLayer}の最後に指定された{@link net.spicesoftware.api.item.StaticItem}を追加します。
+     * この{@code StaticLayer}の最後に指定された{@link StaticItem}を追加します。
      *
      * @param staticItem 追加するスタティックアイテム
      */
@@ -83,4 +83,6 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
      */
     void removeStaticItem(@Min(0) int index) throws IndexOutOfBoundsException;
 
+    @Override
+    StaticField copyDeeply();
 }

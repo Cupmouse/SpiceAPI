@@ -15,6 +15,15 @@ public final class Pair<A, B> {
         this.b = b;
     }
 
+    public static <A, B> Pair of(A a, B b) {
+        return new Pair(a, b);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * a.hashCode() + b.hashCode();
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
