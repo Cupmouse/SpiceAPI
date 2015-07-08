@@ -1,7 +1,7 @@
-package net.spicesoftware.api.util.color;
+package net.spicesoftware.api.util.decoration.fill.color;
 
 /**
- * {@link net.spicesoftware.api.util.color.RGB24Color}の基本的な色を保持します。
+ * {@link RGB24Color}の基本的な色を保持します。
  *
  * @since 2014/12/11
  */

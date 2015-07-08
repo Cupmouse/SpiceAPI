@@ -18,9 +18,9 @@ import net.spicesoftware.api.resource.builder.ResourceSoundBuilder;
 import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
 import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
-import net.spicesoftware.api.util.color.GrayScaleColor;
-import net.spicesoftware.api.util.color.RGB24Color;
-import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.decoration.fill.color.GrayScaleColor;
+import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 
