@@ -26,6 +26,14 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
     private Map<Integer, T> colorStopMap = new HashMap<Integer, T>();
 
     public ColorStopGradientFilling(T firstColor, int firstColorPos, T secondColor, int secondColorPos, boolean repeat) {
+        if (firstColorPos < 0 || firstColorPos > 999 || secondColorPos < 0 || secondColorPos > 999) {
+            throw new IllegalArgumentException();
+        }
+        if (firstColor == null || secondColor == null) {
+            throw new NullPointerException();
+        }
+        colorStopMap.put(firstColorPos, firstColor);
+        colorStopMap.put(secondColorPos, secondColor);
         this.repeat = repeat;
     }
 
@@ -52,6 +60,9 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
      * @return このグラデーションの指定された位置の中間色
      */
     public Optional<T> getColorStopAt(@Min(0) @Max(999) int i) {
+        if (i < 0 || i > 999) {
+            throw new IllegalArgumentException();
+        }
         return Optional.ofNullable(colorStopMap.get(i));
     }
 
@@ -62,6 +73,12 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
      * @param color 中間色にとして設定する色
      */
     public void setColorStopAt(@Min(0) @Max(999) int i, T color) {
+        if (i < 0 || i > 999) {
+            throw new IllegalArgumentException();
+        }
+        if (color == null) {
+            throw new NullPointerException();
+        }
         colorStopMap.put(i, color);
     }
 
@@ -71,6 +88,9 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
      * @param i 削除する中間色の位置
      */
     public void removeColorStopAt(@Min(0) @Max(999) int i) {
+        if (i < 0 || i > 999) {
+            throw new IllegalArgumentException();
+        }
         colorStopMap.remove(i);
     }
 
