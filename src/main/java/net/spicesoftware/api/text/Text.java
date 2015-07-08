@@ -1,7 +1,7 @@
 package net.spicesoftware.api.text;
 
-import net.spicesoftware.api.decoration.TextStyle;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.style.TextStyle;
 
 import javax.validation.constraints.Min;
 import java.util.List;
@@ -70,7 +70,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param object テキストビルダーの指定インデックスに追加する{@link Object}
      * @return このテキストビルダーのインスタンス
@@ -98,7 +98,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param string テキストビルダーの指定インデックスに追加する{@link String}
      * @return このテキストビルダーのインスタンス
@@ -118,7 +118,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param b テキストビルダーの指定インデックスに追加する{@code boolean}
      * @return このテキストビルダーのインスタンス
@@ -138,7 +138,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param b テキストビルダーの指定インデックスに追加する{@code boolean}
      * @return このテキストビルダーのインスタンス
@@ -158,7 +158,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param c テキストビルダーの指定インデックスに追加する{@code char}
      * @return このテキストビルダーのインスタンス
@@ -178,7 +178,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param s テキストビルダーの指定インデックスに追加する{@code short}
      * @return このテキストビルダーのインスタンス
@@ -198,7 +198,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param i テキストビルダーの指定インデックスに追加する{@code int}
      * @return このテキストビルダーのインスタンス
@@ -218,7 +218,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param l テキストビルダーの指定インデックスに追加する{@code long}
      * @return このテキストビルダーのインスタンス
@@ -238,7 +238,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param f テキストビルダーの指定インデックスに追加する{@code float}
      * @return このテキストビルダーのインスタンス
@@ -258,7 +258,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param d テキストビルダーの指定インデックスに追加する{@code double}
      * @return このテキストビルダーのインスタンス
@@ -282,7 +282,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index  挿入するインデックス
      * @param object テキストビルダーの指定インデックスに追加する{@link Object}
@@ -316,7 +316,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index  挿入するインデックス
      * @param string テキストビルダーの指定インデックスに追加する{@link String}
@@ -340,7 +340,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param b     テキストビルダーの指定インデックスに追加する{@code boolean}
@@ -364,7 +364,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param b     テキストビルダーの指定インデックスに追加する{@code boolean}
@@ -388,7 +388,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param c     テキストビルダーの指定インデックスに追加する{@code char}
@@ -412,7 +412,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param s     テキストビルダーの指定インデックスに追加する{@code short}
@@ -436,7 +436,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param i     テキストビルダーの指定インデックスに追加する{@code int}
@@ -460,7 +460,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param l     テキストビルダーの指定インデックスに追加する{@code long}
@@ -484,7 +484,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param f     テキストビルダーの指定インデックスに追加する{@code float}
@@ -508,7 +508,7 @@ public interface Text extends DeepCopyable {
 
     /**
      * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
-     * 何も{@link net.spicesoftware.api.decoration.TextStyle}がつきません（デフォルト設定が適用されます）。
+     * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
      * @param d     テキストビルダーの指定インデックスに追加する{@code double}

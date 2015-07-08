@@ -1,7 +1,7 @@
 package net.spicesoftware.api.text;
 
-import net.spicesoftware.api.decoration.TextStyle;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.style.TextStyle;
 
 import java.util.Optional;
 
