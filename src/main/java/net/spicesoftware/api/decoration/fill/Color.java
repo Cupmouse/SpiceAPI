@@ -1,11 +1,15 @@
 package net.spicesoftware.api.decoration.fill;
 
+import net.spicesoftware.api.util.decoration.fill.color.GrayScaleColor;
+import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
+
 /**
  * 色を表すインターフェイスです。
  *
- * @see net.spicesoftware.api.util.color.GrayScaleColor
- * @see net.spicesoftware.api.util.color.RGB24Color
- * @see net.spicesoftware.api.util.color.RGBA32Color
+ * @see GrayScaleColor
+ * @see RGB24Color
+ * @see RGBA32Color
  * @since 2015/02/01
  */
 public interface Color extends DecorationFilling {

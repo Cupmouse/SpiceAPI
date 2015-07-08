@@ -20,9 +20,9 @@ import net.spicesoftware.api.util.AlreadyRegisteredException;
 import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
 import net.spicesoftware.api.util.NotRegisteredImageConverterException;
 import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
-import net.spicesoftware.api.util.color.GrayScaleColor;
-import net.spicesoftware.api.util.color.RGB24Color;
-import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.decoration.fill.color.GrayScaleColor;
+import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 

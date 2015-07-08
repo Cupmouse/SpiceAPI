@@ -1,7 +1,7 @@
 package net.spicesoftware.api;
 
 import net.spicesoftware.api.layer.Layerable;
-import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Min;

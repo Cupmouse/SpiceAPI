@@ -1,6 +1,5 @@
 package net.spicesoftware.api.decoration;
 
-import net.spicesoftware.api.decoration.fill.gradient.GradientFilling;
 import net.spicesoftware.api.util.DeepCopyable;
 
 /**

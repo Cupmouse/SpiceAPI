@@ -1,4 +1,4 @@
-package net.spicesoftware.api.util.color;
+package net.spicesoftware.api.util.decoration.fill.color;
 
 import net.spicesoftware.api.decoration.fill.Color;
 
