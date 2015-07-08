@@ -16,10 +16,8 @@ import net.spicesoftware.api.resource.builder.ResourceImageBuilder;
 import net.spicesoftware.api.resource.builder.ResourceShapeBuilder;
 import net.spicesoftware.api.resource.builder.ResourceSoundBuilder;
 import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
-import net.spicesoftware.api.util.AlreadyRegisteredException;
-import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
-import net.spicesoftware.api.util.NotRegisteredImageConverterException;
-import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
+import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
+import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.color.GrayScaleColor;
 import net.spicesoftware.api.util.color.RGB24Color;
 import net.spicesoftware.api.util.color.RGBA32Color;
@@ -377,9 +375,9 @@ public interface Registry {
      * @param clazz        登録する{@link Interpolator}の補完する型の{@link Class}
      * @param id           登録する{@link Interpolator}に関連付けるId
      * @param interpolator 登録する{@link Interpolator}
-     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
-    <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredException;
+    <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredInRegistryException;
 
     /**
      * 指定された{@link java.lang.Class}とIdから{@link Interpolator}を返します。
@@ -397,10 +395,10 @@ public interface Registry {
      * @param clazz        登録されているかを確認する{@link Interpolator}の補完する型の{@link Class}
      * @param interpolator Idを取得する{@link Interpolator}
      * @return 指定したInterpolatorのId
-     * @throws NotRegisteredInterpolatorException {@link Interpolator}がレジストリに登録されていない場合
+     * @throws NotRegisteredInRegistryException {@link Interpolator}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <T> Optional<String> getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator) throws NotRegisteredInterpolatorException;
+    <T> Optional<String> getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator) throws NotRegisteredInRegistryException;
 
     /**
      * 指定された{@link Interpolator}が登録されているかを真偽値で返します。
@@ -418,9 +416,9 @@ public interface Registry {
      * @param clazz        登録する{@link ImageBlender}の合成する画像の型の{@link Class}
      * @param id           登録する{@link ImageBlender}に関連付けるId
      * @param imageBlender 登録する{@link ImageBlender}
-     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
-    <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<?, I> imageBlender) throws AlreadyRegisteredException;
+    <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<?, I> imageBlender) throws AlreadyRegisteredInRegistryException;
 
     /**
      * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
@@ -438,10 +436,10 @@ public interface Registry {
      * @param clazz        Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
      * @return 指定したImageBlenderのId
-     * @throws NotRegisteredImageBlenderException {@link ImageBlender}がレジストリに登録されていない場合
+     * @throws NotRegisteredInRegistryException {@link ImageBlender}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends CachedImage> Optional<String> getImageBlendersId(Class<I> clazz, ImageBlender<?, I> imageBlender) throws NotRegisteredImageBlenderException;
+    <I extends CachedImage> Optional<String> getImageBlendersId(Class<I> clazz, ImageBlender<?, I> imageBlender) throws NotRegisteredInRegistryException;
 
     /**
      * 指定された{@link ImageBlender}が登録されているかを真偽値で返します。
@@ -460,9 +458,9 @@ public interface Registry {
      * @param outputImageClass 登録する{@link ImageConverter}の変換後の画像の型の{@link Class}
      * @param id               登録する{@link ImageConverter}に関連付けるId
      * @param imageConverter   登録する{@link ImageConverter}
-     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
-    <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredException;
+    <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredInRegistryException;
 
     /**
      * 入力{@link Image}の{@link java.lang.Class}と出力{@link CachedImage}の{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
@@ -483,10 +481,10 @@ public interface Registry {
      * @param outputImageClass Idを取得する{@link ImageConverter}の変換後の画像の型の{@link Class}
      * @param imageConverter   Idを取得する{@link ImageConverter}
      * @return 指定したImageConverterのId
-     * @throws NotRegisteredImageConverterException {@link ImageConverter}がレジストリに登録されていない場合
+     * @throws NotRegisteredInRegistryException {@link ImageConverter}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends Image, O extends CachedImage> Optional<String> getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter) throws NotRegisteredImageConverterException;
+    <I extends Image, O extends CachedImage> Optional<String> getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter) throws NotRegisteredInRegistryException;
 
     /**
      * 指定された{@link ImageConverter}が登録されているかを真偽値で返します。
