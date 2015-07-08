@@ -12,6 +12,10 @@ public final class RGB24GradientFillingRadial extends GradientFillingRadial<RGB2
         super(firstColor, firstColorPos, secondColor, secondColorPos, repeat);
     }
 
+    public RGB24GradientFillingRadial(RGB24Color firstColor, RGB24Color secondColor) {
+        super(firstColor, secondColor);
+    }
+
     public RGB24GradientFillingRadial(RGB24Color firstColor, int firstColorPos, RGB24Color secondColor, int secondColorPos) {
         super(firstColor, firstColorPos, secondColor, secondColorPos, false);
     }

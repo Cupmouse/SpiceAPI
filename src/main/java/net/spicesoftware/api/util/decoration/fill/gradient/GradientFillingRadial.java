@@ -13,6 +13,10 @@ public abstract class GradientFillingRadial<T extends Color> extends ColorStopGr
         super(firstColor, firstColorPos, secondColor, secondColorPos, repeat);
     }
 
+    public GradientFillingRadial(T firstColor, T secondColor) {
+        super(firstColor, secondColor);
+    }
+
     public GradientFillingRadial(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
         super(firstColor, firstColorPos, secondColor, secondColorPos, false);
     }
