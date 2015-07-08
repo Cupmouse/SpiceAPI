@@ -1,9 +1,13 @@
-package net.spicesoftware.api.decoration.fill;
+package net.spicesoftware.api.decoration.fill.gradient;
+
+import net.spicesoftware.api.decoration.fill.Color;
+import net.spicesoftware.api.decoration.fill.DecorationFilling;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * グラデーションの塗りつぶしです。
@@ -31,7 +35,7 @@ public interface GradientFilling<T extends Color> extends DecorationFilling {
      * @param i 取得する中間色の位置
      * @return このグラデーションの指定された位置の中間色
      */
-    Color getColorStopAt(@Min(0) @Max(999) int i);
+    Optional<T> getColorStopAt(@Min(0) @Max(999) int i);
 
     /**
      * この{@code GradientFilling}の指定された位置の中間色を設定します。
@@ -68,5 +72,5 @@ public interface GradientFilling<T extends Color> extends DecorationFilling {
     boolean isRepeating();
 
     @Override
-    GradientFilling copyDeeply();
+    GradientFilling<T> copyDeeply();
 }

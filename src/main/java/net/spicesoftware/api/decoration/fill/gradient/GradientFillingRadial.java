@@ -1,4 +1,6 @@
-package net.spicesoftware.api.decoration.fill;
+package net.spicesoftware.api.decoration.fill.gradient;
+
+import net.spicesoftware.api.decoration.fill.Color;
 
 /**
  * 円形グラデーションです。

@@ -1,6 +1,7 @@
 package net.spicesoftware.api.decoration.fill;
 
 import net.spicesoftware.api.decoration.Decoration;
+import net.spicesoftware.api.decoration.fill.gradient.GradientFilling;
 
 /**
  * 塗りつぶしのデコレーションです。
