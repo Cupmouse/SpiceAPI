@@ -3,7 +3,7 @@ package net.spicesoftware.api.value;
 import net.spicesoftware.api.util.DeepCopyable;
 
 /**
- * キーフレームを持たない永久に固定の値をもつ{@link net.spicesoftware.api.value.Value}です。
+ * キーフレームを持たない永久に固定の値をもつ{@link Value}です。
  *
  * @since 2014/12/20
  */

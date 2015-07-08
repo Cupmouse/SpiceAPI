@@ -17,7 +17,7 @@ import javax.validation.constraints.Min;
 public interface GrayScaleImage extends Image {
 
     /**
-     * この{@code GrayScaleImage}の指定されたx, yの位置にある色の{@link net.spicesoftware.api.util.color.GrayScaleColor}を返します。
+     * この{@code GrayScaleImage}の指定されたx, yの位置にある色の{@link GrayScaleColor}を返します。
      *
      * @param x 取得する色のx位置
      * @param y 取得する色のy位置
@@ -26,7 +26,7 @@ public interface GrayScaleImage extends Image {
     GrayScaleColor getColorAt(@Min(0) int x, @Min(0) int y);
 
     /**
-     * この{@code GrayScaleImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色の{@link net.spicesoftware.api.util.color.GrayScaleColor}を返します。
+     * この{@code GrayScaleImage}の指定された{@link Vector2i}の位置にある色の{@link GrayScaleColor}を返します。
      *
      * @param position 取得する色の位置
      * @return このGrayScaleImageの指定された位置にある色
@@ -45,7 +45,7 @@ public interface GrayScaleImage extends Image {
     int getColorIntAt(@Min(0) int x, @Min(0) int y);
 
     /**
-     * この{@code GrayScaleImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色を0～0xFFで{@code int}で返します。
+     * この{@code GrayScaleImage}の指定された{@link Vector2i}の位置にある色を0～0xFFで{@code int}で返します。
      *
      * @param position 取得する色の位置
      * @return このGrayScaleImageの指定された位置にある色
@@ -66,7 +66,7 @@ public interface GrayScaleImage extends Image {
     int getColorByteAt(@Min(0) int x, @Min(0) int y);
 
     /**
-     * この{@code GrayScaleImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色を符号なし整数（-128～127）の{@code byte}で返します。
+     * この{@code GrayScaleImage}の指定された{@link Vector2i}の位置にある色を符号なし整数（-128～127）の{@code byte}で返します。
      *
      * @param position 取得する色の位置
      * @return このGrayScaleImageの指定された位置にある色
@@ -83,14 +83,14 @@ public interface GrayScaleImage extends Image {
     byte[] getData();
 
     /**
-     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgb.CachedRGBImage}に変換します。
+     * この{@code GrayScaleImage}を新しいイメージとして{@link CachedRGBImage}に変換します。
      *
      * @return 変換されたイメージ
      */
     CachedRGBImage toRGBImage();
 
     /**
-     * この{@code GrayScaleImage}を新しいイメージとして{@link net.spicesoftware.api.image.rgba.CachedRGBAImage}に変換します。
+     * この{@code GrayScaleImage}を新しいイメージとして{@link CachedRGBAImage}に変換します。
      *
      * @return 変換されたイメージ
      */

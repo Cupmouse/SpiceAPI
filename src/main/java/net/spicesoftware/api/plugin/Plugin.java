@@ -12,21 +12,21 @@ public interface Plugin {
     /**
      * 初期化時に呼ばれます。
      *
-     * @param spice {@link net.spicesoftware.api.Spice}インスタンス
+     * @param spice {@link Spice}インスタンス
      */
     void onInit(Spice spice);
 
     /**
      * 有効化時に呼ばれます。
      *
-     * @param spice {@link net.spicesoftware.api.Spice}インスタンス
+     * @param spice {@link Spice}インスタンス
      */
     void onEnable(Spice spice);
 
     /**
      * 無効化時に呼ばれます。
      *
-     * @param spice {@link net.spicesoftware.api.Spice}インスタンス
+     * @param spice {@link Spice}インスタンス
      */
     void onDisable(Spice spice);
 

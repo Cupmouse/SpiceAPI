@@ -14,14 +14,14 @@ import java.util.List;
 public interface Layerable extends DeepCopyable, Serializable {
 
     /**
-     * この{@code Layerable}のすべての{@link net.spicesoftware.api.layer.Layer}を上から順に並べたものを返します。
+     * この{@code Layerable}のすべての{@link Layer}を上から順に並べたものを返します。
      *
      * @return このLayerableのすべてのレイヤー
      */
     List<Layer> getLayers();
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.Layer}の総数を返します。
+     * この{@code Layerable}の{@link Layer}の総数を返します。
      *
      * @return このLayerableのレイヤーの総数
      */
@@ -29,74 +29,74 @@ public interface Layerable extends DeepCopyable, Serializable {
     int getNumberOfLayers();
 
     /**
-     * この{@code Layerable}の指定されたインデックス番号の{@link net.spicesoftware.api.layer.Layer}を返します。
+     * この{@code Layerable}の指定されたインデックス番号の{@link Layer}を返します。
      * インデックス番号は0以上で上から順に付けられます。
      *
      * @param index 取得するレイヤーのインデックス番号
      * @return このLayerableの指定されたインデックス番号のレイヤー
-     * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
     Layer getLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
-     * この{@code Layerable}の最後に新しい{@link net.spicesoftware.api.layer.Layer}を追加します。
+     * この{@code Layerable}の最後に新しい{@link Layer}を追加します。
      *
      * @return このLayerableに追加したレイヤー
      */
     Layer addLastNewLayer();
 
     /**
-     * この{@code Layerable}の最初に新しい{@link net.spicesoftware.api.layer.Layer}を追加します。
+     * この{@code Layerable}の最初に新しい{@link Layer}を追加します。
      *
      * @return このLayerableに追加したレイヤー
      */
     Layer addFirstNewLayer();
 
     /**
-     * 新しい{@link net.spicesoftware.api.layer.Layer}を指定されたインデックス番号として挿入します。
+     * 新しい{@link Layer}を指定されたインデックス番号として挿入します。
      *
      * @param index 追加するレイヤーに割り振られるインデックス番号
      * @return このLayerableに追加したレイヤー
-     * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
     Layer insertNewLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.Layer}を削除します。
+     * この{@code Layerable}の{@link Layer}を削除します。
      *
      * @param index このLayerableから削除するレイヤーの番号
-     * @throws java.lang.IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
     void removeLayer(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
-     * この{@code Layerable}の最初の{@link net.spicesoftware.api.layer.Layer}を削除します。
+     * この{@code Layerable}の最初の{@link Layer}を削除します。
      *
-     * @throws java.lang.IllegalStateException レイヤーが存在しない場合
+     * @throws IllegalStateException レイヤーが存在しない場合
      */
     void removeFirstLayer() throws IllegalStateException;
 
     /**
-     * この{@code Layerable}の最後の{@link net.spicesoftware.api.layer.Layer}を削除します。
+     * この{@code Layerable}の最後の{@link Layer}を削除します。
      *
-     * @throws java.lang.IllegalStateException レイヤーが存在しない場合
+     * @throws IllegalStateException レイヤーが存在しない場合
      */
     void removeLastLayer() throws IllegalStateException;
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.Layer}をすべて削除します。
+     * この{@code Layerable}の{@link Layer}をすべて削除します。
      */
     void removeAllLayer();
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticField}を返します。
+     * この{@code Layerable}の{@link StaticField}を返します。
      *
      * @return このLayerableのスタティックフィールド
      */
     StaticField getStaticField();
 
     /**
-     * この{@code Layerable}の{@link net.spicesoftware.api.layer.StaticField}を新しいものに置き換えます。
+     * この{@code Layerable}の{@link StaticField}を新しいものに置き換えます。
      */
     void resetStaticField();
 

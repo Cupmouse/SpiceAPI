@@ -12,17 +12,17 @@ import java.util.Optional;
 public interface Values extends DeepCopyable {
 
     /**
-     * ����{@code HasValues}��{@link net.spicesoftware.api.value.Value}�̃}�b�s���O��Ԃ��܂��B
+     * この{@code HasValues}の{@link Value}のマッピングを返します。
      *
-     * @return �l�̃}�b�s���O
+     * @return 値のマッピング
      */
     Map<String, ? extends Value<?>> getValueMap();
 
     /**
-     * ����{@code HasValues}�̎w�肳�ꂽID��{@link net.spicesoftware.api.value.Value}��Ԃ��܂��B
+     * この{@code HasValues}の指定されたIDの{@link Value}を返します。
      *
      * @param id id
-     * @return �w�肳�ꂽID�̒l
+     * @return 指定されたIDの値
      */
     Optional<? extends Value<?>> getValue(@Size(min = 1) String id);
 

@@ -7,8 +7,8 @@ import java.util.Optional;
 
 /**
  * Spiceインターフェイスです。
- * {@link net.spicesoftware.api.registry.Registry}と
- * {@link net.spicesoftware.api.project.Project}を持ちます。
+ * {@link Registry}と
+ * {@link Project}を持ちます。
  *
  * @since 2014/10/06
  */
