@@ -1,7 +1,7 @@
 package net.spicesoftware.api.image.rgba;
 
 import net.spicesoftware.api.image.ImageEditable;
-import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Max;
@@ -68,7 +68,7 @@ public interface EditableRGBAImage extends RGBAImage, ImageEditable {
     void setColor(Vector2i position, @Min(-2147483648) @Max(2147483647) int color);
 
     /**
-     * この{@code EditableRGBAImage}の指定されたx, yの位置に{@link net.spicesoftware.api.util.color.RGBA32Color}を指定して色を設定します。
+     * この{@code EditableRGBAImage}の指定されたx, yの位置に{@link RGBA32Color}を指定して色を設定します。
      *
      * @param x     色を設定するx位置
      * @param y     色を設定するy位置
@@ -77,7 +77,7 @@ public interface EditableRGBAImage extends RGBAImage, ImageEditable {
     void setColor(@Min(0) int x, @Min(0) int y, RGBA32Color color);
 
     /**
-     * この{@code EditableRGBAImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置に{@link net.spicesoftware.api.util.color.RGBA32Color}を指定して色を設定します。
+     * この{@code EditableRGBAImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置に{@link RGBA32Color}を指定して色を設定します。
      *
      * @param position 色を設定する位置
      * @param color    設定する色
