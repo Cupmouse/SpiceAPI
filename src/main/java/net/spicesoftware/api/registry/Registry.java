@@ -1,5 +1,6 @@
 package net.spicesoftware.api.registry;
 
+import net.spicesoftware.api.decoration.TextStyle;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
@@ -16,6 +17,7 @@ import net.spicesoftware.api.resource.builder.ResourceImageBuilder;
 import net.spicesoftware.api.resource.builder.ResourceShapeBuilder;
 import net.spicesoftware.api.resource.builder.ResourceSoundBuilder;
 import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
+import net.spicesoftware.api.text.Text;
 import net.spicesoftware.api.util.AlreadyRegisteredException;
 import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
 import net.spicesoftware.api.util.NotRegisteredImageConverterException;
@@ -37,7 +39,19 @@ import java.util.Optional;
  */
 public interface Registry {
 
-    <T extends Image> void addImage(Class<T> image);
+    /**
+     * システムデフォルトの{@link TextStyle}を適用した新しい空の{@link net.spicesoftware.api.text.Text}を返します。
+     *
+     * @return システムデフォルトのテキストスタイルを指定した新しい空のテキストビルダー
+     */
+    Text createNewText();
+
+    /**
+     * デフォルトの{@link TextStyle}を指定した新しい空の{@link net.spicesoftware.api.text.Text}を返します。
+     *
+     * @return テキストスタイルを指定した新しい空のテキストビルダー
+     */
+    Text createNewText(TextStyle defaultTextStyle);
 
     /**
      * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link CachedGrayScaleImage}を作成します。
