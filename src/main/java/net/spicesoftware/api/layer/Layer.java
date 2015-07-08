@@ -4,7 +4,6 @@ import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
-import net.spicesoftware.api.util.Pair;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
@@ -22,7 +21,6 @@ public interface Layer extends DeepCopyable, Serializable {
 
     /**
      * この{@code Layer}のすべての{@link Item}を返します。
-     * タイムライン上で早い時間に現れる順に並んでいます
      *
      * @return このレイヤーのすべてのアイテム
      */
@@ -55,15 +53,6 @@ public interface Layer extends DeepCopyable, Serializable {
      * @throws IndexOutOfBoundsException 指定されたインデックス番号のどちらかが管理されている範囲を超えている場合
      */
     List<FrameRanged<Item>> getItemInIndexRange(@Min(0) int indexFrom, @Min(0) int indexTo) throws IndexOutOfBoundsException;
-
-    /**
-     * この{@code Layer}の指定されたフレームよりも終了フレームが小さい、開始フレームが大きい、一番近い{@link Item}のインデックス番号を返します。
-     * 当てはまるアイテムが有る場合はどちらも同じインデックス番号が返されます。
-     *
-     * @param frame フレーム
-     * @return このレイヤーの指定されたフレームよりも終了フレームが小さい、開始フレームが大きい、一番近いアイテムのインデックス番号、当てはまるアイテムがない場合-1、もしくは、あるアイテム内に指定フレームが存在する場合、同じインデックス番号
-     */
-    Pair<Integer, Integer> getItemNearestIndexFrameAt(@Min(0) int frame);
 
     /**
      * この{@code Layer}の指定されたフレームを含む{@link Item}のインデックス番号を返します。
