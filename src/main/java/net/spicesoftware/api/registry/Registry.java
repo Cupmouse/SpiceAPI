@@ -1,6 +1,5 @@
 package net.spicesoftware.api.registry;
 
-import net.spicesoftware.api.decoration.TextStyle;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
@@ -25,6 +24,7 @@ import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
 import net.spicesoftware.api.util.decoration.fill.color.GrayScaleColor;
 import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
 import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
+import net.spicesoftware.api.util.style.TextStyle;
 import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 
