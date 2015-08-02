@@ -3,7 +3,7 @@ package net.spicesoftware.api.image.rgba;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.gs.CachedGrayScaleImage;
 import net.spicesoftware.api.image.rgb.CachedRGBImage;
-import net.spicesoftware.api.util.color.RGBA32Color;
+import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Max;
@@ -17,7 +17,7 @@ import javax.validation.constraints.Min;
 public interface RGBAImage extends Image {
 
     /**
-     * この{@code RGBAImage}の指定されたx, yの位置にある色の{@link net.spicesoftware.api.util.color.RGBA32Color}を返します。
+     * この{@code RGBAImage}の指定されたx, yの位置にある色の{@link RGBA32Color}を返します。
      *
      * @param x 取得する色のx位置
      * @param y 取得する色のy位置
@@ -26,7 +26,7 @@ public interface RGBAImage extends Image {
     RGBA32Color getColorAt(@Min(0) int x, @Min(0) int y);
 
     /**
-     * この{@code RGBAImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色の{@link net.spicesoftware.api.util.color.RGBA32Color}を返します。
+     * この{@code RGBAImage}の指定された{@link net.spicesoftware.api.util.vector.Vector2i}の位置にある色の{@link RGBA32Color}を返します。
      *
      * @param position 取得する色の位置
      * @return このRGBAImageの指定された位置にある色

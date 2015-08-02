@@ -1,6 +1,6 @@
 package net.spicesoftware.api.resource;
 
-import net.spicesoftware.api.decoration.TextStyle;
+import net.spicesoftware.api.util.style.TextStyle;
 
 /**
  * @since 2015/01/26

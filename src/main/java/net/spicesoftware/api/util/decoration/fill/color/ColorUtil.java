@@ -1,4 +1,4 @@
-package net.spicesoftware.api.util.color;
+package net.spicesoftware.api.util.decoration.fill.color;
 
 /**
  * @since 2015/02/01

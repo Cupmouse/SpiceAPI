@@ -3,7 +3,7 @@ package net.spicesoftware.api.util;
 /**
  * @since 2015/02/02
  */
-public class NotRegisteredInRegistryException extends RuntimeException {
+public final class NotRegisteredInRegistryException extends RuntimeException {
 
     public NotRegisteredInRegistryException() {
     }

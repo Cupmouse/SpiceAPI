@@ -1,4 +1,4 @@
-package net.spicesoftware.api.util.color;
+package net.spicesoftware.api.util.decoration.fill.color;
 
 import net.spicesoftware.api.decoration.fill.Color;
 
@@ -19,17 +19,24 @@ public final class RGBA32Color implements Color, Serializable {
     public final int a;
 
     public RGBA32Color(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
+        validateRGBA(r, g, b, a);
         this.r = r;
         this.g = g;
         this.b = b;
         this.a = a;
     }
 
-    public RGBA32Color(@Min(0) @Max(0xFFFFFFFF) long rgba) {
-        this.r = (int) (rgba >> 24 & 0xFF);
-        this.g = (int) (rgba >> 16 & 0xFF);
-        this.b = (int) (rgba >> 8 & 0xFF);
-        this.a = (int) (rgba & 0xFF);
+    public static void validateRGBA(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
+        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xFF || a < 0 || a > 0xFF) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public RGBA32Color(@Min(0) @Max(0xFFFFFFFF) int rgba) {
+        this.r = rgba >>> 24 & 0xFF;
+        this.g = rgba >>> 16 & 0xFF;
+        this.b = rgba >>> 8 & 0xFF;
+        this.a = rgba & 0xFF;
     }
 
     public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparency) {
@@ -61,19 +68,19 @@ public final class RGBA32Color implements Color, Serializable {
     }
 
     public RGBA32Color opposite() {
-        return new RGBA32Color(~r & 0xFF, ~g & 0xFF, ~b & 0xFF, a);
+        return new RGBA32Color(r ^ 0xFF, g ^ 0xFF, b ^ 0xFF, a);
     }
 
     public RGB24Color toRGB24Color() {
         return new RGB24Color(r, g, b);
     }
 
-    public long getLongValue() {
-        return (r << 24) | (g << 16) | (b << 8) | a;
+    public long toRGBA32Long() {
+        return ((long)r << 24) | ((long)g << 16) | ((long)b << 8) | (long)a;
     }
 
-    public int getIntValue() {
-        return (int) getLongValue();
+    public int toRGBA32Int() {
+        return (int) toRGBA32Long();
     }
 
     public boolean isTransparent() {
