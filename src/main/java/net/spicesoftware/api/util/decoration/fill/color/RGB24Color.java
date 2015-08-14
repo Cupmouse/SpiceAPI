@@ -41,7 +41,7 @@ public final class RGB24Color implements Color, Serializable {
 
     public static void validateRGBInt(@Min(0) @Max(0xFFFFFF) int rgb) {
         // 空であるはずの領域（先頭８ビット）にデータが書き込まれている場合、例外
-        if (rgb >>> 16 != 0) {
+        if (rgb >>> 24 != 0) {
             throw new IllegalArgumentException();
         }
     }

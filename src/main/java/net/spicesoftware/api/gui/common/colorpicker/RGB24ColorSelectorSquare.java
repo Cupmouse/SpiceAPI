@@ -1,29 +1,40 @@
 package net.spicesoftware.api.gui.common.colorpicker;
 
-import net.spicesoftware.api.gui.common.spinner.IntSpinner;
-
 /**
  * @since 2015/07/07
  */
 public interface RGB24ColorSelectorSquare extends RGB24ColorSelector {
 
-    IntSpinner getIntSpinnerH();
-
-    IntSpinner getIntSpinnerS();
-
-    IntSpinner getIntSpinnerV();
-
-    IntSpinner getIntSpinnerR();
-
-    IntSpinner getIntSpinnerG();
-
-    IntSpinner getIntSpinnerB();
-
+    /**
+     * このスクエアセレクタでロックされている要素を返します。
+     * <p>
+     * 例えば、一次元の選択がHue(色相)でロックされている場合、
+     * {@link LockedElement#H}を返し、
+     * 一次元の選択がSaturation(彩度)でロックされている場合、
+     * {@link LockedElement#S}を返します。
+     *
+     * @return このスクエアセレクタでロックされている要素
+     */
     LockedElement getLockedElement();
 
+    /**
+     * このスクエアセレクタでロックする要素を設定します。
+     * <p>
+     * 例えば、{@link LockedElement#H}でロックする場合、
+     * 一次元の選択がHue(色相)になります。
+     * {@link LockedElement#S}でロックする場合、
+     * 一次元の選択がSaturation(彩度)になります。
+     *
+     * @param element このスクエアセレクタでロックする要素
+     */
     void setLockedElement(LockedElement element);
 
+    /**
+     * このスクエアセレクタでロックする要素の列挙です。
+     *
+     * @see #setLockedElement(LockedElement)
+     */
     enum LockedElement {
-        H, S, V, R, G, B;
+        H, S, V, R, G, B
     }
 }

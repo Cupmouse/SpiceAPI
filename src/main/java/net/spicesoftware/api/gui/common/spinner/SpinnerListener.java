@@ -7,7 +7,7 @@ public interface SpinnerListener {
 
     /**
      * {@link Spinner}の値が変化した時に呼ばれます。
-     * ドラッグで値が変化するたびに呼ばれます。
+     * 例えば、ドラッグで値が変化するたびに呼ばれます。
      *
      * @param spinner 値が変化したSpinner
      */
@@ -15,7 +15,7 @@ public interface SpinnerListener {
 
     /**
      * {@link Spinner}の値が確定された時に呼ばれます。
-     * テキスト編集の確定、ドラッグの終了で呼ばれます。
+     * 例えば、テキスト編集の確定、ドラッグの終了で呼ばれます。
      *
      * @param spinner 値が確定したSpinner
      */
