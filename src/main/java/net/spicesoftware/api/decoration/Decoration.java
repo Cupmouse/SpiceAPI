@@ -7,7 +7,7 @@ import net.spicesoftware.api.util.DeepCopyable;
  *
  * @see net.spicesoftware.api.decoration.fill.Color
  * @see net.spicesoftware.api.decoration.fill.PatternFilling
- * @see GradientFilling
+ * @see net.spicesoftware.api.util.decoration.fill.gradient.ColorStopGradientFilling
  * @since 2015/01/26
  */
 public interface Decoration extends DeepCopyable {

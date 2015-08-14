@@ -37,6 +37,10 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
         this.repeat = repeat;
     }
 
+    public ColorStopGradientFilling(T firstColor, T secondColor) {
+        this(firstColor, 0, secondColor, 999);
+    }
+
     public ColorStopGradientFilling(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
         this(firstColor, firstColorPos, secondColor, secondColorPos, false);
     }

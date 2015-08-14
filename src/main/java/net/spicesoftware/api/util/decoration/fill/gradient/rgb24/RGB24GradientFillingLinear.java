@@ -12,6 +12,10 @@ public final class RGB24GradientFillingLinear extends GradientFillingLinear<RGB2
         super(firstColor, firstColorPos, secondColor, secondColorPos, repeat);
     }
 
+    public RGB24GradientFillingLinear(RGB24Color firstColor, RGB24Color secondColor) {
+        super(firstColor, secondColor);
+    }
+
     public RGB24GradientFillingLinear(RGB24Color firstColor, int firstColorPos, RGB24Color secondColor, int secondColorPos) {
         super(firstColor, firstColorPos, secondColor, secondColorPos);
     }

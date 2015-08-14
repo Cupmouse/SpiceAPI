@@ -1,7 +1,7 @@
 package net.spicesoftware.api.value;
 
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
+import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.Pair;
 
 import javax.validation.constraints.Min;
@@ -47,8 +47,9 @@ public interface KeyFramedValue<T extends DeepCopyable> extends Value<T> {
      *
      * @param frame フレーム
      * @return 追加されたキーフレームのインデックス番号
+     * @throws NotRegisteredInRegistryException 指定された補間法が{@link net.spicesoftware.api.registry.Registry}に登録されていない場合
      */
-    Pair<Integer, ? extends KeyFrame<T>> addKeyFrameAt(@Min(0) int frame, Interpolator<T> interpolator, T value) throws NotRegisteredInterpolatorException;
+    Pair<Integer, ? extends KeyFrame<T>> addKeyFrameAt(@Min(0) int frame, Interpolator<T> interpolator, T value) throws NotRegisteredInRegistryException;
 
     /**
      * 指定されたフレームのキーフレームを返します。

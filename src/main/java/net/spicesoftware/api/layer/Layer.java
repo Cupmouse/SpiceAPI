@@ -3,7 +3,7 @@ package net.spicesoftware.api.layer;
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.NotRegisteredImageBlenderException;
+import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
@@ -124,9 +124,9 @@ public interface Layer extends DeepCopyable, Serializable {
      * この{@code Layer}の{@link ImageBlender}を設定します。
      *
      * @param blender 設定するブレンダー
-     * @throws NotRegisteredImageBlenderException 設定しようとしたブレンダーがレジストリに登録されていない場合
+     * @throws NotRegisteredInRegistryException 設定しようとしたブレンダーがレジストリに登録されていない場合
      */
-    void setBlender(ImageBlender blender) throws NotRegisteredImageBlenderException;
+    void setBlender(ImageBlender blender) throws NotRegisteredInRegistryException;
 
     @Override
     Layer copyDeeply();

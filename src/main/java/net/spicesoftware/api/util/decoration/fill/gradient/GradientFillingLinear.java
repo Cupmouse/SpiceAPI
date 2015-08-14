@@ -14,6 +14,10 @@ public abstract class GradientFillingLinear<T extends Color> extends ColorStopGr
         super(firstColor, firstColorPos, secondColor, secondColorPos, repeat);
     }
 
+    public GradientFillingLinear(T firstColor, T secondColor) {
+        super(firstColor, secondColor);
+    }
+
     public GradientFillingLinear(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
         super(firstColor, firstColorPos, secondColor, secondColorPos);
     }

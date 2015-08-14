@@ -1,7 +1,7 @@
 package net.spicesoftware.api.value;
 
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.NotRegisteredInterpolatorException;
+import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 
 import java.io.Serializable;
 
@@ -25,8 +25,9 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
      *
      * @param clazz 設定する補間法の値の{@link Class}
      * @param clazz 設定する補間法の登録Id
+     * @throws NotRegisteredInRegistryException 指定された補間法が{@link net.spicesoftware.api.registry.Registry}に登録されていない場合
      */
-    void setInterpolator(Class<T> clazz, String id) throws NotRegisteredInterpolatorException;
+    void setInterpolator(Class<T> clazz, String id) throws NotRegisteredInRegistryException;
 
     /**
      * この{@code KeyFrame}の値を返します。
