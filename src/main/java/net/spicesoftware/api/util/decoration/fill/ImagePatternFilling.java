@@ -1,6 +1,7 @@
 package net.spicesoftware.api.util.decoration.fill;
 
 import net.spicesoftware.api.decoration.fill.PatternFilling;
+import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -11,17 +12,17 @@ import net.spicesoftware.api.util.vector.Vector2i;
  */
 public final class ImagePatternFilling implements PatternFilling {
 
-    private Image image;
-    private int offsetX;
-    private int offsetY;
+    private final CachedImage image;
+    private final int offsetX;
+    private final int offsetY;
 
-    public ImagePatternFilling(Image image, int offsetX, int offsetY) {
+    public ImagePatternFilling(CachedImage image, int offsetX, int offsetY) {
         this.image = image;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
     }
 
-    public ImagePatternFilling(Image image, Vector2i offset) {
+    public ImagePatternFilling(CachedImage image, Vector2i offset) {
         this.image = image;
         this.offsetX = offset.x;
         this.offsetY = offset.y;

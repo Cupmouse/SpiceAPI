@@ -6,6 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 /**
+ * HSVのHを360段階、SとVを256段階で表現するイミュータブルクラスです。
  * H:0~359
  * S:0~255
  * V:0~255

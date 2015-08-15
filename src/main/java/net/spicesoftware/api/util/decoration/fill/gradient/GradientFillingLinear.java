@@ -2,6 +2,8 @@ package net.spicesoftware.api.util.decoration.fill.gradient;
 
 import net.spicesoftware.api.decoration.fill.Color;
 
+import java.util.Map;
+
 /**
  * 円形グラデーションです。
  *
@@ -10,19 +12,12 @@ import net.spicesoftware.api.decoration.fill.Color;
 
 public abstract class GradientFillingLinear<T extends Color> extends ColorStopGradientFilling<T> {
 
-    public GradientFillingLinear(T firstColor, int firstColorPos, T secondColor, int secondColorPos, boolean repeat) {
-        super(firstColor, firstColorPos, secondColor, secondColorPos, repeat);
+    protected GradientFillingLinear(Map<Integer, T> colorStopMap, boolean repeating) {
+        super(colorStopMap, repeating);
     }
 
-    public GradientFillingLinear(T firstColor, T secondColor) {
-        super(firstColor, secondColor);
-    }
-
-    public GradientFillingLinear(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
-        super(firstColor, firstColorPos, secondColor, secondColorPos);
-    }
-
-    protected GradientFillingLinear() {
+    protected GradientFillingLinear(GradientFillingLinear<T> copyFrom) {
+        super(copyFrom);
     }
 
     @Override

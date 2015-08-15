@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
- * RGBに透明度を追加したRGBAの色を表すイミュータブルクラスです。
+ * RGBに透明度を追加した、各要素8ビット(256段階、0~255)づつ全32ビットでRGBAの色を表す、イミュータブルクラスです。
  *
  * @since 2015/01/17
  */

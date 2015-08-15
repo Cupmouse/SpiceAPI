@@ -2,6 +2,7 @@ package net.spicesoftware.api.util.decoration.fill.gradient;
 
 import net.spicesoftware.api.decoration.fill.Color;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
+import net.spicesoftware.api.decoration.fill.GradientFilling;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -20,32 +21,19 @@ import java.util.Optional;
  * @see net.spicesoftware.api.util.decoration.fill.gradient.GradientFillingRadial
  * @since 2015/01/27
  */
-public abstract class ColorStopGradientFilling<T extends Color> implements DecorationFilling {
+public abstract class ColorStopGradientFilling<T extends Color> implements GradientFilling {
 
-    public boolean repeat;
-    private Map<Integer, T> colorStopMap = new HashMap<Integer, T>();
+    private final boolean repeat;
+    private final Map<Integer, T> colorStopMap;
 
-    public ColorStopGradientFilling(T firstColor, int firstColorPos, T secondColor, int secondColorPos, boolean repeat) {
-        if (firstColorPos < 0 || firstColorPos > 999 || secondColorPos < 0 || secondColorPos > 999) {
-            throw new IllegalArgumentException();
-        }
-        if (firstColor == null || secondColor == null) {
-            throw new NullPointerException();
-        }
-        colorStopMap.put(firstColorPos, firstColor);
-        colorStopMap.put(secondColorPos, secondColor);
-        this.repeat = repeat;
+    protected ColorStopGradientFilling(Map<Integer, T> colorStopMap, boolean repeating) {
+        this.colorStopMap = Collections.unmodifiableMap(colorStopMap);
+        this.repeat = repeating;
     }
 
-    public ColorStopGradientFilling(T firstColor, T secondColor) {
-        this(firstColor, 0, secondColor, 999);
-    }
-
-    public ColorStopGradientFilling(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
-        this(firstColor, firstColorPos, secondColor, secondColorPos, false);
-    }
-
-    protected ColorStopGradientFilling() {
+    protected ColorStopGradientFilling(ColorStopGradientFilling<T> copyFrom) {
+        this.colorStopMap = Collections.unmodifiableMap(new HashMap<>(copyFrom.colorStopMap));
+        this.repeat = copyFrom.repeat;
     }
 
     /**
@@ -54,7 +42,7 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
      * @return このグラデーションの中間色のマッピング
      */
     public Map<Integer, T> getColorStopMap() {
-        return Collections.unmodifiableMap(colorStopMap);
+        return colorStopMap;
     }
 
     /**
@@ -71,50 +59,6 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
     }
 
     /**
-     * この{@code GradientFilling}の指定された位置の中間色を設定します。
-     *
-     * @param i     中間色を設定する位置
-     * @param color 中間色にとして設定する色
-     */
-    public void setColorStopAt(@Min(0) @Max(999) int i, T color) {
-        if (i < 0 || i > 999) {
-            throw new IllegalArgumentException();
-        }
-        if (color == null) {
-            throw new NullPointerException();
-        }
-        colorStopMap.put(i, color);
-    }
-
-    /**
-     * この{@code GradientFilling}の指定された位置の中間色を削除します。
-     *
-     * @param i 削除する中間色の位置
-     */
-    public void removeColorStopAt(@Min(0) @Max(999) int i) {
-        if (i < 0 || i > 999) {
-            throw new IllegalArgumentException();
-        }
-        colorStopMap.remove(i);
-    }
-
-    /**
-     * この{@code GradientFilling}がリピートするかどうかを設定します。
-     *
-     * @param repeat このグラデーションがリピートするかどうか
-     */
-    public void setRepeat(boolean repeat) {
-        this.repeat = repeat;
-    }
-
-    /**
-     * この{@code GradientFilling}がリピートするように設定します。
-     */
-    public void repeat() {
-        this.repeat = true;
-    }
-
-    /**
      * この{@code GradientFilling}がリピートするかどうかを返します。
      *
      * @return このグラデーションがリピートするかどうか
@@ -126,9 +70,91 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Decor
     @Override
     public abstract ColorStopGradientFilling<T> copyDeeply();
 
-    public void copyDeeply(ColorStopGradientFilling newColorStopGradientFilling) {
-        for (Map.Entry<Integer, T> entry : colorStopMap.entrySet()) {
-            newColorStopGradientFilling.colorStopMap.put(entry.getKey(), entry.getValue().copyDeeply());
+//    protected static abstract class ColorStopGradientFillingBasicFactory<T extends Color> {
+//
+//        protected ColorStopGradientFillingBasicFactory() {
+//        }
+//
+//        public ColorStopGradientFilling<T> twoColor(T firstColor, int firstColorPos, T secondColor, int secondColorPos, boolean repeating) {
+//            if (firstColorPos < 0 || firstColorPos > 999 || secondColorPos < 0 || secondColorPos > 999) {
+//                throw new IllegalArgumentException();
+//            }
+//            if (firstColor == null || secondColor == null) {
+//                throw new NullPointerException();
+//            }
+//            Map<Integer, T> colorStopMap = new HashMap<>();
+//            colorStopMap.put(firstColorPos, firstColor);
+//            colorStopMap.put(secondColorPos, secondColor);
+//            return createNew(Collections.unmodifiableMap(colorStopMap), repeating);
+//        }
+//
+//        public ColorStopGradientFilling<T> twoColor(T firstColor, int firstColorPos, T secondColor, int secondColorPos) {
+//            return twoColor(firstColor, firstColorPos, secondColor, secondColorPos, false);
+//        }
+//
+//        public ColorStopGradientFilling<T> twoColor(T firstColor, T secondColor, boolean repeating) {
+//            return twoColor(firstColor, 0, secondColor, 999, repeating);
+//        }
+//
+//        public ColorStopGradientFilling<T> twoColor(T firstColor, T secondColor) {
+//            return twoColor(firstColor, secondColor, false);
+//        }
+//
+//        public abstract ColorStopGradientFilling<T> createNew(Map<Integer, T> colorStopMap, boolean repeating);
+//    }
+
+    protected static abstract class ColorStopGradientFillingBasicBuilder<T extends Color> {
+
+        protected final Map<Integer, T> colorStopMap = new HashMap<>();
+        protected boolean repeating;
+
+        protected ColorStopGradientFillingBasicBuilder() {
         }
+
+        /**
+         * この{@code GradientFilling}の指定された位置の中間色を設定します。
+         *
+         * @param i     中間色を設定する位置
+         * @param color 中間色にとして設定する色
+         */
+        public void setColorStopAt(@Min(0) @Max(999) int i, T color) {
+            if (i < 0 || i > 999) {
+                throw new IllegalArgumentException();
+            }
+            if (color == null) {
+                throw new NullPointerException();
+            }
+            colorStopMap.put(i, color);
+        }
+
+        /**
+         * この{@code GradientFilling}の指定された位置の中間色を削除します。
+         *
+         * @param i 削除する中間色の位置
+         */
+        public void removeColorStopAt(@Min(0) @Max(999) int i) {
+            if (i < 0 || i > 999) {
+                throw new IllegalArgumentException();
+            }
+            colorStopMap.remove(i);
+        }
+
+        /**
+         * この{@code GradientFilling}がリピートするかどうかを設定します。
+         *
+         * @param repeating このグラデーションがリピートするかどうか
+         */
+        public void setRepeating(boolean repeating) {
+            this.repeating = repeating;
+        }
+
+        /**
+         * この{@code GradientFilling}がリピートするように設定します。
+         */
+        public void repeat() {
+            this.repeating = true;
+        }
+
+        public abstract ColorStopGradientFilling<T> build();
     }
 }

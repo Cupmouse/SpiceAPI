@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
- * RGBの色を表すイミュータブルクラスです。
+ * 全24ビット、各要素8ビット(256段階、0~255)づつでRGBの色を表すイミュータブルクラスです。
  *
  * @since 2014/10/06
  */
