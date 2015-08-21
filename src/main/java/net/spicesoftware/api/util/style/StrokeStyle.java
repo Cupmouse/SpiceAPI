@@ -11,12 +11,12 @@ import javax.validation.constraints.Min;
  *
  * @since 2015/01/26
  */
-public final class LineStyle implements DeepCopyable {
+public final class StrokeStyle implements DeepCopyable {
 
     private final DecorationFilling filling;
     private final int thickness;
 
-    public LineStyle(DecorationFilling filling, @Min(0) int thickness) {
+    public StrokeStyle(DecorationFilling filling, @Min(0) int thickness) {
         if (filling == null) {
             throw new IllegalArgumentException();
         }
@@ -28,7 +28,7 @@ public final class LineStyle implements DeepCopyable {
     }
 
     /**
-     * この{@code LineStyle}の{@link DecorationFilling}を返します。
+     * この{@code StrokeStyle}の{@link DecorationFilling}を返します。
      *
      * @return この線スタイルの塗りつぶし
      */
@@ -37,7 +37,7 @@ public final class LineStyle implements DeepCopyable {
     }
 
     /**
-     * この{@code LineStyle}の線の太さを返します。
+     * この{@code StrokeStyle}の線の太さを返します。
      *
      * @return この線スタイルの線の太さ
      */
@@ -47,23 +47,23 @@ public final class LineStyle implements DeepCopyable {
     }
 
     @Override
-    public LineStyle copyDeeply() {
-        return new LineStyle(filling.copyDeeply(), thickness);
+    public StrokeStyle copyDeeply() {
+        return new StrokeStyle(filling.copyDeeply(), thickness);
     }
 
     /**
      * @since 2015/08/14
      */
-    public static final class LineStyleBuilder {
+    public static final class StrokeStyleBuilder {
 
         private DecorationFilling filling;
         private int thickness = 1;
 
-        private LineStyleBuilder() {
+        private StrokeStyleBuilder() {
         }
 
         /**
-         * {@link LineStyle}の{@link DecorationFilling}を設定します。
+         * {@link StrokeStyle}の{@link DecorationFilling}を設定します。
          *
          * @param filling 線スタイルに設定する塗りつぶし
          */
@@ -72,7 +72,7 @@ public final class LineStyle implements DeepCopyable {
         }
 
         /**
-         * {@link LineStyle}の線の太さを設定します。
+         * {@link StrokeStyle}の線の太さを設定します。
          *
          * @param thickness 線スタイルに設定する線の太さ、0以上
          * @throws IllegalArgumentException 線の太さを0未満に設定しようとした時
@@ -85,12 +85,12 @@ public final class LineStyle implements DeepCopyable {
         }
 
         /**
-         * 新しい{@link LineStyleBuilder}のインスタンスを返します。
+         * 新しい{@link StrokeStyleBuilder}のインスタンスを返します。
          *
          * @return 新しいラインスタイルビルダーのインスタンス
          */
-        public static LineStyleBuilder builder() {
-            return new LineStyleBuilder();
+        public static StrokeStyleBuilder builder() {
+            return new StrokeStyleBuilder();
         }
     }
 }

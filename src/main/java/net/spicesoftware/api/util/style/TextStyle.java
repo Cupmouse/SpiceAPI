@@ -13,10 +13,10 @@ import java.util.Optional;
  */
 public final class TextStyle implements DeepCopyable {
 
-    private final LineStyle outline;
+    private final StrokeStyle outline;
     private final DecorationFilling filling;
 
-    public TextStyle(LineStyle outline, DecorationFilling filling) {
+    public TextStyle(StrokeStyle outline, DecorationFilling filling) {
         if (filling == null) {
             throw new IllegalArgumentException();
         }
@@ -25,11 +25,11 @@ public final class TextStyle implements DeepCopyable {
     }
 
     /**
-     * この{@code TextStyle}のアウトラインの{@link LineStyle}を返します。
+     * この{@code TextStyle}のアウトラインの{@link StrokeStyle}を返します。
      *
      * @return このテキストスタイルのアウトラインのスタイル
      */
-    public Optional<LineStyle> getOutline() {
+    public Optional<StrokeStyle> getOutline() {
         return Optional.ofNullable(outline);
     }
 
@@ -60,18 +60,18 @@ public final class TextStyle implements DeepCopyable {
      */
     public static final class TextStyleBuilder {
 
-        private LineStyle outline;
+        private StrokeStyle outline;
         private DecorationFilling filling;
 
         private TextStyleBuilder() {
         }
 
         /**
-         * {@link TextStyle}のアウトラインの{@link LineStyle}を設定します。
+         * {@link TextStyle}のアウトラインの{@link StrokeStyle}を設定します。
          *
          * @param outline テキストスタイルに設定するアウトラインのスタイル
          */
-        public void outline(LineStyle outline) {
+        public void outline(StrokeStyle outline) {
             this.outline = outline;
         }
 
