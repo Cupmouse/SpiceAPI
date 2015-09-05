@@ -2,6 +2,7 @@ package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
+import net.spicesoftware.api.item.builder.ItemBuilder;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.time.FrameRanged;
@@ -82,25 +83,25 @@ public interface Layer extends DeepCopyable, Serializable {
     /**
      * この{@code Layer}に開始フレームと終了フレームを指定して{@link Item}を追加します。
      *
-     * @param item      追加するアイテム
+     * @param itemBuilder      追加するアイテムの{@link ItemBuilder}
      * @param frameFrom アイテムの開始フレーム
      * @param frameTo   アイテムの終了フレーム
      * @return 追加されたアイテムのインデックス番号
      * @throws java.lang.IllegalArgumentException 開始フレームが終了フレームより小さい場合
      */
     @Min(0)
-    int addItem(Item item, @Min(0) int frameFrom, @Min(0) int frameTo) throws IllegalArgumentException;
+    int addItem(ItemBuilder itemBuilder, @Min(0) int frameFrom, @Min(0) int frameTo) throws IllegalArgumentException;
 
     /**
      * この{@code Layer}に開始フレームと長さを指定して{@link Item}を追加します。
      *
-     * @param item          追加するアイテム
+     * @param itemBuilder          追加するアイテムの{@link ItemBuilder}
      * @param frameStart    アイテムの開始フレーム
      * @param frameDuration アイテムの長さ
      * @return 追加されたアイテムのインデックス番号
      */
     @Min(0)
-    int addItemDuration(Item item, @Min(0) int frameStart, @Min(0) int frameDuration);
+    int addItemDuration(ItemBuilder itemBuilder, @Min(0) int frameStart, @Min(0) int frameDuration);
 
     /**
      * この{@code Layer}の指定されたインデックス番号の{@link Item}を削除します。

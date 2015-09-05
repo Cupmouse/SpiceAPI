@@ -5,7 +5,7 @@ import net.spicesoftware.api.util.style.TextStyle;
 /**
  * @since 2015/01/26
  */
-public interface ResourceTextDecoration extends Resource {
+public interface ResourceTextStyle extends Resource {
 
     /**
      * この{@code ResourceTextDecoration}のデコレーションを返します。
@@ -15,5 +15,5 @@ public interface ResourceTextDecoration extends Resource {
     TextStyle getTextDecoration();
 
     @Override
-    ResourceTextDecoration copyDeeply();
+    ResourceTextStyle copyDeeply();
 }
