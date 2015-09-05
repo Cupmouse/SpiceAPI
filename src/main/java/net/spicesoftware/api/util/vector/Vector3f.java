@@ -22,6 +22,18 @@ public final class Vector3f implements DeepCopyable, Serializable {
         this.z = z;
     }
 
+    public double dot(Vector3f vector3f) {
+        return x * vector3f.x + y * vector3f.y + z * vector3f.z;
+    }
+
+    public Vector3f cross(Vector3f vector3f) {
+        return new Vector3f(
+                y * vector3f.z - z * vector3f.y,
+                z * vector3f.x - x * vector3f.z,
+                x * vector3f.y - y * vector3f.x
+        );
+    }
+
     public double lengthSquared() {
         return x * x + y * y + z * z;
     }

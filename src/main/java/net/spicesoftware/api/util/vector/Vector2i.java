@@ -20,6 +20,14 @@ public final class Vector2i implements DeepCopyable, Serializable {
         this.y = y;
     }
 
+    public int dot(Vector2i vector2i) {
+        return x * vector2i.x + y * vector2i.y;
+    }
+
+    public int cross(Vector2i vector2i) {
+        return x * vector2i.y - y * vector2i.x;
+    }
+
     public double lengthSquared() {
         return x * x + y * y;
     }
