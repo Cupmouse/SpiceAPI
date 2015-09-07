@@ -17,7 +17,7 @@ public enum ColorType {
             case RGBA32:
                 return RGBA32Color.class;
             case GRAYSCALE:
-                return GrayScaleColor.class;
+                return GrayScale8Color.class;
         }
         return null;
     }

@@ -7,8 +7,8 @@ import net.spicesoftware.api.image.CachedImage;
  *
  * @since 2015/01/17
  */
-public interface CachedRGBImage extends RGBImage, CachedImage {
+public interface CachedRGB24Image extends RGB24Image, CachedImage {
 
     @Override
-    CachedRGBImage copyDeeply();
+    CachedRGB24Image copyDeeply();
 }
