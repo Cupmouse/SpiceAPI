@@ -20,6 +20,10 @@ public final class Vector2d implements DeepCopyable, Serializable {
         this.y = y;
     }
 
+    public double area() {
+        return x * y;
+    }
+
     public double dot(Vector2d vector2d) {
         return x * vector2d.x + y * vector2d.y;
     }

@@ -23,6 +23,10 @@ public final class Vector3d implements DeepCopyable, Serializable {
         this.z = z;
     }
 
+    public double volume() {
+        return x * y * z;
+    }
+
     public double dot(Vector3d vector3d) {
         return x * vector3d.x + y * vector3d.y + z * vector3d.z;
     }
