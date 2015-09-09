@@ -18,7 +18,7 @@ public final class HSV360Color implements Color {
     public final int saturation;
     public final int value;
 
-    public HSV360Color(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public HSV360Color(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
         hue %= 360;
 
@@ -31,7 +31,7 @@ public final class HSV360Color implements Color {
         return new RGB24Color(toRGB24Int(hue, saturation, value));
     }
 
-    public static int toRGB24IntExact(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public static int toRGB24IntExact(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
 
         float s = saturation / 255F;
@@ -83,7 +83,7 @@ public final class HSV360Color implements Color {
         return ((int) r) << 16 | ((int) g) << 8 | ((int) b);
     }
 
-    public static int toRGB24Int(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public static int toRGB24Int(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
 
         if (saturation == 0) {
@@ -137,7 +137,7 @@ public final class HSV360Color implements Color {
         return r << 16 | g << 8 | b;
     }
 
-    public static void validateHSV(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public static void validateHSV(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         if (hue < 0) {
             throw new IllegalArgumentException();
         }
