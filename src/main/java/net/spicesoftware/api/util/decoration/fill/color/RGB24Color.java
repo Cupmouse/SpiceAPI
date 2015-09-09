@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
- * RGBの色を表すイミュータブルクラスです。
+ * 全24ビット、各要素8ビット(256段階、0~255)づつでRGBの色を表すイミュータブルクラスです。
  *
  * @since 2014/10/06
  */
@@ -25,12 +25,6 @@ public final class RGB24Color implements Color, Serializable {
         this.b = b;
     }
 
-    public static void validateRGB(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
-        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xF) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     public RGB24Color(@Min(0) @Max(0xFFFFFF) int rgb) {
         validateRGBInt(rgb);
 
@@ -39,11 +33,27 @@ public final class RGB24Color implements Color, Serializable {
         this.b = rgb & 0xFF;
     }
 
+    public static void validateRGB(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
+        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xF) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void validateRGBInt(@Min(0) @Max(0xFFFFFF) int rgb) {
         // 空であるはずの領域（先頭８ビット）にデータが書き込まれている場合、例外
         if (rgb >>> 16 != 0) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static int opposite(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
+        validateRGB(r, g, b);
+        return (r ^ 0xFF) << 16 | (g ^ 0xFF) << 8 | (b ^ 0xFF);
+    }
+
+    public static int oppositeInt(@Min(0) @Max(0xFFFFFF) int rgb) {
+        validateRGBInt(rgb);
+        return rgb ^ 0xFFFFFF;
     }
 
     public RGB24Color add(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
@@ -76,16 +86,6 @@ public final class RGB24Color implements Color, Serializable {
 
     public int oppositeInt() {
         return toRGB24Int() ^ 0x00FFFFFF;
-    }
-
-    public static int opposite(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
-        validateRGB(r, g, b);
-        return (r ^ 0xFF) << 16 | (g ^ 0xFF) << 8 | (b ^ 0xFF);
-    }
-
-    public static int oppositeInt(@Min(0) @Max(0xFFFFFF) int rgb) {
-        validateRGBInt(rgb);
-        return rgb ^ 0xFFFFFF;
     }
 
     public RGBA32Color withOpacity(@Min(0) @Max(0xFF) int opacity) {

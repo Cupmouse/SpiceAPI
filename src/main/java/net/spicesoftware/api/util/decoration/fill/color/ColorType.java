@@ -8,16 +8,20 @@ import net.spicesoftware.api.decoration.fill.Color;
  * @since 2015/01/17
  */
 public enum ColorType {
-    RGB24, RGBA32, GRAYSCALE, BLACK_WHITE;
+    RGB24, RGBA32, HSV360, GRAYSCALE, BLACK_WHITE;
 
-    public Class<? extends Color> getClassOfColor() {
+    public Class<? extends Color> getColorClass() {
         switch (this) {
             case RGB24:
                 return RGB24Color.class;
             case RGBA32:
                 return RGBA32Color.class;
+            case HSV360:
+                return HSV360Color.class;
             case GRAYSCALE:
                 return GrayScaleColor.class;
+            case BLACK_WHITE:
+                break;
         }
         return null;
     }
