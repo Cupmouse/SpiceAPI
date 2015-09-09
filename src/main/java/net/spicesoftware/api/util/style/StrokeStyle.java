@@ -63,6 +63,15 @@ public final class StrokeStyle implements DeepCopyable {
         }
 
         /**
+         * 新しい{@link StrokeStyleBuilder}のインスタンスを返します。
+         *
+         * @return 新しいラインスタイルビルダーのインスタンス
+         */
+        public static StrokeStyleBuilder builder() {
+            return new StrokeStyleBuilder();
+        }
+
+        /**
          * {@link StrokeStyle}の{@link DecorationFilling}を設定します。
          *
          * @param filling 線スタイルに設定する塗りつぶし
@@ -82,15 +91,6 @@ public final class StrokeStyle implements DeepCopyable {
                 throw new IllegalArgumentException();
             }
             this.thickness = thickness;
-        }
-
-        /**
-         * 新しい{@link StrokeStyleBuilder}のインスタンスを返します。
-         *
-         * @return 新しいラインスタイルビルダーのインスタンス
-         */
-        public static StrokeStyleBuilder builder() {
-            return new StrokeStyleBuilder();
         }
     }
 }

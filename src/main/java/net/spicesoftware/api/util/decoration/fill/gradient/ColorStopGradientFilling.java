@@ -1,7 +1,6 @@
 package net.spicesoftware.api.util.decoration.fill.gradient;
 
 import net.spicesoftware.api.decoration.fill.Color;
-import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.decoration.fill.GradientFilling;
 
 import javax.validation.constraints.Max;

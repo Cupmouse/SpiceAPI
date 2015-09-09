@@ -27,10 +27,6 @@ public final class HSV360Color implements Color {
         this.value = (short) value;
     }
 
-    public RGB24Color toRGB24Color() {
-        return new RGB24Color(toRGB24Int(hue, saturation, value));
-    }
-
     public static int toRGB24IntExact(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
 
@@ -147,6 +143,10 @@ public final class HSV360Color implements Color {
         if (value < 0 || value > 0xFF) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public RGB24Color toRGB24Color() {
+        return new RGB24Color(toRGB24Int(hue, saturation, value));
     }
 
     @Override

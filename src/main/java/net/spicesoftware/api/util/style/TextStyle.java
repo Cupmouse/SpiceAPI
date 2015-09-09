@@ -67,6 +67,15 @@ public final class TextStyle implements DeepCopyable {
         }
 
         /**
+         * 新しい{@link TextStyleBuilder}のインスタンスを返します。
+         *
+         * @return 新しいテキストスタイルビルダーのインスタンス
+         */
+        public static TextStyleBuilder builder() {
+            return new TextStyleBuilder();
+        }
+
+        /**
          * {@link TextStyle}のアウトラインの{@link StrokeStyle}を設定します。
          *
          * @param outline テキストスタイルに設定するアウトラインのスタイル
@@ -86,15 +95,6 @@ public final class TextStyle implements DeepCopyable {
 
         public TextStyle build() {
             return new TextStyle(outline, filling);
-        }
-
-        /**
-         * 新しい{@link TextStyleBuilder}のインスタンスを返します。
-         *
-         * @return 新しいテキストスタイルビルダーのインスタンス
-         */
-        public static TextStyleBuilder builder() {
-            return new TextStyleBuilder();
         }
     }
 }
