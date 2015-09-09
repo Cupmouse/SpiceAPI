@@ -16,6 +16,7 @@ public final class Pair<A, B> {
     }
 
     public static <A, B> Pair of(A a, B b) {
+        Validate.nullNot(a, b);
         return new Pair(a, b);
     }
 

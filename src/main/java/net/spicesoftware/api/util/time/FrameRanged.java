@@ -7,6 +7,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+import static net.spicesoftware.api.util.Validate.smaller;
+
 /**
  * フレーム間隔とその間隔が適用されるオブジェクトを保持するクラスです。
  *
@@ -18,9 +21,9 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
     public final int start;
     public final int end;
 
-    public FrameRanged(@NotNull T ranged, @Min(0) int start, @Min(0) int end) throws IllegalArgumentException {
-        if (start > end)
-            throw new IllegalArgumentException("start > end");
+    public FrameRanged(T ranged, @Min(0) int start, @Min(0) int end) throws IllegalArgumentException {
+        nullNot(ranged);
+        smaller(start, end);
         this.ranged = ranged;
         this.start = start;
         this.end = end;
@@ -31,6 +34,7 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
     }
 
     public boolean isCollisionWith(FrameRanged another) {
+        nullNot(another);
         return doesCollision(this, another);
     }
 

@@ -1,8 +1,11 @@
 package net.spicesoftware.api.util.vector;
 
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.Validate;
 
 import java.io.Serializable;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
  * x, y, zを{@code float}で保持する３次元ベクタークラスです。
@@ -27,6 +30,7 @@ public final class Vector3f implements DeepCopyable, Serializable {
     }
 
     public double dot(Vector3f vector3f) {
+        nullNot(vector3f);
         return x * vector3f.x + y * vector3f.y + z * vector3f.z;
     }
 
@@ -51,6 +55,7 @@ public final class Vector3f implements DeepCopyable, Serializable {
     }
 
     public Vector3f add(Vector3f vector3f) {
+        nullNot(vector3f);
         return new Vector3f(x + vector3f.x, y + vector3f.y, z + vector3f.z);
     }
 
@@ -59,6 +64,7 @@ public final class Vector3f implements DeepCopyable, Serializable {
     }
 
     public Vector3f subtract(Vector3f vector3f) {
+        nullNot(vector3f);
         return new Vector3f(x - vector3f.x, y - vector3f.y, z - vector3f.z);
     }
 
