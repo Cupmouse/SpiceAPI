@@ -4,6 +4,7 @@ import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.style.TextStyle;
 
 import javax.validation.constraints.Min;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -36,15 +37,16 @@ public interface Text extends DeepCopyable {
      * @throws IllegalArgumentException  指定されたインデックスが不正な場合
      * @throws IndexOutOfBoundsException 指定されたインデックスがこの{@code Text}の管理するインデックス番号を超えている場合
      */
-    List<TextElement> getTextElements(int fromIndex, int toIndex) throws IllegalArgumentException, IndexOutOfBoundsException;
+    Collection<TextElement> getTextElements(int fromIndex, int toIndex) throws IllegalArgumentException, IndexOutOfBoundsException;
 
     /**
      * この{@code Text}の指定インデックスにある{@link TextElement}を返します。
      *
      * @param index 指定インデックス
      * @return このテキストの指定インデックスにあるテキストエレメント
+     * @throws IndexOutOfBoundsException 指定されたインデックスが管理のするインデックス番号を超えている場合
      */
-    TextElement getTextElement(int index);
+    TextElement getTextElement(int index) throws IndexOutOfBoundsException;
 
     /*
     デフォルト設定
