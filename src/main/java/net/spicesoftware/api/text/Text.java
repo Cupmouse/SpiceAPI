@@ -71,7 +71,7 @@ public interface Text extends DeepCopyable {
      */
 
     /**
-     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
+     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param object テキストビルダーの指定インデックスに追加する{@link Object}
@@ -81,7 +81,7 @@ public interface Text extends DeepCopyable {
     Text append(Object object);
 
     /**
-     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
+     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param object    テキストビルダーの指定インデックスに追加する{@link Object}
@@ -99,7 +99,7 @@ public interface Text extends DeepCopyable {
     Text append(Text text);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param string テキストビルダーの指定インデックスに追加する{@link String}
@@ -109,7 +109,7 @@ public interface Text extends DeepCopyable {
     Text append(String string);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param string    テキストビルダーの指定インデックスに追加する{@link String}
@@ -119,7 +119,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, String string);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param b テキストビルダーの指定インデックスに追加する{@code boolean}
@@ -129,7 +129,7 @@ public interface Text extends DeepCopyable {
     Text append(boolean b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param b         テキストビルダーの指定インデックスに追加する{@code boolean}
@@ -139,7 +139,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, boolean b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param b テキストビルダーの指定インデックスに追加する{@code boolean}
@@ -149,7 +149,7 @@ public interface Text extends DeepCopyable {
     Text append(byte b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code byte}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code byte}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param b         テキストビルダーの指定インデックスに追加する{@code byte}
@@ -159,7 +159,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, byte b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param c テキストビルダーの指定インデックスに追加する{@code char}
@@ -169,7 +169,7 @@ public interface Text extends DeepCopyable {
     Text append(char c);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param c         テキストビルダーの指定インデックスに追加する{@code char}
@@ -179,7 +179,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, char c);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param s テキストビルダーの指定インデックスに追加する{@code short}
@@ -189,7 +189,7 @@ public interface Text extends DeepCopyable {
     Text append(short s);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param s         テキストビルダーの指定インデックスに追加する{@code short}
@@ -199,7 +199,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, short s);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param i テキストビルダーの指定インデックスに追加する{@code int}
@@ -209,7 +209,7 @@ public interface Text extends DeepCopyable {
     Text append(int i);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param i         テキストビルダーの指定インデックスに追加する{@code int}
@@ -219,7 +219,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, int i);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param l テキストビルダーの指定インデックスに追加する{@code long}
@@ -229,7 +229,7 @@ public interface Text extends DeepCopyable {
     Text append(long l);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param l         テキストビルダーの指定インデックスに追加する{@code long}
@@ -239,7 +239,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, long l);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param f テキストビルダーの指定インデックスに追加する{@code float}
@@ -249,7 +249,7 @@ public interface Text extends DeepCopyable {
     Text append(float f);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param f         テキストビルダーの指定インデックスに追加する{@code float}
@@ -259,7 +259,7 @@ public interface Text extends DeepCopyable {
     Text append(TextStyle textStyle, float f);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param d テキストビルダーの指定インデックスに追加する{@code double}
@@ -269,7 +269,7 @@ public interface Text extends DeepCopyable {
     Text append(double d);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param d         テキストビルダーの指定インデックスに追加する{@code double}
@@ -283,7 +283,7 @@ public interface Text extends DeepCopyable {
      */
 
     /**
-     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
+     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index  挿入するインデックス
@@ -295,7 +295,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, Object object);
 
     /**
-     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。
+     * 現在の{@code Text}の指定インデックスにパラメータを{@link Object#toString()}した内容を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -317,7 +317,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, Text text);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index  挿入するインデックス
@@ -329,7 +329,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, String string);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@link String}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -341,7 +341,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, String string);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -353,7 +353,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, boolean b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -365,7 +365,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, boolean b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code boolean}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -377,7 +377,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, byte b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code byte}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code byte}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -389,7 +389,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, byte b);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -401,7 +401,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, char c);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code char}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -413,7 +413,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, char c);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -425,7 +425,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, short s);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code short}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -437,7 +437,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, short s);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -449,7 +449,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, int i);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code int}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -461,7 +461,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, int i);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -473,7 +473,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, long l);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code long}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -485,7 +485,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, long l);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -497,7 +497,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, float f);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code float}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
@@ -509,7 +509,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, TextStyle textStyle, float f);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。<br>
      * 何も{@link TextStyle}がつきません（デフォルト設定が適用されます）。
      *
      * @param index 挿入するインデックス
@@ -521,7 +521,7 @@ public interface Text extends DeepCopyable {
     Text insert(int index, double d);
 
     /**
-     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。
+     * 現在の{@code Text}の指定インデックスに{@code double}を追加します。<br>
      * パラメータに指定された{@link TextStyle}が適用されます。
      *
      * @param index     挿入するインデックス
