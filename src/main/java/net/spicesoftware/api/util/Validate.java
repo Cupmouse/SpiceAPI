@@ -81,7 +81,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された複数の{@code boolean}がすべて<b>偽である</b>かを検証します。
+     * 指定された複数の{@code boolean}がすべて<b>偽</b>かを検証します。
      *
      * @param booleans 検証する複数の真偽値
      * @throws IllegalArgumentException 指定された複数の真偽値の中に真である物がある場合
@@ -194,7 +194,7 @@ public final class Validate {
      */
 
     /**
-     * 指定された2つの値、第一引数が第二引数より<b>大きい</b>か検証します。
+     * 指定された2つの値、第一引数が第二引数を<b>超過している</b>か検証します。
      * 値が同じ場合は通りません。
      *
      * @param value 検証する値
@@ -208,7 +208,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値、第一引数が第二引数より<b>以上</b>か検証します。
+     * 指定された2つの値、第一引数が第二引数<b>以上</b>か検証します。
      *
      * @param value 検証する値
      * @param compareTo 比べる値
@@ -221,7 +221,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値、第一引数が第二引数より<b>小さい</b>か検証します。
+     * 指定された2つの値、第一引数が第二引数<b>未満</b>か検証します。
      * 値が同じ場合は通りません。
      *
      * @param value 検証する値
@@ -235,7 +235,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値、第一引数が第二引数より<b>以下</b>か検証します。
+     * 指定された2つの値、第一引数が第二引数<b>以下</b>か検証します。
      *
      * @param value 検証する値
      * @param compareTo 比べる値
@@ -253,12 +253,12 @@ public final class Validate {
 
     /**
      * 指定された範囲内に指定された値が<b>含まれない</b>か検証します。
-     * （v < s || e < v）
+     * （v &lt; s || e &lt; v）
      *
      * @param rangeStart 範囲の開始
      * @param rangeEnd 範囲の終了
      * @param value 検証する値
-     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（s <= v <= e）
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（s &lt;= v &lt;= e）
      */
     public static void rangeNotIn(int value, int rangeStart, int rangeEnd) {
         if (rangeStart <= value && value <= rangeEnd) {
@@ -268,12 +268,12 @@ public final class Validate {
 
     /**
      * 指定された範囲内に指定された値が<b>含まれる</b>か検証します。
-     * （s <= v <= e）
+     * （s &lt;= v &lt;= e）
      *
      * @param rangeStart 範囲の開始
      * @param rangeEnd 範囲の終了
      * @param value 検証する値
-     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（v < s || e < v）
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（v &lt; s || e &lt; v）
      */
     public static void rangeIn(int value, int rangeStart, int rangeEnd) {
         if (value < rangeStart || rangeEnd < value) {
@@ -286,7 +286,7 @@ public final class Validate {
      */
 
     /**
-     * 指定された値が0未満であるか検証します。
+     * 指定された値が<b>0未満</b>か検証します。
      *
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0以上の場合
@@ -298,7 +298,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値が、どちらも0未満であるか検証します。
+     * 指定された2つの値が、どちらも<b>0未満</b>か検証します。
      * {@link #negative(int)}を各値で実行することと等価です。
      *
      * @param valueA 検証する値
@@ -312,7 +312,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された複数の値が、すべて0未満であるか検証します。
+     * 指定された複数の値が、すべて<b>0未満</b>か検証します。
      *
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0以上のものがある場合。もしくは、配列がnullの場合
@@ -334,7 +334,7 @@ public final class Validate {
      */
 
     /**
-     * 指定された値が<b>0以下である</b>か検証します。
+     * 指定された値が<b>0以下</b>か検証します。
      *
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0を超過する場合
@@ -346,7 +346,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値が、どちらも<b>0以下である</b>か検証します。
+     * 指定された2つの値が、どちらも<b>0以下</b>か検証します。
      * {@link #zeroOrNegative(int)}を各値で実行することと等価です。
      *
      * @param valueA 検証する値
@@ -360,7 +360,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された複数の値が、すべて<b>0以下である</b>か検証します。
+     * 指定された複数の値が、すべて<b>0以下</b>か検証します。
      *
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0を超過するものがある場合。もしくは、配列がnullの場合
@@ -430,7 +430,7 @@ public final class Validate {
      */
 
     /**
-     * 指定された値が<b>0以上である</b>か検証します。
+     * 指定された値が<b>0以上</b>か検証します。
      *
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0未満の場合
@@ -442,7 +442,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された2つの値が、どちらも<b>0以上である</b>か検証します。
+     * 指定された2つの値が、どちらも<b>0以上</b>か検証します。
      * {@link #zeroOrPositive(int)}を各値で実行することと等価です。
      *
      * @param valueA 検証する値
@@ -456,7 +456,7 @@ public final class Validate {
     }
 
     /**
-     * 指定された複数の値が、すべて<b>0以上である</b>か検証します。
+     * 指定された複数の値が、すべて<b>0以上</b>か検証します。
      *
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0未満のものがある場合。もしくは、配列がnullの場合

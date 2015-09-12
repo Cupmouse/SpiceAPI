@@ -74,7 +74,7 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
 
     /**
      * 範囲をシャローコピーします。
-     * rangedはコピーされず、全く同じインスタンスが格納された新しい{@link FrameRanged}のインスタンスが返されます。
+     * rangedはコピーされず、全く同じインスタンスが格納された新しい{@code FrameRanged}のインスタンスが返されます。
      *
      * @return 範囲のシャローコピー
      */

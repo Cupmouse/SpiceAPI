@@ -61,6 +61,7 @@ public interface StaticField extends HasValues, DeepCopyable, Serializable {
      * この{@code StaticLayer}の最後に指定された{@link StaticItem}を追加します。
      *
      * @param staticItem 追加するスタティックアイテム
+     * @param index スタティックアイテムを追加するインデックス番号
      */
     @Min(0)
     void insertStaticItem(StaticItem staticItem, @Min(0) int index) throws IndexOutOfBoundsException;

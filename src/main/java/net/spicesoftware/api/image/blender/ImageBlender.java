@@ -25,7 +25,6 @@ public interface ImageBlender<D, I extends CachedImage> {
      *
      * @param result 合成された画像を保存する配列
      * @param images 合成する画像、配列のインデックスが小さい方から前面
-     * @return 合成した画像
      */
     void blendData(D result, @Size(min = 2) Pair<D, Integer>... images);
 

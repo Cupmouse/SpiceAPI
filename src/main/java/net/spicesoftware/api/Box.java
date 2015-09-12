@@ -7,7 +7,15 @@ import net.spicesoftware.api.util.vector.Vector2i;
 import javax.validation.constraints.Min;
 
 /**
- * {@link net.spicesoftware.api.layer.Layerable}であり、レイヤーを持ちます。
+ * {@code Box}は、{@link net.spicesoftware.api.layer.Layerable}であり、レイヤーを持ちます。<br />
+ * そのため{@code Box}は、{@link net.spicesoftware.api.layer.Layer}を複数持ち、
+ * その中に複数の{@link net.spicesoftware.api.item.Item}がフレーム範囲を指定して保持されています。<br />
+ * また、{@link net.spicesoftware.api.layer.StaticField}も持っています。<br />
+ * <p></p>
+ * {@code Box}は、タイムラインを構成するために欠かせない要素です。<br />
+ * デフォルトでは、{@link Layerable}を継承するインターフェイスは{@code Box}のみです。
+ * よって、アイテムを保持するタイムラインを構成する最高の要素は、{@code Box}です。
+ * {@code Box}を継承しているクラスは、例えば、{@link net.spicesoftware.api.project.TimelineRoot}や{@link net.spicesoftware.api.item.ItemBox}などです。
  *
  * @since 2015/01/17
  */
