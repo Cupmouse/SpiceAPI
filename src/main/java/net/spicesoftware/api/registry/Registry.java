@@ -140,7 +140,7 @@ public interface Registry {
      *
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
-     * @param image 画像情報を含むint[]
+     * @param image  画像情報を含むint[]
      * @return 新しい不変RGBケールイメージ
      * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
@@ -151,7 +151,7 @@ public interface Registry {
      *
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
-     * @param image 画像情報を含むint[]
+     * @param image  画像情報を含むint[]
      * @return 新しい編集可能RGBイメージ
      * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
@@ -244,7 +244,7 @@ public interface Registry {
      *
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
-     * @param image 画像情報を含むint[]
+     * @param image  画像情報を含むint[]
      * @return 新しい不変RGBAケールイメージ
      * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
@@ -255,7 +255,7 @@ public interface Registry {
      *
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
-     * @param image 画像情報を含むint[]
+     * @param image  画像情報を含むint[]
      * @return 新しい編集可能RGBAイメージ
      * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
@@ -381,7 +381,7 @@ public interface Registry {
      * @param clazz        登録する{@link Interpolator}の補完する型の{@link Class}
      * @param id           登録する{@link Interpolator}に関連付けるId
      * @param interpolator 登録する{@link Interpolator}
-     * @param <T> 登録する{@link Interpolator}が補完する型
+     * @param <T>          登録する{@link Interpolator}が補完する型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredInRegistryException;
@@ -401,7 +401,7 @@ public interface Registry {
      *
      * @param clazz        Idを取得する{@link Interpolator}が補完する型の{@link Class}
      * @param interpolator Idを取得する{@link Interpolator}
-     * @param <T> Idを取得する{@link Interpolator}が補完する型
+     * @param <T>          Idを取得する{@link Interpolator}が補完する型
      * @return 指定したInterpolatorのId
      * @throws NotRegisteredInRegistryException {@link Interpolator}がレジストリに登録されていない場合
      */
@@ -413,7 +413,7 @@ public interface Registry {
      *
      * @param clazz        登録されているかを確認する{@link Interpolator}が補完する型の{@link Class}
      * @param interpolator 登録されているかを確認する{@link Interpolator}
-     * @param <T> 登録されているかを確認する{@link Interpolator}が補完する型
+     * @param <T>          登録されているかを確認する{@link Interpolator}が補完する型
      * @return 指定されたInterpolatorが登録されているか
      */
     <T> boolean isRegisteredInterpolator(Class<T> clazz, Interpolator<T> interpolator);
@@ -425,7 +425,7 @@ public interface Registry {
      * @param clazz        登録する{@link ImageBlender}が合成するイメージの型の{@link Class}
      * @param id           登録する{@link ImageBlender}に関連付けるId
      * @param imageBlender 登録する{@link ImageBlender}
-     * @param <I> 登録する{@link ImageBlender}が合成する{@link CachedImage}の型
+     * @param <I>          登録する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<?, I> imageBlender) throws AlreadyRegisteredInRegistryException;
@@ -445,7 +445,7 @@ public interface Registry {
      *
      * @param clazz        Idを取得する{@link ImageBlender}の合成する{@link CachedImage}の型の{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
-     * @param <I> Idを取得する{@link ImageBlender}が合成する{@link CachedImage}の型
+     * @param <I>          Idを取得する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @return 指定したImageBlenderのId
      * @throws NotRegisteredInRegistryException {@link ImageBlender}がレジストリに登録されていない場合
      */
@@ -457,7 +457,7 @@ public interface Registry {
      *
      * @param clazz        登録されているかを確認する{@link ImageBlender}の合成する{@link Image}の型の{@link Class}
      * @param imageBlender 登録されているかを確認する{@link ImageBlender}
-     * @param <I> 登録されているかを確認する{@link ImageBlender}が合成する{@link Image}の型
+     * @param <I>          登録されているかを確認する{@link ImageBlender}が合成する{@link Image}の型
      * @return 指定されたImageBlenderが登録されているか
      */
     <I extends CachedImage> boolean isRegisteredImageBlender(Class<I> clazz, ImageBlender<?, I> imageBlender);
@@ -470,8 +470,8 @@ public interface Registry {
      * @param outputImageClass 登録する{@link ImageConverter}の出力{@link CachedImage}の型の{@link Class}
      * @param id               登録する{@link ImageConverter}に関連付けるId
      * @param imageConverter   登録する{@link ImageConverter}
-     * @param <I> 登録する{@link ImageConverter}の入力{@link Image}の型
-     * @param <O> 登録する{@link ImageConverter}の出力{@link CachedImage}の型
+     * @param <I>              登録する{@link ImageConverter}の入力{@link Image}の型
+     * @param <O>              登録する{@link ImageConverter}の出力{@link CachedImage}の型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredInRegistryException;

@@ -3,7 +3,6 @@ package net.spicesoftware.api.util.decoration.fill;
 import net.spicesoftware.api.decoration.fill.PatternFilling;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
-import net.spicesoftware.api.util.Validate;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import static net.spicesoftware.api.util.Validate.nullNot;

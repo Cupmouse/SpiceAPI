@@ -1,10 +1,8 @@
 package net.spicesoftware.api.util.vector;
 
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.Validate;
 
 import java.io.Serializable;
-import java.util.Vector;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
 

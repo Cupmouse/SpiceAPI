@@ -2,7 +2,6 @@ package net.spicesoftware.api.util.style;
 
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.Validate;
 
 import javax.validation.constraints.Min;
 

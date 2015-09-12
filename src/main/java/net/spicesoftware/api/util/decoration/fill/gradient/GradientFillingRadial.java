@@ -1,7 +1,6 @@
 package net.spicesoftware.api.util.decoration.fill.gradient;
 
 import net.spicesoftware.api.decoration.fill.Color;
-import net.spicesoftware.api.util.Validate;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import java.util.Map;

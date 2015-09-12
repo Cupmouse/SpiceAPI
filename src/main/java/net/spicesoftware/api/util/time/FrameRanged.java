@@ -4,7 +4,6 @@ import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.ShallowCopyable;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
@@ -26,9 +25,9 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
      * 範囲と範囲が適用されるインスタンス
      *
      * @param ranged 範囲が適用されるインスタンス
-     * @param start 範囲の開始
-     * @param end 範囲の終了
-     * @throws NullPointerException rangedにnullが指定された時
+     * @param start  範囲の開始
+     * @param end    範囲の終了
+     * @throws NullPointerException     rangedにnullが指定された時
      * @throws IllegalArgumentException startがendより大きい時
      */
     public FrameRanged(T ranged, @Min(0) int start, @Min(0) int end) throws NullPointerException, IllegalArgumentException {
@@ -40,17 +39,6 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
     }
 
     /**
-     * 新しい範囲を指定して同じインスタンスを持つ{@code FrameRanged}を作成します。
-     * 
-     * @param start 新しい範囲の開始
-     * @param end 新しい範囲の終了
-     * @return 新しい範囲で同じオブジェクトのインスタンスを持つ{@code FrameRanged}
-     */
-    public FrameRanged<T> range(@Min(0) int start, @Min(0) int end) throws IllegalArgumentException {
-        return new FrameRanged<>(ranged, start, end);
-    }
-
-    /**
      * 指定された範囲同士が衝突している（範囲を共有している部分がある）かどうかを検証し、真偽値で返します。
      *
      * @param ranged1 衝突の検証をする範囲
@@ -59,6 +47,17 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
      */
     public static boolean doesCollision(FrameRanged ranged1, FrameRanged ranged2) {
         return ranged1.start < ranged2.start ? ranged1.end > ranged2.start : ranged2.end > ranged1.start;
+    }
+
+    /**
+     * 新しい範囲を指定して同じインスタンスを持つ{@code FrameRanged}を作成します。
+     *
+     * @param start 新しい範囲の開始
+     * @param end   新しい範囲の終了
+     * @return 新しい範囲で同じオブジェクトのインスタンスを持つ{@code FrameRanged}
+     */
+    public FrameRanged<T> range(@Min(0) int start, @Min(0) int end) throws IllegalArgumentException {
+        return new FrameRanged<>(ranged, start, end);
     }
 
     /**
