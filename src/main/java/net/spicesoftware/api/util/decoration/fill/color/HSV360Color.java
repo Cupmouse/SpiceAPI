@@ -5,6 +5,9 @@ import net.spicesoftware.api.decoration.fill.Color;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import static net.spicesoftware.api.util.Validate.rangeIn;
+import static net.spicesoftware.api.util.Validate.zeroOrPositive;
+
 /**
  * HSVのHを360段階、SとVを256段階で表現するイミュータブルクラスです。
  * H:0~359
@@ -134,15 +137,9 @@ public final class HSV360Color implements Color {
     }
 
     public static void validateHSV(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
-        if (hue < 0) {
-            throw new IllegalArgumentException();
-        }
-        if (saturation < 0 || saturation > 0xFF) {
-            throw new IllegalArgumentException();
-        }
-        if (value < 0 || value > 0xFF) {
-            throw new IllegalArgumentException();
-        }
+        zeroOrPositive(hue);
+        rangeIn(saturation, 0, 0xFF);
+        rangeIn(value, 0, 0xFF);
     }
 
     public RGB24Color toRGB24Color() {

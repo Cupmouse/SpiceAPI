@@ -106,11 +106,11 @@ public final class Validate {
      * 指定された{@link Object}が{@code null}<b>でない</b>かを検証します。
      *
      * @param o 検証する{@link Object}
-     * @throws IllegalArgumentException 指定された{@link Object}がnullである場合
+     * @throws NullPointerException 指定された{@link Object}がnullである場合
      */
     public static void nullNot(Object o) {
         if (o == null) {
-            throw new IllegalArgumentException();
+            throw new NullPointerException();
         }
     }
 
@@ -119,11 +119,11 @@ public final class Validate {
      *
      * @param oA 検証する{@link Object}
      * @param oB 検証する{@link Object}
-     * @throws IllegalArgumentException 指定された2つの{@link Object}の1つ以上がnullである場合
+     * @throws NullPointerException 指定された2つの{@link Object}の1つ以上がnullである場合
      */
     public static void nullNot(Object oA, Object oB) {
         if (oA == null || oB == null) {
-            throw new IllegalArgumentException();
+            throw new NullPointerException();
         }
     }
 
@@ -131,7 +131,8 @@ public final class Validate {
      * 指定された複数の{@link Object}がすべて{@code null}<b>でない</b>かを検証します。
      *
      * @param objects 検証する複数の{@link Object}
-     * @throws IllegalArgumentException 指定された複数の{@link Object}の中にnullであるものがある場合。もしくは、配列がnullの場合
+     * @throws IllegalArgumentException 配列がnullの場合
+     * @throws  NullPointerException 指定された複数の{@link Object}の中にnullであるものがある場合
      */
     public static void nullNot(Object... objects) {
         if (objects == null) {
@@ -140,7 +141,7 @@ public final class Validate {
 
         for (Object o : objects) {
             if (o == null) {
-                throw new IllegalArgumentException();
+                throw new NullPointerException();
             }
         }
     }
@@ -249,25 +250,36 @@ public final class Validate {
     /*
     範囲内の検査
      */
-//
-//    public static void rangeNot(int rangeStart, int rangeEnd, int value) {
-//        if (rangeEnd > value && value > rangeStart) {
-//            throw new IllegalArgumentException();
-//        }
-//    }
-//
-//    /**
-//     * 指定された範囲内に指定された値が<b>含まれる</b>か検証します。
-//     *
-//     * @param rangeStart 範囲の
-//     * @param rangeEnd 範囲の
-//     * @param value
-//     */
-//    public static void range(int rangeStart, int rangeEnd, int value) {
-//        if (rangeEnd <= value || value <= rangeStart) {
-//            throw new IllegalArgumentException();
-//        }
-//    }
+
+    /**
+     * 指定された範囲内に指定された値が<b>含まれない</b>か検証します。
+     * （v < s || e < v）
+     *
+     * @param rangeStart 範囲の開始
+     * @param rangeEnd 範囲の終了
+     * @param value 検証する値
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（s <= v <= e）
+     */
+    public static void rangeNotIn(int value, int rangeStart, int rangeEnd) {
+        if (rangeStart <= value && value <= rangeEnd) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * 指定された範囲内に指定された値が<b>含まれる</b>か検証します。
+     * （s <= v <= e）
+     *
+     * @param rangeStart 範囲の開始
+     * @param rangeEnd 範囲の終了
+     * @param value 検証する値
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（v < s || e < v）
+     */
+    public static void rangeIn(int value, int rangeStart, int rangeEnd) {
+        if (value < rangeStart || rangeEnd < value) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     /*
     値が正の値か０の場合に例外

@@ -2,8 +2,12 @@ package net.spicesoftware.api.util.style;
 
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.Validate;
 
 import javax.validation.constraints.Min;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
+import static net.spicesoftware.api.util.Validate.zeroOrPositive;
 
 /**
  * 線のスタイルを保持します。
@@ -17,12 +21,8 @@ public final class StrokeStyle implements DeepCopyable {
     private final int thickness;
 
     public StrokeStyle(DecorationFilling filling, @Min(0) int thickness) {
-        if (filling == null) {
-            throw new IllegalArgumentException();
-        }
-        if (thickness < 0) {
-            throw new IllegalArgumentException();
-        }
+        nullNot(filling);
+        zeroOrPositive(thickness);
         this.filling = filling;
         this.thickness = thickness;
     }
@@ -77,6 +77,7 @@ public final class StrokeStyle implements DeepCopyable {
          * @param filling 線スタイルに設定する塗りつぶし
          */
         public void fill(DecorationFilling filling) {
+            nullNot(filling);
             this.filling = filling;
         }
 
@@ -87,9 +88,7 @@ public final class StrokeStyle implements DeepCopyable {
          * @throws IllegalArgumentException 線の太さを0未満に設定しようとした時
          */
         public void thickness(@Min(0) int thickness) throws IllegalArgumentException {
-            if (thickness < 0) {
-                throw new IllegalArgumentException();
-            }
+            zeroOrPositive(thickness);
             this.thickness = thickness;
         }
     }

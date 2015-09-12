@@ -1,9 +1,13 @@
 package net.spicesoftware.api.util.style;
 
+import com.sun.istack.internal.Nullable;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.Validate;
 
 import java.util.Optional;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
  * テキストのスタイルを保持します。
@@ -16,10 +20,8 @@ public final class TextStyle implements DeepCopyable {
     private final StrokeStyle outline;
     private final DecorationFilling filling;
 
-    public TextStyle(StrokeStyle outline, DecorationFilling filling) {
-        if (filling == null) {
-            throw new IllegalArgumentException();
-        }
+    public TextStyle(@Nullable StrokeStyle outline, DecorationFilling filling) {
+        nullNot(filling);
         this.outline = outline;
         this.filling = filling;
     }
@@ -90,6 +92,7 @@ public final class TextStyle implements DeepCopyable {
          * @param filling テキストスタイルに設定する文字のデコレーション
          */
         public void fill(DecorationFilling filling) {
+            nullNot(filling);
             this.filling = filling;
         }
 
