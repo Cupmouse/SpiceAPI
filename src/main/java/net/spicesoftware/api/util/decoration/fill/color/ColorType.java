@@ -19,7 +19,7 @@ public enum ColorType {
             case HSV360:
                 return HSV360Color.class;
             case GRAYSCALE:
-                return GrayScaleColor.class;
+                return GrayScale8Color.class;
             case BLACK_WHITE:
                 break;
         }

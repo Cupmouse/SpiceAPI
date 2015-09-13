@@ -14,47 +14,47 @@ import static net.spicesoftware.api.util.Validate.rangeIn;
  *
  * @since 2015/01/17
  */
-public final class GrayScaleColor implements Color, Serializable {
+public final class GrayScale8Color implements Color, Serializable {
 
     public final int w;
 
-    public GrayScaleColor(@Min(0) @Max(0xFF) int w) {
+    public GrayScale8Color(@Min(0) @Max(0xFF) int w) {
         rangeIn(w, 0, 0xFF);
         this.w = w;
     }
 
-    public GrayScaleColor add(GrayScaleColor color) {
+    public GrayScale8Color add(GrayScale8Color color) {
         nullNot(color);
-        return new GrayScaleColor(Math.min(this.w + color.w, 0xFF));
+        return new GrayScale8Color(Math.min(this.w + color.w, 0xFF));
     }
 
-    public GrayScaleColor add(@Min(0) @Max(0xFF) int w) {
+    public GrayScale8Color add(@Min(0) @Max(0xFF) int w) {
         rangeIn(w, 0, 0xFF);
-        return new GrayScaleColor(Math.min(this.w + w, 0xFF));
+        return new GrayScale8Color(Math.min(this.w + w, 0xFF));
     }
 
-    public GrayScaleColor sub(@Min(0) @Max(0xFF) int w) {
+    public GrayScale8Color sub(@Min(0) @Max(0xFF) int w) {
         rangeIn(w, 0, 0xFF);
-        return new GrayScaleColor(Math.max(this.w - w, 0));
+        return new GrayScale8Color(Math.max(this.w - w, 0));
     }
 
-    public GrayScaleColor sub(GrayScaleColor color) {
+    public GrayScale8Color sub(GrayScale8Color color) {
         nullNot(color);
-        return new GrayScaleColor(Math.max(this.w - color.w, 0));
+        return new GrayScale8Color(Math.max(this.w - color.w, 0));
     }
 
-    public GrayScaleColor blend(@Min(0) @Max(0xFF) int w) {
+    public GrayScale8Color blend(@Min(0) @Max(0xFF) int w) {
         rangeIn(w, 0, 0xFF);
-        return new GrayScaleColor(Math.round((this.w + w) / 2F));
+        return new GrayScale8Color(Math.round((this.w + w) / 2F));
     }
 
-    public GrayScaleColor blend(GrayScaleColor color) {
+    public GrayScale8Color blend(GrayScale8Color color) {
         nullNot(color);
-        return new GrayScaleColor(Math.round((this.w + color.w) / 2F));
+        return new GrayScale8Color(Math.round((this.w + color.w) / 2F));
     }
 
-    public GrayScaleColor opposite() {
-        return new GrayScaleColor(~w & 0xFF);
+    public GrayScale8Color opposite() {
+        return new GrayScale8Color(~w & 0xFF);
     }
 
     public RGB24Color toRGB24Color() {
@@ -67,8 +67,8 @@ public final class GrayScaleColor implements Color, Serializable {
     }
 
     @Override
-    public GrayScaleColor copyDeeply() {
-        return new GrayScaleColor(w);
+    public GrayScale8Color copyDeeply() {
+        return new GrayScale8Color(w);
     }
 
     @Override
@@ -76,7 +76,7 @@ public final class GrayScaleColor implements Color, Serializable {
         if (obj == this) {
             return true;
         } else if (obj != null && getClass() == obj.getClass()) {
-            GrayScaleColor grayScaleColor = (GrayScaleColor) obj;
+            GrayScale8Color grayScaleColor = (GrayScale8Color) obj;
             return grayScaleColor.w == w;
         }
         return false;

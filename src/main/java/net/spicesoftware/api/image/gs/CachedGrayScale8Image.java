@@ -7,8 +7,8 @@ import net.spicesoftware.api.image.CachedImage;
  *
  * @since 2015/01/17
  */
-public interface CachedGrayScaleImage extends GrayScaleImage, CachedImage {
+public interface CachedGrayScale8Image extends GrayScale8Image, CachedImage {
 
     @Override
-    CachedGrayScaleImage copyDeeply();
+    CachedGrayScale8Image copyDeeply();
 }

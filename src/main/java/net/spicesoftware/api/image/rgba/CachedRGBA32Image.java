@@ -7,8 +7,8 @@ import net.spicesoftware.api.image.CachedImage;
  *
  * @since 2015/01/17
  */
-public interface CachedRGBAImage extends RGBAImage, CachedImage {
+public interface CachedRGBA32Image extends RGBA32Image, CachedImage {
 
     @Override
-    CachedRGBAImage copyDeeply();
+    CachedRGBA32Image copyDeeply();
 }
