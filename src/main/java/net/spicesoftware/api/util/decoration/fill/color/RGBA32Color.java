@@ -26,17 +26,17 @@ public final class RGBA32Color implements Color, Serializable {
         this.a = a;
     }
 
-    public static void validateRGBA(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
-        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xFF || a < 0 || a > 0xFF) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     public RGBA32Color(@Min(0) @Max(0xFFFFFFFF) int rgba) {
         this.r = rgba >>> 24 & 0xFF;
         this.g = rgba >>> 16 & 0xFF;
         this.b = rgba >>> 8 & 0xFF;
         this.a = rgba & 0xFF;
+    }
+
+    public static void validateRGBA(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
+        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xFF || a < 0 || a > 0xFF) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static RGBA32Color fromRGB24Color(RGB24Color color, @Min(0) @Max(0xFF) int transparency) {
@@ -76,7 +76,7 @@ public final class RGBA32Color implements Color, Serializable {
     }
 
     public long toRGBA32Long() {
-        return ((long)r << 24) | ((long)g << 16) | ((long)b << 8) | (long)a;
+        return ((long) r << 24) | ((long) g << 16) | ((long) b << 8) | (long) a;
     }
 
     public int toRGBA32Int() {

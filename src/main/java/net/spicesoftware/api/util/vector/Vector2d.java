@@ -4,6 +4,8 @@ import net.spicesoftware.api.util.DeepCopyable;
 
 import java.io.Serializable;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+
 /**
  * x, yを{@code double}で保持する２次元ベクタークラスです。
  *
@@ -20,6 +22,20 @@ public final class Vector2d implements DeepCopyable, Serializable {
         this.y = y;
     }
 
+    public double area() {
+        return x * y;
+    }
+
+    public double dot(Vector2d vector2d) {
+        nullNot(vector2d);
+        return x * vector2d.x + y * vector2d.y;
+    }
+
+    public double cross(Vector2d vector2d) {
+        nullNot(vector2d);
+        return x * vector2d.y - y * vector2d.x;
+    }
+
     public double lengthSquared() {
         return x * x + y * y;
     }
@@ -33,6 +49,7 @@ public final class Vector2d implements DeepCopyable, Serializable {
     }
 
     public Vector2d add(Vector2d vector2d) {
+        nullNot(vector2d);
         return new Vector2d(x + vector2d.x, y + vector2d.y);
     }
 
@@ -41,6 +58,7 @@ public final class Vector2d implements DeepCopyable, Serializable {
     }
 
     public Vector2d subtract(Vector2d vector2d) {
+        nullNot(vector2d);
         return new Vector2d(x - vector2d.x, y - vector2d.y);
     }
 

@@ -24,7 +24,7 @@ public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializ
      * この{@code KeyFrame}の補間法を設定します。
      *
      * @param clazz 設定する補間法の値の{@link Class}
-     * @param clazz 設定する補間法の登録Id
+     * @param id    設定する補間法の登録Id
      * @throws NotRegisteredInRegistryException 指定された補間法が{@link net.spicesoftware.api.registry.Registry}に登録されていない場合
      */
     void setInterpolator(Class<T> clazz, String id) throws NotRegisteredInRegistryException;

@@ -1,7 +1,6 @@
 package net.spicesoftware.api.util.decoration.fill.gradient.rgb24;
 
 import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
-import net.spicesoftware.api.util.decoration.fill.gradient.ColorStopGradientFilling;
 import net.spicesoftware.api.util.decoration.fill.gradient.GradientFillingLinear;
 
 import java.util.Map;

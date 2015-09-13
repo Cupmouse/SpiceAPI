@@ -35,8 +35,6 @@ import java.util.Optional;
  */
 public interface Registry {
 
-    <T extends Image> void addImage(Class<T> image);
-
     /**
      * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link CachedGrayScaleImage}を作成します。
      *
@@ -44,7 +42,7 @@ public interface Registry {
      * @param height 新しいイメージの高さ
      * @param image  新しいイメージの画像情報を含むbyte[]
      * @return 新しい不変グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     CachedGrayScaleImage createCachedGrayScaleImage(int width, int height, byte[] image) throws IllegalArgumentException;
 
@@ -55,7 +53,7 @@ public interface Registry {
      * @param height 新しいイメージの高さ
      * @param image  新しいイメージの画像情報を含むbyte[]
      * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableGrayScaleImage createNewGrayScaleImage(int width, int height, byte[] image) throws IllegalArgumentException;
 
@@ -65,7 +63,7 @@ public interface Registry {
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
      * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableGrayScaleImage createNewGrayScaleImage(int width, int height) throws IllegalArgumentException;
 
@@ -84,7 +82,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableGrayScaleImage createNewGrayScaleImage(int width, int height, byte backgroundColor) throws IllegalArgumentException;
 
@@ -104,7 +102,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableGrayScaleImage createNewGrayScaleImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
 
@@ -124,7 +122,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableGrayScaleImage createNewGrayScaleImage(int width, int height, GrayScaleColor backgroundColor) throws IllegalArgumentException;
 
@@ -140,18 +138,22 @@ public interface Registry {
     /**
      * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link CachedRGBImage}を作成します。
      *
-     * @param image 画像情報を含むint[]
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
+     * @param image  画像情報を含むint[]
      * @return 新しい不変RGBケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     CachedRGBImage createCachedRGBImage(int width, int height, int[] image) throws IllegalArgumentException;
 
     /**
      * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link EditableRGBImage}を作成します。
      *
-     * @param image 画像情報を含むint[]
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
+     * @param image  画像情報を含むint[]
      * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBImage createNewRGBImage(int width, int height, int[] image) throws IllegalArgumentException;
 
@@ -161,7 +163,7 @@ public interface Registry {
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
      * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBImage createNewRGBImage(int width, int height) throws IllegalArgumentException;
 
@@ -180,7 +182,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBImage createNewRGBImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
 
@@ -200,7 +202,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBImage createNewRGBImage(int width, int height, RGB24Color backgroundColor) throws IllegalArgumentException;
 
@@ -222,7 +224,7 @@ public interface Registry {
      * @param channelG 新しい画像のGチャンネルの{@link CachedGrayScaleImage}
      * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScaleImage}
      * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBImage createNewCSRGBImage(int width, int height, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB) throws IllegalArgumentException;
 
@@ -240,18 +242,22 @@ public interface Registry {
     /**
      * 幅と高さとRGBA32形式の画像情報を含む{@code int[]}から新しい{@link CachedRGBAImage}を作成します。
      *
-     * @param image 画像情報を含むint[]
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
+     * @param image  画像情報を含むint[]
      * @return 新しい不変RGBAケールイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     CachedRGBAImage createCachedRGBAImage(int width, int height, int[] image) throws IllegalArgumentException;
 
     /**
      * 幅と高さとRGB3A2形式の画像情報を含む{@code int[]}から新しい{@link EditableRGBAImage}を作成します。
      *
-     * @param image 画像情報を含むint[]
+     * @param height 新しい画像の高さ
+     * @param width  新しい画像の幅
+     * @param image  画像情報を含むint[]
      * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewRGBAImage(int width, int height, int[] image) throws IllegalArgumentException;
 
@@ -261,7 +267,7 @@ public interface Registry {
      * @param height 新しい画像の高さ
      * @param width  新しい画像の幅
      * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewRGBAImage(int width, int height) throws IllegalArgumentException;
 
@@ -280,7 +286,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewRGBAImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
 
@@ -300,7 +306,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewRGBAImage(int width, int height, long backgroundColor) throws IllegalArgumentException;
 
@@ -320,7 +326,7 @@ public interface Registry {
      * @param width           新しい画像の幅
      * @param backgroundColor この画像いっぱいに埋める背景色
      * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewRGBAImage(int width, int height, RGBA32Color backgroundColor) throws IllegalArgumentException;
 
@@ -343,7 +349,7 @@ public interface Registry {
      * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScaleImage}
      * @param channelA 新しい画像のAチャンネルの{@link CachedGrayScaleImage}
      * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
-     * @throws IllegalArgumentException width > 0 && height > 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
      */
     EditableRGBAImage createNewCSRGBAImage(int width, int height, EditableGrayScaleImage channelR, EditableGrayScaleImage channelG, EditableGrayScaleImage channelB, EditableGrayScaleImage channelA) throws IllegalArgumentException;
 
@@ -375,6 +381,7 @@ public interface Registry {
      * @param clazz        登録する{@link Interpolator}の補完する型の{@link Class}
      * @param id           登録する{@link Interpolator}に関連付けるId
      * @param interpolator 登録する{@link Interpolator}
+     * @param <T>          登録する{@link Interpolator}が補完する型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredInRegistryException;
@@ -384,7 +391,7 @@ public interface Registry {
      *
      * @param clazz 取得したい{@link Interpolator}のクラスの{@link java.lang.Class}
      * @param id    取得したい{@link Interpolator}のId
-     * @param <T>   {@link Interpolator}を取得したいクラスの型
+     * @param <T>   取得したい{@link Interpolator}が補完する型
      * @return 指定されたIdと型のためのInterpolator
      */
     <T> Optional<Interpolator<T>> getInterpolatorOf(Class<T> clazz, @Size(min = 1) String id);
@@ -392,8 +399,9 @@ public interface Registry {
     /**
      * 指定された登録されている{@link Interpolator}のIdを返します。
      *
-     * @param clazz        登録されているかを確認する{@link Interpolator}の補完する型の{@link Class}
+     * @param clazz        Idを取得する{@link Interpolator}が補完する型の{@link Class}
      * @param interpolator Idを取得する{@link Interpolator}
+     * @param <T>          Idを取得する{@link Interpolator}が補完する型
      * @return 指定したInterpolatorのId
      * @throws NotRegisteredInRegistryException {@link Interpolator}がレジストリに登録されていない場合
      */
@@ -403,8 +411,9 @@ public interface Registry {
     /**
      * 指定された{@link Interpolator}が登録されているかを真偽値で返します。
      *
-     * @param clazz        登録されているかを確認する{@link Interpolator}の補完する型の{@link Class}
+     * @param clazz        登録されているかを確認する{@link Interpolator}が補完する型の{@link Class}
      * @param interpolator 登録されているかを確認する{@link Interpolator}
+     * @param <T>          登録されているかを確認する{@link Interpolator}が補完する型
      * @return 指定されたInterpolatorが登録されているか
      */
     <T> boolean isRegisteredInterpolator(Class<T> clazz, Interpolator<T> interpolator);
@@ -413,9 +422,10 @@ public interface Registry {
     /**
      * {@link ImageBlender}をIdと関連付けて登録します。
      *
-     * @param clazz        登録する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazz        登録する{@link ImageBlender}が合成するイメージの型の{@link Class}
      * @param id           登録する{@link ImageBlender}に関連付けるId
      * @param imageBlender 登録する{@link ImageBlender}
+     * @param <I>          登録する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<?, I> imageBlender) throws AlreadyRegisteredInRegistryException;
@@ -423,9 +433,9 @@ public interface Registry {
     /**
      * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
      *
-     * @param clazz {@link ImageBlender}を取得したいイメージの{@link Class}
+     * @param clazz {@link ImageBlender}を取得したい{@link CachedImage}の{@link Class}
      * @param id    取得したい{@link ImageBlender}のId
-     * @param <I>   {@link ImageBlender}を取得したいイメージの型
+     * @param <I>   {@link ImageBlender}を取得したい{@link CachedImage}の型
      * @return 指定されたIdと型のためのImageBlender
      */
     <I extends CachedImage> Optional<ImageBlender<?, I>> getImageBlender(Class<I> clazz, @Size(min = 1) String id);
@@ -433,8 +443,9 @@ public interface Registry {
     /**
      * 指定された登録されている{@link ImageBlender}のIdを返します。
      *
-     * @param clazz        Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazz        Idを取得する{@link ImageBlender}の合成する{@link CachedImage}の型の{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
+     * @param <I>          Idを取得する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @return 指定したImageBlenderのId
      * @throws NotRegisteredInRegistryException {@link ImageBlender}がレジストリに登録されていない場合
      */
@@ -444,8 +455,9 @@ public interface Registry {
     /**
      * 指定された{@link ImageBlender}が登録されているかを真偽値で返します。
      *
-     * @param clazz        登録されているかを確認する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazz        登録されているかを確認する{@link ImageBlender}の合成する{@link Image}の型の{@link Class}
      * @param imageBlender 登録されているかを確認する{@link ImageBlender}
+     * @param <I>          登録されているかを確認する{@link ImageBlender}が合成する{@link Image}の型
      * @return 指定されたImageBlenderが登録されているか
      */
     <I extends CachedImage> boolean isRegisteredImageBlender(Class<I> clazz, ImageBlender<?, I> imageBlender);
@@ -454,10 +466,12 @@ public interface Registry {
     /**
      * {@link ImageConverter}をIdと関連付けて登録します。
      *
-     * @param inputImageClass  登録する{@link ImageConverter}の変換前の画像の型の{@link Class}
-     * @param outputImageClass 登録する{@link ImageConverter}の変換後の画像の型の{@link Class}
+     * @param inputImageClass  登録する{@link ImageConverter}の入力{@link Image}の型の{@link Class}
+     * @param outputImageClass 登録する{@link ImageConverter}の出力{@link CachedImage}の型の{@link Class}
      * @param id               登録する{@link ImageConverter}に関連付けるId
      * @param imageConverter   登録する{@link ImageConverter}
+     * @param <I>              登録する{@link ImageConverter}の入力{@link Image}の型
+     * @param <O>              登録する{@link ImageConverter}の出力{@link CachedImage}の型
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
     <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredInRegistryException;
@@ -477,9 +491,11 @@ public interface Registry {
     /**
      * 指定された登録されている{@link ImageConverter}のIdを返します。
      *
-     * @param inputImageClass  Idを取得する{@link ImageConverter}の変換前の画像の型の{@link Class}
-     * @param outputImageClass Idを取得する{@link ImageConverter}の変換後の画像の型の{@link Class}
+     * @param inputImageClass  Idを取得する{@link ImageConverter}の入力{@link Image}の型の{@link Class}
+     * @param outputImageClass Idを取得する{@link ImageConverter}の出力{@link CachedImage}の型の{@link Class}
      * @param imageConverter   Idを取得する{@link ImageConverter}
+     * @param <I>              Idを取得する{@link ImageConverter}の入力{@link Image}の型
+     * @param <O>              Idを取得する{@link ImageConverter}の出力{@link CachedImage}の型
      * @return 指定したImageConverterのId
      * @throws NotRegisteredInRegistryException {@link ImageConverter}がレジストリに登録されていない場合
      */
@@ -489,9 +505,11 @@ public interface Registry {
     /**
      * 指定された{@link ImageConverter}が登録されているかを真偽値で返します。
      *
-     * @param inputImageClass  登録されているかを確認する{@link ImageConverter}の変換前の画像の型の{@link Class}
-     * @param outputImageClass 登録されているかを確認する{@link ImageConverter}の変換後の画像の型の{@link Class}
+     * @param inputImageClass  登録されているかを確認する{@link ImageConverter}の入力{@link Image}の型の{@link Class}
+     * @param outputImageClass 登録されているかを確認する{@link ImageConverter}の出力{@link CachedImage}の型の{@link Class}
      * @param imageConverter   登録されているかを確認する{@link ImageConverter}
+     * @param <I>              登録されているかを確認する{@link ImageConverter}の入力{@link Image}の型
+     * @param <O>              登録されているかを確認する{@link ImageConverter}の出力{@link CachedImage}の型
      * @return 指定されたImageConverterが登録されているか
      */
     <I extends Image, O extends CachedImage> boolean isRegisteredImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter);

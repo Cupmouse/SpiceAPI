@@ -5,6 +5,8 @@ import net.spicesoftware.api.util.vector.Vector2i;
 
 import java.util.Map;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+
 /**
  * 円形グラデーションです。
  *
@@ -41,6 +43,7 @@ public abstract class GradientFillingRadial<T extends Color> extends ColorStopGr
         }
 
         public void radialCenter(Vector2i centerPos) {
+            nullNot(centerPos);
             radialCenter(centerPos.x, centerPos.y);
         }
 

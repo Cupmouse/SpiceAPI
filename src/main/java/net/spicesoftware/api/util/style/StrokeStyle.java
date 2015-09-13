@@ -5,6 +5,9 @@ import net.spicesoftware.api.util.DeepCopyable;
 
 import javax.validation.constraints.Min;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+import static net.spicesoftware.api.util.Validate.zeroOrPositive;
+
 /**
  * 線のスタイルを保持します。
  * イミュータブルクラスです。
@@ -17,12 +20,8 @@ public final class StrokeStyle implements DeepCopyable {
     private final int thickness;
 
     public StrokeStyle(DecorationFilling filling, @Min(0) int thickness) {
-        if (filling == null) {
-            throw new IllegalArgumentException();
-        }
-        if (thickness < 0) {
-            throw new IllegalArgumentException();
-        }
+        nullNot(filling);
+        zeroOrPositive(thickness);
         this.filling = filling;
         this.thickness = thickness;
     }
@@ -63,11 +62,21 @@ public final class StrokeStyle implements DeepCopyable {
         }
 
         /**
+         * 新しい{@link StrokeStyleBuilder}のインスタンスを返します。
+         *
+         * @return 新しいラインスタイルビルダーのインスタンス
+         */
+        public static StrokeStyleBuilder builder() {
+            return new StrokeStyleBuilder();
+        }
+
+        /**
          * {@link StrokeStyle}の{@link DecorationFilling}を設定します。
          *
          * @param filling 線スタイルに設定する塗りつぶし
          */
         public void fill(DecorationFilling filling) {
+            nullNot(filling);
             this.filling = filling;
         }
 
@@ -78,19 +87,8 @@ public final class StrokeStyle implements DeepCopyable {
          * @throws IllegalArgumentException 線の太さを0未満に設定しようとした時
          */
         public void thickness(@Min(0) int thickness) throws IllegalArgumentException {
-            if (thickness < 0) {
-                throw new IllegalArgumentException();
-            }
+            zeroOrPositive(thickness);
             this.thickness = thickness;
-        }
-
-        /**
-         * 新しい{@link StrokeStyleBuilder}のインスタンスを返します。
-         *
-         * @return 新しいラインスタイルビルダーのインスタンス
-         */
-        public static StrokeStyleBuilder builder() {
-            return new StrokeStyleBuilder();
         }
     }
 }

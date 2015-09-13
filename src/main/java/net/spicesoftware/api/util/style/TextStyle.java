@@ -1,9 +1,12 @@
 package net.spicesoftware.api.util.style;
 
+import com.sun.istack.internal.Nullable;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
 
 import java.util.Optional;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
  * テキストのスタイルを保持します。
@@ -16,10 +19,8 @@ public final class TextStyle implements DeepCopyable {
     private final StrokeStyle outline;
     private final DecorationFilling filling;
 
-    public TextStyle(StrokeStyle outline, DecorationFilling filling) {
-        if (filling == null) {
-            throw new IllegalArgumentException();
-        }
+    public TextStyle(@Nullable StrokeStyle outline, DecorationFilling filling) {
+        nullNot(filling);
         this.outline = outline;
         this.filling = filling;
     }
@@ -67,6 +68,15 @@ public final class TextStyle implements DeepCopyable {
         }
 
         /**
+         * 新しい{@link TextStyleBuilder}のインスタンスを返します。
+         *
+         * @return 新しいテキストスタイルビルダーのインスタンス
+         */
+        public static TextStyleBuilder builder() {
+            return new TextStyleBuilder();
+        }
+
+        /**
          * {@link TextStyle}のアウトラインの{@link StrokeStyle}を設定します。
          *
          * @param outline テキストスタイルに設定するアウトラインのスタイル
@@ -81,20 +91,12 @@ public final class TextStyle implements DeepCopyable {
          * @param filling テキストスタイルに設定する文字のデコレーション
          */
         public void fill(DecorationFilling filling) {
+            nullNot(filling);
             this.filling = filling;
         }
 
         public TextStyle build() {
             return new TextStyle(outline, filling);
-        }
-
-        /**
-         * 新しい{@link TextStyleBuilder}のインスタンスを返します。
-         *
-         * @return 新しいテキストスタイルビルダーのインスタンス
-         */
-        public static TextStyleBuilder builder() {
-            return new TextStyleBuilder();
         }
     }
 }

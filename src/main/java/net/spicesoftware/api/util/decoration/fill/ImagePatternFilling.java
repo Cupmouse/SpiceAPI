@@ -5,6 +5,8 @@ import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.util.vector.Vector2i;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+
 /**
  * 画像の繰り返しのパターンです。
  *
@@ -17,12 +19,14 @@ public final class ImagePatternFilling implements PatternFilling {
     private final int offsetY;
 
     public ImagePatternFilling(CachedImage image, int offsetX, int offsetY) {
+        nullNot(image);
         this.image = image;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
     }
 
     public ImagePatternFilling(CachedImage image, Vector2i offset) {
+        nullNot(image, offset);
         this.image = image;
         this.offsetX = offset.x;
         this.offsetY = offset.y;

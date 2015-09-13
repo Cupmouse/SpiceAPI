@@ -1,7 +1,6 @@
 package net.spicesoftware.api.util.decoration.fill.gradient;
 
 import net.spicesoftware.api.decoration.fill.Color;
-import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.decoration.fill.GradientFilling;
 
 import javax.validation.constraints.Max;
@@ -10,6 +9,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
+import static net.spicesoftware.api.util.Validate.rangeIn;
 
 /**
  * グラデーションの塗りつぶしです。
@@ -27,11 +29,13 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Gradi
     private final Map<Integer, T> colorStopMap;
 
     protected ColorStopGradientFilling(Map<Integer, T> colorStopMap, boolean repeating) {
+        nullNot(colorStopMap);
         this.colorStopMap = Collections.unmodifiableMap(colorStopMap);
         this.repeat = repeating;
     }
 
     protected ColorStopGradientFilling(ColorStopGradientFilling<T> copyFrom) {
+        nullNot(copyFrom);
         this.colorStopMap = Collections.unmodifiableMap(new HashMap<>(copyFrom.colorStopMap));
         this.repeat = copyFrom.repeat;
     }
@@ -52,9 +56,7 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Gradi
      * @return このグラデーションの指定された位置の中間色
      */
     public Optional<T> getColorStopAt(@Min(0) @Max(999) int i) {
-        if (i < 0 || i > 999) {
-            throw new IllegalArgumentException();
-        }
+        rangeIn(i, 0, 999);
         return Optional.ofNullable(colorStopMap.get(i));
     }
 
@@ -118,12 +120,8 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Gradi
          * @param color 中間色にとして設定する色
          */
         public void setColorStopAt(@Min(0) @Max(999) int i, T color) {
-            if (i < 0 || i > 999) {
-                throw new IllegalArgumentException();
-            }
-            if (color == null) {
-                throw new NullPointerException();
-            }
+            rangeIn(i, 0, 999);
+            nullNot(color);
             colorStopMap.put(i, color);
         }
 
@@ -133,9 +131,7 @@ public abstract class ColorStopGradientFilling<T extends Color> implements Gradi
          * @param i 削除する中間色の位置
          */
         public void removeColorStopAt(@Min(0) @Max(999) int i) {
-            if (i < 0 || i > 999) {
-                throw new IllegalArgumentException();
-            }
+            rangeIn(i, 0, 999);
             colorStopMap.remove(i);
         }
 

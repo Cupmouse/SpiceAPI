@@ -1,7 +1,7 @@
 package net.spicesoftware.api.image;
 
 /**
- * {@link Image}を他の{@code Image}に変換します。
+ * {@link Image}を他の{@link Image}に変換します。
  *
  * @since 2015/02/02
  */
