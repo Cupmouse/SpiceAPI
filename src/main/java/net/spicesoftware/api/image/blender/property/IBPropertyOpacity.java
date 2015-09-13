@@ -8,5 +8,5 @@ import javax.validation.constraints.Min;
  */
 public interface IBPropertyOpacity extends ImageBlenderProperty {
 
-    @Min(0) @Max(0xFF) int getOpacity();
+    @Min(0) @Max(1000) int getOpacity();
 }

@@ -4,19 +4,21 @@ import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
 import net.spicesoftware.api.image.blender.ImageBlender;
+import net.spicesoftware.api.image.blender.property.IBPropertyDither;
+import net.spicesoftware.api.image.blender.property.IBPropertyOpacity;
 import net.spicesoftware.api.image.blender.property.ImageBlenderProperty;
+import net.spicesoftware.api.image.blender.property.builder.ImageBlenderPropertyBuilder;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
 import net.spicesoftware.api.image.rgb.CachedRGB24Image;
 import net.spicesoftware.api.image.rgb.EditableRGB24Image;
 import net.spicesoftware.api.image.rgba.CachedRGBA32Image;
 import net.spicesoftware.api.image.rgba.EditableRGBA32Image;
+import net.spicesoftware.api.item.Item;
 import net.spicesoftware.api.render.Renderable;
 import net.spicesoftware.api.render.Renderer;
-import net.spicesoftware.api.resource.builder.ResourceImageBuilder;
-import net.spicesoftware.api.resource.builder.ResourceShapeBuilder;
-import net.spicesoftware.api.resource.builder.ResourceSoundBuilder;
-import net.spicesoftware.api.resource.builder.ResourceVideoBuilder;
+import net.spicesoftware.api.resource.Resource;
+import net.spicesoftware.api.resource.builder.*;
 import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
@@ -25,16 +27,70 @@ import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
- * レジストリです。
- * 画像の作成、ビルダーの取得等ができます。
+ * レジストリは、実装とAPIを結ぶクラスです。
+ * 主に画像の作成、ビルダーの取得等ができます。
  *
  * @since 2014/10/06
  */
 public interface Registry {
+
+    /**
+     * 指定された{@link Resource}のビルダーである、{@link ResourceBuilder}を返します。<br>
+     * 登録されていない場合は、空の{@link Optional}が返ります。
+     *
+     * @param <T> {@link ResourceBuilder}がビルドする{@link Resource}の型
+     * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
+     * @return 指定された{@link ResourceBuilder}をビルドする{@code ResourceBuilder}、登録されていない場合は、空の{@link Optional}
+     */
+    <T extends Resource> Optional<ResourceBuilder<? extends Resource>> getResourceBuilderOf(Class<T> clazz);
+
+    /**
+     * 呼ばれるたびに新しい{@link ResourceBuilder}のインスタンスを返す{@link Supplier}を登録します。
+     *
+     * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
+     * @param builderSupplier 呼ばれるたびに新しい{@link ResourceBuilder}を返す{@link Supplier}
+     * @param <T> {@link ResourceBuilder}がビルドする{@link Resource}の型
+     * @throws AlreadyRegisteredInRegistryException 同じ{@link Resource}型のビルダーがすでに登録されている場合
+     */
+    <T extends Resource> void registerResourceBuilder(Class<T> clazz, Supplier<ResourceBuilder<T>> builderSupplier) throws AlreadyRegisteredInRegistryException;
+
+    /**
+     * 指定された{@link ImageBlenderProperty}のビルダーである、{@link ImageBlenderPropertyBuilder}を返します。<br>
+     * 登録されていない場合は、空の{@link Optional}が返ります。
+     *
+     * @param clazz {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の{@link Class}
+     * @param <T> {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の型
+     * @return 指定された{@link ImageBlenderProperty}をビルドする{@code ImageBlenderPropertyBuilder}、登録されていない場合は、空の{@link Optional}
+     */
+    <T extends ImageBlenderProperty> Optional<ImageBlenderPropertyBuilder<T>> getImageBlenderPropertyBuilderOf(Class<T> clazz);
+
+    /**
+     * 新しい{@link IBPropertyOpacity}のインスタンスを指定の透明度で作成し、返します。
+     *
+     * @param opacity 透明度 0~1000
+     * @return 新しい{@link IBPropertyOpacity}のインスタンス
+     */
+    IBPropertyOpacity createIBPropertyOpacity(@Min(0) @Max(1000) int opacity);
+
+    /**
+     * 新しい{@link IBPropertyDither}のインスタンスを指定の透明度とシードで作成し、返します。
+     *
+     * @param opacity 透明度 0~1000
+     * @param seed シード値
+     * @return 新しい{@link IBPropertyDither}のインスタンス
+     */
+    IBPropertyDither createIBPropertyDither(@Min(0) @Max(1000) int opacity, int seed);
+
+    /*
+    イメージ
+     */
 
     /**
      * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link CachedGrayScale8Image}を作成します。
@@ -365,15 +421,6 @@ public interface Registry {
      * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
      */
     EditableRGBA32Image createNewCSRGBAImage(Vector2i size, EditableGrayScale8Image channelR, EditableGrayScale8Image channelG, EditableGrayScale8Image channelB, EditableGrayScale8Image channelA);
-
-
-    ResourceImageBuilder getResourceImageBuilder();
-
-    ResourceShapeBuilder getResourceShapeBuilder();
-
-    ResourceSoundBuilder getResourceSoundBuilder();
-
-    ResourceVideoBuilder getResourceVideoBuilder();
 
 
     /**
