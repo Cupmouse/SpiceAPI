@@ -391,15 +391,15 @@ public interface Registry {
     <T> Optional<Interpolator<T>> getInterpolatorOf(Class<T> clazz, @Size(min = 1) String id);
 
     /**
-     * 指定された登録されている{@link Interpolator}のIdを返します。
+     * 指定された{@link Interpolator}のIdを返します。<br>
+     * 登録されている場合、Idを含む{@link Optional}が、されていない場合、空の{@link Optional}が返ります。
      *
      * @param clazz        登録されているかを確認する{@link Interpolator}の補完する型の{@link Class}
      * @param interpolator Idを取得する{@link Interpolator}
      * @return 指定したInterpolatorのId
-     * @throws NotRegisteredInRegistryException {@link Interpolator}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <T> Optional<String> getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator) throws NotRegisteredInRegistryException;
+    <T> Optional<String> getInterpolatorsId(Class<T> clazz, Interpolator<T> interpolator);
 
     /**
      * 指定された{@link Interpolator}が登録されているかを真偽値で返します。
@@ -434,16 +434,16 @@ public interface Registry {
     <I extends CachedImage, B extends ImageBlenderProperty> Optional<ImageBlender<I, B>> getImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id);
 
     /**
-     * 指定された登録されている{@link ImageBlender}のIdを返します。
+     * 指定された{@link ImageBlender}のIdを返します。<br>
+     * 登録されている場合、Idを含む{@link Optional}が、されていない場合、空の{@link Optional}が返ります。
      *
      * @param clazzI       Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
      * @param clazzB       Idを取得する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
      * @return 指定したImageBlenderのId
-     * @throws NotRegisteredInRegistryException {@link ImageBlender}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends CachedImage, B extends ImageBlenderProperty> Optional<String> getImageBlendersId(Class<I> clazzI, Class<B> clazzB, ImageBlender<I, B> imageBlender) throws NotRegisteredInRegistryException;
+    <I extends CachedImage, B extends ImageBlenderProperty> Optional<String> getImageBlendersId(Class<I> clazzI, Class<B> clazzB, ImageBlender<I, B> imageBlender);
 
     /**
      * 指定された{@link ImageBlender}が登録されているかを真偽値で返します。
@@ -480,16 +480,16 @@ public interface Registry {
     <I extends Image, O extends CachedImage> Optional<ImageConverter<I, O>> getImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id);
 
     /**
-     * 指定された登録されている{@link ImageConverter}のIdを返します。
+     * 指定された{@link ImageConverter}のIdを返します。<br>
+     * 登録されている場合、Idを含む{@link Optional}が、されていない場合、空の{@link Optional}が返ります。
      *
      * @param inputImageClass  Idを取得する{@link ImageConverter}の変換前の画像の型の{@link Class}
      * @param outputImageClass Idを取得する{@link ImageConverter}の変換後の画像の型の{@link Class}
      * @param imageConverter   Idを取得する{@link ImageConverter}
      * @return 指定したImageConverterのId
-     * @throws NotRegisteredInRegistryException {@link ImageConverter}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends Image, O extends CachedImage> Optional<String> getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter) throws NotRegisteredInRegistryException;
+    <I extends Image, O extends CachedImage> Optional<String> getImageConvertersId(Class<I> inputImageClass, Class<O> outputImageClass, ImageConverter<I, O> imageConverter);
 
     /**
      * 指定された{@link ImageConverter}が登録されているかを真偽値で返します。
