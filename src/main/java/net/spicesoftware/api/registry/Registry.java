@@ -4,6 +4,7 @@ import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
 import net.spicesoftware.api.image.blender.ImageBlender;
+import net.spicesoftware.api.image.blender.property.ImageBlenderProperty;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
 import net.spicesoftware.api.image.rgb.CachedRGB24Image;
@@ -413,42 +414,46 @@ public interface Registry {
     /**
      * {@link ImageBlender}をIdと関連付けて登録します。
      *
-     * @param clazz        登録する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzI       登録する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzB       登録する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param id           登録する{@link ImageBlender}に関連付けるId
      * @param imageBlender 登録する{@link ImageBlender}
      * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
      */
-    <I extends CachedImage> void registerImageBlender(Class<I> clazz, @Size(min = 1) String id, ImageBlender<I> imageBlender) throws AlreadyRegisteredInRegistryException;
+    <I extends CachedImage, B extends ImageBlenderProperty> void registerImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id, ImageBlender<I, B> imageBlender) throws AlreadyRegisteredInRegistryException;
 
     /**
      * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
      *
-     * @param clazz {@link ImageBlender}を取得したいイメージの{@link Class}
-     * @param id    取得したい{@link ImageBlender}のId
-     * @param <I>   {@link ImageBlender}を取得したいイメージの型
+     * @param clazzI {@link ImageBlender}を取得したいイメージの{@link Class}
+     * @param clazzB 取得したい{@link ImageBlender}が合成する時のプロパティの{@link Class}
+     * @param id     取得したい{@link ImageBlender}のId
+     * @param <I>    {@link ImageBlender}を取得したいイメージの型
      * @return 指定されたIdと型のためのImageBlender
      */
-    <I extends CachedImage> Optional<ImageBlender<I>> getImageBlender(Class<I> clazz, @Size(min = 1) String id);
+    <I extends CachedImage, B extends ImageBlenderProperty> Optional<ImageBlender<I, B>> getImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id);
 
     /**
      * 指定された登録されている{@link ImageBlender}のIdを返します。
      *
-     * @param clazz        Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzI       Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzB       Idを取得する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
      * @return 指定したImageBlenderのId
      * @throws NotRegisteredInRegistryException {@link ImageBlender}がレジストリに登録されていない場合
      */
     @Size(min = 1)
-    <I extends CachedImage> Optional<String> getImageBlendersId(Class<I> clazz, ImageBlender<I> imageBlender) throws NotRegisteredInRegistryException;
+    <I extends CachedImage, B extends ImageBlenderProperty> Optional<String> getImageBlendersId(Class<I> clazzI, Class<B> clazzB, ImageBlender<I, B> imageBlender) throws NotRegisteredInRegistryException;
 
     /**
      * 指定された{@link ImageBlender}が登録されているかを真偽値で返します。
      *
-     * @param clazz        登録されているかを確認する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzI       登録されているかを確認する{@link ImageBlender}の合成する画像の型の{@link Class}
+     * @param clazzB       登録されているかを確認する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param imageBlender 登録されているかを確認する{@link ImageBlender}
      * @return 指定されたImageBlenderが登録されているか
      */
-    <I extends CachedImage> boolean isRegisteredImageBlender(Class<I> clazz, ImageBlender<I> imageBlender);
+    <I extends CachedImage, B extends ImageBlenderProperty> boolean isRegisteredImageBlender(Class<I> clazzI, Class<B> clazzB, ImageBlender<I, B> imageBlender);
 
 
     /**
