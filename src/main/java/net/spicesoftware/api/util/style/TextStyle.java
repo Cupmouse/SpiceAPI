@@ -1,9 +1,9 @@
 package net.spicesoftware.api.util.style;
 
-import com.sun.istack.internal.Nullable;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
