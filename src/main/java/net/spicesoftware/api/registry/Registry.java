@@ -49,7 +49,7 @@ public interface Registry {
      * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
      * @return 指定された{@link ResourceBuilder}をビルドする{@code ResourceBuilder}、登録されていない場合は、空の{@link Optional}
      */
-    <T extends Resource> Optional<ResourceBuilder<? extends Resource>> getResourceBuilderOf(Class<T> clazz);
+    <T extends Resource> Optional<ResourceBuilder<T>> getResourceBuilderOf(Class<T> clazz);
 
     /**
      * 呼ばれるたびに新しい{@link ResourceBuilder}のインスタンスを返す{@link Supplier}を登録します。
