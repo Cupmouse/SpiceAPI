@@ -1,5 +1,7 @@
 package net.spicesoftware.api.util;
 
+import static net.spicesoftware.api.util.Validate.nullNot;
+
 /**
  * ２つのオブジェクトを関連付けて保持するためのクラスです。
  *
@@ -16,7 +18,7 @@ public final class Pair<A, B> {
     }
 
     public static <A, B> Pair<A, B> of(A a, B b) {
-        Validate.nullNot(a, b);
+        nullNot(a, b);
         return new Pair(a, b);
     }
 

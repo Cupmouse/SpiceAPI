@@ -83,8 +83,8 @@ public final class FrameRanged<T extends DeepCopyable> implements ShallowCopyabl
     }
 
     @Override
-    public DeepCopyable copyDeeply() {
-        return new FrameRanged<>(ranged.copyDeeply(), start, end);
+    public FrameRanged<T> copyDeeply() {
+        return new FrameRanged<>((T) ranged.copyDeeply(), start, end);
     }
 
     @Override
