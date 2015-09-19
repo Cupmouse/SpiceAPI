@@ -63,7 +63,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * {@link Pair}のaを左側のアイテムのインデックス番号、bを右側のアイテムのインデックス番号として返します。<br>
      * 該当するアイテムがない場合は-1が返ります。<br>
      * また、{@code null}が返ることはありません。<br>
-     * <p></p>
+     * <br>
      * 例えば、このような配置がレイヤーになされていたとします。<br>
      * --------[ITEM]-------[ITEM]--------<br>
      * ここで、FRAMEをメソッドのパラメータ、{@code frame}であったとして、<br>
@@ -76,7 +76,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * そして、指定フレーム位置があるアイテム上にある場合、<br>
      * --------[ITEM]--[IT|FRAME|EM]------<br>
      * の時は、a=1, b=1、つまり、a=bの{@link Pair}が返されます。<br>
-     * <p></p>
+     * <br>
      * また、返される{@link Pair}のa, bは常にa &lt;= bになります。
      *
      * @param frame 両端、または、その上のアイテムを求めるフレーム位置
