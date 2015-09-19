@@ -14,13 +14,11 @@ import net.spicesoftware.api.image.rgb.CachedRGB24Image;
 import net.spicesoftware.api.image.rgb.EditableRGB24Image;
 import net.spicesoftware.api.image.rgba.CachedRGBA32Image;
 import net.spicesoftware.api.image.rgba.EditableRGBA32Image;
-import net.spicesoftware.api.item.Item;
 import net.spicesoftware.api.render.Renderable;
 import net.spicesoftware.api.render.Renderer;
 import net.spicesoftware.api.resource.Resource;
-import net.spicesoftware.api.resource.builder.*;
+import net.spicesoftware.api.resource.builder.ResourceBuilder;
 import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
-import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
 import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
 import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
@@ -45,7 +43,7 @@ public interface Registry {
      * 指定された{@link Resource}のビルダーである、{@link ResourceBuilder}を返します。<br>
      * 登録されていない場合は、空の{@link Optional}が返ります。
      *
-     * @param <T> {@link ResourceBuilder}がビルドする{@link Resource}の型
+     * @param <T>   {@link ResourceBuilder}がビルドする{@link Resource}の型
      * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
      * @return 指定された{@link ResourceBuilder}をビルドする{@code ResourceBuilder}、登録されていない場合は、空の{@link Optional}
      */
@@ -54,9 +52,9 @@ public interface Registry {
     /**
      * 呼ばれるたびに新しい{@link ResourceBuilder}のインスタンスを返す{@link Supplier}を登録します。
      *
-     * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
+     * @param clazz           {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
      * @param builderSupplier 呼ばれるたびに新しい{@link ResourceBuilder}を返す{@link Supplier}
-     * @param <T> {@link ResourceBuilder}がビルドする{@link Resource}の型
+     * @param <T>             {@link ResourceBuilder}がビルドする{@link Resource}の型
      * @throws AlreadyRegisteredInRegistryException 同じ{@link Resource}型のビルダーがすでに登録されている場合
      */
     <T extends Resource> void registerResourceBuilder(Class<T> clazz, Supplier<ResourceBuilder<T>> builderSupplier) throws AlreadyRegisteredInRegistryException;
@@ -66,7 +64,7 @@ public interface Registry {
      * 登録されていない場合は、空の{@link Optional}が返ります。
      *
      * @param clazz {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の{@link Class}
-     * @param <T> {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の型
+     * @param <T>   {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の型
      * @return 指定された{@link ImageBlenderProperty}をビルドする{@code ImageBlenderPropertyBuilder}、登録されていない場合は、空の{@link Optional}
      */
     <T extends ImageBlenderProperty> Optional<ImageBlenderPropertyBuilder<T>> getImageBlenderPropertyBuilderOf(Class<T> clazz);
@@ -83,7 +81,7 @@ public interface Registry {
      * 新しい{@link IBPropertyDither}のインスタンスを指定の透明度とシードで作成し、返します。
      *
      * @param opacity 透明度 0~1000
-     * @param seed シード値
+     * @param seed    シード値
      * @return 新しい{@link IBPropertyDither}のインスタンス
      */
     IBPropertyDither createIBPropertyDither(@Min(0) @Max(1000) int opacity, int seed);
@@ -485,9 +483,9 @@ public interface Registry {
      *
      * @param clazzI 取得したい{@link ImageBlender}が合成する{@link CachedImage}の{@link Class}
      * @param clazzB 取得したい{@link ImageBlender}が合成する時のプロパティの{@link Class}
-     * @param id    取得したい{@link ImageBlender}のId
-     * @param <I>   取得したい{@link ImageBlender}が合成する{@link CachedImage}の型
-     * @param <B>          取得したい{@link ImageBlender}が合成する時の{@link ImageBlenderProperty}の型
+     * @param id     取得したい{@link ImageBlender}のId
+     * @param <I>    取得したい{@link ImageBlender}が合成する{@link CachedImage}の型
+     * @param <B>    取得したい{@link ImageBlender}が合成する時の{@link ImageBlenderProperty}の型
      * @return 指定されたIdと型のためのImageBlender
      */
     <I extends CachedImage, B extends ImageBlenderProperty> Optional<ImageBlender<I, B>> getImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id);
@@ -499,7 +497,7 @@ public interface Registry {
      * @param clazzI       Idを取得する{@link ImageBlender}の合成する画像の型の{@link Class}
      * @param clazzB       Idを取得する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param imageBlender Idを取得する{@link ImageBlender}
-     * @param <I>   Idを取得する{@link ImageBlender}が合成する{@link CachedImage}の型
+     * @param <I>          Idを取得する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @param <B>          Idを取得する{@link ImageBlender}が合成する時の{@link ImageBlenderProperty}の型
      * @return 指定したImageBlenderのId
      */
@@ -512,7 +510,7 @@ public interface Registry {
      * @param clazzI       登録されているかを確認する{@link ImageBlender}の合成する画像の型の{@link Class}
      * @param clazzB       登録されているかを確認する{@link ImageBlender}が合成する時のプロパティの{@link Class}
      * @param imageBlender 登録されているかを確認する{@link ImageBlender}
-     * @param <I>   登録されているかを確認する{@link ImageBlender}が合成する{@link CachedImage}の型
+     * @param <I>          登録されているかを確認する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @param <B>          登録されているかを確認する{@link ImageBlender}が合成する時の{@link ImageBlenderProperty}の型
      * @return 指定されたImageBlenderが登録されているか
      */

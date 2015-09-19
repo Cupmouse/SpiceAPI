@@ -116,7 +116,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param frameFrom アイテムの開始フレーム
      * @param frameTo   アイテムの終了フレーム
      * @return 追加されたアイテムのインデックス番号
-     * @throws NullPointerException itemが{@code null}の場合
+     * @throws NullPointerException               itemが{@code null}の場合
      * @throws java.lang.IllegalArgumentException 開始フレームが終了フレームより小さい場合
      */
     @Min(0)
