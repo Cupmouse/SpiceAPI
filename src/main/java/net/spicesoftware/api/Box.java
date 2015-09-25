@@ -2,6 +2,7 @@ package net.spicesoftware.api;
 
 import net.spicesoftware.api.layer.Layerable;
 import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
+import net.spicesoftware.api.util.time.FrameTime;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Min;
@@ -58,6 +59,20 @@ public interface Box extends Layerable {
      * @param height 高さ
      */
     void setSize(int width, int height);
+
+    /**
+     * この{@code Box}の長さを取得します。
+     *
+     * @return この{@code Box}の長さ
+     */
+    FrameTime getDuration();
+
+    /**
+     * この{@code Box}の長さを設定します。
+     *
+     * @param duration 設定するこの{@code Box}の長さ
+     */
+    void setDuration(FrameTime duration);
 
     /**
      * この{@code Box}の背景を返します。
