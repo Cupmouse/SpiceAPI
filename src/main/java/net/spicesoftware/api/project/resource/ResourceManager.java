@@ -12,17 +12,17 @@ import java.util.Set;
 public interface ResourceManager {
 
     /**
-     * リソースツリーのルートの{@link ResourceTreeElement}を返します。
+     * リソースツリーのルートの{@link ResourceTreeFolder}を返します。
      *
      * @return リソースツリーのルート
      */
-    ResourceTreeElement getRootResourceTree();
+    ResourceTreeFolder getRootOfResourceTree();
 
     /**
      * ツリーに含まれているすべての{@link Resource}を返します。
      *
      * @return ツリーに含まれているすべてのリソース
      */
-    Set<Resource> getAllResourceInTree();
+    Set<Resource> getAllResourcesInTree();
 
 }

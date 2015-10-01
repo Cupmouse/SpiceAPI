@@ -59,9 +59,9 @@ public interface PluginContainer {
     boolean isEnabled();
 
     /**
-     * この{@code PluginContainer}が管理する{@link Plugin}がこのバージョンのSpongeに対応しているかを真偽値で返します。
+     * この{@code PluginContainer}が管理する{@link Plugin}がこのバージョンのSpiceに対応しているかを真偽値で返します。
      *
-     * @return このコンテナーが管理するプラグインがこのバージョンのSpongeに対応しているか
+     * @return このコンテナーが管理するプラグインがこのバージョンのSpiceに対応しているか
      */
     boolean isCompatible();
 
