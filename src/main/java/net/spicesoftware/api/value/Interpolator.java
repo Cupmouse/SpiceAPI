@@ -29,7 +29,7 @@ public interface Interpolator<T> {
      * @param valueStart 開始フレームでの値
      * @param valueEnd   終了フレームでの値
      * @param frameAt    求めるフレーム
-     *                   frameStart <= frameAt <= frameEnd
+     *                   frameStart &lt;= frameAt &lt;= frameEnd
      * @return 指定されたフレームでの値
      * @throws IllegalArgumentException frameAtに範囲を超える値が指定された場合
      */

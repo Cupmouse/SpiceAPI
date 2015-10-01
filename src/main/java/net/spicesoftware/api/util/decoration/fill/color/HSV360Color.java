@@ -5,7 +5,11 @@ import net.spicesoftware.api.decoration.fill.Color;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import static net.spicesoftware.api.util.Validate.rangeIn;
+import static net.spicesoftware.api.util.Validate.zeroOrPositive;
+
 /**
+ * HSVのHを360段階、SとVを256段階で表現するイミュータブルクラスです。
  * H:0~359
  * S:0~255
  * V:0~255
@@ -17,7 +21,7 @@ public final class HSV360Color implements Color {
     public final int saturation;
     public final int value;
 
-    public HSV360Color(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public HSV360Color(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
         hue %= 360;
 
@@ -26,11 +30,7 @@ public final class HSV360Color implements Color {
         this.value = (short) value;
     }
 
-    public RGB24Color toRGB24Color() {
-        return new RGB24Color(toRGB24Int(hue, saturation, value));
-    }
-
-    public static int toRGB24IntExact(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public static int toRGB24IntExact(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
 
         float s = saturation / 255F;
@@ -82,7 +82,7 @@ public final class HSV360Color implements Color {
         return ((int) r) << 16 | ((int) g) << 8 | ((int) b);
     }
 
-    public static int toRGB24Int(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+    public static int toRGB24Int(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
         validateHSV(hue, saturation, value);
 
         if (saturation == 0) {
@@ -136,16 +136,14 @@ public final class HSV360Color implements Color {
         return r << 16 | g << 8 | b;
     }
 
-    public static void validateHSV(@Min(0) @Max(360) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
-        if (hue < 0) {
-            throw new IllegalArgumentException();
-        }
-        if (saturation < 0 || saturation > 0xFF) {
-            throw new IllegalArgumentException();
-        }
-        if (value < 0 || value > 0xFF) {
-            throw new IllegalArgumentException();
-        }
+    public static void validateHSV(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
+        zeroOrPositive(hue);
+        rangeIn(saturation, 0, 0xFF);
+        rangeIn(value, 0, 0xFF);
+    }
+
+    public RGB24Color toRGB24Color() {
+        return new RGB24Color(toRGB24Int(hue, saturation, value));
     }
 
     @Override

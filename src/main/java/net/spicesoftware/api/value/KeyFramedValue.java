@@ -43,10 +43,13 @@ public interface KeyFramedValue<T extends DeepCopyable> extends Value<T> {
 //    int getKeyFrameIndexByFrame(@Min(0) int frame);
 
     /**
-     * 指定されたフレームにキーフレームを追加します。
+     * 指定されたフレームに{@link KeyFrame}を追加します。
+     * 指定されたフレーム位置にすでに{@link KeyFrame}が存在する場合は、上書きされます。
      *
-     * @param frame フレーム
-     * @return 追加されたキーフレームのインデックス番号
+     * @param frame        {@link KeyFrame}が挿入されるフレーム
+     * @param interpolator 追加される{@link KeyFrame}の{@link Interpolator}
+     * @param value        追加される{@link KeyFrame}の値
+     * @return 追加されたキーフレームのインデックス番号と、キーフレームインスタンスのペア
      * @throws NotRegisteredInRegistryException 指定された補間法が{@link net.spicesoftware.api.registry.Registry}に登録されていない場合
      */
     Pair<Integer, ? extends KeyFrame<T>> addKeyFrameAt(@Min(0) int frame, Interpolator<T> interpolator, T value) throws NotRegisteredInRegistryException;

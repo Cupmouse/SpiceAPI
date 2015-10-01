@@ -14,7 +14,7 @@ import java.util.Optional;
  */
 public interface Spice {
 
-    public static String API_VERSION = "alpha-0.0.1";
+    String API_VERSION = "alpha-0.0.1";
 
     /**
      * この{@code Spice}のレジストリを返します。

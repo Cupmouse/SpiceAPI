@@ -2,6 +2,7 @@ package net.spicesoftware.api.project;
 
 import net.spicesoftware.api.Spice;
 import net.spicesoftware.api.project.resource.ResourceManager;
+import net.spicesoftware.api.util.time.FrameTime;
 
 import javax.validation.constraints.Size;
 import java.time.ZonedDateTime;
@@ -50,6 +51,21 @@ public interface Project {
      */
     void setCreatedDate(ZonedDateTime createdDate);
 
+    // TODO タイムラインクラスがいらない
+
+    /**
+     * この{@code Project}のルートの{@link TimelineRoot}を、幅、高さ、長さを指定し、新しく作成、設定します。
+     *
+     * @param width 新しい{@link TimelineRoot}のピクセル幅
+     * @param height 新しい{@link TimelineRoot}のピクセル高さ
+     * @param duration 新しい{@link TimelineRoot}の時間長さ
+     * @return 作成された新しい{@link TimelineRoot}
+     * @throws IllegalArgumentException {@code width}か{@code height}が、負の値の場合
+     * @throws IllegalStateException この{@code Project}にタイムラインがすでに存在する場合
+     * @throws NullPointerException {@code duration}がnullの場合
+     */
+    TimelineRoot createAndSetNewTimeline(int width, int height, FrameTime duration) throws IllegalArgumentException, IllegalStateException, NullPointerException;
+    
     /**
      * この{@code Project}のルートの{@link TimelineRoot}を返します。
      *

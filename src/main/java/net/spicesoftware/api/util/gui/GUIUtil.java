@@ -7,7 +7,10 @@ import java.awt.datatransfer.StringSelection;
 /**
  * @since 2015/07/05
  */
-public class GUIUtil {
+public final class GUIUtil {
+
+    private GUIUtil() {
+    }
 
     public static void copyToClipboard(String s) {
         StringSelection stringSelection = new StringSelection(s);
