@@ -11,7 +11,7 @@ import net.spicesoftware.api.gui.common.spinner.IntSpinner;
 public interface DialogRGB24ColorPicker extends Window {
 
     /**
-     * このカラーピッカーダイアログのHSVのH要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのHSVのH要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~360になります。
      *
      * @return HSVのH要素の値の整数スピナー
@@ -19,7 +19,7 @@ public interface DialogRGB24ColorPicker extends Window {
     IntSpinner getIntSpinnerH();
 
     /**
-     * このカラーピッカーダイアログのHSVのS要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのHSVのS要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~255になります。
      *
      * @return HSVのS要素の値の整数スピナー
@@ -27,7 +27,7 @@ public interface DialogRGB24ColorPicker extends Window {
     IntSpinner getIntSpinnerS();
 
     /**
-     * このカラーピッカーダイアログのHSVのV要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのHSVのV要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~255になります。
      *
      * @return HSVのV要素の値の整数スピナー
@@ -35,7 +35,7 @@ public interface DialogRGB24ColorPicker extends Window {
     IntSpinner getIntSpinnerV();
 
     /**
-     * このカラーピッカーダイアログのRGBのR要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのRGBのR要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~255になります。
      *
      * @return RGBのR要素の値の整数スピナー
@@ -43,7 +43,7 @@ public interface DialogRGB24ColorPicker extends Window {
     IntSpinner getIntSpinnerR();
 
     /**
-     * このカラーピッカーダイアログのRGBのG要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのRGBのG要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~255になります。
      *
      * @return RGBのG要素の値の整数スピナー
@@ -51,7 +51,7 @@ public interface DialogRGB24ColorPicker extends Window {
     IntSpinner getIntSpinnerG();
 
     /**
-     * このカラーピッカーダイアログのRGBのB要素の{@link IntSpinner}を返します。
+     * このカラーピッカーダイアログのRGBのB要素の{@link IntSpinner}を返します。<br>
      * この{@link IntSpinner}の値は0~255になります。
      *
      * @return RGBのB要素の値の整数スピナー

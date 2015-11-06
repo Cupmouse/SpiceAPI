@@ -10,11 +10,11 @@ import net.spicesoftware.api.gui.GUIHaveText;
 public interface Spinner<T extends Number> extends GUIHaveText {
 
     /**
-     * このスピナーの現在の値を返します。
-     * <p>
-     * {@link #setMaxValue(T)}で設定した最大値より大きい値、
-     * もしくは、
-     * {@link #setMinValue(T)}で設定した最小値より小さい値
+     * このスピナーの現在の値を返します。<br>
+     * <br>
+     * {@link #setMaxValue(T)}で設定した最大値より大きい値、<br>
+     * もしくは、<br>
+     * {@link #setMinValue(T)}で設定した最小値より小さい値<br>
      * を返すことはありません。
      *
      * @return このスピナーの現在の値
@@ -33,7 +33,7 @@ public interface Spinner<T extends Number> extends GUIHaveText {
     void setValue(T value) throws IllegalArgumentException;
 
     /**
-     * このスピナーで許容される最大値（一番大きな値）を返します。
+     * このスピナーで許容される最大値（一番大きな値）を返します。<br>
      * このスピナーの値が最大値よりも大きくなることはありません。
      *
      * @return このスピナーで許容される最大値
@@ -41,10 +41,10 @@ public interface Spinner<T extends Number> extends GUIHaveText {
     T getMaxValue();
 
     /**
-     * このスピナーで許容される最大値（一番大きな値）を設定します。
-     * このスピナーの値が最大値よりも大きくなることはありません。
-     * <p>
-     * また、現在スピナーに設定されている値が、設定する最大値より大きい場合は、最大値に収まるように修正されます。
+     * このスピナーで許容される最大値（一番大きな値）を設定します。<br>
+     * このスピナーの値が最大値よりも大きくなることはありません。<br>
+     * <br>
+     * また、現在スピナーに設定されている値が、設定する最大値より大きい場合は、最大値に収まるように修正されます。<br>
      * つまり、値が最大値に置き換わります。
      *
      * @param maxValue このスピナーで許容されるようになる最大値
@@ -53,13 +53,13 @@ public interface Spinner<T extends Number> extends GUIHaveText {
     void setMaxValue(T maxValue) throws IllegalArgumentException;
 
     /**
-     * この関数が呼ばれた後は、このスピナーを最大値で縛りません。
+     * この関数が呼ばれた後は、このスピナーを最大値で縛りません。<br>
      * 最大値はリセット(int型の最大値に変更)されます。
      */
     void disableMaxValue();
 
     /**
-     * このスピナーで許容される最小値（一番小さな値）を返します。
+     * このスピナーで許容される最小値（一番小さな値）を返します。<br>
      * このスピナーの値が最小値よりも小さくなることはありません。
      *
      * @return このスピナーで許容される最小値
@@ -67,10 +67,10 @@ public interface Spinner<T extends Number> extends GUIHaveText {
     T getMinValue();
 
     /**
-     * このスピナーで許容される最小値（一番小さな値）を設定します。
-     * このスピナーの値が最小値よりも小さくなることはありません。
-     * <p>
-     * また、現在スピナーに設定されている値が、設定する最小値より小さい場合は、最小値に収まるように修正されます。
+     * このスピナーで許容される最小値（一番小さな値）を設定します。<br>
+     * このスピナーの値が最小値よりも小さくなることはありません。<br>
+     * <br>
+     * また、現在スピナーに設定されている値が、設定する最小値より小さい場合は、最小値に収まるように修正されます。<br>
      * つまり、値が最小値に置き換わります。
      *
      * @param minValue このスピナーで許容されるようになる最小値
@@ -79,7 +79,7 @@ public interface Spinner<T extends Number> extends GUIHaveText {
     void setMinValue(T minValue);
 
     /**
-     * この関数が呼ばれた後は、このスピナーを最小値で縛りません。
+     * この関数が呼ばれた後は、このスピナーを最小値で縛りません。<br>
      * 最小値はリセット(int型の最小値に変更)されます。
      */
     void disableMinValue();
