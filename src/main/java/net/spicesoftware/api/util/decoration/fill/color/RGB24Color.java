@@ -34,7 +34,7 @@ public final class RGB24Color implements Color, Serializable {
     }
 
     public static void validateRGB(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
-        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xF) {
+        if (r < 0 || r > 0xFF || g < 0 || g > 0xFF || b < 0 || b > 0xFF) {
             throw new IllegalArgumentException();
         }
     }

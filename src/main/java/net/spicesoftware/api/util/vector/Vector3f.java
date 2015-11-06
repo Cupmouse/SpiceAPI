@@ -1,7 +1,5 @@
 package net.spicesoftware.api.util.vector;
 
-import net.spicesoftware.api.util.DeepCopyable;
-
 import java.io.Serializable;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
@@ -11,7 +9,7 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  *
  * @since 2014/12/21
  */
-public final class Vector3f implements DeepCopyable, Serializable {
+public final class Vector3f implements Serializable {
 
     public static final Vector3f ZERO = new Vector3f(0, 0, 0);
     public final float x;
@@ -89,11 +87,6 @@ public final class Vector3f implements DeepCopyable, Serializable {
 
     public Vector2i toVector2i() {
         return new Vector2i((int) x, (int) y);
-    }
-
-    @Override
-    public Vector3f copyDeeply() {
-        return new Vector3f(x, y, z);
     }
 
     @Override
