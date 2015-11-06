@@ -1,5 +1,7 @@
 package net.spicesoftware.api.registry;
 
+import net.spicesoftware.api.gui.WindowDispenser;
+import net.spicesoftware.api.gui.WindowSystem;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
@@ -38,6 +40,21 @@ import java.util.function.Supplier;
  * @since 2014/10/06
  */
 public interface Registry {
+
+    /**
+     * 指定された{@link WindowSystem}の{@link WindowDispenser}を返します。
+     *
+     * @return この{@link WindowSystem}の{@link WindowDispenser}
+     */
+    <WS extends WindowSystem> WindowDispenser<WS> getWindowDispenser(WS windowSystem);
+
+    /**
+     * 指定されたIDの{@link WindowSystem}を{@link Optional}で返します。
+     *
+     * @param id 識別Id
+     * @return 指定されたIDの{@link WindowSystem}
+     */
+    Optional<WindowSystem> getWindowSystem(String id);
 
     /**
      * 指定された{@link Resource}のビルダーである、{@link ResourceBuilder}を返します。<br>
