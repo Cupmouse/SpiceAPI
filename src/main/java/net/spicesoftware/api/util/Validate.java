@@ -1,5 +1,7 @@
 package net.spicesoftware.api.util;
 
+import net.spicesoftware.api.util.vector.Vector2i;
+
 /**
  * @since 2015/09/07
  */
@@ -18,7 +20,7 @@ public final class Validate {
      * @param b 検証する真偽値
      * @throws IllegalArgumentException 指定された真偽値が偽である場合
      */
-    public static void truE(boolean b) {
+    public static void truE(boolean b) throws IllegalArgumentException {
         if (!b) {
             throw new IllegalArgumentException();
         }
@@ -31,7 +33,7 @@ public final class Validate {
      * @param bB 検証する真偽値
      * @throws IllegalArgumentException 指定された真偽値が偽である場合
      */
-    public static void truE(boolean bA, boolean bB) {
+    public static void truE(boolean bA, boolean bB) throws IllegalArgumentException {
         if (!bA || !bB) {
             throw new IllegalArgumentException();
         }
@@ -43,7 +45,7 @@ public final class Validate {
      * @param booleans 検証する複数の真偽値
      * @throws IllegalArgumentException 指定された複数の真偽値の中に偽のものがある場合
      */
-    public static void truE(boolean... booleans) {
+    public static void truE(boolean... booleans) throws IllegalArgumentException {
         if (booleans == null) {
             throw new IllegalArgumentException();
         }
@@ -61,7 +63,7 @@ public final class Validate {
      * @param b 検証する真偽値
      * @throws IllegalArgumentException 指定された真偽値が真である場合
      */
-    public static void falsE(boolean b) {
+    public static void falsE(boolean b) throws IllegalArgumentException {
         if (b) {
             throw new IllegalArgumentException();
         }
@@ -74,7 +76,7 @@ public final class Validate {
      * @param bB 検証する真偽値
      * @throws IllegalArgumentException 指定された2つの真偽値がどちらも真である場合
      */
-    public static void falsE(boolean bA, boolean bB) {
+    public static void falsE(boolean bA, boolean bB) throws IllegalArgumentException {
         if (bA || bB) {
             throw new IllegalArgumentException();
         }
@@ -86,7 +88,7 @@ public final class Validate {
      * @param booleans 検証する複数の真偽値
      * @throws IllegalArgumentException 指定された複数の真偽値の中に真である物がある場合
      */
-    public static void falsE(boolean... booleans) {
+    public static void falsE(boolean... booleans) throws IllegalArgumentException {
         if (booleans == null) {
             throw new IllegalArgumentException();
         }
@@ -108,7 +110,7 @@ public final class Validate {
      * @param o 検証する{@link Object}
      * @throws NullPointerException 指定された{@link Object}がnullである場合
      */
-    public static void nullNot(Object o) {
+    public static void nullNot(Object o) throws NullPointerException {
         if (o == null) {
             throw new NullPointerException();
         }
@@ -121,7 +123,7 @@ public final class Validate {
      * @param oB 検証する{@link Object}
      * @throws NullPointerException 指定された2つの{@link Object}の1つ以上がnullである場合
      */
-    public static void nullNot(Object oA, Object oB) {
+    public static void nullNot(Object oA, Object oB) throws NullPointerException {
         if (oA == null || oB == null) {
             throw new NullPointerException();
         }
@@ -134,7 +136,7 @@ public final class Validate {
      * @throws IllegalArgumentException 配列がnullの場合
      * @throws NullPointerException     指定された複数の{@link Object}の中にnullであるものがある場合
      */
-    public static void nullNot(Object... objects) {
+    public static void nullNot(Object... objects) throws IllegalArgumentException, NullPointerException {
         if (objects == null) {
             throw new IllegalArgumentException();
         }
@@ -152,7 +154,7 @@ public final class Validate {
      * @param o 検証する{@link Object}
      * @throws IllegalArgumentException 指定された{@link Object}がnullでない場合
      */
-    public static void nulL(Object o) {
+    public static void nulL(Object o) throws IllegalArgumentException {
         if (o != null) {
             throw new IllegalArgumentException();
         }
@@ -165,7 +167,7 @@ public final class Validate {
      * @param oB 検証する{@link Object}
      * @throws IllegalArgumentException 指定された2つの{@link Object}の1つ以上がnullでない場合
      */
-    public static void nulL(Object oA, Object oB) {
+    public static void nulL(Object oA, Object oB) throws IllegalArgumentException {
         if (oA != null || oB != null) {
             throw new IllegalArgumentException();
         }
@@ -177,7 +179,7 @@ public final class Validate {
      * @param objects 検証する複数の{@link Object}
      * @throws IllegalArgumentException 指定された複数の{@link Object}の中にnullでないものがある場合。もしくは、配列がnullの場合
      */
-    public static void nulL(Object... objects) {
+    public static void nulL(Object... objects) throws IllegalArgumentException {
         if (objects == null) {
             throw new IllegalArgumentException();
         }
@@ -201,7 +203,7 @@ public final class Validate {
      * @param compareTo 比べる値
      * @throws IllegalArgumentException 指定された第一引数が第二引数以下の場合
      */
-    public static void larger(int value, int compareTo) {
+    public static void larger(int value, int compareTo) throws IllegalArgumentException {
         if (value <= compareTo) {
             throw new IllegalArgumentException();
         }
@@ -214,7 +216,7 @@ public final class Validate {
      * @param compareTo 比べる値
      * @throws IllegalArgumentException 指定された第一引数が第二引数未満の場合
      */
-    public static void largerEqual(int value, int compareTo) {
+    public static void largerEqual(int value, int compareTo) throws IllegalArgumentException {
         if (value < compareTo) {
             throw new IllegalArgumentException();
         }
@@ -228,7 +230,7 @@ public final class Validate {
      * @param compareTo 比べる値
      * @throws IllegalArgumentException 指定された第一引数が第二引数以上の場合
      */
-    public static void smaller(int value, int compareTo) {
+    public static void smaller(int value, int compareTo) throws IllegalArgumentException {
         if (value >= compareTo) {
             throw new IllegalArgumentException();
         }
@@ -241,7 +243,7 @@ public final class Validate {
      * @param compareTo 比べる値
      * @throws IllegalArgumentException 指定された第一引数が第二引数を超過する場合
      */
-    public static void smallerEqual(int value, int compareTo) {
+    public static void smallerEqual(int value, int compareTo) throws IllegalArgumentException {
         if (value > compareTo) {
             throw new IllegalArgumentException();
         }
@@ -260,7 +262,7 @@ public final class Validate {
      * @param value      検証する値
      * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（s &lt;= v &lt;= e）
      */
-    public static void rangeNotIn(int value, int rangeStart, int rangeEnd) {
+    public static void rangeNotIn(int value, int rangeStart, int rangeEnd) throws IllegalArgumentException {
         if (rangeStart <= value && value <= rangeEnd) {
             throw new IllegalArgumentException();
         }
@@ -275,7 +277,7 @@ public final class Validate {
      * @param value      検証する値
      * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（v &lt; s || e &lt; v）
      */
-    public static void rangeIn(int value, int rangeStart, int rangeEnd) {
+    public static void rangeIn(int value, int rangeStart, int rangeEnd) throws IllegalArgumentException {
         if (value < rangeStart || rangeEnd < value) {
             throw new IllegalArgumentException();
         }
@@ -291,7 +293,7 @@ public final class Validate {
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0以上の場合
      */
-    public static void negative(int value) {
+    public static void negative(int value) throws IllegalArgumentException {
         if (value >= 0) {
             throw new IllegalArgumentException();
         }
@@ -305,7 +307,7 @@ public final class Validate {
      * @param valueB 検証する値
      * @throws IllegalArgumentException 指定された2つの値の1つ以上が、0以上の場合
      */
-    public static void negative(int valueA, int valueB) {
+    public static void negative(int valueA, int valueB) throws IllegalArgumentException {
         if (valueA >= 0 || valueB >= 0) {
             throw new IllegalArgumentException();
         }
@@ -317,7 +319,7 @@ public final class Validate {
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0以上のものがある場合。もしくは、配列がnullの場合
      */
-    public static void negative(int... value) {
+    public static void negative(int... value) throws IllegalArgumentException {
         if (value == null) {
             throw new IllegalArgumentException();
         }
@@ -339,7 +341,7 @@ public final class Validate {
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0を超過する場合
      */
-    public static void zeroOrNegative(int value) {
+    public static void zeroOrNegative(int value) throws IllegalArgumentException {
         if (value > 0) {
             throw new IllegalArgumentException();
         }
@@ -353,7 +355,7 @@ public final class Validate {
      * @param valueB 検証する値
      * @throws IllegalArgumentException 指定された2つの値の1つ以上が、0を超過する場合
      */
-    public static void zeroOrNegative(int valueA, int valueB) {
+    public static void zeroOrNegative(int valueA, int valueB) throws IllegalArgumentException {
         if (valueA > 0 || valueB > 0) {
             throw new IllegalArgumentException();
         }
@@ -365,7 +367,7 @@ public final class Validate {
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0を超過するものがある場合。もしくは、配列がnullの場合
      */
-    public static void zeroOrNegative(int... value) {
+    public static void zeroOrNegative(int... value) throws IllegalArgumentException {
         if (value == null) {
             throw new IllegalArgumentException();
         }
@@ -387,7 +389,7 @@ public final class Validate {
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0以下の場合
      */
-    public static void positive(int value) {
+    public static void positive(int value) throws IllegalArgumentException{
         if (value <= 0) {
             throw new IllegalArgumentException();
         }
@@ -401,7 +403,7 @@ public final class Validate {
      * @param valueB 検証する値
      * @throws IllegalArgumentException 指定された2つの値の1つ以上が、0以下の場合
      */
-    public static void positive(int valueA, int valueB) {
+    public static void positive(int valueA, int valueB) throws IllegalArgumentException {
         if (valueA <= 0 || valueB <= 0) {
             throw new IllegalArgumentException();
         }
@@ -413,7 +415,7 @@ public final class Validate {
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0以下のものがある場合。もしくは、配列がnullの場合
      */
-    public static void positive(int... value) {
+    public static void positive(int... value) throws IllegalArgumentException {
         if (value == null) {
             throw new IllegalArgumentException();
         }
@@ -435,7 +437,7 @@ public final class Validate {
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0未満の場合
      */
-    public static void zeroOrPositive(int value) {
+    public static void zeroOrPositive(int value) throws IllegalArgumentException {
         if (value < 0) {
             throw new IllegalArgumentException();
         }
@@ -449,7 +451,7 @@ public final class Validate {
      * @param valueB 検証する値
      * @throws IllegalArgumentException 指定された2つの値の1つ以上が、0未満の場合
      */
-    public static void zeroOrPositive(int valueA, int valueB) {
+    public static void zeroOrPositive(int valueA, int valueB) throws IllegalArgumentException {
         if (valueA < 0 || valueB < 0) {
             throw new IllegalArgumentException();
         }
@@ -461,7 +463,7 @@ public final class Validate {
      * @param value 検証する複数の値
      * @throws IllegalArgumentException 指定された複数の値の中に、0未満のものがある場合。もしくは、配列がnullの場合
      */
-    public static void zeroOrPositive(int... value) {
+    public static void zeroOrPositive(int... value) throws IllegalArgumentException {
         if (value == null) {
             throw new IllegalArgumentException();
         }
@@ -486,8 +488,21 @@ public final class Validate {
      * @param y      y位置
      * @throws IllegalArgumentException 指定された位置が、指定された平面内にない場合
      */
-    public static void position(int width, int height, int x, int y) {
+    public static void position(int width, int height, int x, int y) throws IllegalArgumentException {
         if (x < 0 || y < 0 || x >= width || y >= height) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * ある位置が、ある平面内の位置にあるか検証します。
+     *
+     * @param size 平面の{@link Vector2i}
+     * @param position 位置の{@link Vector2i}
+     * @throws IllegalArgumentException 指定された位置が、指定された平面内にない場合
+     */
+    public static void position(Vector2i size, Vector2i position) throws IllegalArgumentException {
+        if (position.x < 0 || position.y < 0 || position.x >= size.x || position.y >= size.y) {
             throw new IllegalArgumentException();
         }
     }
