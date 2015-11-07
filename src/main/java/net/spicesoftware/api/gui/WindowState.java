@@ -7,9 +7,24 @@ import net.spicesoftware.api.util.vector.Vector2i;
  */
 public interface WindowState<WS extends WindowSystem> {
 
-    String getTitle();
+    /**
+     * {@link Window}の{@link WindowTitle}を{@link Window#getDefaultTitle()}のものに設定します。
+     */
+    void setTitleToDefault();
 
-    void setTitle(String title);
+    /**
+     * {@link Window}の{@link WindowTitle}を設定します。
+     *
+     * @param title {@link Window}の{@link WindowTitle}
+     */
+    void setTitle(WindowTitle title);
+
+    /**
+     * {@link Window}の{@link WindowTitle}を返します。
+     *
+     * @return {@link Window}の{@link WindowTitle}
+     */
+    WindowTitle getTitle();
 
     /**
      * {@link Window}の位置の{@link Vector2i}を返します。

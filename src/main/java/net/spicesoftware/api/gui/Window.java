@@ -10,9 +10,9 @@ import java.util.Optional;
 public interface Window<WS extends WindowSystem> {
 
     /**
-     * この{@code Window}のデフォルトタイトルを{@link Optional}で返します。
+     * この{@code Window}のデフォルト{@link WindowTitle}を{@link Optional}で返します。
      *
-     * @return この{@code Window}のデフォルトタイトル
+     * @return この{@code Window}のデフォルト{@link WindowTitle}
      */
     Optional<WindowTitle> getDefaultTitle();
 
