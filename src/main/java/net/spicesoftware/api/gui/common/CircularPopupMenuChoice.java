@@ -1,6 +1,5 @@
 package net.spicesoftware.api.gui.common;
 
-import net.spicesoftware.api.util.Validate;
 import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
@@ -23,6 +22,29 @@ public final class CircularPopupMenuChoice {
         this.label = label;
         this.color = color;
         this.runnable = runnable;
+    }
+
+    /**
+     * パラメータを指定して新しい{@code CircularPopupMenuChoice}の新しいインスタンスを作成します。
+     *
+     * @param label    {@link CircularPopupMenu}に表示されるこの選択肢の名前
+     * @param color    {@link CircularPopupMenu}に表示されるこの選択肢の色
+     * @param runnable 実際に選択された後に実行される{@link Runnable}
+     */
+    public static CircularPopupMenuChoice choice(String label, RGB24Color color, Runnable runnable) {
+        return new CircularPopupMenuChoice(label, color, runnable);
+    }
+
+    /**
+     * パラメータを指定して新しい{@code CircularPopupMenuChoice}の新しいインスタンスを作成します。
+     * 色はデフォルトの色が使用されます。
+     *
+     * @param label    {@link CircularPopupMenu}に表示されるこの選択肢の名前
+     * @param runnable 実際に選択された後に実行される{@link Runnable}
+     */
+    public static CircularPopupMenuChoice choice(String label, Runnable runnable) {
+        // TODO 設定によって変更
+        return new CircularPopupMenuChoice(label, new RGB24Color(0, 0, 0), runnable);
     }
 
     /**
@@ -50,28 +72,5 @@ public final class CircularPopupMenuChoice {
      */
     public Runnable getRunnable() {
         return runnable;
-    }
-
-    /**
-     * パラメータを指定して新しい{@code CircularPopupMenuChoice}の新しいインスタンスを作成します。
-     *
-     * @param label {@link CircularPopupMenu}に表示されるこの選択肢の名前
-     * @param color {@link CircularPopupMenu}に表示されるこの選択肢の色
-     * @param runnable 実際に選択された後に実行される{@link Runnable}
-     */
-    public static CircularPopupMenuChoice choice(String label, RGB24Color color, Runnable runnable) {
-        return new CircularPopupMenuChoice(label, color, runnable);
-    }
-
-    /**
-     * パラメータを指定して新しい{@code CircularPopupMenuChoice}の新しいインスタンスを作成します。
-     * 色はデフォルトの色が使用されます。
-     *
-     * @param label    {@link CircularPopupMenu}に表示されるこの選択肢の名前
-     * @param runnable 実際に選択された後に実行される{@link Runnable}
-     */
-    public static CircularPopupMenuChoice choice(String label, Runnable runnable) {
-        // TODO 設定によって変更
-        return new CircularPopupMenuChoice(label, new RGB24Color(0, 0, 0), runnable);
     }
 }

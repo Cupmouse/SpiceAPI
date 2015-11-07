@@ -19,7 +19,7 @@ public interface WindowDispenser<WS extends WindowSystem> {
     /**
      * 指定された{@link Window}を指定された{@link WindowState}でディスペンスします。
      *
-     * @param window ディスペンスする{@link Window}
+     * @param window      ディスペンスする{@link Window}
      * @param windowState ディスペンスする{@link Window}の{@link WindowState}
      * @return ディスペンスされた{@link Window}
      */

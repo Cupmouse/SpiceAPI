@@ -1,5 +1,7 @@
 package net.spicesoftware.api.util.gui;
 
+import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -10,6 +12,10 @@ import java.awt.datatransfer.StringSelection;
 public final class GUIUtil {
 
     private GUIUtil() {
+    }
+
+    public static Color toAWTColor(RGB24Color color) {
+        return new Color(color.r, color.g, color.b);
     }
 
     public static void copyToClipboard(String s) {
