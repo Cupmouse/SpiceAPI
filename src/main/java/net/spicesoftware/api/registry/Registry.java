@@ -6,19 +6,9 @@ import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.image.blender.property.ImageBlenderProperty;
-import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
-import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
-import net.spicesoftware.api.image.rgb.CachedRGB24Image;
-import net.spicesoftware.api.image.rgb.EditableRGB24Image;
-import net.spicesoftware.api.image.rgba.CachedRGBA32Image;
-import net.spicesoftware.api.image.rgba.EditableRGBA32Image;
 import net.spicesoftware.api.render.Renderable;
 import net.spicesoftware.api.render.Renderer;
 import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
-import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
-import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 
 import javax.validation.constraints.Size;
@@ -37,7 +27,7 @@ public interface Registry {
      * 指定された{@link Class}の{@link Builder}のインスタンスを返します。
      *
      * @param clazz 取得する{@link Builder}の{@link Class}
-     * @param <T> 取得する{@link Builder}の型
+     * @param <T>   取得する{@link Builder}の型
      * @return 指定された{@link Class}の{@link Builder}のインスタンス
      * @throws IllegalStateException {@link Builder}が{@code Registry}に登録されていない場合
      */
@@ -47,9 +37,9 @@ public interface Registry {
     /**
      * 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}を登録します。
      *
-     * @param clazz 登録する{@link Supplier}が返す{@link Builder}の{@link Class}
+     * @param clazz           登録する{@link Supplier}が返す{@link Builder}の{@link Class}
      * @param builderSupplier 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}
-     * @param <T> 登録する{@link Builder}の型
+     * @param <T>             登録する{@link Builder}の型
      * @throws AlreadyRegisteredInRegistryException 指定された{@link Supplier}がすでに{@code Registry}に登録されている場合
      */
     <T extends Builder> void registerBuilder(Class<T> clazz, Supplier<T> builderSupplier) throws AlreadyRegisteredInRegistryException;
@@ -58,7 +48,7 @@ public interface Registry {
      * 指定された{@link Class}の{@link Builder}の{@link Supplier}の登録を解除します。
      *
      * @param clazz 登録を解除する{@link Supplier}が返す{@link Builder}の{@link Class}
-     * @param <T> 登録を解除する{@link Builder}の型
+     * @param <T>   登録を解除する{@link Builder}の型
      * @return 登録を解除された{@link Supplier}
      * @throws IllegalArgumentException 指定された{@link Supplier}が登録されていない場合
      */

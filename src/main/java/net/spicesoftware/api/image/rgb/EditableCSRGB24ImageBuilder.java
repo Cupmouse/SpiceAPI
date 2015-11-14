@@ -1,6 +1,5 @@
 package net.spicesoftware.api.image.rgb;
 
-import net.spicesoftware.api.image.ImageBuilder;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
 
 /**

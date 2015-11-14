@@ -13,7 +13,7 @@ public interface ImageBuilder<T extends Image> extends ParameterEssentialBuilder
     /**
      * 作成する{@link Image}のサイズを幅と高さの{@code int}で設定します。
      *
-     * @param width 幅
+     * @param width  幅
      * @param height 高さ
      * @throws IllegalArgumentException 指定されたサイズが負の値の場合
      */

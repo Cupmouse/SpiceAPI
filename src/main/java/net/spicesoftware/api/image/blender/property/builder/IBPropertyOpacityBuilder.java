@@ -18,6 +18,6 @@ public interface IBPropertyOpacityBuilder extends Builder<IBPropertyOpacity> {
      * 0で完全な透明、1000で不透明になります。
      *
      * @param opacity 透明度
-    */
+     */
     void opacity(@Min(0) @Max(1000) int opacity);
 }
