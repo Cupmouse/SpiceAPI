@@ -1,13 +1,11 @@
 package net.spicesoftware.api.registry;
 
+import net.spicesoftware.api.Builder;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
 import net.spicesoftware.api.image.blender.ImageBlender;
-import net.spicesoftware.api.image.blender.property.IBPropertyDither;
-import net.spicesoftware.api.image.blender.property.IBPropertyOpacity;
 import net.spicesoftware.api.image.blender.property.ImageBlenderProperty;
-import net.spicesoftware.api.image.blender.property.builder.ImageBlenderPropertyBuilder;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
 import net.spicesoftware.api.image.rgb.CachedRGB24Image;
@@ -16,8 +14,6 @@ import net.spicesoftware.api.image.rgba.CachedRGBA32Image;
 import net.spicesoftware.api.image.rgba.EditableRGBA32Image;
 import net.spicesoftware.api.render.Renderable;
 import net.spicesoftware.api.render.Renderer;
-import net.spicesoftware.api.resource.Resource;
-import net.spicesoftware.api.resource.builder.ResourceBuilder;
 import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
 import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
 import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
@@ -25,8 +21,6 @@ import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 import net.spicesoftware.api.value.Interpolator;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -40,386 +34,57 @@ import java.util.function.Supplier;
 public interface Registry {
 
     /**
-     * 指定された{@link Resource}のビルダーである、{@link ResourceBuilder}を返します。<br>
-     * 登録されていない場合は、空の{@link Optional}が返ります。
+     * 指定された{@link Class}の{@link Builder}のインスタンスを返します。
      *
-     * @param <T>   {@link ResourceBuilder}がビルドする{@link Resource}の型
-     * @param clazz {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
-     * @return 指定された{@link ResourceBuilder}をビルドする{@code ResourceBuilder}、登録されていない場合は、空の{@link Optional}
+     * @param clazz 取得する{@link Builder}の{@link Class}
+     * @param <T> 取得する{@link Builder}の型
+     * @return 指定された{@link Class}の{@link Builder}のインスタンス
+     * @throws IllegalStateException {@link Builder}が{@code Registry}に登録されていない場合
      */
-    <T extends Resource> Optional<ResourceBuilder<T>> getResourceBuilderOf(Class<T> clazz);
+    // TODO IllegalState or IllegalArgument
+    <T extends Builder> T createBuilder(Class<T> clazz) throws IllegalStateException;
 
     /**
-     * 呼ばれるたびに新しい{@link ResourceBuilder}のインスタンスを返す{@link Supplier}を登録します。
+     * 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}を登録します。
      *
-     * @param clazz           {@link ResourceBuilder}がビルドする{@link Resource}の{@link Class}
-     * @param builderSupplier 呼ばれるたびに新しい{@link ResourceBuilder}を返す{@link Supplier}
-     * @param <T>             {@link ResourceBuilder}がビルドする{@link Resource}の型
-     * @throws AlreadyRegisteredInRegistryException 同じ{@link Resource}型のビルダーがすでに登録されている場合
+     * @param clazz 登録する{@link Supplier}が返す{@link Builder}の{@link Class}
+     * @param builderSupplier 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}
+     * @param <T> 登録する{@link Builder}の型
+     * @throws AlreadyRegisteredInRegistryException 指定された{@link Supplier}がすでに{@code Registry}に登録されている場合
      */
-    <T extends Resource> void registerResourceBuilder(Class<T> clazz, Supplier<ResourceBuilder<T>> builderSupplier) throws AlreadyRegisteredInRegistryException;
+    <T extends Builder> void registerBuilder(Class<T> clazz, Supplier<T> builderSupplier) throws AlreadyRegisteredInRegistryException;
 
     /**
-     * 指定された{@link ImageBlenderProperty}のビルダーである、{@link ImageBlenderPropertyBuilder}を返します。<br>
-     * 登録されていない場合は、空の{@link Optional}が返ります。
+     * 指定された{@link Class}の{@link Builder}の{@link Supplier}の登録を解除します。
      *
-     * @param clazz {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の{@link Class}
-     * @param <T>   {@link ImageBlenderPropertyBuilder}がビルドする{@link ImageBlenderProperty}の型
-     * @return 指定された{@link ImageBlenderProperty}をビルドする{@code ImageBlenderPropertyBuilder}、登録されていない場合は、空の{@link Optional}
+     * @param clazz 登録を解除する{@link Supplier}が返す{@link Builder}の{@link Class}
+     * @param <T> 登録を解除する{@link Builder}の型
+     * @return 登録を解除された{@link Supplier}
+     * @throws IllegalArgumentException 指定された{@link Supplier}が登録されていない場合
      */
-    <T extends ImageBlenderProperty> Optional<ImageBlenderPropertyBuilder<T>> getImageBlenderPropertyBuilderOf(Class<T> clazz);
+    <T extends Builder> Supplier<T> unregisterBuilder(Class<T> clazz) throws IllegalArgumentException;
 
     /**
-     * 新しい{@link IBPropertyOpacity}のインスタンスを指定の透明度で作成し、返します。
+     * 指定された{@link Class}の{@link Builder}の{@link Supplier}が登録されているか{@code boolean}で返します。
      *
-     * @param opacity 透明度 0~1000
-     * @return 新しい{@link IBPropertyOpacity}のインスタンス
+     * @param clazz 登録されているか確認する{@link Supplier}が返す{@link Builder}の{@link Class}
+     * @return {@link Supplier}が登録されているなら{@code true}、登録されていないなら{@code false}
      */
-    IBPropertyOpacity createIBPropertyOpacity(@Min(0) @Max(1000) int opacity);
+    boolean isRegisteredBuilder(Class<? extends Builder> clazz);
 
     /**
-     * 新しい{@link IBPropertyDither}のインスタンスを指定の透明度とシードで作成し、返します。
+     * {@link ImageBlenderPropertyCreator}を返します。
      *
-     * @param opacity 透明度 0~1000
-     * @param seed    シード値
-     * @return 新しい{@link IBPropertyDither}のインスタンス
+     * @return {@link ImageBlenderPropertyCreator}
      */
-    IBPropertyDither createIBPropertyDither(@Min(0) @Max(1000) int opacity, int seed);
-
-    /*
-    イメージ
-     */
+    ImageBlenderPropertyCreator getImageBlenderPropertyCreator();
 
     /**
-     * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link CachedGrayScale8Image}を作成します。
+     * {@link ImageCreator}を返します。
      *
-     * @param width  新しいイメージの幅
-     * @param height 新しいイメージの高さ
-     * @param image  新しいイメージの画像情報を含むbyte[]
-     * @return 新しい不変グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
+     * @return {@link ImageCreator}
      */
-    CachedGrayScale8Image createCachedGrayScaleImage(int width, int height, byte[] image) throws IllegalArgumentException;
-
-    /**
-     * 幅と高さとグレースケール画像情報を含む{@code byte[]}から新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param width  新しいイメージの幅
-     * @param height 新しいイメージの高さ
-     * @param image  新しいイメージの画像情報を含むbyte[]
-     * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(int width, int height, byte[] image) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅から背景色が黒色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(int width, int height) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から背景色が黒色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param size 新しい画像の高さと幅の{@link Vector2i}
-     * @return 新しい編集可能グレースケールイメージ
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(Vector2i size);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(int width, int height, byte backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(Vector2i size, byte backgroundColor);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(Vector2i size, int backgroundColor);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(int width, int height, GrayScale8Color backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link CachedGrayScale8Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能グレースケールイメージ
-     */
-    EditableGrayScale8Image createNewGrayScaleImage(Vector2i size, GrayScale8Color backgroundColor);
-
-    /**
-     * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link CachedRGB24Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @param image  画像情報を含むint[]
-     * @return 新しい不変RGBケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    CachedRGB24Image createCachedRGBImage(int width, int height, int[] image) throws IllegalArgumentException;
-
-    /**
-     * 幅と高さとRGB24形式の画像情報を含む{@code int[]}から新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @param image  画像情報を含むint[]
-     * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGB24Image createNewRGBImage(int width, int height, int[] image) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅から背景色が黒色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGB24Image createNewRGBImage(int width, int height) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から背景色が黒色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param size 新しい画像の高さと幅の{@link Vector2i}
-     * @return 新しい編集可能RGBイメージ
-     */
-    EditableRGB24Image createNewRGBImage(Vector2i size);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGB24Image createNewRGBImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBイメージ
-     */
-    EditableRGB24Image createNewRGBImage(Vector2i size, int backgroundColor);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGB24Image createNewRGBImage(int width, int height, RGB24Color backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBイメージ
-     */
-    EditableRGB24Image createNewRGBImage(Vector2i size, RGB24Color backgroundColor);
-
-    /**
-     * 幅と高さと3つのチャンネルごとの{@link CachedGrayScale8Image}から新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param height   新しい画像の高さ
-     * @param width    新しい画像の幅
-     * @param channelR 新しい画像のRチャンネルの{@link CachedGrayScale8Image}
-     * @param channelG 新しい画像のGチャンネルの{@link CachedGrayScale8Image}
-     * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScale8Image}
-     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGB24Image createNewCSRGBImage(int width, int height, EditableGrayScale8Image channelR, EditableGrayScale8Image channelG, EditableGrayScale8Image channelB) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}と3つのチャンネルごとの{@link CachedGrayScale8Image}から新しい{@link EditableRGB24Image}を作成します。
-     *
-     * @param size     新しい画像の高さと幅の{@link Vector2i}
-     * @param channelR 新しい画像のRチャンネルの{@link CachedGrayScale8Image}
-     * @param channelG 新しい画像のGチャンネルの{@link CachedGrayScale8Image}
-     * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScale8Image}
-     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBイメージ
-     */
-    EditableRGB24Image createNewCSRGBImage(Vector2i size, EditableGrayScale8Image channelR, EditableGrayScale8Image channelG, EditableGrayScale8Image channelB);
-
-    /**
-     * 幅と高さとRGBA32形式の画像情報を含む{@code int[]}から新しい{@link CachedRGBA32Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @param image  画像情報を含むint[]
-     * @return 新しい不変RGBAケールイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    CachedRGBA32Image createCachedRGBAImage(int width, int height, int[] image) throws IllegalArgumentException;
-
-    /**
-     * 幅と高さとRGB3A2形式の画像情報を含む{@code int[]}から新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @param image  画像情報を含むint[]
-     * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewRGBAImage(int width, int height, int[] image) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅から背景色が透明(r, g, b, a)=(0, 0, 0, 0)のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height 新しい画像の高さ
-     * @param width  新しい画像の幅
-     * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewRGBAImage(int width, int height) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から背景色が透明(r, g, b, a)=(0, 0, 0, 0)のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param size 新しい画像の高さと幅の{@link Vector2i}
-     * @return 新しい編集可能RGBAイメージ
-     */
-    EditableRGBA32Image createNewRGBAImage(Vector2i size);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewRGBAImage(int width, int height, int backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     */
-    EditableRGBA32Image createNewRGBAImage(Vector2i size, int backgroundColor);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewRGBAImage(int width, int height, long backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     */
-    EditableRGBA32Image createNewRGBAImage(Vector2i size, long backgroundColor);
-
-    /**
-     * 指定された高さと幅から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height          新しい画像の高さ
-     * @param width           新しい画像の幅
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewRGBAImage(int width, int height, RGBA32Color backgroundColor) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}から特定の背景色のまっさらな新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param size            新しい画像の高さと幅の{@link Vector2i}
-     * @param backgroundColor この画像いっぱいに埋める背景色
-     * @return 新しい編集可能RGBAイメージ
-     */
-    EditableRGBA32Image createNewRGBAImage(Vector2i size, RGBA32Color backgroundColor);
-
-    /**
-     * 幅と高さと3つのチャンネルごとの{@link CachedGrayScale8Image}から新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param height   新しい画像の高さ
-     * @param width    新しい画像の幅
-     * @param channelR 新しい画像のRチャンネルの{@link CachedGrayScale8Image}
-     * @param channelG 新しい画像のGチャンネルの{@link CachedGrayScale8Image}
-     * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScale8Image}
-     * @param channelA 新しい画像のAチャンネルの{@link CachedGrayScale8Image}
-     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
-     * @throws IllegalArgumentException width &gt; 0 &amp;&amp; height &gt; 0でない、もしくはwidth * heightがimage.lengthと等しくない場合（指定されたサイズと画像のデータ量が不一致の場合）
-     */
-    EditableRGBA32Image createNewCSRGBAImage(int width, int height, EditableGrayScale8Image channelR, EditableGrayScale8Image channelG, EditableGrayScale8Image channelB, EditableGrayScale8Image channelA) throws IllegalArgumentException;
-
-    /**
-     * 指定された高さと幅を含む{@link Vector2i}と4つのチャンネルごとの{@link CachedGrayScale8Image}から新しい{@link EditableRGBA32Image}を作成します。
-     *
-     * @param size     新しい画像の高さと幅の{@link Vector2i}
-     * @param channelR 新しい画像のRチャンネルの{@link CachedGrayScale8Image}
-     * @param channelG 新しい画像のGチャンネルの{@link CachedGrayScale8Image}
-     * @param channelB 新しい画像のBチャンネルの{@link CachedGrayScale8Image}
-     * @param channelA 新しい画像のAチャンネルの{@link CachedGrayScale8Image}
-     * @return チャンネルごとの編集可能なグレースケールイメージを持つRGBAイメージ
-     */
-    EditableRGBA32Image createNewCSRGBAImage(Vector2i size, EditableGrayScale8Image channelR, EditableGrayScale8Image channelG, EditableGrayScale8Image channelB, EditableGrayScale8Image channelA);
-
+    ImageCreator getImageCreator();
 
     /**
      * {@link Interpolator}をIdと関連付けて登録します。

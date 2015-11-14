@@ -1,5 +1,6 @@
 package net.spicesoftware.api.resource.builder;
 
+import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.resource.ResourceFromFile;
 
 import java.io.File;
@@ -9,21 +10,14 @@ import java.io.File;
  *
  * @since 2014/12/23
  */
-public interface ResourceFromFileBuilder<T extends ResourceFromFile> extends ResourceBuilder<T> {
-
-    /**
-     * 設定されているファイルを返します
-     *
-     * @return 設定されているファイル
-     */
-    File getFile();
+public interface ResourceFromFileBuilder<T extends ResourceFromFile> extends ResourceBuilder<T>, ParameterEssentialBuilder<T> {
 
     /**
      * ファイルを設定します
      *
      * @param file 設定するファイル
      */
-    void setFile(File file);
+    void file(File file);
 
     @Override
     ResourceFromFileBuilder copyDeeply();

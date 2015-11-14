@@ -3,7 +3,7 @@ package net.spicesoftware.api.item;
 import net.spicesoftware.api.Box;
 
 /**
- * Boxを実装したアイテムです。
+ * {@link Box}を実装した{@link Item}です。
  *
  * @since 2014/10/04
  */

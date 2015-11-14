@@ -17,6 +17,22 @@ public final class FrameTime implements DeepCopyable {
         this.fps = fps;
     }
 
+    public static FrameTime of(int frame, float fps) {
+        return new FrameTime(frame, fps);
+    }
+
+    public static FrameTime from(LocalTime localTime, float fps) {
+        return fromMillSec((int) (localTime.toNanoOfDay() / (10 ^ 6)), fps);
+    }
+
+    public static FrameTime fromMillSec(int milliSec, float fps) {
+        return new FrameTime((int) Math.ceil(milliSec * fps / 1000), fps);
+    }
+
+    public static FrameTime fromSecond(int second, float fps) {
+        return new FrameTime((int) (Math.ceil(fps * second)), fps);
+    }
+
     public int getFrames() {
         return frames;
     }
@@ -43,22 +59,6 @@ public final class FrameTime implements DeepCopyable {
 
     public int toDay() {
         return (int) (frames / fps / 60 / 60 / 24);
-    }
-
-    public static FrameTime of(int frame, float fps) {
-        return new FrameTime(frame, fps);
-    }
-
-    public static FrameTime from(LocalTime localTime, float fps) {
-        return fromMillSec((int) (localTime.toNanoOfDay() / (10^6)), fps);
-    }
-
-    public static FrameTime fromMillSec(int milliSec, float fps) {
-        return new FrameTime((int) Math.ceil(milliSec * fps / 1000), fps);
-    }
-
-    public static FrameTime fromSecond(int second, float fps) {
-        return new FrameTime((int) (Math.ceil(fps * second)), fps);
     }
 
     @Override
