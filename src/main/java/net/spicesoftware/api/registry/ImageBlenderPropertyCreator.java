@@ -24,6 +24,15 @@ public interface ImageBlenderPropertyCreator {
     /**
      * 新しい{@link IBPropertyDither}のインスタンスを指定の透明度とシードで作成し、返します。
      *
+     * @param propertyOpacity 透明度{@link IBPropertyOpacity}
+     * @param seed            シード値
+     * @return 新しい{@link IBPropertyDither}のインスタンス
+     */
+    IBPropertyDither dither(IBPropertyOpacity propertyOpacity, int seed);
+
+    /**
+     * 新しい{@link IBPropertyDither}のインスタンスを指定の透明度とシードで作成し、返します。
+     *
      * @param opacity 透明度 0~1000
      * @param seed    シード値
      * @return 新しい{@link IBPropertyDither}のインスタンス

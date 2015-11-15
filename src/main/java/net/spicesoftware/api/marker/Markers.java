@@ -36,14 +36,15 @@ public interface Markers extends DeepCopyable {
      */
     Optional<Marker> getMarkerAt(@Min(0) int frame);
 
-    /**
-     * 指定したインデックスにある{@link Marker}を返します。
-     *
-     * @param index {@link Marker}を取得するインデックス
-     * @return 指定したインデックスにある{@link Marker}
-     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
-     */
-    Marker getMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+// TODO
+//    /**
+//     * 指定したインデックスにある{@link Marker}を返します。
+//     *
+//     * @param index {@link Marker}を取得するインデックス
+//     * @return 指定したインデックスにある{@link Marker}
+//     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+//     */
+//    Marker getMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Markable}の指定したフレームに{@link Marker}を追加します。
@@ -59,14 +60,14 @@ public interface Markers extends DeepCopyable {
      * @param frame 削除するマーカーのフレーム
      */
     void removeMarkerAt(@Min(0) int frame);
-
-    /**
-     * この{@code Markable}の指定したインデックス番号の{@link Marker}を削除します。
-     *
-     * @param index 削除するマーカーのインデックス番号
-     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
-     */
-    void removeMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+//
+//    /**
+//     * この{@code Markable}の指定したインデックス番号の{@link Marker}を削除します。
+//     *
+//     * @param index 削除するマーカーのインデックス番号
+//     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+//     */
+//    void removeMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     @Override
     Markers copyDeeply();
