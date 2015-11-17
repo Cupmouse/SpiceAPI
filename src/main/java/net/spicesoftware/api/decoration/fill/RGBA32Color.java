@@ -1,6 +1,4 @@
-package net.spicesoftware.api.util.decoration.fill.color;
-
-import net.spicesoftware.api.decoration.fill.Color;
+package net.spicesoftware.api.decoration.fill;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

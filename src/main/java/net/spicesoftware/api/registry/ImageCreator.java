@@ -1,5 +1,8 @@
 package net.spicesoftware.api.registry;
 
+import net.spicesoftware.api.decoration.fill.GrayScale8Color;
+import net.spicesoftware.api.decoration.fill.RGB24Color;
+import net.spicesoftware.api.decoration.fill.RGBA32Color;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
 import net.spicesoftware.api.image.rgb.CachedRGB24Image;
@@ -8,9 +11,6 @@ import net.spicesoftware.api.image.rgb.EditableRGB24Image;
 import net.spicesoftware.api.image.rgba.CachedRGBA32Image;
 import net.spicesoftware.api.image.rgba.EditableCSRGBA32Image;
 import net.spicesoftware.api.image.rgba.EditableRGBA32Image;
-import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**

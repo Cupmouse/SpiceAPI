@@ -1,7 +1,8 @@
 package net.spicesoftware.api.image.rgb;
 
+import net.spicesoftware.api.decoration.fill.ColorType;
+import net.spicesoftware.api.decoration.fill.RGB24Color;
 import net.spicesoftware.api.image.ImageBuilder;
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,7 +20,7 @@ public interface RGB24ImageBuilder<T extends RGB24Image> extends ImageBuilder<T>
     void background(RGB24Color rgb24Color);
 
     /**
-     * 作成する{@link RGB24Image}の背景色を{@link net.spicesoftware.api.util.decoration.fill.color.ColorType#RGB24}の{@code int}で設定します。
+     * 作成する{@link RGB24Image}の背景色を{@link ColorType#RGB24}の{@code int}で設定します。
      *
      * @param background 作成する{@link RGB24Image}の背景色
      * @throws IllegalArgumentException 指定された背景色が範囲外の場合

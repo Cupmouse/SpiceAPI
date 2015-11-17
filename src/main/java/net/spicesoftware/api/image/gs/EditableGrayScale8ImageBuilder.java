@@ -1,7 +1,8 @@
 package net.spicesoftware.api.image.gs;
 
+import net.spicesoftware.api.decoration.fill.ColorType;
+import net.spicesoftware.api.decoration.fill.GrayScale8Color;
 import net.spicesoftware.api.image.ImageBuilder;
-import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
 
 /**
  * @since 2015/11/14
@@ -16,7 +17,7 @@ public interface EditableGrayScale8ImageBuilder extends ImageBuilder<EditableGra
     void background(GrayScale8Color grayScale8Color);
 
     /**
-     * 作成する{@link EditableGrayScale8Image}の背景色を{@link net.spicesoftware.api.util.decoration.fill.color.ColorType#GRAYSCALE8}の{@code byte}で設定します。
+     * 作成する{@link EditableGrayScale8Image}の背景色を{@link ColorType#GRAYSCALE8}の{@code byte}で設定します。
      *
      * @param background 作成する{@link EditableGrayScale8Image}の背景色
      */

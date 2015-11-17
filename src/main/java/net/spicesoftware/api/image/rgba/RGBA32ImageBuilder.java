@@ -1,7 +1,8 @@
 package net.spicesoftware.api.image.rgba;
 
+import net.spicesoftware.api.decoration.fill.ColorType;
+import net.spicesoftware.api.decoration.fill.RGBA32Color;
 import net.spicesoftware.api.image.ImageBuilder;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,14 +20,14 @@ public interface RGBA32ImageBuilder<T extends RGBA32Image> extends ImageBuilder<
     void background(RGBA32Color rgba32Color);
 
     /**
-     * 作成する{@link RGBA32Image}の背景色を{@link net.spicesoftware.api.util.decoration.fill.color.ColorType#RGBA32}の{@code int}で設定します。
+     * 作成する{@link RGBA32Image}の背景色を{@link ColorType#RGBA32}の{@code int}で設定します。
      *
      * @param rgba32 作成する{@link RGBA32Image}の背景色
      */
     void background(int rgba32);
 
     /**
-     * 作成する{@link RGBA32Image}の背景色を{@link net.spicesoftware.api.util.decoration.fill.color.ColorType#RGBA32}の{@code long}で設定します。
+     * 作成する{@link RGBA32Image}の背景色を{@link ColorType#RGBA32}の{@code long}で設定します。
      *
      * @param rgba32 作成する{@link RGBA32Image}の背景色
      * @throws IllegalArgumentException 指定された背景色が範囲外の場合

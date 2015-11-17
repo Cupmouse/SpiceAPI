@@ -5,7 +5,7 @@ import net.spicesoftware.api.decoration.Decoration;
 /**
  * 塗りつぶしのデコレーションです。
  *
- * @see net.spicesoftware.api.util.decoration.fill.gradient.ColorStopGradientFilling
+ * @see net.spicesoftware.api.decoration.fill.gradient.ColorStopGradientFilling
  * @see PatternFilling
  * @since 2015/02/04
  */

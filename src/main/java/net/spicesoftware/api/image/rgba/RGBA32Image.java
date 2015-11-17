@@ -1,8 +1,8 @@
 package net.spicesoftware.api.image.rgba;
 
+import net.spicesoftware.api.decoration.fill.RGBA32Color;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Max;

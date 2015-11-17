@@ -1,7 +1,7 @@
 package net.spicesoftware.api.image.gs;
 
+import net.spicesoftware.api.decoration.fill.GrayScale8Color;
 import net.spicesoftware.api.image.ImageEditable;
-import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import javax.validation.constraints.Max;

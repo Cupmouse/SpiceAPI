@@ -1,4 +1,4 @@
-package net.spicesoftware.api.util.decoration.fill.color;
+package net.spicesoftware.api.decoration.fill;
 
 /**
  * {@link RGB24Color}の基本的な色を保持します。
