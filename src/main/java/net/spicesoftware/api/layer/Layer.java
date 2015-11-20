@@ -8,7 +8,6 @@ import net.spicesoftware.api.util.Pair;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +18,7 @@ import java.util.Optional;
  * @see net.spicesoftware.api.Box よく利用されるクラス
  * @since 2014/10/04
  */
-public interface Layer extends DeepCopyable, Serializable {
+public interface Layer extends DeepCopyable {
 
     /**
      * この{@code Layer}のすべての{@link Item}を返します。<br>

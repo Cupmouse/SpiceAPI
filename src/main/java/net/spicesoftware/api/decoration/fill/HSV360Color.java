@@ -1,5 +1,8 @@
 package net.spicesoftware.api.decoration.fill;
 
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -15,8 +18,11 @@ import static net.spicesoftware.api.util.Validate.zeroOrPositive;
  * @since 2015/07/30
  */
 public final class HSV360Color implements Color {
+    @ToString
     public final int hue;
+    @ToString
     public final int saturation;
+    @ToString
     public final int value;
 
     public HSV360Color(@Min(0) @Max(359) int hue, @Min(0) @Max(0xFF) int saturation, @Min(0) @Max(0xFF) int value) {
@@ -151,6 +157,6 @@ public final class HSV360Color implements Color {
 
     @Override
     public String toString() {
-        return "HSV360Color{h=" + hue + ",s=" + saturation + ",v=" + value + "}";
+        return ReflectionToString.rts(this);
     }
 }

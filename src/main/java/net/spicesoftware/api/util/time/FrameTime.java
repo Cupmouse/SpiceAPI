@@ -1,6 +1,8 @@
 package net.spicesoftware.api.util.time;
 
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import java.time.LocalTime;
 
@@ -9,7 +11,9 @@ import java.time.LocalTime;
  */
 public final class FrameTime implements DeepCopyable {
 
+    @ToString
     private final int frames;
+    @ToString
     private final float fps;
 
     private FrameTime(int frames, float fps) {
@@ -64,5 +68,10 @@ public final class FrameTime implements DeepCopyable {
     @Override
     public FrameTime copyDeeply() {
         return new FrameTime(frames, fps);
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToString.rts(this);
     }
 }

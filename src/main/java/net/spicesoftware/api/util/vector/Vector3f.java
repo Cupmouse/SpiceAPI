@@ -1,7 +1,5 @@
 package net.spicesoftware.api.util.vector;
 
-import java.io.Serializable;
-
 import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
@@ -9,7 +7,7 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  *
  * @since 2014/12/21
  */
-public final class Vector3f implements Serializable {
+public final class Vector3f {
 
     public static final Vector3f ZERO = new Vector3f(0, 0, 0);
     public final float x;
