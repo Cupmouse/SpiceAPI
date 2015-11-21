@@ -2,6 +2,7 @@ package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
+import net.spicesoftware.api.item.builder.ItemBuilder;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.Pair;
@@ -111,7 +112,7 @@ public interface Layer extends DeepCopyable {
     /**
      * この{@code Layer}に開始フレームと終了フレームを指定して{@link Item}を追加します。
      *
-     * @param item      追加する{@link Item}
+     * @param itemBuilder      追加するアイテムの{@link ItemBuilder}
      * @param frameFrom {@link Item}の開始フレーム
      * @param frameTo   {@link Item}の終了フレーム
      * @return 追加された{@link Item}のインデックス番号
@@ -120,12 +121,12 @@ public interface Layer extends DeepCopyable {
      */
     // TODO ItemBuilderで追加をする？
     @Min(0)
-    int addItem(Item item, @Min(0) int frameFrom, @Min(0) int frameTo) throws NullPointerException, IllegalArgumentException;
+    int addItem(ItemBuilder itemBuilder, @Min(0) int frameFrom, @Min(0) int frameTo) throws IllegalArgumentException;
 
     /**
      * この{@code Layer}に開始フレームと長さを指定して{@link Item}を追加します。
      *
-     * @param item          追加する{@link Item}
+     * @param itemBuilder          追加するアイテムの{@link ItemBuilder}
      * @param frameStart    {@link Item}の開始フレーム
      * @param frameDuration {@link Item}の長さ
      * @return 追加された{@link Item}のインデックス番号
@@ -133,7 +134,7 @@ public interface Layer extends DeepCopyable {
      * @throws java.lang.IllegalArgumentException {@code frameStart}か{@code frameDuration}のどちらかが範囲外の場合
      */
     @Min(0)
-    int addItemDuration(Item item, @Min(0) int frameStart, @Min(0) int frameDuration) throws NullPointerException, IllegalArgumentException;
+    int addItemDuration(ItemBuilder itemBuilder, @Min(0) int frameStart, @Min(0) int frameDuration) throws NullPointerException, IllegalArgumentException;
 
     /**
      * この{@code Layer}の指定されたインデックス番号の{@link Item}を削除します。
