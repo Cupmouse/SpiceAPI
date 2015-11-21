@@ -1,5 +1,8 @@
 package net.spicesoftware.api.util.vector;
 
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
+
 import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
@@ -10,12 +13,18 @@ import static net.spicesoftware.api.util.Validate.nullNot;
 public final class Vector2d {
 
     public static final Vector2d ZERO = new Vector2d(0, 0);
+    @ToString
     public final double x;
+    @ToString
     public final double y;
 
-    public Vector2d(double x, double y) {
+    Vector2d(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public static Vector2d v2d(double x, double y) {
+        return new Vector2d(x, y);
     }
 
     public double area() {
@@ -83,6 +92,6 @@ public final class Vector2d {
 
     @Override
     public String toString() {
-        return "Vector2d{x=" + x + ",y=" + y + "}";
+        return ReflectionToString.rts(this);
     }
 }

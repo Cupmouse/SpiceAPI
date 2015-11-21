@@ -1,5 +1,8 @@
 package net.spicesoftware.api.util.vector;
 
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
+
 import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
@@ -10,14 +13,21 @@ import static net.spicesoftware.api.util.Validate.nullNot;
 public final class Vector3d {
 
     public static final Vector3d ZERO = new Vector3d(0, 0, 0);
+    @ToString
     public final double x;
+    @ToString
     public final double y;
+    @ToString
     public final double z;
 
-    public Vector3d(double x, double y, double z) {
+    Vector3d(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public static Vector3d v3d(double x, double y, double z) {
+        return new Vector3d(x, y, z);
     }
 
     public double volume() {
@@ -100,6 +110,6 @@ public final class Vector3d {
 
     @Override
     public String toString() {
-        return "Vector3d{x=" + x + ",y=" + y + ",z=" + z;
+        return ReflectionToString.rts(this);
     }
 }

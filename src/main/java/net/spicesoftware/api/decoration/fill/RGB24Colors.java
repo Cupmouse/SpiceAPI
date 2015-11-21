@@ -16,6 +16,7 @@ public final class RGB24Colors {
     public static final RGB24Color YELLOW = new RGB24Color(0xFF, 0xFF, 0);
     public static final RGB24Color AQUA = new RGB24Color(0, 0xFF, 0xFF);
     public static final RGB24Color MAGENTA = new RGB24Color(0xFF, 0, 0xFF);
+
     private RGB24Colors() {
     }
 }
