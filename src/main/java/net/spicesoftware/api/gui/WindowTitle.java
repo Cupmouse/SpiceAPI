@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * {@link Window}のタイトルを表すイミュータブルクラスです。
+ *
  * @since 2015/11/04
  */
 public interface WindowTitle {

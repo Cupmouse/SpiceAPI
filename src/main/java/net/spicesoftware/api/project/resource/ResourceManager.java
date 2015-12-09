@@ -7,6 +7,8 @@ import java.util.Set;
 /**
  * {@link net.spicesoftware.api.project.Project}のリソースを管理します。
  *
+ * 同期する際は、ルートの{@link ResourceTreeFolder}({@link #getRootOfResourceTree()})をロックします。
+ *
  * @since 2014/12/19
  */
 public interface ResourceManager {
