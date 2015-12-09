@@ -1,7 +1,7 @@
 package net.spicesoftware.api.resource;
 
 import net.spicesoftware.api.SpiceStatic;
-import net.spicesoftware.api.util.style.TextStyle;
+import net.spicesoftware.api.style.TextStyle;
 
 /**
  * @since 2015/01/26
