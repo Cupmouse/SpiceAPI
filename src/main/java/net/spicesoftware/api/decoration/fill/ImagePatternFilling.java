@@ -1,5 +1,7 @@
 package net.spicesoftware.api.decoration.fill;
 
+import net.spicesoftware.api.SpiceStatic;
+import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -9,6 +11,10 @@ import net.spicesoftware.api.util.vector.Vector2i;
  * @since 2015/01/26
  */
 public interface ImagePatternFilling extends PatternFilling {
+
+    static Builder builder() {
+        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
 
     /**
      * この{@code ImagePatternFilling}のパターンの{@link Image}を返します。
@@ -40,4 +46,35 @@ public interface ImagePatternFilling extends PatternFilling {
 
     @Override
     ImagePatternFilling copyDeeply();
+
+    /**
+     * @since 2015/11/15
+     */
+    interface Builder extends net.spicesoftware.api.Builder {
+
+        /**
+         * パターンの{@link CachedImage}を設定します。
+         *
+         * @param image パターンの{@link CachedImage}
+         * @return このインスタンス
+         */
+        Builder image(CachedImage image);
+
+        /**
+         * パターンの位置ずれを設定します。
+         *
+         * @param offsetX パターンのXオフセット
+         * @param offsetX パターンのYオフセット
+         * @return このインスタンス
+         */
+        Builder offset(int offsetX, int offsetY);
+
+        /**
+         * パターンの位置ずれを{@link Vector2i}で設定します。
+         *
+         * @param offset パターンのオフセット
+         * @return このインスタンス
+         */
+        Builder offset(Vector2i offset);
+    }
 }

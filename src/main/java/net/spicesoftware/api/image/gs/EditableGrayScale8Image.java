@@ -1,5 +1,6 @@
 package net.spicesoftware.api.image.gs;
 
+import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.GrayScale8Color;
 import net.spicesoftware.api.image.ImageEditable;
 import net.spicesoftware.api.util.vector.Vector2i;
@@ -13,6 +14,10 @@ import javax.validation.constraints.Min;
  * @since 2015/01/17
  */
 public interface EditableGrayScale8Image extends GrayScale8Image, ImageEditable {
+
+    static Builder builder() {
+        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
 
     /**
      * この{@code EditableGrayScale8Image}の指定されたx, yの位置に0～0xFFの値の{@code int}を指定して色を設定します。
@@ -74,4 +79,7 @@ public interface EditableGrayScale8Image extends GrayScale8Image, ImageEditable 
 
     @Override
     EditableGrayScale8Image copyDeeply();
+
+    interface Builder extends IBuilder<EditableGrayScale8Image> {
+    }
 }

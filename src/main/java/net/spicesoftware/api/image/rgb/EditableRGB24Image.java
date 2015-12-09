@@ -1,5 +1,6 @@
 package net.spicesoftware.api.image.rgb;
 
+import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.RGB24Color;
 import net.spicesoftware.api.image.ImageEditable;
 import net.spicesoftware.api.util.vector.Vector2i;
@@ -13,6 +14,10 @@ import javax.validation.constraints.Min;
  * @since 2015/01/17
  */
 public interface EditableRGB24Image extends RGB24Image, ImageEditable {
+
+    static Builder builder() {
+        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
 
     /**
      * この{@code EditableRGB24Image}の指定されたx, yの位置にRGB24の{@code int}を指定して色を設定します。
@@ -53,4 +58,10 @@ public interface EditableRGB24Image extends RGB24Image, ImageEditable {
 
     @Override
     EditableRGB24Image copyDeeply();
+
+    /**
+     * @since 2015/11/14
+     */
+    interface Builder extends RGB24Image.IBuilder<EditableRGB24Image> {
+    }
 }
