@@ -13,15 +13,4 @@ public interface Resource extends Markable, DeepCopyable {
 
     @Override
     Resource copyDeeply();
-
-    /**
-     * リソースを作成するビルダーです。
-     *
-     * @since 2014/12/23
-     */
-    interface IBuilder<T extends Resource> extends DeepCopyable, Builder<T> {
-
-        @Override
-        IBuilder copyDeeply();
-    }
 }

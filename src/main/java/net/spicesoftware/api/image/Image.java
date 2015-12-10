@@ -43,27 +43,4 @@ public interface Image extends DeepCopyable {
 
     @Override
     Image copyDeeply();
-
-    /**
-     * @since 2015/11/14
-     */
-    interface IBuilder<T extends Image> extends ParameterEssentialBuilder<T> {
-
-        /**
-         * 作成する{@link Image}のサイズを幅と高さの{@code int}で設定します。
-         *
-         * @param width  幅
-         * @param height 高さ
-         * @throws IllegalArgumentException 指定されたサイズが負の値の場合
-         */
-        void size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;
-
-        /**
-         * 作成する{@link Image}のサイズの{@link Vector2i}で設定します。
-         *
-         * @param size 作成する{@link Image}のサイズの{@link Vector2i}
-         * @throws IllegalArgumentException 指定されたサイズが負の値の場合
-         */
-        void size(Vector2i size) throws IllegalArgumentException;
-    }
 }

@@ -38,11 +38,11 @@ public interface IBPropertyDither extends ImageBlenderProperty {
          *
          * @param seed ディザのランダムシード
          */
-        void seed(int seed);
+        Builder seed(int seed);
 
         /**
          * ディザのランダムシードをランダム値に設定します。
          */
-        void randomSeed();
+        Builder randomSeed();
     }
 }

@@ -21,7 +21,7 @@ public interface ResourcePicture extends ResourceFromFile {
      *
      * @since 2014/12/23
      */
-    interface Builder extends IBuilder<ResourcePicture> {
+    interface Builder extends ResourceFromFileBuilder<ResourcePicture> {
 
         @Override
         Builder copyDeeply();

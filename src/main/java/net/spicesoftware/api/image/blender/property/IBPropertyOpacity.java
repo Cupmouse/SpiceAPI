@@ -31,6 +31,6 @@ public interface IBPropertyOpacity extends ImageBlenderProperty {
          *
          * @param opacity 透明度
          */
-        void opacity(@Min(0) @Max(1000) int opacity);
+        Builder opacity(@Min(0) @Max(1000) int opacity);
     }
 }

@@ -1,7 +1,12 @@
 package net.spicesoftware.api.image.rgba;
 
 import net.spicesoftware.api.SpiceStatic;
+import net.spicesoftware.api.decoration.fill.RGBA32Color;
 import net.spicesoftware.api.image.gs.EditableGrayScale8Image;
+import net.spicesoftware.api.util.vector.Vector2i;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 /**
  * 置き換え可能なRGBAの4チャンネルを{@link EditableGrayScale8Image}で保持するイメージです。
@@ -49,34 +54,49 @@ public interface EditableCSRGBA32Image extends EditableRGBA32Image {
     /**
      * @since 2015/11/14
      */
-    interface Builder extends IBuilder<EditableCSRGBA32Image> {
+    interface Builder extends RGBA32ImageBuilder<EditableCSRGBA32Image> {
+
+        @Override
+        Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;
+
+        @Override
+        Builder size(Vector2i size) throws IllegalArgumentException;
+
+        @Override
+        Builder background(RGBA32Color rgba32Color);
+
+        @Override
+        Builder background(int rgba32);
+
+        @Override
+        Builder background(@Min(0) @Max(0xFFFFFFFF) long rgba32) throws IllegalArgumentException;
 
         /**
          * 作成する{@link EditableCSRGBA32Image}のRチャンネルの{@link EditableGrayScale8Image}を設定します。
          *
          * @param r 作成する{@link EditableCSRGBA32Image}のRチャンネルの{@link EditableGrayScale8Image}
          */
-        void channelR(EditableGrayScale8Image r);
+        Builder channelR(EditableGrayScale8Image r);
 
         /**
          * 作成する{@link EditableCSRGBA32Image}のGチャンネルの{@link EditableGrayScale8Image}を設定します。
          *
          * @param g 作成する{@link EditableCSRGBA32Image}のGチャンネルの{@link EditableGrayScale8Image}
          */
-        void channelG(EditableGrayScale8Image g);
+        Builder channelG(EditableGrayScale8Image g);
 
         /**
          * 作成する{@link EditableCSRGBA32Image}のBチャンネルの{@link EditableGrayScale8Image}を設定します。
          *
          * @param b 作成する{@link EditableCSRGBA32Image}のBチャンネルの{@link EditableGrayScale8Image}
          */
-        void channelB(EditableGrayScale8Image b);
+        Builder channelB(EditableGrayScale8Image b);
 
         /**
          * 作成する{@link EditableCSRGBA32Image}のBチャンネルの{@link EditableGrayScale8Image}を設定します。
          *
          * @param a 作成する{@link EditableCSRGBA32Image}のBチャンネルの{@link EditableGrayScale8Image}
          */
-        void channelA(EditableGrayScale8Image a);
+        Builder channelA(EditableGrayScale8Image a);
     }
 }

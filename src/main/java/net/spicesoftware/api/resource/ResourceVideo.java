@@ -1,6 +1,7 @@
 package net.spicesoftware.api.resource;
 
 import net.spicesoftware.api.SpiceStatic;
+import net.spicesoftware.api.image.rgba.RGBA32Image;
 
 /**
  * 映像のリソースです。
@@ -21,9 +22,9 @@ public interface ResourceVideo extends ResourceFromFile {
      *
      * @since 2014/12/23
      */
-    interface Builder extends IBuilder<ResourceVideo> {
+    interface Builder extends ResourceFromFileBuilder<ResourceVideo> {
 
         @Override
-        IBuilder copyDeeply();
+        ResourceFromFileBuilder copyDeeply();
     }
 }

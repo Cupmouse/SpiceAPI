@@ -21,7 +21,7 @@ public interface ResourceSound extends ResourceFromFile {
      *
      * @since 2014/12/23
      */
-    interface Builder extends IBuilder<ResourceSound> {
+    interface Builder extends ResourceFromFileBuilder<ResourceSound> {
 
         @Override
         Builder copyDeeply();
