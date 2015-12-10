@@ -7,9 +7,6 @@ import net.spicesoftware.api.util.DeepCopyable;
 
 import javax.validation.constraints.Min;
 
-import static net.spicesoftware.api.util.Validate.nullNot;
-import static net.spicesoftware.api.util.Validate.zeroOrPositive;
-
 /**
  * 線のスタイルを保持します。
  * イミュータブルクラスです。

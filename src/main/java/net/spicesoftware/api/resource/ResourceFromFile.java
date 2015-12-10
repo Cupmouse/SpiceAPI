@@ -1,7 +1,5 @@
 package net.spicesoftware.api.resource;
 
-import net.spicesoftware.api.ParameterEssentialBuilder;
-
 import java.io.File;
 
 /**

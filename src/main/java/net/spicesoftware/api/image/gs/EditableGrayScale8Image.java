@@ -2,7 +2,6 @@ package net.spicesoftware.api.image.gs;
 
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.GrayScale8Color;
-import net.spicesoftware.api.image.ImageBuilder;
 import net.spicesoftware.api.image.ImageEditable;
 import net.spicesoftware.api.util.vector.Vector2i;
 

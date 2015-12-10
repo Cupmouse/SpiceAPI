@@ -1,6 +1,5 @@
 package net.spicesoftware.api.image;
 
-import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.vector.Vector2i;
 

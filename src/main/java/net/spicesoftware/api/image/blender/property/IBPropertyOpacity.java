@@ -14,6 +14,16 @@ public interface IBPropertyOpacity extends ImageBlenderProperty {
         return SpiceStatic.getRegistry().createBuilder(Builder.class);
     }
 
+    /**
+     * 新しい{@link IBPropertyOpacity}のインスタンスを指定の透明度で作成し、返します。
+     *
+     * @param opacity 透明度 0~1000
+     * @return 新しい{@link IBPropertyOpacity}のインスタンス
+     */
+    static IBPropertyOpacity create(@Min(0) @Max(1000) int opacity) {
+        return builder().opacity(opacity).build();
+    }
+
     @Min(0)
     @Max(1000)
     int getOpacity();
@@ -31,6 +41,6 @@ public interface IBPropertyOpacity extends ImageBlenderProperty {
          *
          * @param opacity 透明度
          */
-        Builder opacity(@Min(0) @Max(1000) int opacity);
+        Builder opacity(@Min(0) @Max(1000) int opacity) throws IllegalArgumentException;
     }
 }

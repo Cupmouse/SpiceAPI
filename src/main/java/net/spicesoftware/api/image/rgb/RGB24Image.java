@@ -1,6 +1,5 @@
 package net.spicesoftware.api.image.rgb;
 
-import net.spicesoftware.api.decoration.fill.ColorType;
 import net.spicesoftware.api.decoration.fill.RGB24Color;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.gs.CachedGrayScale8Image;

@@ -1,5 +1,6 @@
 package net.spicesoftware.api.gui;
 
+import net.spicesoftware.api.gui.location.WindowLocation;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
@@ -8,42 +9,54 @@ import net.spicesoftware.api.util.vector.Vector2i;
 public interface WindowState<WS extends WindowSystem> {
 
     /**
-     * {@link Window}の{@link WindowTitle}を{@link Window#getDefaultTitle()}のものに設定します。
-     */
-    void setTitleToDefault();
-
-    /**
-     * {@link Window}の{@link WindowTitle}を設定します。
-     *
-     * @param title {@link Window}の{@link WindowTitle}
-     */
-    void setTitle(WindowTitle title);
-
-    /**
      * {@link Window}の{@link WindowTitle}を返します。
      *
      * @return {@link Window}の{@link WindowTitle}
      */
     WindowTitle getTitle();
 
+
     /**
      * {@link Window}の位置の{@link Vector2i}を返します。
      *
      * @return {@link Window}の位置の{@link Vector2i}
      */
-    Vector2i getPosition();
+    WindowLocation getWindowLocation();
+
 
     /**
-     * {@link Window}の位置を設定します。
+     * {@link Window}の最大サイズの{@link Vector2i}を返します。
      *
-     * @param position {@link Window}に設定する位置の{@link Vector2i}
+     * @return {@link Window}の最大サイズの{@link Vector2i}
      */
-    void setPosition(Vector2i position);
+    Vector2i getMaximumSize();
 
     /**
-     * {@link Window}が見えるかどうかを設定します。
+     * {@link Window}の最小サイズの{@link Vector2i}を返します。
      *
-     * @param visible 見えるなら{@code true}、見えないなら{@code false}
+     * @return {@link Window}の最小サイズの{@link Vector2i}
      */
-    void setVisible(boolean visible);
+    Vector2i getMinimumSize();
+
+    /**
+     * {@link Window}のサイズの{@link Vector2i}を返します。
+     *
+     * @return {@link Window}のサイズの{@link Vector2i}
+     */
+    Vector2i getSize();
+
+    /**
+     * サイズが固定されているかどうかを{@code boolean}で返します。
+     *
+     * @return サイズが固定されているかどうか
+     */
+    boolean isSizeFixed();
+
+
+    /**
+     * {@link Window}が見えるかどうかを返します。
+     *
+     * @return {@link Window}が見えるかどうか
+     */
+    boolean isVisible();
 }

@@ -2,7 +2,6 @@ package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
-import net.spicesoftware.api.item.builder.ItemBuilder;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.Pair;
@@ -112,9 +111,9 @@ public interface Layer extends DeepCopyable {
     /**
      * この{@code Layer}に開始フレームと終了フレームを指定して{@link Item}を追加します。
      *
-     * @param item 追加するアイテム
-     * @param frameFrom   {@link Item}の開始フレーム
-     * @param frameTo     {@link Item}の終了フレーム
+     * @param item      追加するアイテム
+     * @param frameFrom {@link Item}の開始フレーム
+     * @param frameTo   {@link Item}の終了フレーム
      * @return 追加された{@link Item}のインデックス番号
      * @throws NullPointerException               {@code item}が{@code null}の場合
      * @throws java.lang.IllegalArgumentException {@code frameFrom}が{@code frameTo}より小さい場合、どちらかが範囲外の場合
@@ -126,7 +125,7 @@ public interface Layer extends DeepCopyable {
     /**
      * この{@code Layer}に開始フレームと長さを指定して{@link Item}を追加します。
      *
-     * @param item   追加するアイテム
+     * @param item          追加するアイテム
      * @param frameStart    {@link Item}の開始フレーム
      * @param frameDuration {@link Item}の長さ
      * @return 追加された{@link Item}のインデックス番号

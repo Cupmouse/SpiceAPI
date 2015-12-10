@@ -1,8 +1,10 @@
 package net.spicesoftware.api.registry;
 
-import net.spicesoftware.api.gui.WindowDispenser;
-import net.spicesoftware.api.gui.WindowSystem;
 import net.spicesoftware.api.Builder;
+import net.spicesoftware.api.gui.Window;
+import net.spicesoftware.api.gui.WindowDispenser;
+import net.spicesoftware.api.gui.WindowStateImmutable;
+import net.spicesoftware.api.gui.WindowSystem;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
@@ -32,6 +34,10 @@ public interface Registry {
      */
     <WS extends WindowSystem> WindowDispenser<WS> getWindowDispenser(WS windowSystem);
 
+    <WS extends WindowSystem> Window<WS> getWindow(WS windowSystem, String id);
+
+    <WS extends WindowSystem> void registerWindow(WS windowSystem, String id, Supplier<Window<WS>> windowSupplier, WindowStateImmutable<WS> defaultState);
+
     /**
      * 指定されたIDの{@link WindowSystem}を{@link Optional}で返します。
      *
@@ -41,50 +47,43 @@ public interface Registry {
     Optional<WindowSystem> getWindowSystem(String id);
 
     /**
-     * 指定された{@link Class}の{@link Builder}のインスタンスを返します。
+     * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}のインスタンスを返します。
      *
-     * @param clazz 取得する{@link Builder}の{@link Class}
-     * @param <T>   取得する{@link Builder}の型
-     * @return 指定された{@link Class}の{@link Builder}のインスタンス
-     * @throws IllegalStateException {@link Builder}が{@code Registry}に登録されていない場合
+     * @param clazz 取得する{@link net.spicesoftware.api.Builder}の{@link Class}
+     * @param <T>   取得する{@link net.spicesoftware.api.Builder}の型
+     * @return 指定された{@link Class}の{@link net.spicesoftware.api.Builder}のインスタンス
+     * @throws IllegalStateException {@link net.spicesoftware.api.Builder}が{@code Registry}に登録されていない場合
      */
     // TODO IllegalState or IllegalArgument
     <T extends Builder> T createBuilder(Class<T> clazz) throws IllegalStateException;
 
     /**
-     * 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}を登録します。
+     * 呼ばれるたびに指定された{@link Class}の{@link net.spicesoftware.api.Builder}の新しいインスタンスを返す{@link Supplier}を登録します。
      *
-     * @param clazz           登録する{@link Supplier}が返す{@link Builder}の{@link Class}
-     * @param builderSupplier 呼ばれるたびに指定された{@link Class}の{@link Builder}の新しいインスタンスを返す{@link Supplier}
-     * @param <T>             登録する{@link Builder}の型
+     * @param clazz           登録する{@link Supplier}が返す{@link net.spicesoftware.api.Builder}の{@link Class}
+     * @param builderSupplier 呼ばれるたびに指定された{@link Class}の{@link net.spicesoftware.api.Builder}の新しいインスタンスを返す{@link Supplier}
+     * @param <T>             登録する{@link net.spicesoftware.api.Builder}の型
      * @throws AlreadyRegisteredInRegistryException 指定された{@link Supplier}がすでに{@code Registry}に登録されている場合
      */
     <T extends Builder> void registerBuilder(Class<T> clazz, Supplier<T> builderSupplier) throws AlreadyRegisteredInRegistryException;
 
     /**
-     * 指定された{@link Class}の{@link Builder}の{@link Supplier}の登録を解除します。
+     * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}の{@link Supplier}の登録を解除します。
      *
-     * @param clazz 登録を解除する{@link Supplier}が返す{@link Builder}の{@link Class}
-     * @param <T>   登録を解除する{@link Builder}の型
+     * @param clazz 登録を解除する{@link Supplier}が返す{@link net.spicesoftware.api.Builder}の{@link Class}
+     * @param <T>   登録を解除する{@link net.spicesoftware.api.Builder}の型
      * @return 登録を解除された{@link Supplier}
      * @throws IllegalArgumentException 指定された{@link Supplier}が登録されていない場合
      */
     <T extends Builder> Supplier<T> unregisterBuilder(Class<T> clazz) throws IllegalArgumentException;
 
     /**
-     * 指定された{@link Class}の{@link Builder}の{@link Supplier}が登録されているか{@code boolean}で返します。
+     * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}の{@link Supplier}が登録されているか{@code boolean}で返します。
      *
-     * @param clazz 登録されているか確認する{@link Supplier}が返す{@link Builder}の{@link Class}
+     * @param clazz 登録されているか確認する{@link Supplier}が返す{@link net.spicesoftware.api.Builder}の{@link Class}
      * @return {@link Supplier}が登録されているなら{@code true}、登録されていないなら{@code false}
      */
     boolean isRegisteredBuilder(Class<? extends Builder> clazz);
-
-    /**
-     * {@link ImageBlenderPropertyCreator}を返します。
-     *
-     * @return {@link ImageBlenderPropertyCreator}
-     */
-    ImageBlenderPropertyCreator getImageBlenderPropertyCreator();
 
     /**
      * {@link ImageCreator}を返します。

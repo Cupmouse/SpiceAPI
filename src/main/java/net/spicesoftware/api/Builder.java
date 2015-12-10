@@ -5,5 +5,6 @@ package net.spicesoftware.api;
  */
 public interface Builder<T> {
 
+    // TODO from
     T build();
 }

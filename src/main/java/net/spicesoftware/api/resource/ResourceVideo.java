@@ -1,7 +1,6 @@
 package net.spicesoftware.api.resource;
 
 import net.spicesoftware.api.SpiceStatic;
-import net.spicesoftware.api.image.rgba.RGBA32Image;
 
 /**
  * 映像のリソースです。

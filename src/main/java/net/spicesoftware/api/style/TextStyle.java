@@ -7,8 +7,6 @@ import net.spicesoftware.api.util.DeepCopyable;
 
 import java.util.Optional;
 
-import static net.spicesoftware.api.util.Validate.nullNot;
-
 /**
  * テキストのスタイルを保持します。
  * イミュータブルクラスです。
@@ -48,6 +46,7 @@ public interface TextStyle extends DeepCopyable {
     DecorationFilling getFilling();
 
     TextStyle copyDeeply();
+
     /**
      * @since 2015/08/14
      */
