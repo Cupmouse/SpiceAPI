@@ -14,16 +14,16 @@ import java.util.Optional;
 public interface Markers extends DeepCopyable {
 
     /**
-     * この{@code Markable}のすべての{@link Marker}のマッピングを返します。
+     * この{@code Markable}のすべてのフレームと{@link Marker}のマッピングを返します。
      *
-     * @return すべてのマーカーのマッピング
+     * @return すべてのフレームと{@link Marker}のマッピング
      */
     Map<Integer, Marker> getMarkerMap();
 
     /**
      * この{@code Markable}の{@link Marker}の総数を返します。
      *
-     * @return マーカーの総数
+     * @return {@link Marker}の総数
      */
     @Min(0)
     int getNumberOfMarkers();
@@ -32,9 +32,19 @@ public interface Markers extends DeepCopyable {
      * この{@code Markable}の指定したフレームにある{@link Marker}を返します。
      *
      * @param frame フレーム
-     * @return 指定したフレームにあるマーカー
+     * @return 指定したフレームにある{@link Marker}
      */
     Optional<Marker> getMarkerAt(@Min(0) int frame);
+
+// TODO
+//    /**
+//     * 指定したインデックスにある{@link Marker}を返します。
+//     *
+//     * @param index {@link Marker}を取得するインデックス
+//     * @return 指定したインデックスにある{@link Marker}
+//     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
+//     */
+//    Marker getMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     /**
      * この{@code Markable}の指定したフレームに{@link Marker}を追加します。
@@ -50,14 +60,14 @@ public interface Markers extends DeepCopyable {
      * @param frame 削除するマーカーのフレーム
      */
     void removeMarkerAt(@Min(0) int frame);
-
+//
 //    /**
 //     * この{@code Markable}の指定したインデックス番号の{@link Marker}を削除します。
 //     *
 //     * @param index 削除するマーカーのインデックス番号
 //     * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
 //     */
-//    void removeMarkerByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+//    void removeMarkerIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
     @Override
     Markers copyDeeply();

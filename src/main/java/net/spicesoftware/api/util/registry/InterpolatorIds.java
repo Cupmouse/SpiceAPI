@@ -11,4 +11,7 @@ public final class InterpolatorIds {
      * デフォルトの補完方法のIdです。
      */
     public static final String DEFAULT = "spice:default";
+
+    private InterpolatorIds() {
+    }
 }

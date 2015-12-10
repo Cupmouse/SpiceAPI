@@ -1,7 +1,7 @@
 package net.spicesoftware.api;
 
+import net.spicesoftware.api.decoration.fill.RGBA32Color;
 import net.spicesoftware.api.layer.Layerable;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
 import net.spicesoftware.api.util.time.FrameTime;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -14,8 +14,8 @@ import javax.validation.constraints.Min;
  * また、{@link net.spicesoftware.api.layer.StaticField}も持っています。<br>
  * <br>
  * {@code Box}は、タイムラインを構成するために欠かせない要素です。<br>
- * デフォルトでは、{@link Layerable}を継承するインターフェイスは{@code Box}のみです。
- * よって、アイテムを保持するタイムラインを構成する最高の要素は、{@code Box}です。
+ * デフォルトでは、{@link Layerable}を継承するインターフェイスは{@code Box}のみです。<br>
+ * よって、アイテムを保持するタイムラインを構成する最高の要素は、{@code Box}です。<br>
  * {@code Box}を継承しているクラスは、例えば、{@link net.spicesoftware.api.project.TimelineRoot}や{@link net.spicesoftware.api.item.ItemBox}などです。
  *
  * @since 2015/01/17

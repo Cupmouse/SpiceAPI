@@ -14,6 +14,9 @@ public final class ImageConverterIds {
      */
     public static final String DEFAULT = "spice:default";
 
+    private ImageConverterIds() {
+    }
+
     public final static class RGBA2GS {
 
         /**

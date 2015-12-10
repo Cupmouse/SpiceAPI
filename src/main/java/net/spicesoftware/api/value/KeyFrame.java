@@ -3,15 +3,13 @@ package net.spicesoftware.api.value;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 
-import java.io.Serializable;
-
 /**
  * キーフレームです。
  * 保管方法とキーフレームの値を持ちます。
  *
  * @since 2014/12/13
  */
-public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable, Serializable {
+public interface KeyFrame<T extends DeepCopyable> extends DeepCopyable {
 
     /**
      * この{@code KeyFrame}の補間法を返します。

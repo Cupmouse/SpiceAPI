@@ -37,15 +37,6 @@ public interface ResourceTreeFolder {
     Optional<Resource> getResource(String... path);
 
     /**
-     * この{@code ResourceTreeFolder}上にすでに存在する{@link Resource}をコピーしてツリーに追加します。
-     *
-     * @param resource コピー元のリソース
-     * @param name     コピーして追加するリソースの名前
-     * @return コピーして追加したリソース
-     */
-    Resource addResourceCopyOf(Resource resource, String name);
-
-    /**
      * 指定した{@link Resource}をこの{@code ResourceTreeFolder}上に追加します。
      *
      * @param resource 追加するリソース
@@ -53,6 +44,7 @@ public interface ResourceTreeFolder {
      * @return 追加したリソース
      * @throws ResourceAlreadyExistInTreeException 追加しようとしたリソースがすでにツリーに登録されている場合
      */
+    // TODO 何故かResourceが返る
     Resource addResource(Resource resource, String name) throws ResourceAlreadyExistInTreeException;
 
     /**
@@ -60,6 +52,7 @@ public interface ResourceTreeFolder {
      *
      * @param name 削除するリソースの名前
      */
+    // TODO 例外？
     void removeResource(String name);
 
     /**
@@ -68,8 +61,9 @@ public interface ResourceTreeFolder {
      * @param beforeName 変更前の名前
      * @param afterName  変更後の名前
      * @return 名前が変更されたリソース
+     * @throws IllegalArgumentException {@code beforeName}の名前を持つ{@link Resource}が{@code ResourceTreeFolder}に存在しない、または{@code afterName}が存在する場合
      */
-    Resource renameResourceTo(String beforeName, String afterName);
+    Resource renameResourceTo(String beforeName, String afterName) throws IllegalArgumentException;
 
     /**
      * この{@code ResourceTreeFolder}上のすべての{@code ResourceTreeFolder}を返します。

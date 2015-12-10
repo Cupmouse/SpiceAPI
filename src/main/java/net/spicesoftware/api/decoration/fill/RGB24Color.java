@@ -1,20 +1,23 @@
-package net.spicesoftware.api.util.decoration.fill.color;
+package net.spicesoftware.api.decoration.fill;
 
-import net.spicesoftware.api.decoration.fill.Color;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 
 /**
  * 全24ビット、各要素8ビット(256段階、0~255)づつでRGBの色を表すイミュータブルクラスです。
  *
  * @since 2014/10/06
  */
-public final class RGB24Color implements Color, Serializable {
+public final class RGB24Color implements Color {
 
+    @ToString
     public final int r;
+    @ToString
     public final int g;
+    @ToString
     public final int b;
 
     public RGB24Color(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b) {
@@ -149,6 +152,6 @@ public final class RGB24Color implements Color, Serializable {
     }
 
     public String toString() {
-        return "RGB24Color{r=" + r + ",g=" + g + ",b=" + b + "}";
+        return ReflectionToString.rts(this);
     }
 }

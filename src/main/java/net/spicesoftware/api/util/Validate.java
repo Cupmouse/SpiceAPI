@@ -389,7 +389,7 @@ public final class Validate {
      * @param value 検証する値
      * @throws IllegalArgumentException 指定された値が、0以下の場合
      */
-    public static void positive(int value) throws IllegalArgumentException{
+    public static void positive(int value) throws IllegalArgumentException {
         if (value <= 0) {
             throw new IllegalArgumentException();
         }
@@ -497,7 +497,7 @@ public final class Validate {
     /**
      * ある位置が、ある平面内の位置にあるか検証します。
      *
-     * @param size 平面の{@link Vector2i}
+     * @param size     平面の{@link Vector2i}
      * @param position 位置の{@link Vector2i}
      * @throws IllegalArgumentException 指定された位置が、指定された平面内にない場合
      */

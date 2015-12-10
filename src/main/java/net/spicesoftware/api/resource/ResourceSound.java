@@ -1,15 +1,29 @@
 package net.spicesoftware.api.resource;
 
-import net.spicesoftware.api.item.ItemSound;
-import net.spicesoftware.api.item.builder.ItemBuilder;
+import net.spicesoftware.api.SpiceStatic;
 
 /**
  * 音のリソースです。
  *
  * @since 2014/12/06
  */
-public interface ResourceSound extends ResourceFromFile, ItemBuilder<ItemSound> {
+public interface ResourceSound extends ResourceFromFile {
+
+    static Builder builder() {
+        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
 
     @Override
     ResourceSound copyDeeply();
+
+    /**
+     * 音リソースを作成するビルダーです。
+     *
+     * @since 2014/12/23
+     */
+    interface Builder extends IBuilder<ResourceSound> {
+
+        @Override
+        Builder copyDeeply();
+    }
 }

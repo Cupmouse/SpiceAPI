@@ -1,6 +1,4 @@
-package net.spicesoftware.api.util.decoration.fill.color;
-
-import net.spicesoftware.api.decoration.fill.Color;
+package net.spicesoftware.api.decoration.fill;
 
 /**
  * 色の表現の列挙です。
@@ -8,7 +6,7 @@ import net.spicesoftware.api.decoration.fill.Color;
  * @since 2015/01/17
  */
 public enum ColorType {
-    RGB24, RGBA32, HSV360, GRAYSCALE, BLACK_WHITE;
+    RGB24, RGBA32, HSV360, GRAYSCALE8, BLACK_WHITE;
 
     public Class<? extends Color> getColorClass() {
         switch (this) {
@@ -18,7 +16,7 @@ public enum ColorType {
                 return RGBA32Color.class;
             case HSV360:
                 return HSV360Color.class;
-            case GRAYSCALE:
+            case GRAYSCALE8:
                 return GrayScale8Color.class;
             case BLACK_WHITE:
                 break;

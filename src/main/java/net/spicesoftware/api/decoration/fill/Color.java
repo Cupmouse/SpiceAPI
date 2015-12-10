@@ -1,9 +1,5 @@
 package net.spicesoftware.api.decoration.fill;
 
-import net.spicesoftware.api.util.decoration.fill.color.GrayScale8Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
-import net.spicesoftware.api.util.decoration.fill.color.RGBA32Color;
-
 /**
  * 色を表すインターフェイスです。
  *

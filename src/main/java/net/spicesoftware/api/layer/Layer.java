@@ -2,13 +2,13 @@ package net.spicesoftware.api.layer;
 
 import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.item.Item;
+import net.spicesoftware.api.item.builder.ItemBuilder;
 import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.util.NotRegisteredInRegistryException;
 import net.spicesoftware.api.util.Pair;
 import net.spicesoftware.api.util.time.FrameRanged;
 
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +19,7 @@ import java.util.Optional;
  * @see net.spicesoftware.api.Box よく利用されるクラス
  * @since 2014/10/04
  */
-public interface Layer extends DeepCopyable, Serializable {
+public interface Layer extends DeepCopyable {
 
     /**
      * この{@code Layer}のすべての{@link Item}を返します。<br>
@@ -112,26 +112,29 @@ public interface Layer extends DeepCopyable, Serializable {
     /**
      * この{@code Layer}に開始フレームと終了フレームを指定して{@link Item}を追加します。
      *
-     * @param item      追加するアイテム
-     * @param frameFrom アイテムの開始フレーム
-     * @param frameTo   アイテムの終了フレーム
-     * @return 追加されたアイテムのインデックス番号
-     * @throws NullPointerException               itemが{@code null}の場合
-     * @throws java.lang.IllegalArgumentException 開始フレームが終了フレームより小さい場合
+     * @param itemBuilder 追加するアイテムの{@link ItemBuilder}
+     * @param frameFrom   {@link Item}の開始フレーム
+     * @param frameTo     {@link Item}の終了フレーム
+     * @return 追加された{@link Item}のインデックス番号
+     * @throws NullPointerException               {@code item}が{@code null}の場合
+     * @throws java.lang.IllegalArgumentException {@code frameFrom}が{@code frameTo}より小さい場合、どちらかが範囲外の場合
      */
+    // TODO ItemBuilderで追加をする？
     @Min(0)
-    int addItem(Item item, @Min(0) int frameFrom, @Min(0) int frameTo) throws NullPointerException, IllegalArgumentException;
+    int addItem(ItemBuilder itemBuilder, @Min(0) int frameFrom, @Min(0) int frameTo) throws IllegalArgumentException;
 
     /**
      * この{@code Layer}に開始フレームと長さを指定して{@link Item}を追加します。
      *
-     * @param item          追加するアイテム
-     * @param frameStart    アイテムの開始フレーム
-     * @param frameDuration アイテムの長さ
-     * @return 追加されたアイテムのインデックス番号
+     * @param itemBuilder   追加するアイテムの{@link ItemBuilder}
+     * @param frameStart    {@link Item}の開始フレーム
+     * @param frameDuration {@link Item}の長さ
+     * @return 追加された{@link Item}のインデックス番号
+     * @throws NullPointerException               {@code item}が{@code null}の場合
+     * @throws java.lang.IllegalArgumentException {@code frameStart}か{@code frameDuration}のどちらかが範囲外の場合
      */
     @Min(0)
-    int addItemDuration(Item item, @Min(0) int frameStart, @Min(0) int frameDuration);
+    int addItemDuration(ItemBuilder itemBuilder, @Min(0) int frameStart, @Min(0) int frameDuration) throws NullPointerException, IllegalArgumentException;
 
     /**
      * この{@code Layer}の指定されたインデックス番号の{@link Item}を削除します。
@@ -139,7 +142,7 @@ public interface Layer extends DeepCopyable, Serializable {
      * @param index インデックス番号
      * @throws IndexOutOfBoundsException 指定されたインデックス番号が管理されている範囲を超えている場合
      */
-    void removeItemByIndex(@Min(0) int index) throws IndexOutOfBoundsException;
+    void removeItemIndex(@Min(0) int index) throws IndexOutOfBoundsException;
 
 
     // TODO ブレンダーについてもっと考える必要がある

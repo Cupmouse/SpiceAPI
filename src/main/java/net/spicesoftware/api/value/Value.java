@@ -3,7 +3,6 @@ package net.spicesoftware.api.value;
 import net.spicesoftware.api.util.DeepCopyable;
 
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 
 /**
  * 値です。
@@ -14,7 +13,7 @@ import java.io.Serializable;
  * @see net.spicesoftware.api.value.KeyFramedValue
  * @since 2014/12/20
  */
-public interface Value<T extends DeepCopyable> extends DeepCopyable, Serializable {
+public interface Value<T extends DeepCopyable> extends DeepCopyable {
 
     /**
      * この{@code Value}の指定されたフレームでの値を計算し返します。

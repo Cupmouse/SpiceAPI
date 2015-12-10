@@ -9,4 +9,7 @@ public final class ImageBlenderIds {
      * デフォルトのブレンダーのIdです。
      */
     public static final String DEFAULT = "spice:default";
+
+    private ImageBlenderIds() {
+    }
 }

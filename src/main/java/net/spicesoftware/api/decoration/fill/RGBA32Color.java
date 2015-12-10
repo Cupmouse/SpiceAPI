@@ -1,21 +1,25 @@
-package net.spicesoftware.api.util.decoration.fill.color;
+package net.spicesoftware.api.decoration.fill;
 
-import net.spicesoftware.api.decoration.fill.Color;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 
 /**
  * RGBに透明度を追加した、各要素8ビット(256段階、0~255)づつ全32ビットでRGBAの色を表す、イミュータブルクラスです。
  *
  * @since 2015/01/17
  */
-public final class RGBA32Color implements Color, Serializable {
+public final class RGBA32Color implements Color {
 
+    @ToString
     public final int r;
+    @ToString
     public final int g;
+    @ToString
     public final int b;
+    @ToString
     public final int a;
 
     public RGBA32Color(@Min(0) @Max(0xFF) int r, @Min(0) @Max(0xFF) int g, @Min(0) @Max(0xFF) int b, @Min(0) @Max(0xFF) int a) {
@@ -105,6 +109,6 @@ public final class RGBA32Color implements Color, Serializable {
 
     @Override
     public String toString() {
-        return "RGBA32Color{r=" + r + ",g=" + g + ",b=" + b + ",a=" + a + "}";
+        return ReflectionToString.rts(this);
     }
 }

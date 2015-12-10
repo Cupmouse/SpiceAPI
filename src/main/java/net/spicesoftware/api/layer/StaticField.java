@@ -5,7 +5,6 @@ import net.spicesoftware.api.util.DeepCopyable;
 import net.spicesoftware.api.value.HasValues;
 
 import javax.validation.constraints.Min;
-import java.io.Serializable;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -14,7 +13,7 @@ import java.util.NoSuchElementException;
  *
  * @since 2014/11/22
  */
-public interface StaticField extends HasValues, DeepCopyable, Serializable {
+public interface StaticField extends HasValues, DeepCopyable {
 
     /**
      * この{@code StaticLayer}のすべてのスタティックアイテムを返します。

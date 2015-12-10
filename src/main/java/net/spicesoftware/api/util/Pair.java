@@ -9,7 +9,9 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  */
 public final class Pair<A, B> {
 
+    @ToString
     public final A a;
+    @ToString
     public final B b;
 
     private Pair(A a, B b) {
@@ -40,6 +42,6 @@ public final class Pair<A, B> {
 
     @Override
     public String toString() {
-        return "Pair{a=" + a + ",b=" + b + "}";
+        return ReflectionToString.rts(this);
     }
 }

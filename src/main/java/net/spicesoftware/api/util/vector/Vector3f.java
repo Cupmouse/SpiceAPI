@@ -1,6 +1,7 @@
 package net.spicesoftware.api.util.vector;
 
-import java.io.Serializable;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
 
@@ -9,17 +10,24 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  *
  * @since 2014/12/21
  */
-public final class Vector3f implements Serializable {
+public final class Vector3f {
 
     public static final Vector3f ZERO = new Vector3f(0, 0, 0);
+    @ToString
     public final float x;
+    @ToString
     public final float y;
+    @ToString
     public final float z;
 
-    public Vector3f(float x, float y, float z) {
+    Vector3f(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public static Vector3f v3f(float x, float y, float z) {
+        return new Vector3f(x, y, z);
     }
 
     public float volume() {
@@ -102,6 +110,6 @@ public final class Vector3f implements Serializable {
 
     @Override
     public String toString() {
-        return "Vector3f{x=" + x + ",y=" + y + ",z=" + z;
+        return ReflectionToString.rts(this);
     }
 }

@@ -1,6 +1,8 @@
 package net.spicesoftware.api.util.time;
 
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import java.time.LocalTime;
 
@@ -9,12 +11,30 @@ import java.time.LocalTime;
  */
 public final class FrameTime implements DeepCopyable {
 
+    @ToString
     private final int frames;
+    @ToString
     private final float fps;
 
     private FrameTime(int frames, float fps) {
         this.frames = frames;
         this.fps = fps;
+    }
+
+    public static FrameTime of(int frame, float fps) {
+        return new FrameTime(frame, fps);
+    }
+
+    public static FrameTime from(LocalTime localTime, float fps) {
+        return fromMillSec((int) (localTime.toNanoOfDay() / (10 ^ 6)), fps);
+    }
+
+    public static FrameTime fromMillSec(int milliSec, float fps) {
+        return new FrameTime((int) Math.ceil(milliSec * fps / 1000), fps);
+    }
+
+    public static FrameTime fromSecond(int second, float fps) {
+        return new FrameTime((int) (Math.ceil(fps * second)), fps);
     }
 
     public int getFrames() {
@@ -45,24 +65,13 @@ public final class FrameTime implements DeepCopyable {
         return (int) (frames / fps / 60 / 60 / 24);
     }
 
-    public static FrameTime of(int frame, float fps) {
-        return new FrameTime(frame, fps);
-    }
-
-    public static FrameTime from(LocalTime localTime, float fps) {
-        return fromMillSec((int) (localTime.toNanoOfDay() / (10^6)), fps);
-    }
-
-    public static FrameTime fromMillSec(int milliSec, float fps) {
-        return new FrameTime((int) Math.ceil(milliSec * fps / 1000), fps);
-    }
-
-    public static FrameTime fromSecond(int second, float fps) {
-        return new FrameTime((int) (Math.ceil(fps * second)), fps);
-    }
-
     @Override
     public FrameTime copyDeeply() {
         return new FrameTime(frames, fps);
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToString.rts(this);
     }
 }
