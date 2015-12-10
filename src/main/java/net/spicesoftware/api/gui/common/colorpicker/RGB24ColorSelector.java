@@ -1,6 +1,6 @@
 package net.spicesoftware.api.gui.common.colorpicker;
 
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+import net.spicesoftware.api.decoration.fill.RGB24Color;
 
 /**
  * セレクタは、実際にグラフィカルに色を選択するコンポーネントのことです。

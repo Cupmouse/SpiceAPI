@@ -1,6 +1,6 @@
 package net.spicesoftware.api.gui.common;
 
-import net.spicesoftware.api.util.decoration.fill.color.RGB24Color;
+import net.spicesoftware.api.decoration.fill.RGB24Color;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
 
