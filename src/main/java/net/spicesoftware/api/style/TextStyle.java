@@ -4,8 +4,12 @@ import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
+import net.spicesoftware.api.util.Validate;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
+
+import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
  * テキストのスタイルを保持します。
@@ -22,6 +26,14 @@ public interface TextStyle extends DeepCopyable {
      */
     static Builder builder() {
         return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
+
+    static TextStyle textStyle(StrokeStyle outline, DecorationFilling filling) throws NullPointerException {
+        return builder().outline(outline).fill(filling).build();
+    }
+
+    static TextStyle textStyle(DecorationFilling filling) throws NullPointerException {
+        return builder().fill(filling).build();
     }
 
     /**
@@ -54,17 +66,18 @@ public interface TextStyle extends DeepCopyable {
     interface Builder extends ParameterEssentialBuilder<TextStyle> {
 
         /**
-         * {@link TextStyle}のアウトラインの{@link StrokeStyle}を設定します。
+         * {@link TextStyle}のアウトラインの{@link StrokeStyle}を設定します。<br>
+         * 指定しないことができます。指定しない場合、アウトラインは設定されません。
          *
          * @param outline テキストスタイルに設定するアウトラインのスタイル
          */
-        void outline(StrokeStyle outline);
+        Builder outline(StrokeStyle outline) throws NullPointerException;
 
         /**
          * {@link TextStyle}の文字の{@link DecorationFilling}を設定します。
          *
          * @param filling テキストスタイルに設定する文字のデコレーション
          */
-        void fill(DecorationFilling filling);
+        Builder fill(DecorationFilling filling) throws NullPointerException;
     }
 }

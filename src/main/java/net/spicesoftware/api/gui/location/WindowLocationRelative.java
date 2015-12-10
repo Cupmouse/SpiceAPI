@@ -1,6 +1,8 @@
 package net.spicesoftware.api.gui.location;
 
 import net.spicesoftware.api.util.Direction9;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
@@ -16,7 +18,9 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  */
 public final class WindowLocationRelative implements WindowLocation {
 
+    @ToString
     private final Direction9 direction;
+    @ToString
     private final Vector2i offset;
 
     private WindowLocationRelative(Direction9 direction, Vector2i offset) {
@@ -59,4 +63,8 @@ public final class WindowLocationRelative implements WindowLocation {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return ReflectionToString.rts(this);
+    }
 }

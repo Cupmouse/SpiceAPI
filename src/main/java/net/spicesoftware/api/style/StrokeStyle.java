@@ -24,6 +24,10 @@ public interface StrokeStyle extends DeepCopyable {
         return SpiceStatic.getRegistry().createBuilder(Builder.class);
     }
 
+    static StrokeStyle strokeStyle(DecorationFilling filling, @Min(0) int thickness) throws NullPointerException, IllegalArgumentException {
+        return builder().fill(filling).thickness(thickness).build();
+    }
+
     /**
      * この{@code StrokeStyle}の{@link DecorationFilling}を返します。
      *
@@ -52,7 +56,7 @@ public interface StrokeStyle extends DeepCopyable {
          *
          * @param filling 線スタイルに設定する塗りつぶし
          */
-        void fill(DecorationFilling filling);
+        Builder fill(DecorationFilling filling) throws NullPointerException;
 
         /**
          * {@link StrokeStyle}の線の太さを設定します。
@@ -60,6 +64,6 @@ public interface StrokeStyle extends DeepCopyable {
          * @param thickness 線スタイルに設定する線の太さ、0以上
          * @throws IllegalArgumentException 線の太さを0未満に設定しようとした時
          */
-        void thickness(@Min(0) int thickness) throws IllegalArgumentException;
+        Builder thickness(@Min(0) int thickness) throws IllegalArgumentException;
     }
 }

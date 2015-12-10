@@ -18,6 +18,7 @@ import static net.spicesoftware.api.util.Validate.zeroOrPositive;
  * @since 2015/07/30
  */
 public final class HSV360Color implements Color {
+
     @ToString
     public final int hue;
     @ToString

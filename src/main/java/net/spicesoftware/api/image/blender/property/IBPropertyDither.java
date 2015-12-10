@@ -22,7 +22,7 @@ public interface IBPropertyDither extends ImageBlenderProperty {
      * @param seed            シード値
      * @return 新しい{@link IBPropertyDither}のインスタンス
      */
-    static IBPropertyDither create(IBPropertyOpacity propertyOpacity, int seed) {
+    static IBPropertyDither dither(IBPropertyOpacity propertyOpacity, int seed) throws NullPointerException {
         return builder().opacity(propertyOpacity).seed(seed).build();
     }
 
@@ -33,8 +33,8 @@ public interface IBPropertyDither extends ImageBlenderProperty {
      * @param seed    シード値
      * @return 新しい{@link IBPropertyDither}のインスタンス
      */
-    static IBPropertyDither create(@Min(0) @Max(1000) int opacity, int seed) {
-        return builder().opacity(IBPropertyOpacity.create(opacity)).seed(seed).build();
+    static IBPropertyDither dither(@Min(0) @Max(1000) int opacity, int seed) throws NullPointerException {
+        return builder().opacity(IBPropertyOpacity.opacity(opacity)).seed(seed).build();
     }
 
     /**

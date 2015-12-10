@@ -20,7 +20,7 @@ public interface IBPropertyOpacity extends ImageBlenderProperty {
      * @param opacity 透明度 0~1000
      * @return 新しい{@link IBPropertyOpacity}のインスタンス
      */
-    static IBPropertyOpacity create(@Min(0) @Max(1000) int opacity) {
+    static IBPropertyOpacity opacity(@Min(0) @Max(1000) int opacity) throws IllegalArgumentException {
         return builder().opacity(opacity).build();
     }
 

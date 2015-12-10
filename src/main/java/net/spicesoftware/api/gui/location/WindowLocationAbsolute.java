@@ -1,5 +1,7 @@
 package net.spicesoftware.api.gui.location;
 
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 import net.spicesoftware.api.util.Validate;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -12,6 +14,7 @@ import net.spicesoftware.api.util.vector.Vector2i;
  */
 public final class WindowLocationAbsolute implements WindowLocation {
 
+    @ToString
     private final Vector2i position;
 
     private WindowLocationAbsolute(Vector2i position) {
@@ -26,5 +29,10 @@ public final class WindowLocationAbsolute implements WindowLocation {
     @Override
     public Vector2i getPosition(Vector2i windowSize) {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToString.rts(this);
     }
 }

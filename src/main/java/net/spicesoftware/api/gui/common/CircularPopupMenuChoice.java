@@ -1,6 +1,8 @@
 package net.spicesoftware.api.gui.common;
 
 import net.spicesoftware.api.decoration.fill.RGB24Color;
+import net.spicesoftware.api.util.ReflectionToString;
+import net.spicesoftware.api.util.ToString;
 
 import static net.spicesoftware.api.util.Validate.nullNot;
 
@@ -11,8 +13,11 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  */
 public final class CircularPopupMenuChoice {
 
+    @ToString
     private final String label;
+    @ToString
     private final Runnable runnable;
+    @ToString
     private final RGB24Color color;
 
     private CircularPopupMenuChoice(String label, RGB24Color color, Runnable runnable) {
@@ -72,5 +77,10 @@ public final class CircularPopupMenuChoice {
      */
     public Runnable getRunnable() {
         return runnable;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToString.rts(this);
     }
 }

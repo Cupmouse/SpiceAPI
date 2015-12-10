@@ -23,7 +23,7 @@ public interface WindowTitle {
         return SpiceStatic.getRegistry().createBuilder(Builder.class);
     }
 
-    static WindowTitle of(WindowTitleElement... windowTitleElements) {
+    static WindowTitle windowTitle(WindowTitleElement... windowTitleElements) {
         Builder builder = builder();
 
         for (WindowTitleElement windowTitleElement : windowTitleElements) {
@@ -31,6 +31,10 @@ public interface WindowTitle {
         }
 
         return builder.build();
+    }
+
+    static WindowTitle empty() {
+        return builder().build();
     }
 
     /**
