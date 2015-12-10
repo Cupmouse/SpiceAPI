@@ -25,7 +25,7 @@ public interface ResourceTextStyle extends Resource {
     /**
      * @since 2015/02/10
      */
-    interface Builder extends IBuilder<ResourceTextStyle> {
+    interface Builder extends ResourceBuilder<ResourceTextStyle> {
 
         @Override
         Builder copyDeeply();

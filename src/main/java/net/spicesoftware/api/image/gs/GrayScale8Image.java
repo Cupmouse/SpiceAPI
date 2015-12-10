@@ -83,24 +83,4 @@ public interface GrayScale8Image extends Image {
 
     @Override
     GrayScale8Image copyDeeply();
-
-    /**
-     * @since 2015/11/14
-     */
-    interface IBuilder<T extends GrayScale8Image> extends Image.IBuilder<T> {
-
-        /**
-         * 作成する{@link EditableGrayScale8Image}の背景色を{@link GrayScale8Color}で設定します。
-         *
-         * @param grayScale8Color 作成する{@link EditableGrayScale8Image}の背景色
-         */
-        void background(GrayScale8Color grayScale8Color);
-
-        /**
-         * 作成する{@link EditableGrayScale8Image}の背景色を{@link ColorType#GRAYSCALE8}の{@code byte}で設定します。
-         *
-         * @param background 作成する{@link EditableGrayScale8Image}の背景色
-         */
-        void background(byte background);
-    }
 }

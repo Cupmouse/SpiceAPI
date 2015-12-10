@@ -86,25 +86,4 @@ public interface RGB24Image extends Image {
 
     @Override
     RGB24Image copyDeeply();
-
-    /**
-     * @since 2015/11/14
-     */
-    interface IBuilder<T extends RGB24Image> extends Image.IBuilder<T> {
-
-        /**
-         * 作成する{@link RGB24Image}の背景色を{@link RGB24Color}で設定します。
-         *
-         * @param rgb24Color 作成する{@link RGB24Image}の背景色
-         */
-        void background(RGB24Color rgb24Color);
-
-        /**
-         * 作成する{@link RGB24Image}の背景色を{@link ColorType#RGB24}の{@code int}で設定します。
-         *
-         * @param background 作成する{@link RGB24Image}の背景色
-         * @throws IllegalArgumentException 指定された背景色が範囲外の場合
-         */
-        void background(@Min(0) @Max(0xFFFFFF) int background) throws IllegalArgumentException;
-    }
 }

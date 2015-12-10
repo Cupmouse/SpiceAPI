@@ -98,6 +98,21 @@ public interface EditableRGBA32Image extends RGBA32Image, ImageEditable {
     /**
      * @since 2015/11/14
      */
-    interface Builder extends IBuilder<EditableRGBA32Image> {
+    interface Builder extends RGBA32ImageBuilder<EditableRGBA32Image> {
+
+        @Override
+        Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;
+
+        @Override
+        Builder size(Vector2i size) throws IllegalArgumentException;
+
+        @Override
+        Builder background(RGBA32Color rgba32Color);
+
+        @Override
+        Builder background(int rgba32);
+
+        @Override
+        Builder background(@Min(0) @Max(0xFFFFFFFF) long rgba32) throws IllegalArgumentException;
     }
 }

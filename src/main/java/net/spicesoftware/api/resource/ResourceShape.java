@@ -21,7 +21,7 @@ public interface ResourceShape extends Resource {
      *
      * @since 2015/01/09
      */
-    interface Builder extends IBuilder<ResourceShape> {
+    interface Builder extends ResourceBuilder<ResourceShape> {
 
         @Override
         Builder copyDeeply();

@@ -2,6 +2,7 @@ package net.spicesoftware.api.image.rgb;
 
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.RGB24Color;
+import net.spicesoftware.api.image.ImageBuilder;
 import net.spicesoftware.api.image.ImageEditable;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -62,6 +63,18 @@ public interface EditableRGB24Image extends RGB24Image, ImageEditable {
     /**
      * @since 2015/11/14
      */
-    interface Builder extends RGB24Image.IBuilder<EditableRGB24Image> {
+    interface Builder extends RGB24ImageBuilder<EditableRGB24Image> {
+
+        @Override
+        Builder background(RGB24Color rgb24Color);
+
+        @Override
+        Builder background(@Min(0) @Max(0xFFFFFF) int background) throws IllegalArgumentException;
+
+        @Override
+        Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;
+
+        @Override
+        Builder size(Vector2i size) throws IllegalArgumentException;
     }
 }

@@ -2,6 +2,7 @@ package net.spicesoftware.api.image.gs;
 
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.GrayScale8Color;
+import net.spicesoftware.api.image.ImageBuilder;
 import net.spicesoftware.api.image.ImageEditable;
 import net.spicesoftware.api.util.vector.Vector2i;
 
@@ -80,6 +81,18 @@ public interface EditableGrayScale8Image extends GrayScale8Image, ImageEditable 
     @Override
     EditableGrayScale8Image copyDeeply();
 
-    interface Builder extends IBuilder<EditableGrayScale8Image> {
+    interface Builder extends GrayScale8ImageBuilder<EditableGrayScale8Image> {
+
+        @Override
+        Builder background(GrayScale8Color grayScale8Color);
+
+        @Override
+        Builder background(byte background);
+
+        @Override
+        Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;
+
+        @Override
+        Builder size(Vector2i size) throws IllegalArgumentException;
     }
 }
