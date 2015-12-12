@@ -17,6 +17,7 @@ import net.spicesoftware.api.value.Interpolator;
 
 import javax.validation.constraints.Size;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
