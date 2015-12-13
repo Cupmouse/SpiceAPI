@@ -1,12 +1,18 @@
 package net.spicesoftware.api.gui;
 
+import net.spicesoftware.api.Builder;
+import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.gui.location.WindowLocation;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
  * @since 2015/12/10
  */
-public interface WindowStateMutable<WS extends WindowSystem> extends WindowState<WS> {
+public interface WindowStateMutable extends WindowState {
+
+    static Builder mutable() {
+        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+    }
 
     /**
      * {@link Window}の{@link WindowTitle}を設定します。
@@ -66,4 +72,34 @@ public interface WindowStateMutable<WS extends WindowSystem> extends WindowState
      * @param visible 見えるなら{@code true}、見えないなら{@code false}
      */
     void setVisible(boolean visible);
+
+    interface Builder extends WindowStateBuilder<WindowStateMutable> {
+
+        @Override
+        Builder title(WindowTitle windowTitle);
+
+        @Override
+        Builder location(WindowLocation windowLocation);
+
+        @Override
+        Builder maxSize(Vector2i maxSize);
+
+        @Override
+        Builder minSize(Vector2i minSize);
+
+        @Override
+        Builder size(Vector2i size);
+
+        @Override
+        Builder sizeFixed();
+
+        @Override
+        Builder sizeFixed(boolean sizeFixed);
+
+        @Override
+        Builder invisible();
+
+        @Override
+        Builder visibility(boolean visibility);
+    }
 }

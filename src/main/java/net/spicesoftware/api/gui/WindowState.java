@@ -6,7 +6,7 @@ import net.spicesoftware.api.util.vector.Vector2i;
 /**
  * @since 2015/10/23
  */
-public interface WindowState<WS extends WindowSystem> {
+public interface WindowState {
 
     /**
      * {@link Window}の{@link WindowTitle}を返します。

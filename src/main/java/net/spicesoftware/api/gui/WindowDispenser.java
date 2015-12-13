@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * @since 2015/10/22
  */
-public interface WindowDispenser<WS extends WindowSystem> {
+public interface WindowDispenser {
 
     /**
      * 指定された{@link Window}をディスペンスします。
@@ -14,7 +14,7 @@ public interface WindowDispenser<WS extends WindowSystem> {
      * @param window ディスペンスする{@link Window}
      * @return ディスペンスされた{@link Window}
      */
-    Optional<WindowSession<WS>> dispense(Window<WS> window);
+    Optional<WindowSession> dispense(Window window);
 
     /**
      * 指定された{@link Window}を指定された{@link WindowState}でディスペンスします。
@@ -23,5 +23,5 @@ public interface WindowDispenser<WS extends WindowSystem> {
      * @param windowState ディスペンスする{@link Window}の{@link WindowState}
      * @return ディスペンスされた{@link Window}
      */
-    Optional<WindowSession<WS>> dispense(Window<WS> window, WindowState<WS> windowState);
+    Optional<WindowSession> dispense(Window window, WindowState windowState);
 }

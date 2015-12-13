@@ -4,7 +4,7 @@ import net.spicesoftware.api.gui.Window;
 import net.spicesoftware.api.gui.common.spinner.IntSpinner;
 
 /**
- * {@link net.spicesoftware.api.util.decoration.fill.color.RGB24Color}をグラフィカルに選択するダイアログです。
+ * {@link net.spicesoftware.api.decoration.fill.RGB24Color}をグラフィカルに選択するダイアログです。
  *
  * @since 2015/07/07
  */

@@ -12,7 +12,7 @@ public interface WindowSession<WS extends WindowSystem> {
      *
      * @return {@link Window}
      */
-    Optional<Window<WS>> getWindow();
+    Optional<Window> getWindow();
 
     /**
      * この{@code WindowSession}の{@link WindowState}を{@link Optional}で返します。<br>
@@ -20,7 +20,7 @@ public interface WindowSession<WS extends WindowSystem> {
      *
      * @return この{@code WindowSession}の{@link WindowState}
      */
-    Optional<WindowState<WS>> getWindowState();
+    Optional<WindowState> getWindowState();
 
     /**
      * この{@code WindowSession}を閉じます。
