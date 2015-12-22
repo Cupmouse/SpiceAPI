@@ -1,4 +1,4 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window;
 
 import net.spicesoftware.api.image.rgb.CachedRGB24Image;
 

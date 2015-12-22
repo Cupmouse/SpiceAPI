@@ -1,4 +1,4 @@
-package net.spicesoftware.api.gui.location;
+package net.spicesoftware.api.gui.window.location;
 
 import net.spicesoftware.api.util.Direction9;
 import net.spicesoftware.api.util.ReflectionToString;

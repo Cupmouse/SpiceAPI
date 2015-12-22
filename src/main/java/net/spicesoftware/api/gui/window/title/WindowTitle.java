@@ -1,7 +1,8 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window.title;
 
 import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.SpiceStatic;
+import net.spicesoftware.api.gui.window.Window;
 
 import javax.validation.constraints.Min;
 import java.util.List;
@@ -23,7 +24,7 @@ public interface WindowTitle {
         return SpiceStatic.getRegistry().createBuilder(Builder.class);
     }
 
-    static WindowTitle windowTitle(WindowTitleElement... windowTitleElements) {
+    static WindowTitle title(WindowTitleElement... windowTitleElements) {
         Builder builder = builder();
 
         for (WindowTitleElement windowTitleElement : windowTitleElements) {
@@ -33,7 +34,7 @@ public interface WindowTitle {
         return builder.build();
     }
 
-    static WindowTitle empty() {
+    static WindowTitle emptyTitle() {
         return builder().build();
     }
 

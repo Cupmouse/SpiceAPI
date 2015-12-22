@@ -1,6 +1,7 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window;
 
-import net.spicesoftware.api.gui.location.WindowLocation;
+import net.spicesoftware.api.gui.window.location.WindowLocation;
+import net.spicesoftware.api.gui.window.title.WindowTitle;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
@@ -21,7 +22,7 @@ public interface WindowState {
      *
      * @return {@link Window}の位置の{@link Vector2i}
      */
-    WindowLocation getWindowLocation();
+    WindowLocation getLocation();
 
 
     /**

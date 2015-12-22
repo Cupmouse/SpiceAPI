@@ -1,14 +1,15 @@
 package net.spicesoftware.api.gui.common.colorpicker;
 
-import net.spicesoftware.api.gui.Window;
+import net.spicesoftware.api.gui.window.Window;
 import net.spicesoftware.api.gui.common.spinner.IntSpinner;
+import net.spicesoftware.api.gui.window.WindowSystem;
 
 /**
  * {@link net.spicesoftware.api.decoration.fill.RGB24Color}をグラフィカルに選択するダイアログです。
  *
  * @since 2015/07/07
  */
-public interface DialogRGB24ColorPicker extends Window {
+public interface DialogRGB24ColorPicker<WS extends WindowSystem<WS>> extends Window<WS> {
 
     /**
      * このカラーピッカーダイアログのHSVのH要素の{@link IntSpinner}を返します。<br>

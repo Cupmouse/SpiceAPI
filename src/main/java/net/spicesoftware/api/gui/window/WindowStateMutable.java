@@ -1,8 +1,8 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window;
 
-import net.spicesoftware.api.Builder;
 import net.spicesoftware.api.SpiceStatic;
-import net.spicesoftware.api.gui.location.WindowLocation;
+import net.spicesoftware.api.gui.window.location.WindowLocation;
+import net.spicesoftware.api.gui.window.title.WindowTitle;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
@@ -27,7 +27,7 @@ public interface WindowStateMutable extends WindowState {
      *
      * @param windowLocation {@link Window}に設定する位置の{@link Vector2i}
      */
-    void setWindowLocation(WindowLocation windowLocation);
+    void setLocation(WindowLocation windowLocation);
 
 
     /**

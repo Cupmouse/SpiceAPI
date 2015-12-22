@@ -1,10 +1,8 @@
 package net.spicesoftware.api.registry;
 
 import net.spicesoftware.api.Builder;
-import net.spicesoftware.api.gui.Window;
-import net.spicesoftware.api.gui.WindowDispenser;
-import net.spicesoftware.api.gui.WindowStateImmutable;
-import net.spicesoftware.api.gui.WindowSystem;
+import net.spicesoftware.api.gui.window.WindowDispatcher;
+import net.spicesoftware.api.gui.window.WindowSystem;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
 import net.spicesoftware.api.image.ImageConverter;
@@ -12,12 +10,11 @@ import net.spicesoftware.api.image.blender.ImageBlender;
 import net.spicesoftware.api.image.blender.property.ImageBlenderProperty;
 import net.spicesoftware.api.render.Renderable;
 import net.spicesoftware.api.render.Renderer;
-import net.spicesoftware.api.util.AlreadyRegisteredInRegistryException;
+import net.spicesoftware.api.util.AlreadyRegisteredException;
 import net.spicesoftware.api.value.Interpolator;
 
 import javax.validation.constraints.Size;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -29,23 +26,14 @@ import java.util.function.Supplier;
 public interface Registry {
 
     /**
-     * 指定された{@link WindowSystem}の{@link WindowDispenser}を返します。
+     * 指定された{@link Class}の{@link WindowSystem}を{@link Optional}で返します。
      *
-     * @return この{@link WindowSystem}の{@link WindowDispenser}
-     */
-    <WS extends WindowSystem> WindowDispenser<WS> getWindowDispenser(WS windowSystem);
-
-    <WS extends WindowSystem> Window<WS> getWindow(WS windowSystem, String id);
-
-    <WS extends WindowSystem> void registerWindow(WS windowSystem, String id, Supplier<Window<WS>> windowSupplier, WindowStateImmutable<WS> defaultState);
-
-    /**
-     * 指定されたIDの{@link WindowSystem}を{@link Optional}で返します。
-     *
-     * @param id 識別Id
+     * @param windowSystemClass 取得する{@link WindowSystem}の{@link Class}
      * @return 指定されたIDの{@link WindowSystem}
      */
-    Optional<WindowSystem> getWindowSystem(String id);
+    <WS extends WindowSystem<WS>> Optional<WS> getWindowSystem(Class<WS> windowSystemClass);
+
+    <WS extends WindowSystem<WS>> void registerWindowSystem(Class<WS> windowSystemClass) throws AlreadyRegisteredException;
 
     /**
      * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}のインスタンスを返します。
@@ -64,9 +52,9 @@ public interface Registry {
      * @param clazz           登録する{@link Supplier}が返す{@link net.spicesoftware.api.Builder}の{@link Class}
      * @param builderSupplier 呼ばれるたびに指定された{@link Class}の{@link net.spicesoftware.api.Builder}の新しいインスタンスを返す{@link Supplier}
      * @param <T>             登録する{@link net.spicesoftware.api.Builder}の型
-     * @throws AlreadyRegisteredInRegistryException 指定された{@link Supplier}がすでに{@code Registry}に登録されている場合
+     * @throws AlreadyRegisteredException 指定された{@link Supplier}がすでに{@code Registry}に登録されている場合
      */
-    <T extends Builder> void registerBuilder(Class<T> clazz, Supplier<T> builderSupplier) throws AlreadyRegisteredInRegistryException;
+    <T extends Builder> void registerBuilder(Class<T> clazz, Supplier<T> builderSupplier) throws AlreadyRegisteredException;
 
     /**
      * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}の{@link Supplier}の登録を解除します。
@@ -100,9 +88,9 @@ public interface Registry {
      * @param id           登録する{@link Interpolator}に関連付けるId
      * @param interpolator 登録する{@link Interpolator}
      * @param <T>          登録する{@link Interpolator}が補完する型
-     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
      */
-    <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredInRegistryException;
+    <T> void registerInterpolator(Class<T> clazz, @Size(min = 1) String id, Interpolator<T> interpolator) throws AlreadyRegisteredException;
 
     /**
      * 指定された{@link java.lang.Class}とIdから{@link Interpolator}を返します。
@@ -146,9 +134,9 @@ public interface Registry {
      * @param imageBlender 登録する{@link ImageBlender}
      * @param <I>          登録する{@link ImageBlender}が合成する{@link CachedImage}の型
      * @param <B>          登録する{@link ImageBlender}が合成する時の{@link ImageBlenderProperty}の型
-     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
      */
-    <I extends CachedImage, B extends ImageBlenderProperty> void registerImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id, ImageBlender<I, B> imageBlender) throws AlreadyRegisteredInRegistryException;
+    <I extends CachedImage, B extends ImageBlenderProperty> void registerImageBlender(Class<I> clazzI, Class<B> clazzB, @Size(min = 1) String id, ImageBlender<I, B> imageBlender) throws AlreadyRegisteredException;
 
     /**
      * イメージの{@link java.lang.Class}とIdから{@link ImageBlender}を返します。
@@ -198,9 +186,9 @@ public interface Registry {
      * @param imageConverter   登録する{@link ImageConverter}
      * @param <I>              登録する{@link ImageConverter}の入力{@link Image}の型
      * @param <O>              登録する{@link ImageConverter}の出力{@link CachedImage}の型
-     * @throws AlreadyRegisteredInRegistryException 同じIdですでに登録されている場合
+     * @throws AlreadyRegisteredException 同じIdですでに登録されている場合
      */
-    <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredInRegistryException;
+    <I extends Image, O extends CachedImage> void registerImageConverter(Class<I> inputImageClass, Class<O> outputImageClass, @Size(min = 1) String id, ImageConverter<I, O> imageConverter) throws AlreadyRegisteredException;
 
     /**
      * 入力{@link Image}の{@link java.lang.Class}と出力{@link CachedImage}の{@link java.lang.Class}とIdから{@link ImageBlender}を返します。

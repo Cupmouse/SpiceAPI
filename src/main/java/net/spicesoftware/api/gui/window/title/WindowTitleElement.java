@@ -1,4 +1,4 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window.title;
 
 import java.util.Optional;
 

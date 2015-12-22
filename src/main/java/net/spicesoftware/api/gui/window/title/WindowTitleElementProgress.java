@@ -1,8 +1,7 @@
-package net.spicesoftware.api.gui;
+package net.spicesoftware.api.gui.window.title;
 
 import net.spicesoftware.api.util.ReflectionToString;
 import net.spicesoftware.api.util.ToString;
-import net.spicesoftware.api.util.Validate;
 
 import javax.validation.constraints.Min;
 import java.util.Optional;
