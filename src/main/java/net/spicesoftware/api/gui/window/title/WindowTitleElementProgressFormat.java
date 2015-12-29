@@ -10,10 +10,26 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  */
 public interface WindowTitleElementProgressFormat {
 
-    String format(WindowTitleElementProgress titleElementProgress);
-
     static WindowTitleElementProgressFormat simpleFormat(RoundingType roundingType) {
         return new Simple(roundingType);
+    }
+
+    String format(WindowTitleElementProgress titleElementProgress);
+
+    enum RoundingType {
+        CEIL, ROUND, FLOOR;
+
+        public int apply(double percent) {
+            switch (this) {
+                case CEIL:
+                    return (int) Math.round(percent);
+                case ROUND:
+                    return (int) Math.round(percent);
+                case FLOOR:
+                    return (int) Math.floor(percent);
+            }
+            throw new ArithmeticException();
+        }
     }
 
     class Simple implements WindowTitleElementProgressFormat {
@@ -35,22 +51,6 @@ public interface WindowTitleElementProgressFormat {
         @Override
         public String toString() {
             return ReflectionToString.rts(this);
-        }
-    }
-
-    enum RoundingType {
-        CEIL, ROUND, FLOOR;
-
-        public int apply(double percent) {
-            switch (this) {
-                case CEIL:
-                    return (int) Math.round(percent);
-                case ROUND:
-                    return (int) Math.round(percent);
-                case FLOOR:
-                    return (int) Math.floor(percent);
-            }
-            throw new ArithmeticException();
         }
     }
 }

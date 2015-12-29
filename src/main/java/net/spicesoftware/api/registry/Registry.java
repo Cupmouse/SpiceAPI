@@ -1,7 +1,6 @@
 package net.spicesoftware.api.registry;
 
 import net.spicesoftware.api.Builder;
-import net.spicesoftware.api.gui.window.WindowDispatcher;
 import net.spicesoftware.api.gui.window.WindowSystem;
 import net.spicesoftware.api.image.CachedImage;
 import net.spicesoftware.api.image.Image;
@@ -33,7 +32,7 @@ public interface Registry {
      */
     <WS extends WindowSystem<WS>> Optional<WS> getWindowSystem(Class<WS> windowSystemClass);
 
-    <WS extends WindowSystem<WS>> void registerWindowSystem(Class<WS> windowSystemClass) throws AlreadyRegisteredException;
+    <WS extends WindowSystem<WS>> void registerWindowSystem(Class<WS> windowSystemClass, WS windowSystem) throws AlreadyRegisteredException;
 
     /**
      * 指定された{@link Class}の{@link net.spicesoftware.api.Builder}のインスタンスを返します。

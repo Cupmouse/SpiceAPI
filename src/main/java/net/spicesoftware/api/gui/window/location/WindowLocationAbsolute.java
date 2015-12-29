@@ -22,7 +22,7 @@ public final class WindowLocationAbsolute implements WindowLocation {
         this.position = position;
     }
 
-    public static WindowLocationAbsolute windowLocationAbsolute(Vector2i position) {
+    public static WindowLocationAbsolute absolute(Vector2i position) {
         return new WindowLocationAbsolute(position);
     }
 

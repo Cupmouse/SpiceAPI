@@ -9,13 +9,13 @@ import static net.spicesoftware.api.util.Validate.nullNot;
  */
 public final class SpiceStatic {
 
-    private SpiceStatic() {
-    }
-
     /**
      * 後でリフレクションを利用してインスタンスが代入されます。
      */
     private static Spice spice;
+
+    private SpiceStatic() {
+    }
 
     public static Spice getSpice() {
         nullNot(spice);

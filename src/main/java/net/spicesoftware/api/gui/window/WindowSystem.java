@@ -1,7 +1,5 @@
 package net.spicesoftware.api.gui.window;
 
-import net.spicesoftware.api.util.AlreadyRegisteredException;
-
 /**
  * @since 2015/12/15
  */

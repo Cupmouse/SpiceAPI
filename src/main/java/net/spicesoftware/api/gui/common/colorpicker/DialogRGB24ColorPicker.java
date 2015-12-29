@@ -1,7 +1,7 @@
 package net.spicesoftware.api.gui.common.colorpicker;
 
-import net.spicesoftware.api.gui.window.Window;
 import net.spicesoftware.api.gui.common.spinner.IntSpinner;
+import net.spicesoftware.api.gui.window.Window;
 import net.spicesoftware.api.gui.window.WindowSystem;
 
 /**

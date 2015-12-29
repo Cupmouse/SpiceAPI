@@ -4,12 +4,8 @@ import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.DecorationFilling;
 import net.spicesoftware.api.util.DeepCopyable;
-import net.spicesoftware.api.util.Validate;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
-
-import static net.spicesoftware.api.util.Validate.nullNot;
 
 /**
  * テキストのスタイルを保持します。

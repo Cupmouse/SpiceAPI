@@ -1,6 +1,5 @@
 package net.spicesoftware.api.project;
 
-import net.spicesoftware.api.Spice;
 import net.spicesoftware.api.project.resource.ResourceManager;
 import net.spicesoftware.api.util.time.FrameTime;
 
@@ -14,13 +13,6 @@ import java.time.ZonedDateTime;
  * @since 2014/10/04
  */
 public interface Project {
-
-    /**
-     * この{@code Project}の{@link Spice}を返します。
-     *
-     * @return このプロジェクトのSpiceインスタンス
-     */
-    Spice getSpice();
 
     /**
      * この{@code Project}の名前を返します。

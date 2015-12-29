@@ -15,7 +15,7 @@ public interface WindowStateImmutable extends WindowState {
     }
 
     interface Builder extends WindowStateBuilder<WindowStateImmutable> {
-        
+
         @Override
         Builder title(WindowTitle windowTitle);
 

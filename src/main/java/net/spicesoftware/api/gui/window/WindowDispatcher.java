@@ -1,5 +1,7 @@
 package net.spicesoftware.api.gui.window;
 
+import net.spicesoftware.api.util.AlreadyRegisteredException;
+
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -11,7 +13,7 @@ public interface WindowDispatcher<WS extends WindowSystem> {
 
     <W extends Window<WS>> W createNewWindow(Class<W> clazz);
 
-    void registerWindowSupplier(WS windowSystem, String id, Supplier<Window<WS>> windowSupplier, WindowStateImmutable defaultState);
+    void registerWindowSupplier(String id, Supplier<Window<WS>> windowSupplier, WindowStateImmutable defaultState) throws AlreadyRegisteredException;
 
     Set<WindowSession<WS, ? extends Window<WS>>> getDispensed();
 
