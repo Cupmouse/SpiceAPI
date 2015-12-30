@@ -7,4 +7,7 @@ public interface ParameterEssentialBuilder<T> extends Builder<T> {
 
     @Override
     T build() throws IllegalStateException;
+
+    @Override
+    ParameterEssentialBuilder<T> from(T copy);
 }

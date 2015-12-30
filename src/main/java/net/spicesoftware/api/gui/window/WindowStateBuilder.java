@@ -30,4 +30,7 @@ public interface WindowStateBuilder<T extends WindowState> extends Builder<T> {
     WindowStateBuilder<T> invisible();
 
     WindowStateBuilder<T> visibility(boolean visibility);
+
+    @Override
+    WindowStateBuilder<T> from(T copy);
 }

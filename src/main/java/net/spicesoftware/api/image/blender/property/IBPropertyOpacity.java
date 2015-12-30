@@ -1,5 +1,6 @@
 package net.spicesoftware.api.image.blender.property;
 
+import net.spicesoftware.api.Builder;
 import net.spicesoftware.api.SpiceStatic;
 
 import javax.validation.constraints.Max;
@@ -42,5 +43,11 @@ public interface IBPropertyOpacity extends ImageBlenderProperty {
          * @param opacity 透明度
          */
         Builder opacity(@Min(0) @Max(1000) int opacity) throws IllegalArgumentException;
+
+        @Override
+        default Builder from(IBPropertyOpacity copy) {
+            opacity(copy.getOpacity());
+            return this;
+        }
     }
 }

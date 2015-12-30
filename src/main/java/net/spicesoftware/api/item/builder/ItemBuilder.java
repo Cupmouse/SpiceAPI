@@ -8,4 +8,7 @@ import net.spicesoftware.api.item.Item;
  */
 // TODO 各アイテムクラスのビルダー
 public interface ItemBuilder<T extends Item> extends Builder<T> {
+
+    @Override
+    ItemBuilder<T> from(T copy);
 }

@@ -11,5 +11,8 @@ import net.spicesoftware.api.util.DeepCopyable;
 public interface ResourceBuilder<T extends Resource> extends DeepCopyable, Builder<T> {
 
     @Override
+    ResourceBuilder<T> from(T copy);
+
+    @Override
     ResourceBuilder copyDeeply();
 }

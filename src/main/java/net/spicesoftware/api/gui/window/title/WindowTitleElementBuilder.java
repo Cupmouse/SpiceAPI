@@ -8,4 +8,7 @@ import net.spicesoftware.api.Builder;
 public interface WindowTitleElementBuilder<T extends WindowTitleElement> extends Builder<T> {
 
     WindowTitleElementBuilder<T> label(Object label);
+
+    @Override
+    WindowTitleElementBuilder<T> from(T copy);
 }
