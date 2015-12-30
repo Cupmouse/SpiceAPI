@@ -2,6 +2,8 @@ package net.spicesoftware.api.resource;
 
 import net.spicesoftware.api.SpiceStatic;
 
+import java.io.File;
+
 /**
  * 画像のリソースです。
  *
@@ -22,6 +24,12 @@ public interface ResourcePicture extends ResourceFromFile {
      * @since 2014/12/23
      */
     interface Builder extends ResourceFromFileBuilder<ResourcePicture> {
+
+        @Override
+        Builder file(File file);
+
+        @Override
+        Builder from(ResourcePicture copy);
 
         @Override
         Builder copyDeeply();

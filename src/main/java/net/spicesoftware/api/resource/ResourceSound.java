@@ -25,5 +25,8 @@ public interface ResourceSound extends ResourceFromFile {
 
         @Override
         Builder copyDeeply();
+
+        @Override
+        Builder from(ResourceSound copy);
     }
 }

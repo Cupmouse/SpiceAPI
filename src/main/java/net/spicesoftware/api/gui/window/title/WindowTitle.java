@@ -3,6 +3,7 @@ package net.spicesoftware.api.gui.window.title;
 import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.gui.window.Window;
+import net.spicesoftware.api.util.DeepCopyable;
 
 import javax.validation.constraints.Min;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Optional;
  *
  * @since 2015/11/04
  */
-public interface WindowTitle {
+public interface WindowTitle extends DeepCopyable {
 
     /**
      * 新しい{@link WindowTitle.Builder}のインスタンスを返します。
@@ -59,6 +60,9 @@ public interface WindowTitle {
      * @return すべての{@link WindowTitleElement}が、{@link #plain()}が生成される順に並んだ、内容の変更できない{@link List}
      */
     List<WindowTitleElement> getElements();
+
+    @Override
+    WindowTitle copyDeeply();
 
     /**
      * @since 2015/11/07

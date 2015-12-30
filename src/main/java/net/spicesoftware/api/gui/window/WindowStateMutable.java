@@ -15,6 +15,17 @@ public interface WindowStateMutable extends WindowState {
     }
 
     /**
+     * 指定された{@link WindowState}のステートを元に、新しい{@code Builder}を作成します。<br>
+     * 元の{@link WindowState}は変更されません。
+     *
+     * @param windowState 元になる{@link WindowState}
+     * @return 新しい{@code Builder
+     */
+    static Builder mutable(WindowState windowState) {
+        return mutable().fromState(windowState);
+    }
+
+    /**
      * {@link Window}の{@link WindowTitle}を設定します。
      *
      * @param title {@link Window}の{@link WindowTitle}
@@ -73,6 +84,22 @@ public interface WindowStateMutable extends WindowState {
      */
     void setVisible(boolean visible);
 
+    /**
+     * 指定された{@link WindowState}からコピーできるすべてのステートを、この{@code WindowStateMutable}にコピーします。<br>
+     * {@link WindowState}にあるステートしかコピーされません。よって、{@link WindowState}を拡張したクラスにあるステートはコピーされません。
+     *
+     * @param windowState コピー元の{@link WindowState}
+     */
+    default void copyFrom(WindowState windowState) {
+        setVisible(windowState.isVisible());
+        setLocation(windowState.getLocation());
+        setMaximumSize(windowState.getMaximumSize());
+        setMinimumSize(windowState.getMinimumSize());
+        setSize(windowState.getSize());
+        setSizeFixed(windowState.isSizeFixed());
+        setTitle(windowState.getTitle());
+    }
+
     interface Builder extends WindowStateBuilder<WindowStateMutable> {
 
         @Override
@@ -101,5 +128,22 @@ public interface WindowStateMutable extends WindowState {
 
         @Override
         Builder visibility(boolean visibility);
+
+        @Override
+        default Builder from(WindowStateMutable copy) {
+            fromState(copy);
+            return this;
+        }
+
+        default Builder fromState(WindowState copy) {
+            title(copy.getTitle().copyDeeply());
+            location(copy.getLocation());
+            maxSize(copy.getMaximumSize());
+            minSize(copy.getMinimumSize());
+            size(copy.getSize());
+            sizeFixed(copy.isSizeFixed());
+            visibility(copy.isVisible());
+            return this;
+        }
     }
 }

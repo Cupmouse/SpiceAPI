@@ -20,7 +20,7 @@ public interface WindowSession<T extends WindowSystem, W extends Window<T>> {
      *
      * @return この{@code WindowSession}の{@link WindowState}
      */
-    Optional<WindowState> getWindowState();
+    Optional<? extends WindowState> getWindowState();
 
     /**
      * この{@code WindowSession}を閉じます。

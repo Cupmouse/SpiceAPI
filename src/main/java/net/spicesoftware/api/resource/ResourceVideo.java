@@ -2,6 +2,8 @@ package net.spicesoftware.api.resource;
 
 import net.spicesoftware.api.SpiceStatic;
 
+import java.io.File;
+
 /**
  * 映像のリソースです。
  *
@@ -24,6 +26,12 @@ public interface ResourceVideo extends ResourceFromFile {
     interface Builder extends ResourceFromFileBuilder<ResourceVideo> {
 
         @Override
-        ResourceFromFileBuilder copyDeeply();
+        Builder file(File file);
+
+        @Override
+        Builder from(ResourceVideo copy);
+
+        @Override
+        Builder copyDeeply();
     }
 }

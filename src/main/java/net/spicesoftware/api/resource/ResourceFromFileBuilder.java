@@ -16,7 +16,10 @@ public interface ResourceFromFileBuilder<T extends ResourceFromFile> extends Res
      *
      * @param file 設定するファイル
      */
-    void file(File file);
+    ResourceFromFileBuilder<T> file(File file);
+
+    @Override
+    ResourceFromFileBuilder<T> from(T copy);
 
     @Override
     ResourceFromFileBuilder copyDeeply();
