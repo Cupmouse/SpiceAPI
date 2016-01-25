@@ -65,5 +65,12 @@ public interface StrokeStyle extends DeepCopyable {
          * @throws IllegalArgumentException 線の太さを0未満に設定しようとした時
          */
         Builder thickness(@Min(0) int thickness) throws IllegalArgumentException;
+
+        @Override
+        default ParameterEssentialBuilder<StrokeStyle> from(StrokeStyle copy) {
+            fill(copy.getFilling());
+            thickness(copy.getThickness());
+            return this;
+        }
     }
 }

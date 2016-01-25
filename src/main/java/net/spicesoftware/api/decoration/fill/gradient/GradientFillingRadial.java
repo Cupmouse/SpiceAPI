@@ -13,6 +13,12 @@ public interface GradientFillingRadial<T extends Color> extends ColorStopGradien
     @Override
     GradientFillingRadial<T> copyDeeply();
 
+    Vector2i getRadialCenter();
+
+    int getRadialCenterX();
+
+    int getRadialCenterY();
+
     /**
      * @since 2015/11/15
      */

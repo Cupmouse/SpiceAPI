@@ -283,6 +283,36 @@ public final class Validate {
         }
     }
 
+    /**
+     * 指定された範囲内に指定された値が<b>含まれない</b>か検証します。
+     * （v &lt; s || e &lt; v）
+     *
+     * @param rangeStart 範囲の開始
+     * @param rangeEnd   範囲の終了
+     * @param value      検証する値
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（s &lt;= v &lt;= e）
+     */
+    public static void rangeNotIn(long value, long rangeStart, long rangeEnd) throws IllegalArgumentException {
+        if (rangeStart <= value && value <= rangeEnd) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * 指定された範囲内に指定された値が<b>含まれる</b>か検証します。
+     * （s &lt;= v &lt;= e）
+     *
+     * @param rangeStart 範囲の開始
+     * @param rangeEnd   範囲の終了
+     * @param value      検証する値
+     * @throws IllegalArgumentException 指定された範囲内に指定された値が含まれない場合（v &lt; s || e &lt; v）
+     */
+    public static void rangeIn(long value, long rangeStart, long rangeEnd) throws IllegalArgumentException {
+        if (value < rangeStart || rangeEnd < value) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     /*
     値が正の値か０の場合に例外
      */

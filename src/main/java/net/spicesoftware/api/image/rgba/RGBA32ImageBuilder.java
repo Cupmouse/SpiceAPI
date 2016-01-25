@@ -21,22 +21,35 @@ public interface RGBA32ImageBuilder<T extends RGBA32Image> extends ImageBuilder<
     /**
      * 作成する{@link RGBA32Image}の背景色を{@link RGBA32Color}で設定します。
      *
-     * @param rgba32Color 作成する{@link RGBA32Image}の背景色
+     * @param backgroundColor 作成する{@link RGBA32Image}の背景色
      */
-    RGBA32ImageBuilder<T> background(RGBA32Color rgba32Color);
+    RGBA32ImageBuilder<T> background(RGBA32Color backgroundColor);
 
     /**
      * 作成する{@link RGBA32Image}の背景色を{@link net.spicesoftware.api.decoration.fill.ColorType#RGBA32}の{@code int}で設定します。
      *
-     * @param rgba32 作成する{@link RGBA32Image}の背景色
+     * @param backgroundColor 作成する{@link RGBA32Image}の背景色
      */
-    RGBA32ImageBuilder<T> background(int rgba32);
+    RGBA32ImageBuilder<T> background(int backgroundColor);
 
     /**
      * 作成する{@link RGBA32Image}の背景色を{@link net.spicesoftware.api.decoration.fill.ColorType#RGBA32}の{@code long}で設定します。
      *
-     * @param rgba32 作成する{@link RGBA32Image}の背景色
+     * @param backgroundColor 作成する{@link RGBA32Image}の背景色
      * @throws IllegalArgumentException 指定された背景色が範囲外の場合
      */
-    RGBA32ImageBuilder<T> background(@Min(0) @Max(0xFFFFFFFF) long rgba32) throws IllegalArgumentException;
+    RGBA32ImageBuilder<T> background(@Min(0) @Max(0xFFFFFFFF) long backgroundColor) throws IllegalArgumentException;
+
+    // TODO javadoc
+    /**
+     * 背景情報は更新されません。
+     *
+     * @param copy
+     * @return
+     */
+    @Override
+    default RGBA32ImageBuilder<T> from(T copy) {
+        ImageBuilder.super.from(copy);
+        return this;
+    }
 }

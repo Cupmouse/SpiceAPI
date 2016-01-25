@@ -75,5 +75,15 @@ public interface TextStyle extends DeepCopyable {
          * @param filling テキストスタイルに設定する文字のデコレーション
          */
         Builder fill(DecorationFilling filling) throws NullPointerException;
+
+        @Override
+        default Builder from(TextStyle copy) {
+            Optional<StrokeStyle> outline = copy.getOutline();
+            if (outline.isPresent()) {
+                outline(outline.get());
+            }
+            fill(copy.getFilling());
+            return this;
+        }
     }
 }

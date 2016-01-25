@@ -26,4 +26,10 @@ public interface ImageBuilder<T extends Image> extends ParameterEssentialBuilder
      * @throws IllegalArgumentException 指定されたサイズが負の値の場合
      */
     ImageBuilder<T> size(Vector2i size) throws IllegalArgumentException;
+
+    @Override
+    default ImageBuilder<T> from(T copy) {
+        size(copy.getSize());
+        return this;
+    }
 }

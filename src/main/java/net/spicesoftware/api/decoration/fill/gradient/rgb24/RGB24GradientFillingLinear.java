@@ -1,5 +1,6 @@
 package net.spicesoftware.api.decoration.fill.gradient.rgb24;
 
+import net.spicesoftware.api.ParameterEssentialBuilder;
 import net.spicesoftware.api.SpiceStatic;
 import net.spicesoftware.api.decoration.fill.RGB24Color;
 import net.spicesoftware.api.decoration.fill.gradient.GradientFillingLinear;
@@ -32,5 +33,11 @@ public interface RGB24GradientFillingLinear extends GradientFillingLinear<RGB24C
 
         @Override
         Builder repeat();
+
+        @Override
+        default Builder from(RGB24GradientFillingLinear copy) {
+            IBuilder.super.from(copy);
+            return this;
+        }
     }
 }

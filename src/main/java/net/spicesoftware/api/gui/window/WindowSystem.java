@@ -5,5 +5,5 @@ package net.spicesoftware.api.gui.window;
  */
 public interface WindowSystem<WS extends WindowSystem<WS>> {
 
-    WindowDispatcher<WS> getDispatcher();
+    WindowDispatcher<WS, ? extends Window<WS>> getDispatcher();
 }

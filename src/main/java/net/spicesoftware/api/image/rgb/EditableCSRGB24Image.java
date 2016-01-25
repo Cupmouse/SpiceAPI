@@ -50,10 +50,10 @@ public interface EditableCSRGB24Image extends EditableRGB24Image {
     interface Builder extends RGB24ImageBuilder<EditableCSRGB24Image> {
 
         @Override
-        Builder background(RGB24Color rgb24Color);
+        Builder background(RGB24Color backgroundColor);
 
         @Override
-        Builder background(@Min(0) @Max(0xFFFFFF) int background) throws IllegalArgumentException;
+        Builder background(@Min(0) @Max(0xFFFFFF) int backgroundColor) throws IllegalArgumentException;
 
         @Override
         Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;

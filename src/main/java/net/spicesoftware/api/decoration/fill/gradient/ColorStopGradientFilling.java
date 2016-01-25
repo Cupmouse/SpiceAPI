@@ -70,5 +70,12 @@ public interface ColorStopGradientFilling<T extends Color> extends GradientFilli
          * この{@code GradientFilling}がリピートするように設定します。
          */
         IBuilder<C, T> repeat();
+
+        @Override
+        default IBuilder<C, T> from(T copy) {
+            copy.getColorStopMap().forEach(this::colorStopAt);
+            repeating(copy.isRepeating());
+            return this;
+        }
     }
 }

@@ -10,10 +10,10 @@ import net.spicesoftware.api.util.vector.Vector2i;
  */
 public interface WindowStateBuilder<T extends WindowState> extends Builder<T> {
 
-    WindowStateBuilder<T> title(WindowTitle windowTitle);
+    WindowStateBuilder<T> title(WindowTitle title);
 
 
-    WindowStateBuilder<T> location(WindowLocation windowLocation);
+    WindowStateBuilder<T> location(WindowLocation location);
 
 
     WindowStateBuilder<T> maxSize(Vector2i maxSize);
@@ -32,5 +32,19 @@ public interface WindowStateBuilder<T extends WindowState> extends Builder<T> {
     WindowStateBuilder<T> visibility(boolean visibility);
 
     @Override
-    WindowStateBuilder<T> from(T copy);
+    default WindowStateBuilder<T> from(T copy) {
+        fromWindowState(copy);
+        return this;
+    }
+
+    default WindowStateBuilder<T> fromWindowState(WindowState copy) {
+        title(copy.getTitle());
+        location(copy.getLocation());
+        maxSize(copy.getMaximumSize());
+        minSize(copy.getMinimumSize());
+        size(copy.getSize());
+        sizeFixed(copy.isSizeFixed());
+        visibility(copy.isVisible());
+        return this;
+    }
 }

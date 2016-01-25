@@ -5,6 +5,11 @@ import net.spicesoftware.api.gui.window.title.WindowTitle;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
+ * このクラスのビルダーは存在しません。<br>
+ * 派生クラスのみが具現化できます。
+ *
+ * @see WindowStateMutable
+ * @see windowstateim
  * @since 2015/10/23
  */
 public interface WindowState {

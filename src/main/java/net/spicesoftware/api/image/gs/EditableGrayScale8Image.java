@@ -83,10 +83,10 @@ public interface EditableGrayScale8Image extends GrayScale8Image, ImageEditable 
     interface Builder extends GrayScale8ImageBuilder<EditableGrayScale8Image> {
 
         @Override
-        Builder background(GrayScale8Color grayScale8Color);
+        Builder background(GrayScale8Color backgroundColor);
 
         @Override
-        Builder background(byte background);
+        Builder background(byte backgroundColor);
 
         @Override
         Builder size(@Min(0) int width, @Min(0) int height) throws IllegalArgumentException;

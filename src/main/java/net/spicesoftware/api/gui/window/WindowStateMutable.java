@@ -6,24 +6,27 @@ import net.spicesoftware.api.gui.window.title.WindowTitle;
 import net.spicesoftware.api.util.vector.Vector2i;
 
 /**
+ * 各固有の{@link WindowSystem}で使われる{@link WindowState}です。<br>
+ * 値の変更ができます。
+ *
  * @since 2015/12/10
  */
 public interface WindowStateMutable extends WindowState {
 
-    static Builder mutable() {
-        return SpiceStatic.getRegistry().createBuilder(Builder.class);
-    }
-
-    /**
-     * 指定された{@link WindowState}のステートを元に、新しい{@code Builder}を作成します。<br>
-     * 元の{@link WindowState}は変更されません。
-     *
-     * @param windowState 元になる{@link WindowState}
-     * @return 新しい{@code Builder
-     */
-    static Builder mutable(WindowState windowState) {
-        return mutable().fromState(windowState);
-    }
+//    static Builder mutable() {
+//        return SpiceStatic.getRegistry().createBuilder(Builder.class);
+//    }
+//
+//    /**
+//     * 指定された{@link WindowState}のステートを元に、新しい{@code Builder}を作成します。<br>
+//     * 元の{@link WindowState}は変更されません。
+//     *
+//     * @param windowState 元になる{@link WindowState}
+//     * @return 新しい{@code Builder
+//     */
+//    static Builder mutable(WindowState windowState) {
+//        return mutable().fromState(windowState);
+//    }
 
     /**
      * {@link Window}の{@link WindowTitle}を設定します。
@@ -100,50 +103,51 @@ public interface WindowStateMutable extends WindowState {
         setTitle(windowState.getTitle());
     }
 
-    interface Builder extends WindowStateBuilder<WindowStateMutable> {
-
-        @Override
-        Builder title(WindowTitle windowTitle);
-
-        @Override
-        Builder location(WindowLocation windowLocation);
-
-        @Override
-        Builder maxSize(Vector2i maxSize);
-
-        @Override
-        Builder minSize(Vector2i minSize);
-
-        @Override
-        Builder size(Vector2i size);
-
-        @Override
-        Builder sizeFixed();
-
-        @Override
-        Builder sizeFixed(boolean sizeFixed);
-
-        @Override
-        Builder invisible();
-
-        @Override
-        Builder visibility(boolean visibility);
-
-        @Override
-        default Builder from(WindowStateMutable copy) {
-            fromState(copy);
-            return this;
-        }
-
-        default Builder fromState(WindowState copy) {
-            title(copy.getTitle().copyDeeply());
-            location(copy.getLocation());
-            maxSize(copy.getMaximumSize());
-            minSize(copy.getMinimumSize());
-            size(copy.getSize());
-            sizeFixed(copy.isSizeFixed());
-            visibility(copy.isVisible());
-            return this;
-        }
-    }
+    // FIXME
+//    interface Builder extends WindowStateBuilder<WindowStateMutable> {
+//
+//        @Override
+//        Builder title(WindowTitle windowTitle);
+//
+//        @Override
+//        Builder location(WindowLocation windowLocation);
+//
+//        @Override
+//        Builder maxSize(Vector2i maxSize);
+//
+//        @Override
+//        Builder minSize(Vector2i minSize);
+//
+//        @Override
+//        Builder size(Vector2i size);
+//
+//        @Override
+//        Builder sizeFixed();
+//
+//        @Override
+//        Builder sizeFixed(boolean sizeFixed);
+//
+//        @Override
+//        Builder invisible();
+//
+//        @Override
+//        Builder visibility(boolean visibility);
+//
+//        @Override
+//        default Builder from(WindowStateMutable copy) {
+//            fromState(copy);
+//            return this;
+//        }
+//
+//        default Builder fromState(WindowState copy) {
+//            title(copy.getTitle().copyDeeply());
+//            location(copy.getLocation());
+//            maxSize(copy.getMaximumSize());
+//            minSize(copy.getMinimumSize());
+//            size(copy.getSize());
+//            sizeFixed(copy.isSizeFixed());
+//            visibility(copy.isVisible());
+//            return this;
+//        }
+//    }
 }

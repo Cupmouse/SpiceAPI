@@ -1,0 +1,11 @@
+*.iml
+*.ipr
+*.iws
+Thumbs.db
+
+build.xml
+.idea
+.gradle
+build/
+./nbproject/
+/.nb-gradle/

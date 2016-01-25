@@ -74,6 +74,18 @@ public interface WindowTitle extends DeepCopyable {
 
         Builder append(WindowTitleElement titleElement);
 
-        Builder remove(@Min(0) int index);
+        Builder remove(@Min(0) int index) throws IndexOutOfBoundsException;
+
+        /**
+         * 指定された{@link WindowTitle}の{@link WindowTitleElement}をすべて{@link #append}します。
+         *
+         * @param copy {@link #append}する{@link WindowTitle}
+         * @return この{@code Builder}のインスタンス
+         */
+        @Override
+        default Builder from(WindowTitle copy) {
+            copy.getElements().forEach(this::append);
+            return this;
+        }
     }
 }

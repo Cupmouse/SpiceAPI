@@ -114,5 +114,11 @@ public interface EditableRGBA32Image extends RGBA32Image, ImageEditable {
 
         @Override
         Builder background(@Min(0) @Max(0xFFFFFFFF) long rgba32) throws IllegalArgumentException;
+
+        @Override
+        default Builder from(EditableRGBA32Image copy) {
+            RGBA32ImageBuilder.super.from(copy);
+            return this;
+        }
     }
 }

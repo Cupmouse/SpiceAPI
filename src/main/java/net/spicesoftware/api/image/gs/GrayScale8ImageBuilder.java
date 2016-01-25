@@ -11,14 +11,14 @@ public interface GrayScale8ImageBuilder<T extends GrayScale8Image> extends Image
     /**
      * 作成する{@link EditableGrayScale8Image}の背景色を{@link GrayScale8Color}で設定します。
      *
-     * @param grayScale8Color 作成する{@link EditableGrayScale8Image}の背景色
+     * @param backgroundColor 作成する{@link EditableGrayScale8Image}の背景色
      */
-    GrayScale8ImageBuilder<T> background(GrayScale8Color grayScale8Color);
+    GrayScale8ImageBuilder<T> background(GrayScale8Color backgroundColor);
 
     /**
      * 作成する{@link EditableGrayScale8Image}の背景色を{@link net.spicesoftware.api.decoration.fill.ColorType#GRAYSCALE8}の{@code byte}で設定します。
      *
-     * @param background 作成する{@link EditableGrayScale8Image}の背景色
+     * @param backgroundColor 作成する{@link EditableGrayScale8Image}の背景色
      */
-    GrayScale8ImageBuilder<T> background(byte background);
+    GrayScale8ImageBuilder<T> background(byte backgroundColor);
 }
